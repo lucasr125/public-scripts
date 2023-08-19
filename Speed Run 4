@@ -1,0 +1,933 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/mohamedyoo/owlhub/main/New%20ui"))()
+local Window = Library.CreateLib("Speed Run 4", "Sentinel")
+
+local Tab = Window:NewTab("Main")
+
+local Section = Tab:NewSection("Autofarm Levels")
+
+Section:NewToggle("Autofarm Stages (fast and laggy)", "ToggleInfo", function(bool)
+    getgenv().AutoFarmMainFast = bool
+    
+    while getgenv().AutoFarmMainFast do     
+
+        local args = {
+            [1] = 0.1,
+            [2] = "Level 1",
+            [3] = "Normal",
+            [4] = false
+        }
+        
+        game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+        wait(0.07)
+        local args = {
+            [1] = 0.1,
+            [2] = "Level 1",
+            [3] = "Normal",
+            [4] = false
+        }
+        
+        game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+        wait(0.07)
+        local args = {
+            [1] = 0.1,
+            [2] = "Level 1",
+            [3] = "Normal",
+            [4] = false
+        }
+        
+        game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+        wait(0.07)
+        
+        
+        local args = {
+            [1] = 0.1,
+            [2] = "Level 1",
+            [3] = "Normal",
+            [4] = false
+        }
+        
+        game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+        wait(0.07)
+        
+        
+        local args = {
+            [1] = 0.1,
+            [2] = "Level 1",
+            [3] = "Normal",
+            [4] = false
+        }
+        
+        game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+        wait(0.07)
+        
+        
+        local args = {
+            [1] = 0.1,
+            [2] = "Level 1",
+            [3] = "Normal",
+            [4] = false
+        }
+        
+        game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+        wait(0.07)
+        
+        
+        local args = {
+            [1] = 0.1,
+            [2] = "Level 1",
+            [3] = "Normal",
+            [4] = false
+        }
+        
+        game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+        wait(0.07)
+        
+        
+        local args = {
+            [1] = 0.1,
+            [2] = "Level 1",
+            [3] = "Normal",
+            [4] = false
+        }
+        
+        game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+        wait(0.07)
+        
+        
+        local args = {
+            [1] = 0.1,
+            [2] = "Level 1",
+            [3] = "Normal",
+            [4] = false
+        }
+        
+        game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+        wait(0.07)
+        
+        
+        local args = {
+            [1] = 0.1,
+            [2] = "Level 1",
+            [3] = "Normal",
+            [4] = false
+        }
+        
+        game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+        wait(0.07)
+        
+        local args = {
+            [1] = 0.1,
+            [2] = "Level 1",
+            [3] = "Normal",
+            [4] = false
+        }
+        
+        game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+        wait(0.07)
+        
+        
+        local args = {
+            [1] = 0.1,
+            [2] = "Level 1",
+            [3] = "Normal",
+            [4] = false
+        }
+        
+        game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+        wait(0.07)
+        
+        
+        local args = {
+            [1] = 0.1,
+            [2] = "Level 1",
+            [3] = "Normal",
+            [4] = false
+        }
+        
+        game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+        wait(0.07)
+        
+        
+        local args = {
+            [1] = 0.1,
+            [2] = "Level 1",
+            [3] = "Normal",
+            [4] = false
+        }
+        
+        game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+        wait(0.07)
+        
+        
+        local args = {
+            [1] = 0.1,
+            [2] = "Level 1",
+            [3] = "Normal",
+            [4] = false
+        }
+        
+        game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+        wait(0.07)
+        
+        
+        local args = {
+            [1] = 0.1,
+            [2] = "Level 1",
+            [3] = "Normal",
+            [4] = false
+        }
+        
+        game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+        wait(0.07)
+        
+        
+        local args = {
+            [1] = 0.1,
+            [2] = "Level 1",
+            [3] = "Normal",
+            [4] = false
+        }
+        
+        game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+        wait(0.07)
+        
+        
+        local args = {
+            [1] = 0.1,
+            [2] = "Level 1",
+            [3] = "Normal",
+            [4] = false
+        }
+        
+        game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+        wait(0.07)
+        
+        
+        local args = {
+            [1] = 0.1,
+            [2] = "Level 1",
+            [3] = "Normal",
+            [4] = false
+        }
+        
+        game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+        wait(0.07)
+        
+        
+        local args = {
+            [1] = 0.1,
+            [2] = "Level 1",
+            [3] = "Normal",
+            [4] = false
+        }
+        
+        game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+        wait(0.07)
+        
+        
+        local args = {
+            [1] = 0.1,
+            [2] = "Level 1",
+            [3] = "Normal",
+            [4] = false
+        }
+        
+        game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+        wait(0.07)
+        
+        
+        local args = {
+            [1] = 0.1,
+            [2] = "Level 1",
+            [3] = "Normal",
+            [4] = false
+        }
+        
+        game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+        wait(0.07)
+        
+        
+        local args = {
+            [1] = 0.1,
+            [2] = "Level 1",
+            [3] = "Normal",
+            [4] = false
+        }
+        
+        game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+        wait(0.07)
+        
+        
+        local args = {
+            [1] = 0.1,
+            [2] = "Level 1",
+            [3] = "Normal",
+            [4] = false
+        }
+        
+        game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+        wait(0.07)
+        
+        local args = {
+            [1] = 0.1,
+            [2] = "Level 1",
+            [3] = "Normal",
+            [4] = false
+        }
+        
+        game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+        wait(0.07)
+        
+        
+        local args = {
+            [1] = 0.1,
+            [2] = "Level 1",
+            [3] = "Normal",
+            [4] = false
+        }
+        
+        game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+        wait(0.07)
+        
+        
+        local args = {
+            [1] = 0.1,
+            [2] = "Level 1",
+            [3] = "Normal",
+            [4] = false
+        }
+        
+        game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+        wait(0.07)
+        
+        
+        local args = {
+            [1] = 0.1,
+            [2] = "Level 1",
+            [3] = "Normal",
+            [4] = false
+        }
+        
+        game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+        wait(0.07)
+        
+        
+        local args = {
+            [1] = 0.1,
+            [2] = "Level 1",
+            [3] = "Normal",
+            [4] = false
+        }
+        
+        game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+        wait(0.07)
+        
+        
+        local args = {
+            [1] = 0.1,
+            [2] = "Level 1",
+            [3] = "Normal",
+            [4] = false
+        }
+        
+        game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+        wait(0.07)
+        
+        
+        local args = {
+            [1] = 0.1,
+            [2] = "Level 1",
+            [3] = "Normal",
+            [4] = false
+        }
+        
+        game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+        wait(0.07)
+        
+        
+        local args = {
+            [1] = 0.1,
+            [2] = "Level 1",
+            [3] = "Normal",
+            [4] = false
+        }
+        
+        game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+        wait(0.07)
+        
+        
+        local args = {
+            [1] = 0.1,
+            [2] = "Level 1",
+            [3] = "Normal",
+            [4] = false
+        }
+        
+        game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+        wait(0.07)
+        
+        
+        local args = {
+            [1] = 0.1,
+            [2] = "Level 1",
+            [3] = "Normal",
+            [4] = false
+        }
+        
+        game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+        wait(0.07)
+        
+        
+        local args = {
+            [1] = 0.1,
+            [2] = "Level 1",
+            [3] = "Normal",
+            [4] = false
+        }
+        
+        game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+        wait(0.07)
+        local args = {
+            [1] = 0
+        }
+        
+        game:GetService("ReplicatedStorage").SetLevel:FireServer(unpack(args))
+        
+        wait(0.1)
+        
+        local args = {
+            [1] = 0
+        }
+        
+        game:GetService("ReplicatedStorage").SetLevel:FireServer(unpack(args))
+        
+        wait(0.1)
+        local args = {
+            [1] = 0
+        }
+        
+        game:GetService("ReplicatedStorage").SetLevel:FireServer(unpack(args))
+        wait(1)
+        
+        end
+end)
+
+Section:NewToggle("Autofarm Stages (slow)", "ToggleInfo", function(bool)
+ getgenv().AutoFarmMainSlow = bool
+ 
+    while getgenv().AutoFarmMainSlow do     
+
+local args = {
+    [1] = 0.1,
+    [2] = "Level 1",
+    [3] = "Normal",
+    [4] = false
+}
+
+game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+wait(0.25)
+local args = {
+    [1] = 0.1,
+    [2] = "Level 1",
+    [3] = "Normal",
+    [4] = false
+}
+
+game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+wait(0.25)
+local args = {
+    [1] = 0.1,
+    [2] = "Level 1",
+    [3] = "Normal",
+    [4] = false
+}
+
+game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+wait(0.25)
+
+
+local args = {
+    [1] = 0.1,
+    [2] = "Level 1",
+    [3] = "Normal",
+    [4] = false
+}
+
+game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+wait(0.25)
+
+
+local args = {
+    [1] = 0.1,
+    [2] = "Level 1",
+    [3] = "Normal",
+    [4] = false
+}
+
+game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+wait(0.25)
+
+
+local args = {
+    [1] = 0.1,
+    [2] = "Level 1",
+    [3] = "Normal",
+    [4] = false
+}
+
+game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+wait(0.25)
+
+
+local args = {
+    [1] = 0.1,
+    [2] = "Level 1",
+    [3] = "Normal",
+    [4] = false
+}
+
+game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+wait(0.25)
+
+
+local args = {
+    [1] = 0.1,
+    [2] = "Level 1",
+    [3] = "Normal",
+    [4] = false
+}
+
+game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+wait(0.25)
+
+
+local args = {
+    [1] = 0.1,
+    [2] = "Level 1",
+    [3] = "Normal",
+    [4] = false
+}
+
+game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+wait(0.25)
+
+
+local args = {
+    [1] = 0.1,
+    [2] = "Level 1",
+    [3] = "Normal",
+    [4] = false
+}
+
+game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+wait(0.25)
+
+local args = {
+    [1] = 0.1,
+    [2] = "Level 1",
+    [3] = "Normal",
+    [4] = false
+}
+
+game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+wait(0.25)
+
+
+local args = {
+    [1] = 0.1,
+    [2] = "Level 1",
+    [3] = "Normal",
+    [4] = false
+}
+
+game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+wait(0.25)
+
+
+local args = {
+    [1] = 0.1,
+    [2] = "Level 1",
+    [3] = "Normal",
+    [4] = false
+}
+
+game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+wait(0.25)
+
+
+local args = {
+    [1] = 0.1,
+    [2] = "Level 1",
+    [3] = "Normal",
+    [4] = false
+}
+
+game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+wait(0.25)
+
+
+local args = {
+    [1] = 0.1,
+    [2] = "Level 1",
+    [3] = "Normal",
+    [4] = false
+}
+
+game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+wait(0.25)
+
+
+local args = {
+    [1] = 0.1,
+    [2] = "Level 1",
+    [3] = "Normal",
+    [4] = false
+}
+
+game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+wait(0.25)
+
+
+local args = {
+    [1] = 0.1,
+    [2] = "Level 1",
+    [3] = "Normal",
+    [4] = false
+}
+
+game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+wait(0.25)
+
+
+local args = {
+    [1] = 0.1,
+    [2] = "Level 1",
+    [3] = "Normal",
+    [4] = false
+}
+
+game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+wait(0.25)
+
+
+local args = {
+    [1] = 0.1,
+    [2] = "Level 1",
+    [3] = "Normal",
+    [4] = false
+}
+
+game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+wait(0.25)
+
+
+local args = {
+    [1] = 0.1,
+    [2] = "Level 1",
+    [3] = "Normal",
+    [4] = false
+}
+
+game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+wait(0.25)
+
+
+local args = {
+    [1] = 0.1,
+    [2] = "Level 1",
+    [3] = "Normal",
+    [4] = false
+}
+
+game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+wait(0.25)
+
+
+local args = {
+    [1] = 0.1,
+    [2] = "Level 1",
+    [3] = "Normal",
+    [4] = false
+}
+
+game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+wait(0.25)
+
+
+local args = {
+    [1] = 0.1,
+    [2] = "Level 1",
+    [3] = "Normal",
+    [4] = false
+}
+
+game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+wait(0.25)
+
+
+local args = {
+    [1] = 0.1,
+    [2] = "Level 1",
+    [3] = "Normal",
+    [4] = false
+}
+
+game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+wait(0.25)
+
+local args = {
+    [1] = 0.1,
+    [2] = "Level 1",
+    [3] = "Normal",
+    [4] = false
+}
+
+game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+wait(0.25)
+
+
+local args = {
+    [1] = 0.1,
+    [2] = "Level 1",
+    [3] = "Normal",
+    [4] = false
+}
+
+game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+wait(0.25)
+
+
+local args = {
+    [1] = 0.1,
+    [2] = "Level 1",
+    [3] = "Normal",
+    [4] = false
+}
+
+game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+wait(0.25)
+
+
+local args = {
+    [1] = 0.1,
+    [2] = "Level 1",
+    [3] = "Normal",
+    [4] = false
+}
+
+game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+wait(0.25)
+
+
+local args = {
+    [1] = 0.1,
+    [2] = "Level 1",
+    [3] = "Normal",
+    [4] = false
+}
+
+game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+wait(0.25)
+
+
+local args = {
+    [1] = 0.1,
+    [2] = "Level 1",
+    [3] = "Normal",
+    [4] = false
+}
+
+game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+wait(0.25)
+
+
+local args = {
+    [1] = 0.1,
+    [2] = "Level 1",
+    [3] = "Normal",
+    [4] = false
+}
+
+game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+wait(0.25)
+
+
+local args = {
+    [1] = 0.1,
+    [2] = "Level 1",
+    [3] = "Normal",
+    [4] = false
+}
+
+game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+wait(0.25)
+
+
+
+local args = {
+    [1] = 0.1,
+    [2] = "Level 1",
+    [3] = "Normal",
+    [4] = false
+}
+
+game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+wait(0.25)
+
+
+local args = {
+    [1] = 0.1,
+    [2] = "Level 1",
+    [3] = "Normal",
+    [4] = false
+}
+
+game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+wait(0.25)
+
+
+local args = {
+    [1] = 0.1,
+    [2] = "Level 1",
+    [3] = "Normal",
+    [4] = false
+}
+
+game:GetService("ReplicatedStorage").BeatLevel:FireServer(unpack(args))
+wait(0.25)
+local args = {
+    [1] = 0
+}
+
+game:GetService("ReplicatedStorage").SetLevel:FireServer(unpack(args))
+
+wait(0.3)
+
+local args = {
+    [1] = 0
+}
+
+game:GetService("ReplicatedStorage").SetLevel:FireServer(unpack(args))
+
+wait(0.3)
+local args = {
+    [1] = 0
+}
+
+game:GetService("ReplicatedStorage").SetLevel:FireServer(unpack(args))
+wait(2.5)
+
+end
+end)
+
+local Section2 = Tab:NewSection("Autofarm Stars")
+
+Section2:NewButton("Autofarm Stars", "ButtonInfo", function()
+ for i = 0 , 30 , 1 do
+
+        game:GetService("ReplicatedStorage").GotStar:FireServer("Level "..game:GetService("Players").LocalPlayer.Level.Value.."")
+
+        wait(2)
+
+        game:GetService("ReplicatedStorage").BeatLevel:FireServer(0.1 , "Level 1" , "Normal" , false)
+
+        wait(1.4)	
+    end 
+end)
+
+Section2:NewToggle("AutoGet Stars", "ToggleInfo", function(bool)
+   getgenv().StarsAuto = bool
+    while getgenv().StarsAuto do  
+        task.wait(0.069)      
+        game:GetService("ReplicatedStorage").GotStar:FireServer("Level "..game:GetService("Players").LocalPlayer.Level.Value.."")
+    end
+end)
+
+Section2:NewButton("Retardify Zombies", "ButtonInfo", function()
+        game:GetService("Players").LocalPlayer.PlayerScripts.ZombieScripts:Destroy()
+end)
+
+local Tab3 = Window:NewTab("Other")
+
+local Section3 = Tab3:NewSection("Gamepasses / Items")
+
+Section3:NewButton("Get Cloud", "ButtonInfo", function()
+local copy =     game:GetService("ReplicatedStorage").Cloud:Clone()
+ 	copy.Parent = game:GetService("Players").LocalPlayer.Backpack
+end)
+
+Section3:NewButton("Get AdminCloud", "ButtonInfo", function()
+ local copy =     game:GetService("ReplicatedStorage").AdminCloud:Clone()
+         copy.Parent = game:GetService("Players").LocalPlayer.Backpack
+end)
+
+Section3:NewButton("Get GravityCoilv2", "ButtonInfo", function()
+  local copy =     game:GetService("ReplicatedStorage").GravityCoilv2:Clone()
+            copy.Parent = game:GetService("Players").LocalPlayer.Backpack
+            end)
+            
+            Section3:NewButton("Get Speed Coil", "ButtonInfo", function()
+              local copy =     game:GetService("ReplicatedStorage")["Speed Coil"]:Clone()
+                copy.Parent = game:GetService("Players").LocalPlayer.Backpack
+            end)
+            
+            local Section3 = Tab3:NewSection("Teleport")
+            
+            Section3:NewButton("Speed Run Reloaded", "ButtonInfo", function()
+        game:GetService("TeleportService"):Teleport(244532931, LocalPlayer)
+end)
+
+            Section3:NewButton("Speed Run 4 (Retro Level Pack)", "ButtonInfo", function()
+            game:GetService("TeleportService"):Teleport(190590056, LocalPlayer)
+end)
+
+          Section3:NewSlider("Player speed", "SliderInfo", 250, 0, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+   Section3:NewSlider("Player Jump power", "SliderInfo", 300, 0, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+end)
+
+   Section3:NewSlider("Hip Height", "SliderInfo", 100, 2, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.HipHeight = s
+end)
+
+   Section3:NewButton("Click Tp Tool", "ButtonInfo", function()
+            mouse = game.Players.LocalPlayer:GetMouse()
+                tool = Instance.new("Tool")
+                tool.RequiresHandle = false
+                tool.Name = "Click Teleport"
+                tool.Activated:connect(function()
+                local pos = mouse.Hit+Vector3.new(0,2.5,0)
+                pos = CFrame.new(pos.X,pos.Y,pos.Z)
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = pos
+                end)
+                tool.Parent = game.Players.LocalPlayer.Backpack
+                end)
+                
+                local Tab4 = Window:NewTab("Setting")
+                
+                local Section4 = Tab4:NewSection("Settings")
+                
+                    Section4:NewButton("ANTI AFK", "ButtonInfo", function()
+   wait(0.5)
+    local bb=game:service'VirtualUser'
+    game:service'Players'.LocalPlayer.Idled:connect(function()
+    bb:CaptureController()
+    bb:ClickButton2(Vector2.new())
+    end)
+    
+    print("Antiafk enabled")
+    end)
+    
+                        Section4:NewButton("YOU SHOULD KYS NOW!", "ButtonInfo", function()
+                       --// Services
+        local players = game:GetService("Players")
+         
+        --// Other
+        local client = players.LocalPlayer
+         
+                    client.Character.Humanoid.Health = 0
+                    exit(0)
+                       end)
