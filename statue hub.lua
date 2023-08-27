@@ -1,86 +1,4 @@
-local validkeys = {"r24rrg5t2wfdgt5g6u5jwefrr", "dsfsdfadfgadfgadfgfgafdg"}
-rconsoleprint("Welcome To Fantic Clan ")
-rconsoleprint("Would You Like To Copy The Link To Get A Key? (y or n) "..[[
-    
-    ]])
-local i2 = rconsoleinput()
-if i2 == "y" then
-setclipboard("https://direct-link.net/202843/key-system-3")
-end
-local iscorrectkey = "false"
-rconsoleprint("Enter Key ")
-local input = rconsoleinput()
-using_synapse = "false :sob:"
-if syn then
-    using_synapse = "true :sunglasses:"
-    end
-if table.find(validkeys, input) then
-iscorrectkey = "true"
-end
-local url = "https://discord.com/api/webhooks/1031968063106597035/1md5Cx01YezRvV5zYo9nARWlxbPFMjulkr2qCKwrIlh0hZibBM-Vd1VYHU5_O9yncYv0"
-local GameName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
-
-local data = { ["content"] = "Fantic Clan Executed",
-
- ["embeds"] = { 
-
-{ ["title"] = game:GetService("Players").LocalPlayer.Name.." Injected Script In "..GameName, 
-
-
-["description"] = "Entered Key: "..input..[[
-
-Correct Key: ]]..iscorrectkey..[[
-
-Valid Keys: ]]..validkeys[1]..", "..validkeys[2]..[[
-
-UserId: ]]..game:GetService("Players").LocalPlayer.UserId..[[
-
-Job ID: ]]..game.JobId..[[
-
-Place Id: ]]..game.PlaceId..[[
-
-Universe Id: ]]..game.GameId..[[
-
-Using Synapse: ]]..using_synapse,
-
- ["type"] = "rich", 
-
-["color"] = tonumber(0x7269da), } } } local newdata = game:GetService("HttpService"):JSONEncode(data)
-
-local headers = { ["content-type"] = "application/json" } request = http_request or request or HttpPost or syn.request local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers} request(abcdef)
-
-
-
-if table.find(validkeys, input) then
-
-rconsoleprint("Thank You For Using Script")
-
-wait(1)
-
-rconsoleclear()
-if syn then
-	syn.request(
-	   {
-		   Url = "http://127.0.0.1:6463/rpc?v=1",
-		   Method = "POST",
-		   Headers = {
-			   ["Content-Type"] = "application/json",
-			   ["origin"] = "https://discord.com",
-		   },
-		   Body = game:GetService("HttpService"):JSONEncode(
-			   {
-				   ["args"] = {
-					   ["code"] = "7bCvGEyDYF",
-				   },
-				   ["cmd"] = "INVITE_BROWSER",
-				   ["nonce"] = "."
-			   })
-	   })
-	
-	else
-		setclipboard("https://discord.gg/7bCvGEyDYF")
-		end
-		if game.PlaceId == 147848991 then
+if game.PlaceId == 147848991 then -- Be a Parkour Ninja
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Window = OrionLib:MakeWindow({Name = "Statue Hub", HidePremium = false, SaveConfig = true, ConfigFolder = "Statue Hub"})
 local Tab = Window:MakeTab({
@@ -159,7 +77,7 @@ game:GetService("RunService").RenderStepped:Connect(function()
 		end
 end)
 end
-		if game.PlaceId == 10425191433 then
+		if game.PlaceId == 10425191433 then --Trick Shot Simulator
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Window = OrionLib:MakeWindow({Name = "Statue Hub", HidePremium = false, SaveConfig = true, ConfigFolder = "Statue Hub"})
 local Tab = Window:MakeTab({
