@@ -264,7 +264,7 @@ game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 50
   	end    
 })
 		end
-		if game.PlaceId == 10905034443 then
+if game.PlaceId == 10905034443 then
     wait(1)
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Window = OrionLib:MakeWindow({Name = "Statue Hub", HidePremium = false, SaveConfig = true, ConfigFolder = "Statue Hub"})
@@ -328,6 +328,7 @@ init:AddButton({
 
 			end
 	})
+	
 		Tab:AddToggle({
 			Name = "Auto Blend",
 			Default = false,
@@ -342,6 +343,21 @@ init:AddButton({
 			Default = false,
 			Callback = function(Value)
 				fc = Value
+
+			end
+	})
+	local ws = Instance.new("ScreenGui")
+ws.Parent = game:GetService("CoreGui")
+local wsf = Instance.new("Frame")
+wsf.Parent = ws
+wsf.BackgroundColor3 = Color3.new(355,355,355)
+wsf.Size = UDim2.new(100,100,100)
+ws.Enabled = false
+	Tab:AddToggle({
+			Name = "White Screen/ Anti Lag",
+			Default = false,
+			Callback = function(Value)
+				ws.Enabled = Value
 
 			end
 	})
@@ -368,10 +384,9 @@ end
 end)
 
 	game:GetService("RunService").Heartbeat:Connect(function()
-if ac == true and task.wait(1.2) then
-	
+if  ac == true and  plot.CratePackager:FindFirstChild("Crate") and 	#plot.CratePackager.Crate.Jars:GetChildren() == 8 then
        for i, v in pairs(plot:GetDescendants()) do
-           if v.Name == "OpenDoorPrompt" and v.Parent.Parent.Parent.Parent == plot.CratePackager then
+           if v.Name == "OpenDoorPrompt" and v.Parent.Parent.Parent.Parent == plot.CratePackager  then
                if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart then
                 game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.Parent.CFrame + Vector3.new(-1,2,2)
                fireproximityprompt(v)
@@ -380,12 +395,13 @@ if ac == true and task.wait(1.2) then
            end
 
 end
+
 end)
 	game:GetService("RunService").Heartbeat:Connect(function()
 if ab == true and task.wait(.8) then
 		
        for i, v in pairs(plot:GetDescendants()) do
-           if v.Name == "ActivateBlender" then
+           if v.Name == "ActivateBlender" and task.wait(.5) then
                if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart then
                 game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.Parent.CFrame + Vector3.new(-1,2,2)
                fireproximityprompt(v)
