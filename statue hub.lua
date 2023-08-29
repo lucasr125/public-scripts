@@ -330,7 +330,7 @@ if game.PlaceId == 10905034443 then
             game:GetService("RunService").Heartbeat:Connect(function()
                 if aj == true and task.wait(1) then
                   for i, v in pairs(plot:GetDescendants()) do
-                    if v.Name == "OpenDoorPrompt" and v.Parent.Parent.Parent.Parent == plot.JarFactory then
+                    if v.Name == "OpenDoorPrompt" and v.Parent.Parent.Parent.Parent.Parent.Parent == plot.ProcessingMachines then
                       if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart then
                         game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.Parent.CFrame + Vector3.new(-1,2,2)
                         fireproximityprompt(v)
@@ -341,11 +341,11 @@ if game.PlaceId == 10905034443 then
               end)
 
             game:GetService("RunService").Heartbeat:Connect(function()
-                if  ac == true and  plot.CratePackager:FindFirstChild("Crate") and 	#plot.CratePackager.Crate.Jars:GetChildren() == 8 then
+                if  ac == true and plot.ProcessingMachines.CratePackager.CratePackager:FindFirstChild("Crates") and #plot.ProcessingMachines.CratePackager.CratePackager.Crates.Crate.Jars:GetChildren() == 8 then
                   for i, v in pairs(plot:GetDescendants()) do
-                    if v.Name == "OpenDoorPrompt" and v.Parent.Parent.Parent.Parent == plot.CratePackager  then
+                    if v.Name == "OpenDoorPrompt" and v.Parent.Parent.Parent.Parent.Parent.Parent == plot.ProcessingMachines then
                       if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart then
-                        game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.Parent.CFrame + Vector3.new(-1,2,2)
+                        game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = --[[v.Parent.Parent.CFrame]] plot.ProcessingMachines.CratePackager.CratePackager.Button.Button.CFrame + Vector3.new(-1,2,2)
                         fireproximityprompt(v)
                       end
                     end
@@ -354,7 +354,7 @@ if game.PlaceId == 10905034443 then
               end)
 
             game:GetService("RunService").Heartbeat:Connect(function()
-                if ab == true and task.wait(.8) then
+                if ab == true then
                   for i, v in pairs(plot:GetDescendants()) do
                     if v.Name == "ActivateBlender" and task.wait(.5) then
                       if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart then
@@ -370,7 +370,7 @@ if game.PlaceId == 10905034443 then
                 if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart then
                   if abuy == true and task.wait(4) then
                     for i, v in pairs(plot.PurchaseButtons:GetDescendants()) do
-                      if v.Name == "Button" and v:FindFirstChild("TouchInterest") and v.Parent.Name ~= "Toggle Door Gamepass" and v.Parent.Name ~= "Gold Blender" then
+                      if v.Name == "Button" and v:FindFirstChild("TouchInterest") and v.Parent.Name ~= "Rainbow Upgrader" and v.Parent.Name ~= "Rainbow Gem Upgrader" and v.Parent.Name ~= "Toggle Door Gamepass" and v.Parent.Name ~= "Toggle Door Gamepass 2" and v.Parent.Name ~= "Gold Blender" and v.Parent.Name ~= "Gold Dropper 1" and v.Parent.Name ~= "Gold Dropper 2" and v.Parent.Name ~= "Gold Dropper 3" then
                         firetouchinterest(v, game:GetService("Players").LocalPlayer.Character.HumanoidRootPart, 0)
                         firetouchinterest(v, game:GetService("Players").LocalPlayer.Character.HumanoidRootPart, 1)
                       end
