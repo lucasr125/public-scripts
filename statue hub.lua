@@ -1,269 +1,127 @@
 if game.PlaceId == 147848991 then -- Be a Parkour Ninja
-local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "Statue Hub", HidePremium = false, SaveConfig = true, ConfigFolder = "Statue Hub"})
-local Tab = Window:MakeTab({
-	Name = "Combat",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
-})
-local aurarange = 20
-local aura = false
-Tab:AddToggle({
-	Name = "Kill Aura",
-	Default = false,
-	Callback = function(Value)
-	aura = Value
-	end    
-})
-Tab:AddSlider({
-	Name = "Aura Reach",
-	Min = 0,
-	Max = 20,
-	Default = 20,
-	Color = Color3.fromRGB(255,255,255),
-	Increment = 1,
-	ValueName = "Studs/Second",
-	Callback = function(Value)
-	aurarange = Value
-	end    
-})
+  local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+  local Window = OrionLib:MakeWindow({Name = "Statue Hub", HidePremium = false, SaveConfig = true, ConfigFolder = "Statue Hub"})
 
-local M = Window:MakeTab({
-	Name = "Movement",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
-})
-M:AddSlider({
-	Name = "WalkSpeed",
-	Min = 0,
-	Max = 100,
-	Default = 16,
-	Color = Color3.fromRGB(255,255,255),
-	Increment = 1,
-	ValueName = "Studs/Second",
-	Callback = function(Value)
-		if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.Humanoid then
-			game:GetService("Players").LocalPlayer.Character.Humanoid.WalkSpeed = Value
-		end
-	end    
-})
-M:AddSlider({
-	Name = "JumpPower",
-	Min = 0,
-	Max = 100,
-	Default = 16,
-	Color = Color3.fromRGB(255,255,255),
-	Increment = 1,
-	ValueName = "Studs/Second",
-	Callback = function(Value)
-		if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.Humanoid then
-			game:GetService("Players").LocalPlayer.Character.Humanoid.JumpPower = Value
-		end
-	end    
-})
-game:GetService("RunService").RenderStepped:Connect(function()
-    	if task.wait(.5) then
+  local Tab = Window:MakeTab({Name = "Combat",Icon = "rbxassetid://4483345998",PremiumOnly = false})
+  local M = Window:MakeTab({Name = "Movement",Icon = "rbxassetid://4483345998",PremiumOnly = false})
 
-	for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
-		if aura == true and game:GetService("Players").LocalPlayer.Character and  v ~= game:GetService("Players").LocalPlayer.Character and v:FindFirstChildOfClass("Humanoid") and v:FindFirstChildOfClass("Humanoid").Health > 0 and v:FindFirstChild("HumanoidRootPart") and game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") and game:GetService("Players").LocalPlayer.Character.Humanoid.Health > 0 and  game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Tool") and game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Tool").SwordScript  and (v.HumanoidRootPart.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < aurarange then
-			local args = {
-		[1] = v.Humanoid,
-		[2] = game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Tool")
-	}
-	
-	game:GetService("ReplicatedStorage").RemoteTriggers.Bolster:FireServer(unpack(args))
-	end
-		end
-		end
-end)
-end
-		if game.PlaceId == 10425191433 then --Trick Shot Simulator
-local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "Statue Hub", HidePremium = false, SaveConfig = true, ConfigFolder = "Statue Hub"})
-local Tab = Window:MakeTab({
-	Name = "Main",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
-})
-local infmoney
+  local aurarange = 20
+  local aura = false
 
-Tab:AddToggle({
-	Name = "Inf Money",
-	Default = false,
-	Callback = function(Value)
-		if Value == true then
-		OrionLib:MakeNotification({
-			Name = "Infinite Money",
-			Content = "Use This Then Earn Some Money And It Should Give You Infinite Money",
-			Image = "rbxassetid://4483345998",
-			Time = 5
-		})
-	end
-		infmoney = Value
-	end    
-})
-Tab:AddButton({
-	Name = "Buy Areas",
-	Callback = function()
-		local args = {[1] = "1"} game:GetService("ReplicatedStorage").Areas.Core.Default.Remotes.Buy:InvokeServer(unpack(args))
-		local args = {[1] = "2"} game:GetService("ReplicatedStorage").Areas.Core.Default.Remotes.Buy:InvokeServer(unpack(args))
-		local args = {[1] = "3"} game:GetService("ReplicatedStorage").Areas.Core.Default.Remotes.Buy:InvokeServer(unpack(args))
-		local args = {[1] = "4"} game:GetService("ReplicatedStorage").Areas.Core.Default.Remotes.Buy:InvokeServer(unpack(args))
-		local args = {[1] = "5"} game:GetService("ReplicatedStorage").Areas.Core.Default.Remotes.Buy:InvokeServer(unpack(args))
-		local args = {[1] = "6"} game:GetService("ReplicatedStorage").Areas.Core.Default.Remotes.Buy:InvokeServer(unpack(args))
-		local args = {[1] = "7"} game:GetService("ReplicatedStorage").Areas.Core.Default.Remotes.Buy:InvokeServer(unpack(args))
-		local args = {[1] = "8"} game:GetService("ReplicatedStorage").Areas.Core.Default.Remotes.Buy:InvokeServer(unpack(args))
-		local args = {[1] = "9"} game:GetService("ReplicatedStorage").Areas.Core.Default.Remotes.Buy:InvokeServer(unpack(args))
-		local args = {[1] = "10"} game:GetService("ReplicatedStorage").Areas.Core.Default.Remotes.Buy:InvokeServer(unpack(args))
-		local args = {[1] = "11"} game:GetService("ReplicatedStorage").Areas.Core.Default.Remotes.Buy:InvokeServer(unpack(args))
-		local args = {[1] = "12"} game:GetService("ReplicatedStorage").Areas.Core.Default.Remotes.Buy:InvokeServer(unpack(args))
-		local args = {[1] = "13"} game:GetService("ReplicatedStorage").Areas.Core.Default.Remotes.Buy:InvokeServer(unpack(args))
-		local args = {[1] = "14"} game:GetService("ReplicatedStorage").Areas.Core.Default.Remotes.Buy:InvokeServer(unpack(args))
-		local args = {[1] = "15"} game:GetService("ReplicatedStorage").Areas.Core.Default.Remotes.Buy:InvokeServer(unpack(args))
-		
-  	end    
-})
-local hook
-hook = hookmetamethod(game, "__namecall", newcclosure(function(self, ...)
-    local Args = {...}
-   
-    local method = getnamecallmethod()
-    if not checkcaller() and self.Name == "Finish" and method == "InvokeServer" and infmoney == true then
+  Tab:AddToggle({Name = "Kill Aura",Default = false,Callback = function(Value)
+        aura = Value
+      end})
 
-  for i, v in pairs(Args[2]) do
-   Args[2] = {
-       ["touched"] = {},
-       ["distance"] = math.huge
-   }
-      end
+  Tab:AddSlider({Name = "Aura Reach",Min = 0,Max = 20,Default = 20,Color = Color3.fromRGB(255,255,255),Increment = 1,ValueName = "Studs/Second",Callback = function(Value)
+        aurarange = Value
+      end})
 
-
-
-
-
-
-       return hook(self, table.unpack(Args));
-
-    end
-    return hook(self, ...)
-    
-end))
-end
-		if game.PlaceId == 10903978962 then
-		local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "Statue Hub I Sheep Tycoon 🐑", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
-local Tab = Window:MakeTab({
-	Name = "Main",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
-})
-local Section = Tab:AddSection({
-	Name = "Main"
-})
-local af
-Tab:AddToggle({
-	Name = "Auto Farm",
-	Default = false,
-	Callback = function(Value)
-		af = Value
-	end    
-})
-game:GetService("RunService").Heartbeat:Connect(function()
-    if af == true and game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.Head then
-for i, v in pairs(game:GetService("Workspace").Tycoon.Tycoons:GetDescendants()) do
-    if v.Name == "Upgrade" then
-    game:GetService("ReplicatedStorage").Signals.RemoteEvents.PutRemote:FireServer()
-        firetouchinterest(game:GetService("Players").LocalPlayer.Character.Head, v.Head, 0)
-                firetouchinterest(game:GetService("Players").LocalPlayer.Character.Head, v.Head, 1)
-                local args = {
-    [1] = 18,
-    [2] = Vector3.new()
-}
-
-game:GetService("ReplicatedStorage").Signals.RemoteEvents.GetWoolRemote:FireServer(unpack(args))
-
+  M:AddSlider({Name = "WalkSpeed",Min = 0,Max = 100,Default = 16,Color = Color3.fromRGB(255,255,255),Increment = 1,ValueName = "Studs/Second",Callback = function(Value)
+        if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.Humanoid then
+          game:GetService("Players").LocalPlayer.Character.Humanoid.WalkSpeed = Value
         end
-end
-end
-end)
-game:GetService("RunService").Heartbeat:Connect(function()
-    if af == true and game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.Head then
+      end})
 
-        firetouchinterest(game:GetService("Players").LocalPlayer.Character.Head, game:GetService("Workspace").Obby.Money.Finish, 0)
-                firetouchinterest(game:GetService("Players").LocalPlayer.Character.Head, game:GetService("Workspace").Obby.Money.Finish, 1)
-                end
-end)
+  M:AddSlider({Name = "JumpPower",Min = 0,Max = 100,Default = 16,Color = Color3.fromRGB(255,255,255),Increment = 1,ValueName = "Studs/Second",Callback = function(Value)
+        if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.Humanoid then
+          game:GetService("Players").LocalPlayer.Character.Humanoid.JumpPower = Value
+        end
+      end})
 
-		end
-		
-		if game.PlaceId == 10675042838 then
-		local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "Statue Hub I Lemonade Tycoon 🍋", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
-local auto_harvest
-local Tab = Window:MakeTab({
-    Name = "Auto Farm",
-    Icon = "rbxassetid://4483345998",
-    PremiumOnly = false
-})
-Tab:AddToggle({
-    Name = "Auto Harvest",
-    Default = false,
-    Callback = function(Value)
-    auto_harvest = Value
-    end    
-})
-game:GetService("RunService").RenderStepped:Connect(function()
-if auto_harvest == true then
-for i, v in pairs(game:GetService("Workspace").Tycoons:GetDescendants()) do
-    if v.Name == "Tree1" or  v.Name == "Tree2" or  v.Name == "Tree3" or  v.Name == "Tree4" or  v.Name == "Tree5" or  v.Name == "Tree6" or v.Name == "Tree7" or v.Name == "Tree8" or v.Name == "Tree9" or v.Name == "Tree10" or v.Name == "Tree11" or v.Name == "Tree12" or v.Name == "Tree13" or v.Name == "Tree14" or v.Name == "Tree15" or v.Name == "Tree16" or v.Name == "Tree17" or v.Name == "Tree18" or v.Name == "Tree19" or v.Name == "Tree20"  then
-    local args = {
-        [1] = v
-    }
-    
-    game:GetService("ReplicatedStorage").Events.Remotes.Harvest:FireServer(unpack(args))
-end
-end
-
-end
-
-end)
-local Tab = Window:MakeTab({
-    Name = "Misc",
-    Icon = "rbxassetid://4483345998",
-    PremiumOnly = false
-})
---anti afk should work testing
-Tab:AddButton({
-	Name = "Anti Afk",
-	Callback = function()
-    local vu = game:GetService("VirtualUser")
-    game:GetService("Players").LocalPlayer.Idled:connect(function()
-        vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
-    wait(1)
-    vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+  game:GetService("RunService").RenderStepped:Connect(function()
+      if task.wait(.5) then
+        for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
+          if aura == true and game:GetService("Players").LocalPlayer.Character and  v ~= game:GetService("Players").LocalPlayer.Character and v:FindFirstChildOfClass("Humanoid") and v:FindFirstChildOfClass("Humanoid").Health > 0 and v:FindFirstChild("HumanoidRootPart") and game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") and game:GetService("Players").LocalPlayer.Character.Humanoid.Health > 0 and  game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Tool") and game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Tool").SwordScript  and (v.HumanoidRootPart.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < aurarange then
+            local args = {
+              [1] = v.Humanoid,
+              [2] = game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Tool")
+            }
+            game:GetService("ReplicatedStorage").RemoteTriggers.Bolster:FireServer(unpack(args))
+          end
+        end
+      end
     end)
-  	end    
-})
-Tab:AddBind({
-	Name = "Panic!",
-	Default = Enum.KeyCode.L,
-	Hold = false,
-	Callback = function()
+end
+
+if game.PlaceId == 10903978962 then
+  local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+  local Window = OrionLib:MakeWindow({Name = "Statue Hub I Sheep Tycoon 🐑", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+  local Tab = Window:MakeTab({Name = "Main",Icon = "rbxassetid://4483345998",PremiumOnly = false})
+  local Section = Tab:AddSection({Name = "Main"})
+
+  local af
+  Tab:AddToggle({Name = "Auto Farm",Default = false,Callback = function(Value)
+        af = Value
+      end})
+
+  game:GetService("RunService").Heartbeat:Connect(function()
+      if af == true and game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.Head then
+        for i, v in pairs(game:GetService("Workspace").Tycoon.Tycoons:GetDescendants()) do
+          if v.Name == "Upgrade" then
+            game:GetService("ReplicatedStorage").Signals.RemoteEvents.PutRemote:FireServer()
+            firetouchinterest(game:GetService("Players").LocalPlayer.Character.Head, v.Head, 0)
+            firetouchinterest(game:GetService("Players").LocalPlayer.Character.Head, v.Head, 1)
+            local args = {
+              [1] = 18,
+              [2] = Vector3.new()
+            }
+            game:GetService("ReplicatedStorage").Signals.RemoteEvents.GetWoolRemote:FireServer(unpack(args))
+          end
+        end
+      end
+    end)
+
+  game:GetService("RunService").Heartbeat:Connect(function()
+      if af == true and game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.Head then
+        firetouchinterest(game:GetService("Players").LocalPlayer.Character.Head, game:GetService("Workspace").Obby.Money.Finish, 0)
+        firetouchinterest(game:GetService("Players").LocalPlayer.Character.Head, game:GetService("Workspace").Obby.Money.Finish, 1)
+      end
+    end)
+end
+		
+if game.PlaceId == 10675042838 then
+  local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+  local Window = OrionLib:MakeWindow({Name = "Statue Hub I Lemonade Tycoon 🍋", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+  local auto_harvest
+
+  local Tab = Window:MakeTab({Name = "Auto Farm",Icon = "rbxassetid://4483345998",PremiumOnly = false})
+
+  Tab:AddToggle({Name = "Auto Harvest",Default = false,Callback = function(Value)
+        auto_harvest = Value
+      end})
+
+  game:GetService("RunService").RenderStepped:Connect(function()
+      if auto_harvest == true then
+        for i, v in pairs(game:GetService("Workspace").Tycoons:GetDescendants()) do
+          if v.Name == "Tree1" or  v.Name == "Tree2" or  v.Name == "Tree3" or  v.Name == "Tree4" or  v.Name == "Tree5" or  v.Name == "Tree6" or v.Name == "Tree7" or v.Name == "Tree8" or v.Name == "Tree9" or v.Name == "Tree10" or v.Name == "Tree11" or v.Name == "Tree12" or v.Name == "Tree13" or v.Name == "Tree14" or v.Name == "Tree15" or v.Name == "Tree16" or v.Name == "Tree17" or v.Name == "Tree18" or v.Name == "Tree19" or v.Name == "Tree20"  then
+            local args = {
+              [1] = v
+            }
+            game:GetService("ReplicatedStorage").Events.Remotes.Harvest:FireServer(unpack(args))
+          end
+        end
+      end
+    end)
+
+  local Tab = Window:MakeTab({Name = "Misc",Icon = "rbxassetid://4483345998",PremiumOnly = false})
+  Tab:AddButton({Name = "Anti Afk",Callback = function()
+        local vu = game:GetService("VirtualUser")
+        game:GetService("Players").LocalPlayer.Idled:connect(function()
+            vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+            wait(1)
+            vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+          end)
+      end})
+  Tab:AddBind({Name = "Panic!",Default = Enum.KeyCode.L,Hold = false,Callback = function()
         game.Players.LocalPlayer:Kick("You clicked the panic keybind Rejoin once your friends stop seeing you exploiting ;)")
-	end    
-})
-local Tab = Window:MakeTab({
-    Name = "Movement",
-    Icon = "rbxassetid://4483345998",
-    PremiumOnly = false
-})
-Tab:AddButton({
-	Name = "Walkspeed",
-	Callback = function()
-game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 50
-  	end    
-})
-		end
+      end})
+  local Tab = Window:MakeTab({Name = "Movement",Icon = "rbxassetid://4483345998",PremiumOnly = false})
+  Tab:AddButton({Name = "Walkspeed",Callback = function()
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 50
+      end})
+end
+
 if game.PlaceId == 10905034443 then
   local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
   local Window = OrionLib:MakeWindow({Name = "Statue Hub", HidePremium = false, SaveConfig = true, ConfigFolder = "Statue Hub"})
@@ -275,7 +133,7 @@ if game.PlaceId == 10905034443 then
   local aj --Auto Jar
   local ab --Auto Buy
   local ac --Auto Crate
-  local abuy --Auto Bu
+  local abuy --Auto Buy
   local fc --Fast Arm 
 
   init:AddButton({Name = "Initialize Plot",Callback = function()
@@ -413,369 +271,9 @@ end)
         end
     end
 		end
-		if game.GameId == 1526814825 then
-		local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "Statue Hub", HidePremium = false, SaveConfig = true, ConfigFolder = "Statue Hub"})
-getgenv().Toggled = false;
-	local Player = game:GetService('Players').LocalPlayer;
-	local Camera = workspace.Camera;
-	local FlySpeed = 150;
-	local autofarmt7 = false
-	local UIS = game:GetService("UserInputService")
-	local holdingWKey = false
-	local holdingSKey = false
-	
-	
-	
-	UIS.InputBegan:Connect(function(inputObject) 
-		if(inputObject.KeyCode==Enum.KeyCode.W)then
-			holdingWKey = true
-	
-		end
-	end)
-	
-	UIS.InputEnded:Connect(function(inputObject)
-		if(inputObject.KeyCode==Enum.KeyCode.W)then
-			holdingWKey = false
-		end
-	end)
-	
-	
-	UIS.InputBegan:Connect(function(inputObject) 
-		if(inputObject.KeyCode==Enum.KeyCode.S)then
-			holdingSKey = true
-	
-		end
-	end)
-	
-	UIS.InputEnded:Connect(function(inputObject)
-		if(inputObject.KeyCode==Enum.KeyCode.S)then
-			holdingSKey = false
-		end
-	end)
-	
-	
-	
-	
-	game:GetService'RunService'.RenderStepped:Connect(function()
-		if (getgenv().Toggled == true and Player.Character and Player.Character:FindFirstChild('HumanoidRootPart')) then
-	if holdingWKey == true then
-	Player.Character.HumanoidRootPart.Velocity = Camera.CFrame.LookVector * FlySpeed;
-	end
-	if holdingSKey == true then
-	  Player.Character.HumanoidRootPart.Velocity = Camera.CFrame.LookVector * FlySpeed * -1;
-	
-	end
-	
-	if holdingSKey == false and holdingWKey == false then
-		Player.Character.HumanoidRootPart.Velocity = Vector3.new(0,0,0)
-	end
-	end
-	
-	end)
-	
-	game:GetService'RunService'.RenderStepped:Connect(function()
-		if (getgenv().Toggled == true and Player.Character and Player.Character:FindFirstChild('HumanoidRootPart')) then
-			Player.Character.HumanoidRootPart.Velocity = Camera.CFrame.LookVector * FlySpeed;
-		end;
-	end)
---req.Bullets = 5
-local Tab = Window:MakeTab({
-	Name = "Main",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
-})
-
-
-local Fly = Tab:AddToggle({
-	Name = "Fly",
-	Default = false,
-	Callback = function(Value)
-	getgenv().Toggled = Value
-	end    
-})
-Tab:AddBind({
-	Name = "Fly Keybind",
-	Default = Enum.KeyCode.Z,
-	Hold = false,
-	Callback = function()
-	if getgenv().Toggled == true then
-	    Fly:Set(false)
-	    else
-	        Fly:Set(true)
-	end
-    
-
-	end    
-})
-local SpeedAmt
-Tab:AddSlider({
-	Name = "Speed",
-	Min = 0,
-	Max = 100,
-	Default = 5,
-	Color = Color3.fromRGB(255,255,255),
-	Increment = 1,
-	ValueName = "Studs/s",
-	Callback = function(Value)
-	SpeedAmt = Value
-	end    
-})
-local LoopSpeed = false
-local Speed = Tab:AddToggle({
-	Name = "Speed",
-	Default = false,
-	Callback = function(Value)
-	LoopSpeed = Value
-	end    
-})
-Tab:AddBind({
-	Name = "Speed Keybind",
-	Default = Enum.KeyCode.H,
-	Hold = false,
-	Callback = function()
-	if LoopSpeed == true then
-	    Speed:Set(false)
-	    else
-	        Speed:Set(true)
-	end
-    
-
-	end    
-})
-game:GetService("RunService").RenderStepped:Connect(function()
-    if LoopSpeed == true and game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.Humanoid then
-        game:GetService("Players").LocalPlayer.Character.Humanoid.WalkSpeed = SpeedAmt
-        end
-    end)
-
-
-Tab:AddButton({
-	Name = "Mod Gun",
-	Callback = function()
-      			    for i, v in pairs(game:GetService("Players").LocalPlayer.Character:GetDescendants()) do
-	        	if v.Name == "Settings" and v.Parent.Parent.Parent.ClassName == "Tool" then
-	        	local mscript = v
-local req = require(mscript)
-req.Ammo = math.huge
-req.BSpeed = math.huge
-req.FireRate = math.huge
-req.SuppressMaxDistance = math.huge
-req.AutoChamber = true
-local mt = getrawmetatable(game)
-local __oldIndex = mt.__index
-local __oldNewIndex = mt.__newindex
-
-if setreadonly then setreadonly(mt, false) else make_writeable(mt) end
-
-mt.__index = newcclosure(function(a, k)
-    if not checkcaller() then
-        if tostring(a) == "Zeroing" then
-            if k == "Value" then
-                return math.huge;
-            end
-        end
-    end
-    return __oldIndex(a, k)
-end)
-
-
-local mt = getrawmetatable(game)
-local __oldIndex = mt.__index
-local __oldNewIndex = mt.__newindex
-
-if setreadonly then setreadonly(mt, false) else make_writeable(mt) end
-
-mt.__index = newcclosure(function(a, k)
-    if not checkcaller() then
-        if tostring(a) == "Ammo" then
-            if k == "Value" then
-                return math.huge;
-            end
-        end
-    end
-    return __oldIndex(a, k)
-end)
-
-
-req.Distance = math.huge
-req.BulletPenetration = math.huge
-req.FallOfDamage = 0
-req.MinSpread = 0
-req.MaxSpread = 0.000000000000000000000000000000000000000000000000001
-req.AimInaccuracyStepAmount = 0
-req.VPunchBase = 0
-	req.HPunchBase = 0
-req.DPunchBase = 0
-req.CanBreachDoor = true
-req.FireModes.ChangeFiremode = true
-req.FireModes.Auto = true
-req.FireModes.Explosive = true
-req.FireModes.Burst = true
-req.FireModes.Semi = true
-req.BurstShot = math.huge
-req.ExplosiveHit = true
-
-
-	GunFOVReduction = 0
-		Chambered = true
-	        end
-
-	    end    
-end
-  	
-})
-
-		end
 		
-		if game.GameId == 3150475059 then
-		local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "Statue Hub", HidePremium = false, SaveConfig = true, ConfigFolder = "Statue Hub"})
 
-local Tab = Window:MakeTab({
-	Name = "Main",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
-})
-local nk = false
-Tab:AddSlider({
-	Name = "Catch Hitbox",
-	Min = 0,
-	Max = 15,
-	Default = 0,
-	Color = Color3.fromRGB(255,255,255),
-	Increment = 1,
-	ValueName = "Size",
-	Callback = function(Value)
-	if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.CatchLeft and game:GetService("Players").LocalPlayer.Character.CatchRight then
-game:GetService("Players").LocalPlayer.Character.CatchLeft.Size = Vector3.new(1.4, 1.65, 1.4) + Vector3.new(Value,Value,Value)
-game:GetService("Players").LocalPlayer.Character.CatchRight.Size = Vector3.new(1.4, 1.65, 1.4) + Vector3.new(Value,Value,Value)
-end
-	end    
-})
-Tab:AddToggle({
-	Name = "No Knock (ex: Dive)",
-	Default = false,
-	Callback = function(Value)
-	    nk = Value
-end
-})
-	
-Tab:AddToggle({
-	Name = "Visualise Hitbox",
-	Default = false,
-	Callback = function(Value)
-	    		if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.CatchLeft and game:GetService("Players").LocalPlayer.Character.CatchRight and Value == false then
-game:GetService("Players").LocalPlayer.Character.CatchLeft.Transparency = 1
-game:GetService("Players").LocalPlayer.Character.CatchRight.Transparency = 1
-end
-		if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.CatchLeft and game:GetService("Players").LocalPlayer.Character.CatchRight and Value == true then
-game:GetService("Players").LocalPlayer.Character.CatchLeft.Transparency = 0.4
-game:GetService("Players").LocalPlayer.Character.CatchRight.Transparency = 0.4
-end
-	end    
-})
-game:GetService("RunService").RenderStepped:Connect(function()
-		if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.Humanoid and nk == true then
-game:GetService("Players").LocalPlayer.Character.Humanoid.PlatformStand = false
-end
-end)
-		end
-		
-		if game.GameId == 3904583189 then
-local mobtable = {}
-local mobpicked
-for i, v in pairs(game:GetService("Workspace").Mob:GetChildren()) do
-    if not table.find(mobtable, v.Name) then
-        table.insert(mobtable, v.Name)
-        end
-end
-local aftog = false
-local sc = false
-local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "Statue Hub", HidePremium = false, SaveConfig = true, ConfigFolder = "Statue Hub"})
-local Tab = Window:MakeTab({
-	Name = "Farming",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
-})
-local Misc = Window:MakeTab({
-	Name = "Misc",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
-})
-
-OrionLib:MakeNotification({
-	Name = "Thanks For Using Statue Hub",
-	Content = "For Help Dm wowzers!#0560",
-	Image = "rbxassetid://4483345998",
-	Time = 5
-})
-local hbe = false
-Tab:AddToggle({
-	Name = "Auto Farm",
-	Default = false,
-	Callback = function(Value)
-	hbe = Value
-	end    
-})
-Misc:AddToggle({
-	Name = "Lag Switch",
-	Default = false,
-	Callback = function(Value)
-	sc = Value
-	end    
-})
-local mobpicker = Tab:AddDropdown({
-	Name = "Mobpicker",
-	Default = "1",
-	Options = mobtable,
-	Callback = function(Value)
-		mobpicked = Value
-	end    
-})
-
-Tab:AddButton({
-	Name = "Refresh Mobs",
-	Callback = function()
-	    local newmobtable = {}
-	    for i, v in pairs(game:GetService("Workspace").Mob:GetChildren()) do
-    if not table.find(newmobtable, v.Name) then
-        table.insert(newmobtable, v.Name)
-        end
-end
-     mobpicker:Refresh(newmobtable,true)
-  	end    
-})
-game:GetService("RunService").RenderStepped:Connect(function()
-    if sc == true then
-        game:GetService("ReplicatedStorage").Document._DashFolder.DashEvent:FireServer()
-game:GetService("Players").LocalPlayer.Backpack.Geppo.RemoteEvent:FireServer()
-
-        end
-end)
-game:GetService("RunService").RenderStepped:Connect(function()
-if hbe == true then
-    game:GetService("ReplicatedStorage").Document.Combat.Combat:FireServer()
-
-    end
-end)
-           
-game:GetService("RunService").RenderStepped:Connect(function()
-    if hbe == true then
-   for i, v in pairs(game:GetService("Workspace").Mob:GetDescendants()) do
-    if v.Name == mobpicked and hbe == true and game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart then
-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame 
-
-
-    end
-
-    end
-end
-end)
-OrionLib:Init()
-end
-		if game.GameId == 648454481 then
+		if game.GameId == 648454481 then -- idk what is this
 		local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Window = OrionLib:MakeWindow({Name = "Statue Hub", HidePremium = false, SaveConfig = true, ConfigFolder = "Statue Hub"})
 _G.Speedamt = 0
@@ -898,115 +396,9 @@ game:GetService("RunService").Heartbeat:Connect(function()
     })
     
 		end
-		if game.PlaceId == 6403373529 then
-		wait(2)
-local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "Statue Hub", HidePremium = false, SaveConfig = true, ConfigFolder = "Statue Hub"})
-local nk = false
-local av = false
-local antivoid = Instance.new("Part")
-antivoid.Parent = game:GetService("Workspace")
-antivoid.Position = Vector3.new(-4.27, -58.17, 28.63)
-antivoid.Anchored = true
-antivoid.Transparency = 1
-antivoid.Size = Vector3.new(707, 1, 745)
-antivoid.CanCollide = false
-antivoid.Touched:Connect(function(toucher)
-    if game:GetService("Players").LocalPlayer.Character and av == true and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart and toucher == game:GetService("Players").LocalPlayer.Character.HumanoidRootPart then
-        game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(27, -5, 10)
-        OrionLib:MakeNotification({
-	Name = "Anti Void Notification: ",
-	Content = "Are You Serious Right Neow Bro",
-	Image = "rbxassetid://4483345998",
-	Time = 5
-})
-    end
-    end)
-local ka = false
-local nw = false
-local Tab = Window:MakeTab({
-	Name = "Main",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
-})
 
-Tab:AddToggle({
-	Name = "Kill Aura",
-	Default = false,
-	Callback = function(Value)
-	ka = Value
-	end    
-})
-Tab:AddToggle({
-	Name = "Anti Void",
-	Default = false,
-	Callback = function(Value)
-	av = Value
-	end    
-})
-Tab:AddToggle({
-	Name = "No Pusher Wall",
-	Default = false,
-	Callback = function(Value)
-	nw = Value
-	end    
-})
-Tab:AddToggle({
-	Name = "No Knockback",
-	Default = false,
-	Callback = function(Value)
-	nk = Value
-	end    
-})
-
-game:GetService("RunService").RenderStepped:Connect(function()
-if game:GetService("Workspace"):FindFirstChild("wall") and nw == true then
-    game:GetService("Workspace").wall.Transparency = .5
-      game:GetService("Workspace").wall.CanCollide = false
-    end
-end)
-
-game:GetService("RunService").RenderStepped:Connect(function()
-    if nk == true then
-    
-if game:GetService('Players').LocalPlayer.Character and game:GetService('Players').LocalPlayer.Character:FindFirstChild("FakePart Left Leg") then
-   game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Anchored = true
-   game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(0,0,0)
-elseif game:GetService('Players').LocalPlayer.Character and not game:GetService('Players').LocalPlayer.Character:FindFirstChild("FakePart Left Leg") then
-      game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Anchored = false
-end
-end
-end)
-
-
-OrionLib:Init()
-while wait(.3) do
-
-    for i, v in pairs(game:GetService("Players"):GetChildren()) do
-if ka == true and v~= game:GetService("Players").LocalPlayer and v.Character and v.Character:FindFirstChild("HumanoidRootPart") then
-        local args = {[1] = v.Character.HumanoidRootPart} game:GetService("ReplicatedStorage").b:FireServer(unpack(args))
-        local args = {[1] = v.Character.HumanoidRootPart} game:GetService("ReplicatedStorage").FlashHit:FireServer(unpack(args))
-        local args = {[1] = v.Character.HumanoidRootPart} game:GetService("ReplicatedStorage").JetHit:FireServer(unpack(args))
-        local args = {[1] = v.Character.HumanoidRootPart} game:GetService("ReplicatedStorage").WarpHt:FireServer(unpack(args))
-        local args = {[1] = v.Character.HumanoidRootPart} game:GetService("ReplicatedStorage").BullHit:FireServer(unpack(args))
-        local args = {[1] = v.Character.HumanoidRootPart} game:GetService("ReplicatedStorage").SnowHit:FireServer(unpack(args))
-        local args = {[1] = v.Character.HumanoidRootPart} game:GetService("ReplicatedStorage").DiamondHit:FireServer(unpack(args))
-        local args = {[1] = v.Character.HumanoidRootPart} game:GetService("ReplicatedStorage").GhostHit:FireServer(unpack(args))
-        local args = {[1] = v.Character.HumanoidRootPart} game:GetService("ReplicatedStorage").PusherHit:FireServer(unpack(args))
-        local args = {[1] = v.Character.HumanoidRootPart} game:GetService("ReplicatedStorage").PlagueHit:FireServer(unpack(args))
-        local args = {[1] = v.Character.HumanoidRootPart} game:GetService("ReplicatedStorage").bobhit:FireServer(unpack(args))
-        local args = {[1] = v.Character.HumanoidRootPart} game:GetService("ReplicatedStorage").springhit:FireServer(unpack(args))
-        local args = {[1] = v.Character.HumanoidRootPart} game:GetService("ReplicatedStorage").CustomHit:FireServer(unpack(args))
-        local args = {[1] = v.Character.HumanoidRootPart} game:GetService("ReplicatedStorage").WormHit:FireServer(unpack(args))
-        local args = {[1] = v.Character.HumanoidRootPart} game:GetService("ReplicatedStorage").GeneralHit:FireServer(unpack(args))
-
-
-
-
-
-        end
-    end
-    end
+if game.PlaceId == 6403373529 then
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 end
 
 
@@ -1338,18 +730,767 @@ end
  end)
 		end
 		if game.PlaceId == 9992339729 then
-loadstring(game:HttpGet("https://raw.githubusercontent.com/idontknowwhattonamemyself/Nic-Hub-v2/Lua/Longest%20Answer%20Wins"))()
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Statue Hub", HidePremium = false, SaveConfig = true, ConfigFolder = "Nic Hub"})
+local Tab = Window:MakeTab({
+	Name = "Blatant",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+local PlankForceamt = 0
+local PlankForce = false
+local aa = false
+local aw = false
+
+local m = Window:MakeTab({
+	Name = "Misc",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab:AddButton({
+	Name = "Answer Question",
+	Callback = function()
+      		
+	if   PlankForce == false and game:GetService("Players").LocalPlayer.PlayerGui.TimeLeftQuestion and game:GetService("Players").LocalPlayer.PlayerGui.TimeLeftQuestion.Enabled == true  and game:GetService("Players").LocalPlayer.PlayerGui.TimeLeftQuestion.SubmitAlready.Value == false and  game:GetService("ReplicatedStorage").HintAnswer.Value ~= ""  then
+
+local arg2 = string.len(game:GetService("ReplicatedStorage").HintAnswer.Value)
+
+local args = {
+    [1] = game:GetService("ReplicatedStorage").HintAnswer.Value,
+    [2] = arg2
+    
+
+
+
+}
+
+game:GetService("ReplicatedStorage").SubmittedAnswer:FireServer(unpack(args))
+elseif  PlankForce == true and game:GetService("Players").LocalPlayer.PlayerGui.TimeLeftQuestion and game:GetService("Players").LocalPlayer.PlayerGui.TimeLeftQuestion.Enabled == true  and game:GetService("Players").LocalPlayer.PlayerGui.TimeLeftQuestion.SubmitAlready.Value == false and  game:GetService("ReplicatedStorage").HintAnswer.Value ~= "" then
+	local args = {
+    [1] = game:GetService("ReplicatedStorage").HintAnswer.Value,
+    [2] = PlankForceamt
+    
+
+
+
+}
+
+game:GetService("ReplicatedStorage").SubmittedAnswer:FireServer(unpack(args))
+	
+      		        end
+  	end    
+})
+
+m:AddDropdown({
+	Name = "Plank Skin",
+	Default = "blue",
+	Options = {"blue", "red", "yellow", "green", "orange", "violet","pink","grey","white","black","rainbow","zigzag","zoom","space","crisscross","rose","spring","zebra","marble","achromatic","classic","lavender","blush","azure","dynamic","stitch","lush","jelly","spiderman","pastel","fall"},
+	Callback = function(Value)
+		local args = {
+    [1] = Value
+}
+
+game:GetService("ReplicatedStorage").blockSkinFire:FireServer(unpack(args))
+
+	end    
+})
+Tab:AddButton({
+	Name = "Say Longest Possible Answer",
+	Callback = function()
+      		if game:GetService("ReplicatedStorage").HintAnswer.Value == "" then
+
+      		    else
+      		        local args = {
+    [1] = "Longest Possible Answer Is ".. game:GetService("ReplicatedStorage").HintAnswer.Value,
+    [2] = "All"
+}
+
+game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))
+
+      		        end
+  	end    
+})
+m:AddButton({
+	Name = "Notify Longest Possible Answer",
+	Callback = function()
+      		if game:GetService("ReplicatedStorage").HintAnswer.Value == "" then
+OrionLib:MakeNotification({
+	Name = "Did Not Find An Answer",
+	Content = "Please Try Again After There Is A Question",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+      		    else
+      		        OrionLib:MakeNotification({
+	Name = "Longest Possible Answer",
+	Content = game:GetService("ReplicatedStorage").HintAnswer.Value,
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+
+      		        end
+  	end    
+})
+
+
+local WaterDisabled = false
+m:AddToggle({
+	Name = "In Game Spoofer",
+	Default = false,
+	Callback = function(ingametog)
+	game:GetService("Players").LocalPlayer.Playing.Value = ingametog	
+	end    
+})
+Tab:AddToggle({
+	Name = "Disable Water",
+	Default = false,
+	Callback = function(WaterTog)
+		WaterDisabled = WaterTog
+	end    
+})
+Tab:AddToggle({
+	Name = "Auto Win",
+	Default = false,
+	Callback = function(awtog)
+	aw = awtog
+	end    
+})
+Tab:AddToggle({
+	Name = "Plank Force",
+	Default = false,
+	Callback = function(PlankForceToggle)
+		PlankForce = PlankForceToggle
+	end    
+})
+Tab:AddSlider({
+	Name = "Plank Amount",
+	Min = 0,
+	Max = 10000000,
+	Default = 20,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "Planks",
+	Callback = function(PlankAmtSlider)
+	PlankForceamt = PlankAmtSlider
+
+	end    
+})
+local hook
+hook = hookmetamethod(game, "__namecall", newcclosure(function(self, ...)
+    local Args = {...}
+   
+    local method = getnamecallmethod()
+    if PlankForce == true and  self.Name == "SubmittedAnswer" and method == "FireServer"  and not checkcaller() then
+
+     if (Args[2]) then
+         Args[2] = PlankForceamt
+        
+
+end;
+
+       return hook(self, table.unpack(Args));
+
+    end
+    return hook(self, ...)
+    
+end))
+local watertouch
+game:GetService("RunService").Heartbeat:Connect(function()  if  game:GetService("Workspace"):FindFirstChild("Water") and WaterDisabled == true then
+
+    game:GetService("Workspace").Water.Parent = game:GetService("Lighting")
+    elseif game:GetService("Lighting"):FindFirstChild("Water") and WaterDisabled == false then
+        game:GetService("Lighting").Water.Parent = game:GetService("Workspace")
+end
+end)
+game:GetService("RunService").Heartbeat:Connect(function()
+    if  aw == true and  game:GetService("Players").LocalPlayer.Character and  game:GetService("Players").LocalPlayer.Character.HumanoidRootPart then
+        game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-217, 59, 110)
+        end
+    end)
+
+  
+OrionLib:Init()
+ 
 elseif game.PlaceId == 10041108328 then
-loadstring(game:HttpGet("https://raw.githubusercontent.com/idontknowwhattonamemyself/Nic-Hub-v2/Lua/Dark%20Life"))()
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Statue Hub", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+local Autopickup = false
+local Autostomp = false
+
+local Speed = false
+_G.Speedamt = 0
+local Tab = Window:MakeTab({
+	Name = "Main",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab:AddToggle({
+	Name = "Speed",
+	Default = false,
+	Callback = function(Value)
+		Speed = Value
+	end    
+})
+Tab:AddSlider({
+	Name = "Amount",
+	Min = 0,
+	Max = 200,
+	Default = 32,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "WalkSpeed",
+	Callback = function(Value)
+		_G.Speedamt = Value
+	end    
+})
+Tab:AddToggle({
+	Name = "Auto Stomp",
+	Default = false,
+	Callback = function(Value)
+		Autostomp = Value
+	end    
+})
+Tab:AddToggle({
+	Name = "Auto Pickup",
+	Default = false,
+	Callback = function(Value)
+		AutoPickup = Value
+	end    
+})
+game:GetService("RunService").Heartbeat:Connect(function()
+     for i, v in pairs(game:GetService("Players"):GetChildren()) do
+     if not v == game:GetService("Players").LocalPlayer and v.Character and v.Character.HumanoidRootPart and v.Character.HumanoidRootPart:FindFirstChild("Stompable") and Autostomp == true then
+
+fireproximityprompt(v.Character.HumanoidRootPart.Stompable)
+       
+     end
+end
+    end)
+game:GetService("RunService").Heartbeat:Connect(function()
+     for i, v in pairs(game:GetService("Workspace")["money_bags"]:GetDescendants()) do
+     if v.Name == "TouchInterest" and AutoPickup == true then
+        wait(0.2)
+        firetouchinterest(v.Parent,  game.Players.LocalPlayer.Character.Head, 0)
+        wait()
+        firetouchinterest(v.Parent,  game.Players.LocalPlayer.Character.Head, 1)
+       
+     end
+end
+end)
+game:GetService("RunService").Heartbeat:Connect(function()
+if Speed == true and game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.Humanoid then
+    game:GetService("Players").LocalPlayer.Character.Humanoid.WalkSpeed = _G.Speedamt
+    else
+         game:GetService("Players").LocalPlayer.Character.Humanoid.WalkSpeed = 32
+        end
+end)
+
+OrionLib:Init()
 
 
 
 elseif game.PlaceId == 10858274778 then
-loadstring(game:HttpGet("https://raw.githubusercontent.com/idontknowwhattonamemyself/Nic-Hub-v2/Lua/nrl"))()
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Statue Hub", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+local nf = false
+_G.cs = 0
+local nb = false
+local Nofall = false
+
+local NoBarriers = false
+local kowner = false
+local nstun = false
+
+local FlySpeed = 0
+
+local Tab = Window:MakeTab({
+	Name = "Movement",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+local Novampburn = false
+Tab:AddBind({
+	Name = "Fly",
+	Default = Enum.KeyCode.Z,
+	Hold = false,
+	Callback = function()
+		getgenv().Toggled = not getgenv().Toggled
+	end    
+})
+Tab:AddSlider({
+	Name = "Fly Speed",
+	
+	Min = 0,
+	Max = 225,
+	Default = 32,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "FlySpeed",
+	Callback = function(flyspeeed)
+		 FlySpeed = flyspeeed
+	end    
+})
+
+local Combat = Window:MakeTab({
+	Name = "Combat",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+Combat:AddToggle({
+	Name = "No Vamp Burn",
+	Default = false,
+	 Save = true,
+	Callback = function(Value)
+		Novampburn = Value
+	end    
+})
+Combat:AddToggle({
+	Name = "No Fall Damage",
+	Default = false,
+	 Save = true,
+	Callback = function(Value)
+		Nofall = Value
+	end    
+})
+Combat:AddToggle({
+	Name = "Knocked Ownership",
+	Default = false,
+	 Save = true,
+	Callback = function(Value)
+		kowner = Value
+	end    
+})
+Combat:AddToggle({
+	Name = "No Fire",
+	Default = false,
+	 Save = true,
+	Callback = function(Value)
+		nstun = Value
+	end    
+})
+local Misc = Window:MakeTab({
+	Name = "Misc",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+Misc:AddToggle({
+	Name = "No Fog",
+	Default = false,
+	 Save = true,
+	Callback = function(Value)
+		nf = Value
+	end    
+})
+
+Misc:AddToggle({
+	Name = "No Blind",
+	Default = false,
+	 Save = true,
+	Callback = function(Value)
+		nb = Value
+	end    
+})
+
+
+Tab:AddSlider({
+	Name = "Climb Multiplier",
+	
+	Min = 0,
+	Max = 200,
+	Default = 32,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "Times Climb Speed",
+	Callback = function(cb)
+		 _G.ClimbBoost = cb
+	end    
+})
+Tab:AddToggle({
+	Name = "No Orderly Barriers",
+	Default = false,
+	 Save = true,
+	Callback = function(Value)
+		NoBarriers = Value
+	end    
+})
+
+game:GetService("RunService").RenderStepped:Connect(function()
+if game:GetService("Players").LocalPlayer.Character and not game:GetService("Players").LocalPlayer.Character.Boosts:FindFirstChild("ClimbBoost") then
+local cb = Instance.new('IntValue')
+cb.Value = _G.ClimbBoost
+cb.Name = "ClimbBoost"
+cb.Parent = game:GetService("Players").LocalPlayer.Character.Boosts
+
+elseif game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.Boosts:FindFirstChild("ClimbBoost")  then
+    game:GetService("Players").LocalPlayer.Character.Boosts.ClimbBoost.Value = _G.ClimbBoost
+end
+end)
+game:GetService("RunService").Heartbeat:Connect(function()
+	for i, v in pairs(game:GetService("Players").LocalPlayer.Character:GetChildren()) do 
+		if v.Name == "Burning" and nstun == true then
+		local args = {
+		[1] = 180,
+		[2] = "normal"
+	}
+	
+	game:GetService("Players").LocalPlayer.Character.CharacterHandler.Remotes.Dodge:FireServer(unpack(args))
+	
+	end
+	end
+	end)
+local bar = Instance.new("Folder")
+bar.Name = "Barriers"
+bar.Parent = game:GetService("Workspace")
+  for i, v in pairs(game:GetService("Workspace").Map:GetChildren()) do
+			if v.Name == "OrderField" then
+			    
+				v.Parent = game:GetService("Workspace").Barriers
+				end
+        end
+game:GetService("RunService").RenderStepped:Connect(function()
+    if NoBarriers == true  then
+        for i, v in pairs(game:GetService("Workspace").Barriers:GetChildren()) do
+			if v.Name == "OrderField" then
+			    
+				v.Parent = game:GetService("Lighting")
+				end
+        end
+    else
+        for i, v in pairs(game:GetService("Lighting"):GetDescendants()) do
+			if v.Name == "OrderField" then
+			    
+				v.Parent = game:GetService("Workspace").Barriers
+				end
+        end
+        end
+    end)
+
+
+
+
+game:GetService("RunService").Heartbeat:Connect(function()
+	if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character:FindFirstChild("RagdollAttachment") and kowner == true then 
+		game:GetService("Players").LocalPlayer.Character:FindFirstChild("RagdollAttachment"):remove()
+	end
+end)
+game:GetService("RunService").Heartbeat:Connect(function()
+	if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character:FindFirstChild("ConstraintJoint") and kowner == true then 
+		game:GetService("Players").LocalPlayer.Character:FindFirstChild("ConstraintJoint"):remove()
+	end
+end)
+
+game:GetService("RunService").Heartbeat:Connect(function()
+	if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character:FindFirstChild("Knocked") and kowner == true then 
+		game:GetService("Players").LocalPlayer.Character:FindFirstChild("Knocked"):remove()
+	end
+end)
+game:GetService("RunService").Heartbeat:Connect(function()
+	if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character:FindFirstChild("Unconscious") and kowner == true then 
+		game:GetService("Players").LocalPlayer.Character:FindFirstChild("Unconscious"):remove()
+	end
+end)
+game:GetService("RunService").Heartbeat:Connect(function()
+	for i, v in pairs(game:GetService("Players").LocalPlayer.Character:GetChildren()) do 
+		if v:FindFirstChild("Collision") and kowner == true then
+			v:FindFirstChild("Collision"):remove()
+	end
+	end
+	end)
+getgenv().Toggled = false;
+	local Player = game:GetService('Players').LocalPlayer;
+	local Camera = workspace.Camera;
+
+	local UIS = game:GetService("UserInputService")
+	local holdingWKey = false
+	local holdingSKey = false
+	
+	
+	
+	UIS.InputBegan:Connect(function(inputObject) 
+		if(inputObject.KeyCode==Enum.KeyCode.W)then
+			holdingWKey = true
+	
+		end
+	end)
+	
+	UIS.InputEnded:Connect(function(inputObject)
+		if(inputObject.KeyCode==Enum.KeyCode.W)then
+			holdingWKey = false
+		end
+	end)
+	
+	
+	UIS.InputBegan:Connect(function(inputObject) 
+		if(inputObject.KeyCode==Enum.KeyCode.S)then
+			holdingSKey = true
+	
+		end
+	end)
+	
+	UIS.InputEnded:Connect(function(inputObject)
+		if(inputObject.KeyCode==Enum.KeyCode.S)then
+			holdingSKey = false
+		end
+	end)
+	
+	
+		game:GetService'RunService'.RenderStepped:Connect(function()
+		if nf == true then
+		game:GetService("Lighting").FogEnd = 1409120811512095812985
+				game:GetService("Lighting").FogStart = 1409120811512095812985
+
+		end
+end)
+	
+	game:GetService'RunService'.RenderStepped:Connect(function()
+		if (getgenv().Toggled == true and Player.Character and Player.Character:FindFirstChild('HumanoidRootPart')) then
+	if holdingWKey == true then
+	Player.Character.HumanoidRootPart.Velocity = Camera.CFrame.LookVector * FlySpeed;
+	end
+	if holdingSKey == true then
+	  Player.Character.HumanoidRootPart.Velocity = Camera.CFrame.LookVector * FlySpeed * -1;
+	
+	end
+	
+	if holdingSKey == false and holdingWKey == false then
+		Player.Character.HumanoidRootPart.Velocity = Vector3.new(0,0,0)
+	end
+	end
+	
+	end)
+	
+	game:GetService'RunService'.RenderStepped:Connect(function()
+		if (getgenv().Toggled == true and Player.Character and Player.Character:FindFirstChild('HumanoidRootPart')) then
+			Player.Character.HumanoidRootPart.Velocity = Camera.CFrame.LookVector * FlySpeed;
+		end;
+	end)
+game:GetService("RunService").RenderStepped:Connect(function()
+if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.CharacterHandler and game:GetService("Players").LocalPlayer.Character.CharacterHandler.Remotes and Nofall == true then
+game:GetService("Players").LocalPlayer.Character.CharacterHandler.Remotes.FallDamage.Parent = game:GetService("StarterPlayer")
+elseif game:GetService("StarterPlayer"):FindFirstChild("FallDamage") and game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.CharacterHandler and game:GetService("Players").LocalPlayer.Character.CharacterHandler.Remotes and  Nofall == false then
+    game:GetService("StarterPlayer").FallDamage.Parent = game:GetService("Players").LocalPlayer.Character.CharacterHandler.Remotes
+    
+end
+end)
+game:GetService("RunService").RenderStepped:Connect(function()
+	if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.CharacterHandler and game:GetService("Players").LocalPlayer.Character.CharacterHandler.Remotes and game:GetService("Players").LocalPlayer.Character.CharacterHandler.Remotes:FindFirstChild("SunBurn") and Novampburn == true then
+		game:GetService("Players").LocalPlayer.Character.CharacterHandler.Remotes.SunBurn.Parent = game:GetService("StarterPlayer")
+	elseif game:GetService("StarterPlayer"):FindFirstChild("SunBurn") and game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.CharacterHandler and game:GetService("Players").LocalPlayer.Character.CharacterHandler.Remotes and  Nofall == false then
+		game:GetService("StarterPlayer").SunBurn.Parent = game:GetService("Players").LocalPlayer.Character.CharacterHandler.Remotes
+		
+	end
+	end)
+game:GetService("RunService").RenderStepped:Connect(function()
+if nb == true then
+if game:GetService("Lighting").BagBlind then
+    game:GetService("Lighting").BagBlind.Enabled = false
+end
+if game:GetService("Lighting").Blindness then
+    game:GetService("Lighting").Blindness.Enabled = false
+end
+if game:GetService("Lighting").Concussion then
+    game:GetService("Lighting").Concussion.Enabled = false
+end
+if  game:GetService("Lighting").Blur then
+    game:GetService("Lighting").Blur.Enabled = false
+end
+if game:GetService("Lighting").Chokeout then
+game:GetService("Lighting").Chokeout.Enabled = false
+end
+
+end
+end)
+OrionLib:Init()
+ 
 elseif game.PlaceId == 10676523834 then
-loadstring(game:HttpGet("https://raw.githubusercontent.com/idontknowwhattonamemyself/Nic-Hub-v2/Lua/Racing%20Rocket"))()
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Statue Hub", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+local ac = false
+local af = false
+local scrasher = false
+local A = Window:MakeTab({
+	Name = "Player",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+local Speed = false
+_G.Speedamt = 0
+
+
+A:AddToggle({
+	Name = "WalkSpeed",
+	Default = false,
+	Callback = function(Value)
+		Speed = Value
+	end    
+})
+A:AddSlider({
+	Name = "Amount",
+	Min = 0,
+	Max = 200,
+	Default = 32,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "WalkSpeed",
+	Callback = function(Value)
+		_G.Speedamt = Value
+	end    
+})
+local Tab = Window:MakeTab({
+	Name = "Farming",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+OrionLib:MakeNotification({
+	Name = "Loaded",
+	Content = "Successfully Loaded Nic Hub",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+Tab:AddToggle({
+	Name = "Auto Farm",
+	Default = false,
+	Callback = function(Value)
+		af = Value
+	end    
+})
+Tab:AddToggle({
+	Name = "Auto Click",
+	Default = false,
+	Callback = function(Value)
+		ac = Value
+	end    
+})
+game:GetService("RunService").RenderStepped:Connect(function()
+    if ac == true then
+ local args = {
+    [1] = "ClickPower",
+    [2] = math.huge
+}
+
+game:GetService("ReplicatedStorage").RemoteEvents.Rocket_RemoteEvent:FireServer(unpack(args))
+  
+end
+end)
+game:GetService("RunService").RenderStepped:Connect(function()
+    if af == true then
+    local args = {
+        [1] = "CheckAdd",
+        [2] = 10,
+        [3] = 1,
+        [4] = 1
+    }
+    
+    game:GetService("ReplicatedStorage").RemoteEvents.Star_RemoteEvent:FireServer(unpack(args))    
+    local args = {
+    [1] = "Use",
+    [2] = "1"
+}
+
+game:GetService("ReplicatedStorage").RemoteFuncs.Item_RemoteFunc:InvokeServer(unpack(args))
+local args = {
+    [1] = "Use",
+    [2] = "2"
+}
+
+game:GetService("ReplicatedStorage").RemoteFuncs.Item_RemoteFunc:InvokeServer(unpack(args))
+local args = {
+    [1] = "Use",
+    [2] = "3"
+}
+
+game:GetService("ReplicatedStorage").RemoteFuncs.Item_RemoteFunc:InvokeServer(unpack(args))
+local args = {
+    [1] = "Use",
+    [2] = "4"
+}
+
+game:GetService("ReplicatedStorage").RemoteFuncs.Item_RemoteFunc:InvokeServer(unpack(args))
+
+end
+end)
+game:GetService("RunService").Heartbeat:Connect(function()
+if Speed == true and game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.Humanoid then
+    game:GetService("Players").LocalPlayer.Character.Humanoid.WalkSpeed = _G.Speedamt
+    else
+         game:GetService("Players").LocalPlayer.Character.Humanoid.WalkSpeed = 32
+        end
+end)
 elseif game.PlaceId == 9649680488 then
-loadstring(game:HttpGet("https://raw.githubusercontent.com/idontknowwhattonamemyself/Nic-Hub-v2/Lua/Backrooms%20Race%20Clicker"))()
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Statue Hub", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+local ac = false
+local af = false
+local scrasher = false
+local A = Window:MakeTab({
+	Name = "Player",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+local Speed = false
+_G.Speedamt = 0
+
+
+A:AddToggle({
+	Name = "Max Speed",
+	Default = false,
+	Callback = function(Value)
+		Speed = Value
+	end    
+})
+A:AddSlider({
+	Name = "Amount",
+	Min = 0,
+	Max = 500000,
+	Default = 32,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "WalkSpeed",
+	Callback = function(Value)
+		_G.Speedamt = Value
+	end    
+})
+local Tab = Window:MakeTab({
+	Name = "Farming",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+OrionLib:MakeNotification({
+	Name = "Loaded",
+	Content = "Successfully Loaded Nic Hub",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+Tab:AddToggle({
+	Name = "Auto Farm",
+	Default = false,
+	Callback = function(Value)
+		af = Value
+	end    
+})
+
+game:GetService("RunService").RenderStepped:Connect(function()
+    if af == true then
+for i, v in pairs(game:GetService("Workspace"):GetDescendants()) do 
+    if v.Name == "End" then 
+        firetouchinterest(v, game:GetService("Players").LocalPlayer.Character.HumanoidRootPart, 0)
+        firetouchinterest(v, game:GetService("Players").LocalPlayer.Character.HumanoidRootPart, 1)
+    end
+    end
+end
+end)
+game:GetService("RunService").Heartbeat:Connect(function()
+if Speed == true and game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.Humanoid then
+    game:GetService("Players").LocalPlayer.Character.Humanoid.WalkSpeed = _G.Speedamt
+    else
+        
+         game:GetService("Players").LocalPlayer.Character.Humanoid.WalkSpeed = game:GetService("Players").LocalPlayer.PlayerGui.MainUI.MainMenu.BotMenu.Accelerator.MaxSpeed.Text
+        end
+end)
 end
 
 if game.PlaceId == 2823503928  then
