@@ -131,7 +131,7 @@ if game.PlaceId == 10905034443 then
   local ao --Auto Obby
   local plot --Plot
   local aj --Auto Jar
-  local ab --Auto Buy
+  local ab --Auto Blender
   local ac --Auto Crate
   local abuy --Auto Buy
   local fc --Fast Arm 
