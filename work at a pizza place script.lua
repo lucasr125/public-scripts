@@ -2,10 +2,10 @@ repeat wait() until game:IsLoaded()
 
 local vu = game:GetService("VirtualUser")
 game:GetService('Players').LocalPlayer.Idled:connect(
-    function()
-        vu:CaptureController()
-        vu:ClickButton2(Vector2.new())
-    end
+function()
+	vu:CaptureController()
+	vu:ClickButton2(Vector2.new())
+end
 )
 
 getupvalues = getupvalues or debug.getupvalues
@@ -483,13 +483,13 @@ local function getHousePart(address)
 	local houses = workspace.Houses:GetChildren()
 	for i=1,#houses do
 		local h = houses[i]
-		
+
 		if (ffc(h,'CurrentUpgrade')) then
-		    local currentUpgrade = tostring(h.CurrentUpgrade.Value)
-		
-		    if ffc(h,"Address") and h.Address.Value == address and ffc(h,currentUpgrade) and ffc(h[currentUpgrade], 'GivePizza') then
-		        return ffc(h[currentUpgrade], 'GivePizza')
-		    end
+			local currentUpgrade = tostring(h.CurrentUpgrade.Value)
+
+			if ffc(h,"Address") and h.Address.Value == address and ffc(h,currentUpgrade) and ffc(h[currentUpgrade], 'GivePizza') then
+				return ffc(h[currentUpgrade], 'GivePizza')
+			end
 		end
 	end
 end
@@ -557,7 +557,7 @@ while gui.Parent do
 			elseif dialog:find("cheese",1,true) then
 				order = "CheesePizza"
 			end
-			
+
 			network:FireServer("OrderComplete", c, order, workspace.Register3)
 			if rootMoved then wait(.1) end
 		end
@@ -733,7 +733,7 @@ while gui.Parent do
 							end
 						end
 						if count < 2 then
-						    root.CFrame = supplyButtons[s].CFrame;
+							root.CFrame = supplyButtons[s].CFrame;
 							--simTouch(supplyButtons[s])
 							wait(0.3)
 						end
@@ -790,24 +790,24 @@ while gui.Parent do
 	end
 	if doDelivery then
 		local del = FindFirstDeliveryTool()
-        if delTool==nil and del then
-            --get tool
-            delTool=del
-            if (root.Position-delTool.Handle.Position).magnitude>19 then
-                root.CFrame = CFrame.new(delTool.Handle.Position+Vector3.new(0,1,-15)) 
-            end
-            delTool.Handle.CanCollide=false
-            delTool.Handle.CFrame = root.CFrame
-            wait(0.9)
-            delay(6,forgetDeliveryTool)
-        elseif delTool and delTool.Parent==character and delTouched==false then
-            --deliver to house
-            local housePart = getHousePart(delTool.Name)
-            if housePart then
-                delTouched=true
-                root.CFrame = housePart.CFrame+Vector3.new(0,9,0)
-                wait(0.3)
-            end
-        end
+		if delTool==nil and del then
+			--get tool
+			delTool=del
+			if (root.Position-delTool.Handle.Position).magnitude>19 then
+				root.CFrame = CFrame.new(delTool.Handle.Position+Vector3.new(0,1,-15)) 
+			end
+			delTool.Handle.CanCollide=false
+			delTool.Handle.CFrame = root.CFrame
+			wait(0.9)
+			delay(6,forgetDeliveryTool)
+		elseif delTool and delTool.Parent==character and delTouched==false then
+			--deliver to house
+			local housePart = getHousePart(delTool.Name)
+			if housePart then
+				delTouched=true
+				root.CFrame = housePart.CFrame+Vector3.new(0,9,0)
+				wait(0.3)
+			end
+		end
 	end
 end
