@@ -296,8 +296,8 @@ AutoCart:NewToggle("Auto Fast Speed", "Speeds every cart up but to a non-death l
 			wait(.1)
 			for i, v in pairs(game.workspace:GetDescendants()) do
 				if v.Name == "Up" then
-				    if v.Parent:FindFirstChild("Configuration").Speed.Value <= tonumber(110) then
-					    fireclickdetector(v.Click)
+					if v.Parent:FindFirstChild("Configuration").Speed.Value <= tonumber(110) then
+						fireclickdetector(v.Click)
 					end
 				end
 			end
@@ -315,8 +315,8 @@ AutoCart:NewToggle("Auto Slow Speed", "Makes every cart go really slow", functio
 			wait(.1)
 			for i, v in pairs(game.workspace:GetDescendants()) do
 				if v.Name == "Down" then
-				    if v.Parent:FindFirstChild("Configuration").Speed.Value >= tonumber(30) then
-					    fireclickdetector(v.Click)
+					if v.Parent:FindFirstChild("Configuration").Speed.Value >= tonumber(30) then
+						fireclickdetector(v.Click)
 					end
 				end
 			end
