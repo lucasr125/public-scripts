@@ -241,3 +241,4 @@ Tabs.Settings:AddParagraph({
 	Title = "Hub Settings",
 	Content = "Keybind: J\n\nhave fun"
 })
+v
