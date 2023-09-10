@@ -57,13 +57,13 @@ function forwardAllCarts()
 end
 
 function backwardAllCarts()
-		for i, v in pairs(workspace:GetChildren()) do
-			pcall(function()
-				if v.Name:match("Cart") then
-					if v:FindFirstChild("backward") then fireclickdetector(v.backward.ClickDetector) end
-				end
-			end)
-		end
+	for i, v in pairs(workspace:GetChildren()) do
+		pcall(function()
+			if v.Name:match("Cart") then
+				if v:FindFirstChild("backward") then fireclickdetector(v.backward.ClickDetector) end
+			end
+		end)
+	end
 end
 
 function stopAllCarts()
@@ -98,7 +98,7 @@ function moveAllCarts()
 end 
 
 function explodeAllCarts()
-    for i, v in pairs(workspace:GetChildren()) do
+	for i, v in pairs(workspace:GetChildren()) do
 		pcall(function()
 			if v.Name:match("Cart") then
 				if v:FindFirstChild("explode") then fireclickdetector(v.explode.ClickDetector) end
@@ -162,7 +162,7 @@ function spawnAllCarts()
 end
 
 function spawnBombCarts()
-for i, v in pairs(workspace:GetChildren()) do
+	for i, v in pairs(workspace:GetChildren()) do
 		pcall(function()
 			if v.Name:match("bombrespawnerply") then
 				if v:FindFirstChild("respawn") then
@@ -186,49 +186,49 @@ function getAllCoins()
 		game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").coinspawner.hardcoins.PlayCoin.Handle.CFrame
 		game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = yes
 		for _, v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-	v.Parent = game.Players.LocalPlayer.Character
-	v:Activate()
-	end
+			v.Parent = game.Players.LocalPlayer.Character
+			v:Activate()
+		end
 	end)
 	wait(3)
 	function b11()
-				--fatfatfat
-				bv11 = b11
-				spawn(function()
-					while bv11 == true do wait()
-						pcall(function()
-							if game:GetService("Workspace")[game.Players.LocalPlayer.Name] then
-								wait(.0)
+		--fatfatfat
+		bv11 = b11
+		spawn(function()
+			while bv11 == true do wait()
+				pcall(function()
+					if game:GetService("Workspace")[game.Players.LocalPlayer.Name] then
+						wait(.0)
 						for i,v in pairs(game:GetService("Workspace")[game.Players.LocalPlayer.Name]:GetDescendants()) do
 							if v.Name == "Config" then
-						a = require(v)
-						a.ReloadTime = 0
+								a = require(v)
+								a.ReloadTime = 0
 							end
 						end
 					end
-					end)
-					end
 				end)
-				end
+			end
+		end)
+	end
 
 	if game.Players.LocalPlayer.Character.Humanoid.RigType == "R15" then
-	game.Players.LocalPlayer.Character.Humanoid.RigType = "R6" else
-	game.Players.LocalPlayer.Character.Humanoid.RigType = "R15"
+		game.Players.LocalPlayer.Character.Humanoid.RigType = "R6" else
+		game.Players.LocalPlayer.Character.Humanoid.RigType = "R15"
 	end
 	game:GetService('StarterGui'):SetCore('ResetButtonCallback',true)
 	game.Players.LocalPlayer.Character:BreakJoints()
 	game.Players.LocalPlayer.Character.Humanoid.Health = 0
 	repeat 
-	if game.Players.LocalPlayer.Character.Humanoid.RigType == "R15" then
-	game.Players.LocalPlayer.Character.Humanoid.RigType = "R6" else
-	game.Players.LocalPlayer.Character.Humanoid.RigType = "R15"
-	end
+		if game.Players.LocalPlayer.Character.Humanoid.RigType == "R15" then
+			game.Players.LocalPlayer.Character.Humanoid.RigType = "R6" else
+			game.Players.LocalPlayer.Character.Humanoid.RigType = "R15"
+		end
 
 	until wait(0.0000001)
 
 	if game.Players.LocalPlayer.Character.Humanoid.RigType == "R15" then
-	game.Players.LocalPlayer.Character.Humanoid.RigType = "R6" else
-	game.Players.LocalPlayer.Character.Humanoid.RigType = "R15"
+		game.Players.LocalPlayer.Character.Humanoid.RigType = "R6" else
+		game.Players.LocalPlayer.Character.Humanoid.RigType = "R15"
 	end
 end
 
@@ -237,8 +237,8 @@ function toggleAllGates()
 		pcall(function()
 			if v.Name:match("crossing") then
 				if v:FindFirstChild("Button") then
-				    firetouchinterest(Players.LocalPlayer.Character.HumanoidRootPart, v.Button, 1)
-				    firetouchinterest(Players.LocalPlayer.Character.HumanoidRootPart, v.Button, 0)
+					firetouchinterest(Players.LocalPlayer.Character.HumanoidRootPart, v.Button, 1)
+					firetouchinterest(Players.LocalPlayer.Character.HumanoidRootPart, v.Button, 0)
 				end
 			end
 		end)
@@ -324,13 +324,13 @@ end)
 BombCarts:AddButton("Move All Carts", moveAllCarts)
 
 BombCarts:AddSwitch("Spam Move All Carts", function(t)
-    spamMove = t
+	spamMove = t
 end)
 
 BombCarts:AddButton("Explode All Carts", explodeAllCarts)
 
 BombCarts:AddSwitch("Spam Explode All Carts", function(t)
-    spamExplode = t
+	spamExplode = t
 end)
 
 BombCarts:AddButton("Spawn Bomb Carts", spawnBombCarts)
@@ -340,15 +340,15 @@ BombCarts:AddSwitch("Spam Spawn Bomb Carts", function(v)
 end)
 
 BombCarts:AddSlider("Spam Interval", function(v)
-    bombInterval = v
+	bombInterval = v
 end, {min = 0, max = 10})
 
 spawn(function()
-    while wait(bombInterval) do
-        if spamMove then moveAllCarts() end
-        if spamExplode then explodeAllCarts() end
-	if spamBombs then spawnBombCarts() end
-    end
+	while wait(bombInterval) do
+		if spamMove then moveAllCarts() end
+		if spamExplode then explodeAllCarts() end
+		if spamBombs then spawnBombCarts() end
+	end
 end)
 
 Gates:AddButton("Toggle All Gates", toggleAllGates)
