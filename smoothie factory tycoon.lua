@@ -60,7 +60,7 @@ init:AddButton({Name = "Initialize Plot",Callback = function()
 			end})
 
 			game:GetService("RunService").Heartbeat:Connect(function()
-				if fc == true then
+				if adrop == true then
 					local dropfolder = game.Workspace.RandomCrateDropsFolder
 for i, v in pairs(dropfolder:GetDescendants()) do
 	if v.ClassName == "TouchTransmitter" then 
