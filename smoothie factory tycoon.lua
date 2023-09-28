@@ -1,4 +1,3 @@
-
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Window = OrionLib:MakeWindow({Name = "Statue Hub", HidePremium = false, SaveConfig = true, ConfigFolder = "Statue Hub"})
 local Tab = Window:MakeTab({Name = "Farming",Icon = "rbxassetid://4483345998",PremiumOnly = false})
@@ -10,6 +9,7 @@ local aj --Auto Jar
 local ab --Auto Blender
 local ac --Auto Crate
 local abuy --Auto Buy
+local adrop -- Auto Drop
 local fc --Fast Arm 
 
 init:AddButton({Name = "Initialize Plot",Callback = function()
@@ -38,6 +38,10 @@ init:AddButton({Name = "Initialize Plot",Callback = function()
 				ab = Value
 			end})
 
+			Tab:AddToggle({Name = "Auto Drops",Default = false,Callback = function(Value)
+				adrop = Value
+			end})
+
 			Tab:AddToggle({Name = "Fast Arm",Default = false,Callback = function(Value)
 				fc = Value
 			end})
@@ -57,6 +61,19 @@ init:AddButton({Name = "Initialize Plot",Callback = function()
 
 			game:GetService("RunService").Heartbeat:Connect(function()
 				if fc == true then
+					local dropfolder = game.Workspace.RandomCrateDropsFolder
+for i, v in pairs(dropfolder:GetDescendants()) do
+	if v.ClassName == "TouchTransmitter" then 
+		local characterpart = game.Players.LocalPlayer.Character.PrimaryPart
+		firetouchinterest(v.Parent, characterpart, 0)
+		firetouchinterest(v.Parent, characterpart, 1)
+	end
+end
+				end
+			end)
+
+			game:GetService("RunService").Heartbeat:Connect(function()
+				if adrop == true then
 					game:GetService("ReplicatedStorage").Remotes.Event.Animations.moveArm:FireServer()
 				end
 			end)
@@ -90,7 +107,7 @@ init:AddButton({Name = "Initialize Plot",Callback = function()
 			game:GetService("RunService").Heartbeat:Connect(function()
 				if ab == true then
 					for i, v in pairs(plot:GetDescendants()) do
-						if v.Name == "ActivateBlender" and task.wait(.5) then
+						if v.Name == "ActivateBlender" and task.wait(.05) then
 							if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart then
 								game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.Parent.CFrame + Vector3.new(-1,2,2)
 								fireproximityprompt(v)
