@@ -32,3 +32,9 @@ game:GetService("ReplicatedStorage").GameClient.Events.RemoteEvent.EventEggEvent
 local ohString1 = "2"
 
 game:GetService("ReplicatedStorage").GameClient.Events.RemoteEvent.DailyEvent:FireServer(ohString1)
+
+for _, v in pairs(game.ReplicatedStorage.Codes:GetDescendants()) do
+	if v.Name == "Code" then
+		game:GetService("ReplicatedStorage").GameClient.Events.RemoteEvent.CodeEventSR:FireServer(v.Value)
+	end
+end
