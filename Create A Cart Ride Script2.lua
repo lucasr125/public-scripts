@@ -50,7 +50,7 @@ ReplicatedStorage.Events.ClaimCart:InvokeServer((function()
 					end;
 				end);
 				local CartGiver = workspace.CartRideWorkspace.Objects.CartGiver;
-				Animate(Player.Character.HumanoidRootPart, 5, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut, {CFrame = CFrame.new(CartGiver.WorldPivot.Position)});
+				Animate(Player.Character.HumanoidRootPart, 1, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut, {CFrame = CFrame.new(CartGiver.WorldPivot.Position)});
 				local RenderedPart = false;
 				while task.wait() do
 					for Int, Value in pairs(CartGiver:GetDescendants()) do
