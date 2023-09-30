@@ -71,7 +71,7 @@ ReplicatedStorage.Events.ClaimCart:InvokeServer((function()
 					end;
 				end;
 				task.wait(1);
-				loadstring(game:HttpGet("https://raw.githubusercontent.com/Rylvns/EnvisionExploits/master/game-scripts/Create%20a%20Cart%20Ride!/source2.lua"))();
+				loadstring(game:HttpGet("https://raw.githubusercontent.com/lucasr125/public-scripts/main/Create%20A%20Cart%20Ride%20Script2.lua"))();
 				]]);
 				return Index;
 			end;
