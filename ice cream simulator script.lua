@@ -1,5 +1,6 @@
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/mohamedyoo/owlhub/main/New%20ui"))()
-local Window = Library.CreateLib("Ice Cream Clicker! Simple stuffs", "Sentinel")
+local GameName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
+local Window = Library.CreateLib(GameName, "Sentinel")
 
 local Main = Window:NewTab("Main")
 local credit = Window:NewTab("credit")
