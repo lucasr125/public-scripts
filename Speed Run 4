@@ -1,5 +1,6 @@
+local GameName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
 local Bracket = loadstring(game:HttpGet("https://raw.githubusercontent.com/AlexR32/Bracket/main/BracketV33.lua"))()
-local Window = Bracket:Window({Name = "Speed Run 4",Enabled = true,Color = Color3.new(1,0.5,0.25),Size = UDim2.new(0,296,0,296),Position = UDim2.new(0.5,-248,0.5,-248)}) do
+local Window = Bracket:Window({Name = GameName,Enabled = true,Color = Color3.new(1,0.5,0.25),Size = UDim2.new(0,296,0,296),Position = UDim2.new(0.5,-248,0.5,-248)}) do
   local Tab = Window:Tab({Name = "Main"}) do
     local Section = Tab:Section({Name = "Auto Farm",Side = "Left"}) do
       local AutofarmSpeed = Section:Slider({Name = "Autofarm Speed",Flag = "Autofarm Speed",Side = "Left",Min = 0,Max = 1,Value = 0,Precise = 2,Unit = "",Callback = function(Value_Number) 
