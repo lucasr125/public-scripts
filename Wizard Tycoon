@@ -4,8 +4,9 @@ getgenv().boxESP = false
 getgenv().esp_loaded = false
 getgenv().Visibility = false
 
+local GameName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/mohamedyoo/owlhub/main/New%20ui"))()
-local Window = Library.CreateLib("Wizard Tycoon - 2 Player", "Sentinel")
+local Window = Library.CreateLib(GameName, "Sentinel")
 
 local Tab = Window:NewTab("Main")
 
