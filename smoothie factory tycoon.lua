@@ -1,4 +1,5 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local GameName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
 OrionLib:MakeNotification({Name = "Warn!",Content = "Claim a plot to load the script.",Image = "rbxassetid://4483345998",Time = 5})
 
 local plot
@@ -10,7 +11,7 @@ repeat for i, v in pairs(game:GetService("Workspace").Tycoons:GetDescendants()) 
 	wait(.5)
 until plot ~= nil
 
-local Window = OrionLib:MakeWindow({Name = "Statue Hub", HidePremium = false, SaveConfig = true, ConfigFolder = "Statue Hub"})
+local Window = OrionLib:MakeWindow({Name = GameName, HidePremium = false, SaveConfig = true, ConfigFolder = "Statue Hub"})
 local Tab = Window:MakeTab({Name = "Farming",Icon = "rbxassetid://4483345998",PremiumOnly = false})
 
 local ao --Auto Obby
