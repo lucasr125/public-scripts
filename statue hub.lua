@@ -1,6 +1,7 @@
+local GameName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
 if game.PlaceId == 147848991 then -- Be a Parkour Ninja
 	local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-	local Window = OrionLib:MakeWindow({Name = "Statue Hub", HidePremium = false, SaveConfig = true, ConfigFolder = "Statue Hub"})
+	local Window = OrionLib:MakeWindow({Name = GameName, HidePremium = false, SaveConfig = true, ConfigFolder = "Statue Hub"})
 
 	local Tab = Window:MakeTab({Name = "Combat",Icon = "rbxassetid://4483345998",PremiumOnly = false})
 	local M = Window:MakeTab({Name = "Movement",Icon = "rbxassetid://4483345998",PremiumOnly = false})
@@ -146,7 +147,7 @@ end
 
 if game.GameId == 648454481 then -- idk what is this
 	local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-	local Window = OrionLib:MakeWindow({Name = "Statue Hub", HidePremium = false, SaveConfig = true, ConfigFolder = "Statue Hub"})
+	local Window = OrionLib:MakeWindow({Name = GameName, HidePremium = false, SaveConfig = true, ConfigFolder = "Statue Hub"})
 	_G.Speedamt = 0
 	local Speed = false
 	local wow = Instance.new("Part")
@@ -275,7 +276,7 @@ end
 
 if game.PlaceId == 10219766033 then
 	local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-	local Window = OrionLib:MakeWindow({Name = "Statue Hub", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+	local Window = OrionLib:MakeWindow({Name = GameName, HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
 	local ka = false
 	local ii = false
 	local esp = false
@@ -602,7 +603,7 @@ if game.PlaceId == 9000622508 then
 end
 if game.PlaceId == 9992339729 then
 	local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-	local Window = OrionLib:MakeWindow({Name = "Statue Hub", HidePremium = false, SaveConfig = true, ConfigFolder = "Nic Hub"})
+	local Window = OrionLib:MakeWindow({Name = GameName, HidePremium = false, SaveConfig = true, ConfigFolder = "Nic Hub"})
 	local Tab = Window:MakeTab({
 		Name = "Blatant",
 		Icon = "rbxassetid://4483345998",
@@ -785,7 +786,7 @@ if game.PlaceId == 9992339729 then
 
 elseif game.PlaceId == 10041108328 then
 	local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-	local Window = OrionLib:MakeWindow({Name = "Statue Hub", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+	local Window = OrionLib:MakeWindow({Name = GameName, HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
 	local Autopickup = false
 	local Autostomp = false
 
@@ -864,7 +865,7 @@ elseif game.PlaceId == 10041108328 then
 
 elseif game.PlaceId == 10858274778 then
 	local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-	local Window = OrionLib:MakeWindow({Name = "Statue Hub", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+	local Window = OrionLib:MakeWindow({Name = GameName, HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
 	local nf = false
 	_G.cs = 0
 	local nb = false
@@ -1177,7 +1178,7 @@ elseif game.PlaceId == 10858274778 then
 
 elseif game.PlaceId == 10676523834 then
 	local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-	local Window = OrionLib:MakeWindow({Name = "Statue Hub", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+	local Window = OrionLib:MakeWindow({Name = GameName, HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
 	local ac = false
 	local af = false
 	local scrasher = false
@@ -1292,7 +1293,7 @@ elseif game.PlaceId == 10676523834 then
 	end)
 elseif game.PlaceId == 9649680488 then
 	local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-	local Window = OrionLib:MakeWindow({Name = "Statue Hub", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+	local Window = OrionLib:MakeWindow({Name = GameName, HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
 	local ac = false
 	local af = false
 	local scrasher = false
@@ -1366,7 +1367,7 @@ end
 
 if game.PlaceId == 2823503928  then
 	local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/GreenDeno/Venyx-UI-Library/main/source.lua"))()
-	local venyx = library.new("Statue Hub", 5013109572)
+	local venyx = library.new(GameName, 5013109572)
 
 	local autofarm = false
 
@@ -2193,7 +2194,7 @@ if game.PlaceId == 9648883891 then
 
 	-- init
 	local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/GreenDeno/Venyx-UI-Library/main/source.lua"))()
-	local venyx = library.new("Statue Hub", 5013109572)
+	local venyx = library.new(GameName, 5013109572)
 	local AutoCollect = false
 	local ab = false
 	-- themes
@@ -2309,7 +2310,7 @@ if game.PlaceId == 10347946161 then
 	wait(1)
 	-- init
 	local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/GreenDeno/Venyx-UI-Library/main/source.lua"))()
-	local venyx = library.new("Statue Hub", 5013109572)
+	local venyx = library.new(GameName, 5013109572)
 	local AutoCollect = false
 	local nftsniper = false
 	local excfq = 2
@@ -2400,7 +2401,7 @@ if game.PlaceId == 9328724748 then
 	wait(1)
 	-- init
 	local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/GreenDeno/Venyx-UI-Library/main/source.lua"))()
-	local venyx = library.new("Statue Hub", 5013109572)
+	local venyx = library.new(GameName, 5013109572)
 	local autoclick = false
 	local nftsniper = false
 	local excfq = 2
@@ -2513,7 +2514,7 @@ end
 
 if game.PlaceId == 10596950867 then
 	local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/GreenDeno/Venyx-UI-Library/main/source.lua"))()
-	local venyx = library.new("Statue Hub", 5013109572)
+	local venyx = library.new(GameName, 5013109572)
 
 	-- themes
 	local themes = {
@@ -2904,7 +2905,7 @@ if game.PlaceId == 3652625463 then
 	wait(2)
 	-- init
 	local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/GreenDeno/Venyx-UI-Library/main/source.lua"))()
-	local venyx = library.new("Statue Hub", 5013109572)
+	local venyx = library.new(GameName, 5013109572)
 	local af = false
 	-- themes
 	local themes = {
@@ -2975,7 +2976,7 @@ if game.PlaceId == 8704181738 then
 
 	-- init
 	local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/GreenDeno/Venyx-UI-Library/main/source.lua"))()
-	local venyx = library.new("Statue Hub", 5013109572)
+	local venyx = library.new(GameName, 5013109572)
 
 	-- themes
 	local themes = {
@@ -3096,7 +3097,7 @@ if game.PlaceId == 8704181738 then
 end
 if game.PlaceId == 10858274778 then
 	local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/GreenDeno/Venyx-UI-Library/main/source.lua"))()
-	local venyx = library.new("Statue Hub", 5013109572)
+	local venyx = library.new(GameName, 5013109572)
 
 	-- themes
 	local themes = {
@@ -3483,7 +3484,7 @@ end
 wait(.5)
 if game.PlaceId == 9980179145 then
 	local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/GreenDeno/Venyx-UI-Library/main/source.lua"))()
-	local venyx = library.new("Statue Hub", 5013109572)
+	local venyx = library.new(GameName, 5013109572)
 	wait(2)
 	-- themes
 	local themes = {
@@ -3634,7 +3635,7 @@ if game.PlaceId == 10429088113 then
 
 	-- init
 	local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/GreenDeno/Venyx-UI-Library/main/source.lua"))()
-	local venyx = library.new("Statue Hub", 5013109572)
+	local venyx = library.new(GameName, 5013109572)
 	wait(2)
 
 	-- themes
@@ -3726,7 +3727,7 @@ if game.PlaceId == 537413528 then
 
 	-- init
 	local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/GreenDeno/Venyx-UI-Library/main/source.lua"))()
-	local venyx = library.new("Statue Hub", 5013109572)
+	local venyx = library.new(GameName, 5013109572)
 	wait(2)
 
 	-- themes
@@ -3977,7 +3978,7 @@ if game.PlaceId == 9585537847 then
 
 	-- init
 	local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/GreenDeno/Venyx-UI-Library/main/source.lua"))()
-	local venyx = library.new("Statue Hub", 5013109572)
+	local venyx = library.new(GameName, 5013109572)
 	wait(2)
 
 	-- themes
@@ -4059,7 +4060,7 @@ if gameid == 10524502174 then
 
 	-- init
 	local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/GreenDeno/Venyx-UI-Library/main/source.lua"))()
-	local venyx = library.new("Statue Hub", 5013109572)
+	local venyx = library.new(GameName, 5013109572)
 
 	-- themes
 	local themes = {
@@ -4186,7 +4187,7 @@ if gameid == 9284097280 then
 
 	-- init
 	local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/GreenDeno/Venyx-UI-Library/main/source.lua"))()
-	local venyx = library.new("Statue Hub", 5013109572)
+	local venyx = library.new(GameName, 5013109572)
 
 	-- themes
 	local themes = {
@@ -4268,7 +4269,7 @@ if gameid == 9872472334 then
 
 	-- init
 	local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/GreenDeno/Venyx-UI-Library/main/source.lua"))()
-	local venyx = library.new("Statue Hub", 5013109572)
+	local venyx = library.new(GameName, 5013109572)
 	wait(2)
 	-- themes
 	local themes = {
@@ -4512,7 +4513,7 @@ end
 local gameid = game.PlaceId
 if gameid == 9285238704 then
 	local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/GreenDeno/Venyx-UI-Library/main/source.lua"))()
-	local venyx = library.new("Statue Hub", 5013109572)
+	local venyx = library.new(GameName, 5013109572)
 	local autowintoggle = false
 
 	local themes = {
@@ -4597,7 +4598,7 @@ if gameid == 6839171747 then
 	local fesp = false
 	local besp = false
 	local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/GreenDeno/Venyx-UI-Library/main/source.lua"))()
-	local venyx = library.new("Statue Hub", 5013109572)
+	local venyx = library.new(GameName, 5013109572)
 
 	local autoopen = false
 
