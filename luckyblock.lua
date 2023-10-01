@@ -1,6 +1,6 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local GameName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
-local Window = OrionLib:MakeWindow({Name = GameName, HidePremium = false, SaveConfig = true, ConfigFolder = "Statue Hub"})
+local Window = OrionLib:MakeWindow({Name = GameName, HidePremium = false, SaveConfig = true, ConfigFolder = "Orion Library"})
 local Tab = Window:MakeTab({Name = "Main",Icon = "rbxassetid://4483345998",PremiumOnly = false})
 
 Tab:AddButton({Name = "Spawn Lucky Block",Callback = function()
@@ -22,4 +22,3 @@ end})
 Tab:AddButton({Name = "Spawn Galaxy Block",Callback = function()
 	game:GetService("ReplicatedStorage").SpawnGalaxyBlock:FireServer()
 end})
-
