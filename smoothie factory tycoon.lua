@@ -21,6 +21,7 @@ local ac --Auto Crate
 local abuy --Auto Buy
 local abuyupd -- Auto Buy Upgraders
 local adrop -- Auto Drop
+local arebirth -- Auto Rebirth
 local fc --Fast Arm 
 
 OrionLib:MakeNotification({Name = "Successfully Initialized Plot!",Content = "All farming features are now available",Image = "rbxassetid://4483345998",Time = 5})
@@ -51,6 +52,10 @@ end})
 
 Tab:AddToggle({Name = "Auto Drops",Default = false,Callback = function(Value)
 	adrop = Value
+end})
+
+Tab:AddToggle({Name = "Auto Rebirth",Default = false,Callback = function(Value)
+	arebirth = Value
 end})
 
 Tab:AddToggle({Name = "Fast Arm",Default = false,Callback = function(Value)
@@ -126,6 +131,16 @@ game:GetService("RunService").Heartbeat:Connect(function()
 					fireproximityprompt(v)
 				end
 			end
+		end
+	end
+end)
+
+game:GetService("RunService").Heartbeat:Connect(function()
+	if arebirth == true then
+		firetouchinterest(plot.RebirthButtons.RebirthButton.Button, game:GetService("Players").LocalPlayer.Character.HumanoidRootPart, 1)
+		firetouchinterest(plot.RebirthButtons.RebirthButton.Button, game:GetService("Players").LocalPlayer.Character.HumanoidRootPart, 0)
+		if game.Players.LocalPlayer.PlayerGui.MainGui.RebirthUi.Visible == true then
+			firesignal(game.Players.LocalPlayer.PlayerGui.MainGui.RebirthUi.Rebirth.MouseButton1Click)
 		end
 	end
 end)
