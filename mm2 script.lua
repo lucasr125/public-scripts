@@ -1,6 +1,7 @@
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+local GameName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
 local Window = Rayfield:CreateWindow({
-	Name = "Murder Mystery 2 OP",
+	Name = GameName,
 	LoadingTitle = "Made by freScript on scriptblox",
 	LoadingSubtitle = "by frescript",
 	ConfigurationSaving = {
