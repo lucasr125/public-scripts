@@ -124,11 +124,14 @@ end)
 game:GetService("RunService").Heartbeat:Connect(function()
 	if ab == true then
 		for i, v in pairs(plot:GetDescendants()) do
-			if v.Name == "ActivateBlender" and task.wait(.05) then
+			if v.Name == "ActivateBlender" and task.wait(.05) and v.Parent.Parent.Parent.ActivationLight.Color ~= Color3.fromRGB(0, 255, 0) then
 				if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart then
 					game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.Parent.CFrame + Vector3.new(-1,2,2)
-					task.wait(.05)
-					fireproximityprompt(v)
+					repeat
+						task.wait()
+						fireproximityprompt(v)
+					until
+						v.Parent.Parent.Parent.ActivationLight.Color == Color3.fromRGB(0, 255, 0)
 				end
 			end
 		end
