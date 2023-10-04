@@ -95,14 +95,16 @@ game:GetService("RunService").Heartbeat:Connect(function()
 end)
 
 game:GetService("RunService").Heartbeat:Connect(function()
-	if aj == true and task.wait(1) then
+	if aj == true then
 		for i, v in pairs(plot:GetDescendants()) do
 			if v.Name == "OpenDoorPrompt" and v.Parent.Parent.Parent.Parent.Name == "JarFactory" then
+				if v.Parent.Cooldown.TextLabel.Text == "0" then
 				if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart then
 					game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.Parent.CFrame + Vector3.new(-1,2,2)
 					print(v.Parent.Parent.Parent.Parent)
 					fireproximityprompt(v)
 				end
+			end
 			end
 		end
 	end
