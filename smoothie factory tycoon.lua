@@ -11,6 +11,7 @@ repeat for i, v in pairs(game:GetService("Workspace").Tycoons:GetDescendants()) 
 	wait(.5)
 until plot ~= nil
 
+local localplr = game.Players.LocalPlayer
 local Window = OrionLib:MakeWindow({Name = GameName, HidePremium = false, SaveConfig = true, ConfigFolder = "Statue Hub"})
 local Tab = Window:MakeTab({Name = "Farming",Icon = "rbxassetid://4483345998",PremiumOnly = false})
 
@@ -76,7 +77,7 @@ Tab:AddToggle({Name = "Auto Jar",Default = false,Callback = function(Value)
 		if aj == true then
 				for i, v in pairs(plot:GetDescendants()) do
 			if v.Name == "OpenDoorPrompt" and v.Parent.Parent.Parent.Parent.Name == "JarFactory" then
-				if tostring(v.Parent.Cooldown.TextLabel.Text) == "0" then
+				if tostring(v.Parent.Cooldown.TextLabel.Text) == "0" or tostring(v.Parent.Cooldown.TextLabel.Text) == "?" then
 				if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart then
 					game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.Parent.CFrame + Vector3.new(-1,2,2)
 					print(v.Parent.Parent.Parent.Parent)
@@ -84,6 +85,17 @@ Tab:AddToggle({Name = "Auto Jar",Default = false,Callback = function(Value)
 				end
 			end
 			end
+			if localplr.leaderstats.Rebirths.Value >= 5 then
+				if v.Name == "OpenDoorPrompt" and v.Parent.Parent.Parent.Parent.Name == "JarFactory2" then
+				if tostring(v.Parent.Cooldown.TextLabel.Text) == "0" or tostring(v.Parent.Cooldown.TextLabel.Text) == "?" then
+				if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart then
+					game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.Parent.CFrame + Vector3.new(-1,2,2)
+					print(v.Parent.Parent.Parent.Parent)
+					fireproximityprompt(v)
+				end
+			end
+			end
+		end
 		end
 		end
 	task.wait()
