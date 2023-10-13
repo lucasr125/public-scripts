@@ -102,19 +102,23 @@ Tab:AddToggle({Name = "Auto Jar",Default = false,Callback = function(Value)
 	end
 end})
 
+
+-- a bit broken
 Tab:AddToggle({Name = "Auto Crate",Default = false,Callback = function(Value)
 	ac = Value
 	while ac do
-		if  ac == true and plot.ProcessingMachines.CratePackager.CratePackager:FindFirstChild("Crates") then
+		if ac == true and plot.ProcessingMachines.CratePackager.CratePackager:FindFirstChild("Crates") then
 		for i, v in pairs(plot:GetDescendants()) do
-			if v.Name == "OpenDoorPrompt" and v.Parent.Parent.Parent.Parent.Name == "CratePackager" then
+			if v.Name == "OpenDoorPrompt" and v.Parent.Parent.Parent.Parent.Name == "CratePackager" and (#v.Parent.Parent.Parent.Parent.Crates.Crate.Jars:GetChildren()) >= 8 then
 				if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart then
 					game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = plot.ProcessingMachines.CratePackager.CratePackager.Button.Button.CFrame + Vector3.new(-1,2,2)
-					fireproximityprompt(v)
+					repeat fireproximityprompt(v)
+					task.wait() 
+					until not v.Parent.Parent.Parent.Parent.Crates:FindFirstChild("Crate")
 				end
 			end
 		end
-	end
+		end
 	task.wait()
 	end
 end})
