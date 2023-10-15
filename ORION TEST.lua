@@ -129,14 +129,14 @@ local function MakeDraggable(DragPoint, Main)
 end    
 
 local function Create(Name, Properties, Children)
-	local Object = Instance.new(Name)
-	for i, v in next, Properties or {} do
-		Object[i] = v
-	end
-	for i, v in next, Children or {} do
-		v.Parent = Object
-	end
-	return Object
+    local Object = Instance.new(Name)
+    for i, v in pairs(Properties or {}) do
+        Object[i] = v
+    end
+    for i, v in pairs(Children or {}) do
+        v.Parent = Object
+    end
+    return Object
 end
 
 local function CreateElement(ElementName, ElementFunction)
