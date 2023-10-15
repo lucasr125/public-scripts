@@ -1198,6 +1198,7 @@ function OrionLib:MakeWindow(WindowConfig)
 						table.clear(Dropdown.Buttons)
 					end
 					Dropdown.Options = Options
+					print(type(Dropdown.Options))
 					AddOptions(Dropdown.Options)
 				end  
 
