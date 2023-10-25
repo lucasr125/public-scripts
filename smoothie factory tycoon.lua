@@ -30,7 +30,7 @@ OrionLib:MakeNotification({Name = "Successfully Initialized Plot!",Content = "Al
 Tab:AddToggle({Name = "Auto Obby",Default = false,Callback = function(Value)
 	ao = Value
 	while ao do
-		if task.wait(1) and ao == true and game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.Head then
+		if wait(1) and ao == true and game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.Head then
 		firetouchinterest(game:GetService("Players").LocalPlayer.Character.Head, game:GetService("Workspace").Obbies.HardObby.Finish.Button, 0)
 		firetouchinterest(game:GetService("Players").LocalPlayer.Character.Head, game:GetService("Workspace").Obbies.HardObby.Finish.Button, 1)
 		firetouchinterest(game:GetService("Players").LocalPlayer.Character.Head, game:GetService("Workspace").Obbies.EasyObby.Finish.Button, 0)
@@ -43,7 +43,7 @@ Tab:AddToggle({Name = "Auto Buy",Default = false,Callback = function(Value)
 	abuy = Value
 	while abuy do
 		if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart then
-		if abuy == true and task.wait() then
+		if abuy == true and wait() then
 			for i, v in pairs(plot.PurchaseButtons:GetDescendants()) do
 				if v.Name == "Button" and v:FindFirstChild("TouchInterest") and v.Parent.Name ~= "Rainbow Upgrader" and v.Parent.Name ~= "Rainbow Gem Upgrader" and v.Parent.Name ~= "Toggle Door Gamepass" and v.Parent.Name ~= "Toggle Door Gamepass 2" and v.Parent.Name ~= "Gold Blender" and v.Parent.Name ~= "Gold Dropper 1" and v.Parent.Name ~= "Gold Dropper 2" and v.Parent.Name ~= "Gold Dropper 3" then
 					firetouchinterest(v, game:GetService("Players").LocalPlayer.Character.HumanoidRootPart, 0)
@@ -59,7 +59,7 @@ Tab:AddToggle({Name = "Auto Buy Upgraders",Default = false,Callback = function(V
 	abuyupd = Value
 	while abuyupd do
 		if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart then
-		if abuyupd == true and task.wait() then
+		if abuyupd == true and wait() then
 			for i, v in pairs(plot.UpgradeButtons:GetDescendants()) do
 				if v.Name == "Button" and v:FindFirstChild("TouchInterest") then
 					firetouchinterest(v, game:GetService("Players").LocalPlayer.Character.HumanoidRootPart, 0)
@@ -98,7 +98,7 @@ Tab:AddToggle({Name = "Auto Jar",Default = false,Callback = function(Value)
 		end
 		end
 		end
-	task.wait()
+	wait()
 	end
 end})
 
@@ -113,13 +113,13 @@ Tab:AddToggle({Name = "Auto Crate",Default = false,Callback = function(Value)
 				if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart then
 					game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = plot.ProcessingMachines.CratePackager.CratePackager.Button.Button.CFrame + Vector3.new(-1,2,2)
 					repeat fireproximityprompt(v)
-					task.wait() 
+					wait() 
 					until not v.Parent.Parent.Parent.Parent.Crates:FindFirstChild("Crate")
 				end
 			end
 		end
 		end
-	task.wait()
+	wait()
 	end
 end})
 
@@ -128,11 +128,11 @@ Tab:AddToggle({Name = "Auto Blend",Default = false,Callback = function(Value)
 	while ab do
 		if ab == true then
 		for i, v in pairs(plot:GetDescendants()) do
-			if v.Name == "ActivateBlender" and task.wait(.05) and v.Parent.Parent.Parent.ActivationLight.Color ~= Color3.fromRGB(0, 255, 0) and v.Parent.Parent:FindFirstChild("Arrow") then
+			if v.Name == "ActivateBlender" and wait(.05) and v.Parent.Parent.Parent.ActivationLight.Color ~= Color3.fromRGB(0, 255, 0) and v.Parent.Parent:FindFirstChild("Arrow") then
 				if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart then
 					game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.Parent.CFrame + Vector3.new(-1,2,2)
 					repeat
-						task.wait()
+						wait()
 						fireproximityprompt(v)
 					until
 						v.Parent.Parent.Parent.ActivationLight.Color == Color3.fromRGB(0, 255, 0)
@@ -146,7 +146,7 @@ end})
 Tab:AddToggle({Name = "Auto Drops",Default = false,Callback = function(Value)
 	adrop = Value
 	while adrop do
-		task.wait()
+		wait()
 		if adrop == true then
 			local dropfolder = game.Workspace.RandomCrateDropsFolder
 			for i, v in pairs(dropfolder:GetDescendants()) do
@@ -163,7 +163,7 @@ end})
 Tab:AddToggle({Name = "Auto Rebirth",Default = false,Callback = function(Value)
 	arebirth = Value
 	while arebirth do
-		task.wait()
+		wait()
 		if arebirth == true then
 			local success, err = pcall(function()
 firetouchinterest(plot.RebirthButtons.RebirthButton.Button, game:GetService("Players").LocalPlayer.Character.HumanoidRootPart, 1)
@@ -185,7 +185,7 @@ Tab:AddToggle({Name = "Fast Arm",Default = false,Callback = function(Value)
 		if fc == true then
 		game:GetService("ReplicatedStorage").Remotes.Event.Animations.moveArm:FireServer()
 	end
-	task.wait()
+	wait()
 	end
 end})
 
