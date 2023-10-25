@@ -189,7 +189,7 @@ Tab:AddToggle({Name = "Fast Arm",Default = false,Callback = function(Value)
 	end
 end})
 
-Tab:AddButton({Name = "Redeem All Code",Callback = function()
+Tab:AddButton({Name = "Redeem All Code ( +3 Codes )",Callback = function()
     game:GetService("Players").LocalPlayer.PlayerGui.MainGui.Settings.Codes.RedeemCodeScript.Remote:FireServer("PartyTime!")
 	game:GetService("Players").LocalPlayer.PlayerGui.MainGui.Settings.Codes.RedeemCodeScript.Remote:FireServer("1yearfactory!")
 	game:GetService("Players").LocalPlayer.PlayerGui.MainGui.Settings.Codes.RedeemCodeScript.Remote:FireServer("DaveThePodiumMan!")
@@ -201,6 +201,9 @@ Tab:AddButton({Name = "Redeem All Code",Callback = function()
 	game:GetService("Players").LocalPlayer.PlayerGui.MainGui.Settings.Codes.RedeemCodeScript.Remote:FireServer("RedSoilEntry")
 	game:GetService("Players").LocalPlayer.PlayerGui.MainGui.Settings.Codes.RedeemCodeScript.Remote:FireServer("DevPapers")
 	game:GetService("Players").LocalPlayer.PlayerGui.MainGui.Settings.Codes.RedeemCodeScript.Remote:FireServer("johan")
+	game:GetService("Players").LocalPlayer.PlayerGui.MainGui.Settings.Codes.RedeemCodeScript.Remote:FireServer("HauntedSmoothie")
+	game:GetService("Players").LocalPlayer.PlayerGui.MainGui.Settings.Codes.RedeemCodeScript.Remote:FireServer("7Rose10KRebirths")
+	game:GetService("Players").LocalPlayer.PlayerGui.MainGui.Settings.Codes.RedeemCodeScript.Remote:FireServer("25MVisits")
 end})
 
 local ws = Instance.new("ScreenGui")
