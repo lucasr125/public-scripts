@@ -10,9 +10,10 @@ repeat for i, v in pairs(game:GetService("Workspace").Tycoons:GetDescendants()) 
 	end
 	wait(.5)
 until plot ~= nil
+print(plot)
 
 local localplr = game.Players.LocalPlayer
-local Window = OrionLib:MakeWindow({Name = GameName, HidePremium = false, SaveConfig = true, ConfigFolder = "Statue Hub"})
+local Window = OrionLib:MakeWindow({Name = GameName, HidePremium = false, SaveConfig = true, ConfigFolder = GameName})
 local Tab = Window:MakeTab({Name = "Farming",Icon = "rbxassetid://4483345998",PremiumOnly = false})
 
 local ao --Auto Obby
