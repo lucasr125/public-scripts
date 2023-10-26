@@ -13,7 +13,7 @@ until plot ~= nil
 print(plot)
 
 local localplr = game.Players.LocalPlayer
-local Window = OrionLib:MakeWindow({Name = GameName, HidePremium = false, SaveConfig = true, ConfigFolder = GameName})
+local Window = OrionLib:MakeWindow({Name = GameName, HidePremium = false, SaveConfig = true, ConfigFolder = "OrionLib"})
 local Tab = Window:MakeTab({Name = "Farming",Icon = "rbxassetid://4483345998",PremiumOnly = false})
 
 local ao --Auto Obby
