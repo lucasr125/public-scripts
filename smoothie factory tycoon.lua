@@ -76,8 +76,18 @@ Tab:AddToggle({Name = "Auto Jar",Default = false,Callback = function(Value)
 	aj = Value
 	while aj do
 		if aj == true then
-				for i, v in pairs(plot:GetDescendants()) do
+			for i, v in pairs(plot:GetDescendants()) do
 			if v.Name == "OpenDoorPrompt" and v.Parent.Parent.Parent.Parent.Name == "JarFactory" then
+				if tostring(v.Parent.Cooldown.TextLabel.Text) == "0" or tostring(v.Parent.Cooldown.TextLabel.Text) == "?" then
+				if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart then
+					game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.Parent.CFrame + Vector3.new(-1,2,2)
+					print(v.Parent.Parent.Parent.Parent)
+					fireproximityprompt(v)
+				end
+			end
+			end
+						for i, v in pairs(plot:GetDescendants()) do
+			if v.Name == "OpenDoorPrompt" and v.Parent.Parent.Parent.Parent.Name == "HalloweeenJarFactory" then
 				if tostring(v.Parent.Cooldown.TextLabel.Text) == "0" or tostring(v.Parent.Cooldown.TextLabel.Text) == "?" then
 				if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart then
 					game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.Parent.CFrame + Vector3.new(-1,2,2)
