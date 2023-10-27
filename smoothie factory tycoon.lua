@@ -32,11 +32,11 @@ Tab:AddToggle({Name = "Auto Obby",Default = false,Callback = function(Value)
 	ao = Value
 	while ao do
 		if wait(1) and ao == true and game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.Head then
-		firetouchinterest(game:GetService("Players").LocalPlayer.Character.Head, game:GetService("Workspace").Obbies.HardObby.Finish.Button, 0)
-		firetouchinterest(game:GetService("Players").LocalPlayer.Character.Head, game:GetService("Workspace").Obbies.HardObby.Finish.Button, 1)
-		firetouchinterest(game:GetService("Players").LocalPlayer.Character.Head, game:GetService("Workspace").Obbies.EasyObby.Finish.Button, 0)
-		firetouchinterest(game:GetService("Players").LocalPlayer.Character.Head, game:GetService("Workspace").Obbies.EasyObby.Finish.Button, 1)
-	end
+			firetouchinterest(game:GetService("Players").LocalPlayer.Character.Head, game:GetService("Workspace").Obbies.HardObby.Finish.Button, 0)
+			firetouchinterest(game:GetService("Players").LocalPlayer.Character.Head, game:GetService("Workspace").Obbies.HardObby.Finish.Button, 1)
+			firetouchinterest(game:GetService("Players").LocalPlayer.Character.Head, game:GetService("Workspace").Obbies.EasyObby.Finish.Button, 0)
+			firetouchinterest(game:GetService("Players").LocalPlayer.Character.Head, game:GetService("Workspace").Obbies.EasyObby.Finish.Button, 1)
+		end
 	end
 end})
 
@@ -44,15 +44,15 @@ Tab:AddToggle({Name = "Auto Buy",Default = false,Callback = function(Value)
 	abuy = Value
 	while abuy do
 		if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart then
-		if abuy == true and wait() then
-			for i, v in pairs(plot.PurchaseButtons:GetDescendants()) do
-				if v.Name == "Button" and v:FindFirstChild("TouchInterest") and v.Parent.Name ~= "Rainbow Upgrader" and v.Parent.Name ~= "Rainbow Gem Upgrader" and v.Parent.Name ~= "Toggle Door Gamepass" and v.Parent.Name ~= "Toggle Door Gamepass 2" and v.Parent.Name ~= "Gold Blender" and v.Parent.Name ~= "Gold Dropper 1" and v.Parent.Name ~= "Gold Dropper 2" and v.Parent.Name ~= "Gold Dropper 3" then
-					firetouchinterest(v, game:GetService("Players").LocalPlayer.Character.HumanoidRootPart, 0)
-					firetouchinterest(v, game:GetService("Players").LocalPlayer.Character.HumanoidRootPart, 1)
+			if abuy == true and wait() then
+				for i, v in pairs(plot.PurchaseButtons:GetDescendants()) do
+					if v.Name == "Button" and v:FindFirstChild("TouchInterest") and v.Parent.Name ~= "Rainbow Upgrader" and v.Parent.Name ~= "Rainbow Gem Upgrader" and v.Parent.Name ~= "Toggle Door Gamepass" and v.Parent.Name ~= "Toggle Door Gamepass 2" and v.Parent.Name ~= "Toggle Door Gamepass Event" and v.Parent.Name ~= "Gold Blender" and v.Parent.Name ~= "Gold Dropper 1" and v.Parent.Name ~= "Gold Dropper 2" and v.Parent.Name ~= "Gold Dropper 3" then
+						firetouchinterest(v, game:GetService("Players").LocalPlayer.Character.HumanoidRootPart, 0)
+						firetouchinterest(v, game:GetService("Players").LocalPlayer.Character.HumanoidRootPart, 1)
+					end
 				end
 			end
 		end
-	end
 	end
 end})
 
@@ -60,15 +60,15 @@ Tab:AddToggle({Name = "Auto Buy Upgraders",Default = false,Callback = function(V
 	abuyupd = Value
 	while abuyupd do
 		if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart then
-		if abuyupd == true and wait() then
-			for i, v in pairs(plot.UpgradeButtons:GetDescendants()) do
-				if v.Name == "Button" and v:FindFirstChild("TouchInterest") then
-					firetouchinterest(v, game:GetService("Players").LocalPlayer.Character.HumanoidRootPart, 0)
-					firetouchinterest(v, game:GetService("Players").LocalPlayer.Character.HumanoidRootPart, 1)
+			if abuyupd == true and wait() then
+				for i, v in pairs(plot.UpgradeButtons:GetDescendants()) do
+					if v.Name == "Button" and v:FindFirstChild("TouchInterest") then
+						firetouchinterest(v, game:GetService("Players").LocalPlayer.Character.HumanoidRootPart, 0)
+						firetouchinterest(v, game:GetService("Players").LocalPlayer.Character.HumanoidRootPart, 1)
+					end
 				end
 			end
 		end
-	end
 	end
 end})
 
@@ -77,36 +77,37 @@ Tab:AddToggle({Name = "Auto Jar",Default = false,Callback = function(Value)
 	while aj do
 		if aj == true then
 			for i, v in pairs(plot:GetDescendants()) do
-			if v.Name == "OpenDoorPrompt" and v.Parent.Parent.Parent.Parent.Name == "JarFactory"  then
-				if tostring(v.Parent.Cooldown.TextLabel.Text) == "0" or tostring(v.Parent.Cooldown.TextLabel.Text) == "?" then
-				if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart then
-					game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.Parent.CFrame + Vector3.new(-1,2,2)
-					print(v.Parent.Parent.Parent.Parent)
-					fireproximityprompt(v)
+				if v.Name == "OpenDoorPrompt" and v.Parent.Parent.Parent.Parent.Name == "JarFactory"  then
+					if tostring(v.Parent.Cooldown.TextLabel.Text) == "0" or tostring(v.Parent.Cooldown.TextLabel.Text) == "?" then
+						if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart then
+							game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.Parent.CFrame + Vector3.new(-1,2,2)
+							--print(v.Parent.Parent.Parent.Parent)
+							fireproximityprompt(v)
+							repeat wait() fireproximityprompt(v) until tostring(v.Parent.Cooldown.TextLabel.Text) ~= "0"
+						end
+					end
 				end
+				if v.Name == "OpenDoorPrompt" and v.Parent.Parent.Parent.Parent.Name == "HalloweenJarFactory" then
+					if tostring(v.Parent.Cooldown.TextLabel.Text) == "0" or tostring(v.Parent.Cooldown.TextLabel.Text) == "?" then
+						if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart then
+							game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.Parent.CFrame + Vector3.new(-1,2,2)
+							--print(v.Parent.Parent.Parent.Parent)
+							repeat wait() fireproximityprompt(v) until tostring(v.Parent.Cooldown.TextLabel.Text) ~= "0"
+						end
+					end
+				end
+				if localplr.leaderstats.Rebirths.Value >= 5 then
+					if v.Name == "OpenDoorPrompt" and v.Parent.Parent.Parent.Parent.Name == "JarFactory2" then
+						if tostring(v.Parent.Cooldown.TextLabel.Text) == "0" or tostring(v.Parent.Cooldown.TextLabel.Text) == "?" then
+							if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart then
+								game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.Parent.CFrame + Vector3.new(-1,2,2)
+								--print(v.Parent.Parent.Parent.Parent)
+								repeat wait() fireproximityprompt(v) until tostring(v.Parent.Cooldown.TextLabel.Text) ~= "0"
 							end
-			end
-							if v.Name == "OpenDoorPrompt" and v.Parent.Parent.Parent.Parent.Name == "HalloweenJarFactory" then
-				if tostring(v.Parent.Cooldown.TextLabel.Text) == "0" or tostring(v.Parent.Cooldown.TextLabel.Text) == "?" then
-				if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart then
-					game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.Parent.CFrame + Vector3.new(-1,2,2)
-					print(v.Parent.Parent.Parent.Parent)
-					fireproximityprompt(v)
+						end
+					end
 				end
 			end
-			end
-			if localplr.leaderstats.Rebirths.Value >= 5 then
-				if v.Name == "OpenDoorPrompt" and v.Parent.Parent.Parent.Parent.Name == "JarFactory2" then
-				if tostring(v.Parent.Cooldown.TextLabel.Text) == "0" or tostring(v.Parent.Cooldown.TextLabel.Text) == "?" then
-				if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart then
-					game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.Parent.CFrame + Vector3.new(-1,2,2)
-					print(v.Parent.Parent.Parent.Parent)
-					fireproximityprompt(v)
-				end
-			end
-			end
-		end
-		end
 		end
 	wait()
 	end
