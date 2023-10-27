@@ -229,3 +229,10 @@ ws.Enabled = false
 Tab:AddToggle({Name = "White Screen / Anti Lag",Default = false,Callback = function(Value)
 	ws.Enabled = Value
 end})
+
+-- idk if this works but ok
+localplr.Idled:Connect(function()
+	local VirtualUser = game:GetService("VirtualUser")
+	VirtualUser:CaptureController()
+	VirtualUser:ClickButton2(Vector2.new())
+end)
