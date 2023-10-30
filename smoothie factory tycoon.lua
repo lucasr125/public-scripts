@@ -10,13 +10,12 @@ repeat for i, v in pairs(game:GetService("Workspace").Tycoons:GetDescendants()) 
 	end
 	wait(.5)
 until plot ~= nil
-OrionLib:MakeNotification({Name = "Hello!",Content = "Script Version: 1.4.1",Image = "rbxassetid://4483345998",Time = 5})
+OrionLib:MakeNotification({Name = "Hello!",Content = "Script Version: 1.4",Image = "rbxassetid://4483345998",Time = 5})
 print(plot)
 
 local localplr = game.Players.LocalPlayer
 local Window = OrionLib:MakeWindow({Name = GameName, HidePremium = false, SaveConfig = true, ConfigFolder = "OrionLib"})
 local Tab = Window:MakeTab({Name = "Farming",Icon = "rbxassetid://4483345998",PremiumOnly = false})
-local Tab2 = Window:MakeTab({Name = "Farming V2 WIP",Icon = "rbxassetid://4483345998",PremiumOnly = false})
 
 local ao --Auto Obby
 local aj --Auto Jar
@@ -27,10 +26,6 @@ local abuyupd -- Auto Buy Upgraders
 local adrop -- Auto Drop
 local arebirth -- Auto Rebirth
 local fc --Fast Arm 
-local ablenderc = false
-local ajarc = false
-local ab2
-local aj2
 
 OrionLib:MakeNotification({Name = "Successfully Initialized Plot!",Content = "All farming features are now available",Image = "rbxassetid://4483345998",Time = 5})
 
@@ -234,76 +229,6 @@ ws.Enabled = false
 
 Tab:AddToggle({Name = "White Screen / Anti Lag",Default = false,Callback = function(Value)
 	ws.Enabled = Value
-end})
-
-Tab2:AddToggle({Name = "Auto Jar",Default = false,Callback = function(Value)
-	aj2 = Value
-	while aj2 do
-	wait()
-		if aj2 == true then
-					if ablenderc == false then
-			for i, v in pairs(plot.ProcessingMachines.JarFactory:GetDescendants()) do
-				if v.Name == "OpenDoorPrompt" and v.Parent.Parent.Parent.Parent.Name == "JarFactory"  then
-					if tostring(v.Parent.Cooldown.TextLabel.Text) == "0" or tostring(v.Parent.Cooldown.TextLabel.Text) == "?" then
-						if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart then
-							game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.Parent.CFrame + Vector3.new(-1,2,2)
-							--print(v.Parent.Parent.Parent.Parent)
-							fireproximityprompt(v)
-							repeat wait() fireproximityprompt(v) until tostring(v.Parent.Cooldown.TextLabel.Text) ~= "0"
-						end
-					end
-				end
-				if v.Name == "OpenDoorPrompt" and v.Parent.Parent.Parent.Parent.Name == "HalloweenJarFactory" then
-					if tostring(v.Parent.Cooldown.TextLabel.Text) == "0" or tostring(v.Parent.Cooldown.TextLabel.Text) == "?" then
-						if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart then
-							game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.Parent.CFrame + Vector3.new(-1,2,2)
-							--print(v.Parent.Parent.Parent.Parent)
-							repeat wait() fireproximityprompt(v) until tostring(v.Parent.Cooldown.TextLabel.Text) ~= "0"
-						end
-					end
-				end
-				if localplr.leaderstats.Rebirths.Value >= 5 then
-					if v.Name == "OpenDoorPrompt" and v.Parent.Parent.Parent.Parent.Name == "JarFactory2" then
-						if tostring(v.Parent.Cooldown.TextLabel.Text) == "0" or tostring(v.Parent.Cooldown.TextLabel.Text) == "?" then
-							if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart then
-								game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.Parent.CFrame + Vector3.new(-1,2,2)
-								--print(v.Parent.Parent.Parent.Parent)
-											ajarc = true
-								repeat wait() fireproximityprompt(v) until tostring(v.Parent.Cooldown.TextLabel.Text) ~= "0"
-											ajarc = false
-										end
-						end
-					end
-				end
-						end
-			end
-		end
-	end
-end})
-
-Tab2:AddToggle({Name = "Auto Blend",Default = false,Callback = function(Value)
-	ab2 = Value
-	while ab2 do
-		wait()
-		if ab2 == true then
-			if ajarc == false then
-				for i, v in pairs(plot:GetDescendants()) do
-					if v.Name == "ActivateBlender" and wait(.05) and v.Parent.Parent.Parent.ActivationLight.Color ~= Color3.fromRGB(0, 255, 0) and v.Parent.Parent:FindFirstChild("Arrow") then
-						if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart then
-							game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.Parent.CFrame + Vector3.new(-1,2,2)
-							ablenderc = true
-							repeat
-								wait()
-								fireproximityprompt(v)
-							until
-								v.Parent.Parent.Parent.ActivationLight.Color == Color3.fromRGB(0, 255, 0)
-							ablenderc = false
-						end
-					end
-				end
-			end
-		end
-	end
 end})
 
 -- idk if this works but ok
