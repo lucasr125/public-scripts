@@ -84,7 +84,7 @@ if (game.PlaceId == 10675042838) then
 		local vu = game:GetService("VirtualUser");
 		game:GetService("Players").LocalPlayer.Idled:connect(function()
 			vu:Button2Down(Vector2.new(0, 0), workspace.CurrentCamera.CFrame);
-			wait(1);
+			task.wait(1);
 			vu:Button2Up(Vector2.new(0, 0), workspace.CurrentCamera.CFrame);
 		end);
 	end});
@@ -97,7 +97,7 @@ if (game.PlaceId == 10675042838) then
 	end});
 end
 if (game.PlaceId == 9486506804) then
-	wait(2);
+	task.wait(2);
 	game:GetService("RunService").RenderStepped:Connect(function()
 		local args = {[1]=workspace.Lobby.Obby.Coin,[2]=false};
 		game:GetService("ReplicatedStorage").Zurich_OnCoinPickUpEvent:FireServer(unpack(args));
@@ -325,7 +325,7 @@ if (game.PlaceId == 9000622508) then
 			return math.acos(math.cos(X * math.pi)) / math.pi;
 		end
 		counter = 0;
-		while wait(0.1) do
+		while task.wait(0.1) do
 			game:GetService("Players").LocalPlayer.PlayerGui.MetnalHealth.Frame.Border.Bar.Health.BackgroundColor3 = Color3.fromHSV(zigzag(counter), 1, 1);
 			counter = counter + 0.01;
 		end
@@ -469,9 +469,9 @@ elseif (game.PlaceId == 10041108328) then
 	game:GetService("RunService").Heartbeat:Connect(function()
 		for i, v in pairs(game:GetService("Workspace")['money_bags']:GetDescendants()) do
 			if ((v.Name == "TouchInterest") and (AutoPickup == true)) then
-				wait(0.2);
+				task.wait(0.2);
 				firetouchinterest(v.Parent, game.Players.LocalPlayer.Character.Head, 0);
-				wait();
+				task.wait();
 				firetouchinterest(v.Parent, game.Players.LocalPlayer.Character.Head, 1);
 			end
 		end
@@ -871,13 +871,13 @@ if (gameid == 9088744184) then
 	plrmodsSection:NewToggle("FastAttack", "Attacks Almost 3x as fast as normal", function(state)
 		if state then
 			while state do
-				wait(0.35);
+				task.wait(0.35);
 				local plrweapon = game:GetService("Players").LocalPlayer.Backpack.AttackTool;
 				local charweapon = game:GetService("Players").LocalPlayer.Character;
 				local weapon = game:GetService("Players").LocalPlayer.Weapon.Value;
 				plrweapon.Parent = charweapon;
 				charweapon.AttackTool:Activate();
-				wait(0.2);
+				task.wait(0.2);
 				local args = {[1]=game:GetService("Lighting").Weapons:FindFirstChild(weapon)};
 				game:GetService("Lighting").UseWeapon:FireServer(unpack(args));
 			end
@@ -913,7 +913,7 @@ if (gameid == 8218342368) then
 	local Playermods = Window:NewTab("Undertale BG");
 	local GameSec = Playermods:NewSection("Misc");
 	GameSec:NewButton("Lag Game", ":troll:", function()
-		while wait() do
+		while task.wait() do
 			local args = {[1]=1};
 			game:GetService("Players").LocalPlayer.Character.Moving.VFX.DashEffect:FireServer(unpack(args));
 			local args = {[1]=2};
@@ -967,13 +967,13 @@ if (gameid == 10108131074) then
 		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s;
 	end);
 	Section:NewButton("Auto Fill Gas", "Sets Filling Gas To True", function()
-		while wait() do
+		while task.wait() do
 			local args = {[1]=workspace.Map.Zones:FindFirstChild("1"):FindFirstChild("1").GasStation.GasPumps,[2]=true};
 			game:GetService("ReplicatedStorage").Remotes.Game.ClientToggleUseGasStation:FireServer(unpack(args));
 		end
 	end);
 	Section:NewButton("Auto Break Obstacles", "Automatically Breaks All Obstacles", function()
-		while wait() do
+		while task.wait() do
 			for i, v in pairs(game:GetService("Workspace").Map.Zones:GetDescendants()) do
 				if (v.Parent.Name == "Obstacles") then
 					local args = {[1]=v,[2]=true};
@@ -983,7 +983,7 @@ if (gameid == 10108131074) then
 		end
 	end);
 	Section:NewButton("Auto Mow", "Automatically Mows All Grass", function()
-		while wait() do
+		while task.wait() do
 			local args = {[1]="1"};
 			game:GetService("ReplicatedStorage").Remotes.Game.ClientMowGrass:FireServer(unpack(args));
 			local args = {[1]="2"};
@@ -1020,91 +1020,91 @@ if (gameid == 8605603204) then
 	end);
 	local Section = Tab:NewSection("AutoFarm");
 	Section:NewButton("Auto Kill Boss 1", "Automatically Farms The First Boss in the game", function()
-		while wait() do
+		while task.wait() do
 			local args = {[1]="AttackByFollow1",[2]=workspace.MonsterModel.CanAttack_Monster_Room001.Monster_03_001,[3]=workspace.FollowModel.FollowModel_3781730717.FollowModel_5};
 			game:GetService("ReplicatedStorage").RemoteEvents.AttackRemoteEvent:FireServer(unpack(args));
 		end
 	end);
 	Section:NewButton("Auto Kill Boss 2", "Automatically Farms The First Boss in the game", function()
-		while wait() do
+		while task.wait() do
 			local args = {[1]="AttackByFollow1",[2]=workspace.MonsterModel.CanAttack_Monster_Room002.Monster_03_003,[3]=workspace.FollowModel.FollowModel_3781730717.FollowModel_4};
 			game:GetService("ReplicatedStorage").RemoteEvents.AttackRemoteEvent:FireServer(unpack(args));
 		end
 	end);
 	Section:NewButton("Auto Kill Boss 3", "Automatically Farms The First Boss in the game", function()
-		while wait() do
+		while task.wait() do
 			local args = {[1]="AttackByFollow1",[2]=workspace.MonsterModel.CanAttack_Monster_Room003.Monster_03_002,[3]=workspace.FollowModel.FollowModel_3781730717.FollowModel_5};
 			game:GetService("ReplicatedStorage").RemoteEvents.AttackRemoteEvent:FireServer(unpack(args));
 		end
 	end);
 	Section:NewButton("Auto Kill Boss 4", "Automatically Farms The First Boss in the game", function()
-		while wait() do
+		while task.wait() do
 			local args = {[1]="AttackByFollow1",[2]=workspace.MonsterModel.CanAttack_Monster_Room004.Monster_03_006,[3]=workspace.FollowModel.FollowModel_3781730717.FollowModel_3};
 			game:GetService("ReplicatedStorage").RemoteEvents.AttackRemoteEvent:FireServer(unpack(args));
 		end
 	end);
 	Section:NewButton("Auto Kill Boss 5", "Automatically Farms The First Boss in the game", function()
-		while wait() do
+		while task.wait() do
 			local args = {[1]="AttackByFollow1",[2]=workspace.MonsterModel.CanAttack_Monster_Room005.Monster_03_005,[3]=workspace.FollowModel.FollowModel_3781730717.FollowModel_5};
 			game:GetService("ReplicatedStorage").RemoteEvents.AttackRemoteEvent:FireServer(unpack(args));
 		end
 	end);
 	Section:NewButton("Auto Kill Boss 6", "Automatically Farms The First Boss in the game", function()
-		while wait() do
+		while task.wait() do
 			local args = {[1]="AttackByFollow1",[2]=workspace.MonsterModel.CanAttack_Monster_Room006.Monster_03_004,[3]=workspace.FollowModel.FollowModel_3781730717.FollowModel_5};
 			game:GetService("ReplicatedStorage").RemoteEvents.AttackRemoteEvent:FireServer(unpack(args));
 		end
 	end);
 	Section:NewButton("Auto Kill Boss 7", "Automatically Farms The First Boss in the game", function()
-		while wait() do
+		while task.wait() do
 			local args = {[1]="AttackByFollow1",[2]=workspace.MonsterModel.CanAttack_Monster_Room007.Monster_03_008,[3]=workspace.FollowModel.FollowModel_3781730717.FollowModel_4};
 			game:GetService("ReplicatedStorage").RemoteEvents.AttackRemoteEvent:FireServer(unpack(args));
 		end
 	end);
 	Section:NewButton("Auto Kill Boss 8", "Automatically Farms The First Boss in the game", function()
-		while wait() do
+		while task.wait() do
 			local args = {[1]="AttackByFollow1",[2]=workspace.MonsterModel.CanAttack_Monster_Room008.Boss,[3]=workspace.FollowModel.FollowModel_3781730717.FollowModel_1};
 			game:GetService("ReplicatedStorage").RemoteEvents.AttackRemoteEvent:FireServer(unpack(args));
 		end
 	end);
 	Section:NewButton("Auto Kill Boss 9", "Automatically Farms The First Boss in the game", function()
-		while wait() do
+		while task.wait() do
 			local args = {[1]="AttackByFollow1",[2]=workspace.MonsterModel.CanAttack_Monster_Room009.Boss,[3]=workspace.FollowModel.FollowModel_3781730717.FollowModel_1};
 			game:GetService("ReplicatedStorage").RemoteEvents.AttackRemoteEvent:FireServer(unpack(args));
 		end
 	end);
 	Section:NewButton("Auto Kill Boss 10", "Automatically Farms The First Boss in the game", function()
-		while wait() do
+		while task.wait() do
 			local args = {[1]="AttackByFollow1",[2]=workspace.MonsterModel.CanAttack_Monster_Room010.Monster_03_009,[3]=workspace.FollowModel.FollowModel_3781730717.FollowModel_3};
 			game:GetService("ReplicatedStorage").RemoteEvents.AttackRemoteEvent:FireServer(unpack(args));
 		end
 	end);
 	Section:NewButton("Auto Kill Boss 11", "Automatically Farms The First Boss in the game", function()
-		while wait() do
+		while task.wait() do
 			local args = {[1]="AttackByFollow1",[2]=workspace.MonsterModel.CanAttack_Monster_Room011.Boss,[3]=workspace.FollowModel.FollowModel_3781730717.FollowModel_5};
 			game:GetService("ReplicatedStorage").RemoteEvents.AttackRemoteEvent:FireServer(unpack(args));
 		end
 	end);
 	Section:NewButton("Auto Kill Boss 12", "Automatically Farms The First Boss in the game", function()
-		while wait() do
+		while task.wait() do
 			local args = {[1]="AttackByFollow1",[2]=workspace.MonsterModel.CanAttack_Monster_Room012.Boss,[3]=workspace.FollowModel.FollowModel_3781730717.FollowModel_1};
 			game:GetService("ReplicatedStorage").RemoteEvents.AttackRemoteEvent:FireServer(unpack(args));
 		end
 	end);
 	Section:NewButton("Auto Kill Boss 13", "Automatically Farms The First Boss in the game", function()
-		while wait() do
+		while task.wait() do
 			local args = {[1]="AttackByFollow1",[2]=workspace.MonsterModel.CanAttack_Monster_Room013.Boss,[3]=workspace.FollowModel.FollowModel_3781730717.FollowModel_1};
 			game:GetService("ReplicatedStorage").RemoteEvents.AttackRemoteEvent:FireServer(unpack(args));
 		end
 	end);
 	Section:NewButton("Auto Kill Boss 14", "Automatically Farms The First Boss in the game", function()
-		while wait() do
+		while task.wait() do
 			local args = {[1]="AttackByFollow1",[2]=workspace.MonsterModel.CanAttack_Monster_Room014.Boss,[3]=workspace.FollowModel.FollowModel_3781730717.FollowModel_1};
 			game:GetService("ReplicatedStorage").RemoteEvents.AttackRemoteEvent:FireServer(unpack(args));
 		end
 	end);
 	Section:NewButton("Auto Kill Boss 15", "Automatically Farms The First Boss in the game", function()
-		while wait() do
+		while task.wait() do
 			local args = {[1]="AttackByFollow1",[2]=workspace.MonsterModel.CanAttack_Monster_Room015.Boss,[3]=workspace.FollowModel.FollowModel_3781730717.FollowModel_1};
 			game:GetService("ReplicatedStorage").RemoteEvents.AttackRemoteEvent:FireServer(unpack(args));
 		end
@@ -1143,7 +1143,7 @@ if (gameid == 9742783208) then
 	local Tab = Window:NewTab("Raise A Yippee");
 	local Section = Tab:NewSection("LocalPlayer");
 	Section:NewButton("Loop Buy All (free)", "Buys everything for free (looped)", function()
-		while wait() do
+		while task.wait() do
 			local args = {[1]="Better Fan",[2]=true};
 			game:GetService("ReplicatedStorage").Events.ShopRemote:FireServer(unpack(args));
 			local args = {[1]="Autoclicker+",[2]=true};
@@ -1231,9 +1231,9 @@ Players.LocalPlayer.Idled:Connect(function()
 	VirtualUser:CaptureController();
 	VirtualUser:ClickButton2(Vector2.new());
 end);
-wait(0.5);
+task.wait(0.5);
 if (game.PlaceId == 9648883891) then
-	wait(2);
+	task.wait(2);
 	local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/GreenDeno/Venyx-UI-Library/main/source.lua"))();
 	local venyx = library.new("Statue Hub", 5013109572);
 	local AutoCollect = false;
@@ -1299,7 +1299,7 @@ if (game.PlaceId == 10347946161) then
 			game:GetService("ReplicatedStorage").Knit.Services.TycoonService.RE.SellRats:FireServer();
 		end
 	end);
-	wait(1);
+	task.wait(1);
 	local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/GreenDeno/Venyx-UI-Library/main/source.lua"))();
 	local venyx = library.new("Statue Hub", 5013109572);
 	local AutoCollect = false;
@@ -1360,9 +1360,9 @@ if (game.PlaceId == 10347946161) then
 	end
 	venyx:SelectPage(venyx.pages[1], true);
 end
-wait(1);
+task.wait(1);
 if (game.PlaceId == 9328724748) then
-	wait(1);
+	task.wait(1);
 	local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/GreenDeno/Venyx-UI-Library/main/source.lua"))();
 	local venyx = library.new("Statue Hub", 5013109572);
 	local autoclick = false;
@@ -1371,14 +1371,14 @@ if (game.PlaceId == 9328724748) then
 	local themes = {Background=Color3.fromRGB(24, 24, 24),Glow=Color3.fromRGB(0, 0, 0),Accent=Color3.fromRGB(10, 10, 10),LightContrast=Color3.fromRGB(20, 20, 20),DarkContrast=Color3.fromRGB(14, 14, 14),TextColor=Color3.fromRGB(255, 255, 255)};
 	local lp = game:GetService("Players").LocalPlayer;
 	game:GetService("RunService").Heartbeat:Connect(function()
-		wait(4);
+		task.wait(4);
 		if (autoexchange == true) then
-			wait(excfq);
+			task.wait(excfq);
 			game:GetService("ReplicatedStorage").Packages.Knit.Services.ExchangeService.RF.ProcessExchange:InvokeServer();
 		end
 	end);
 	game:GetService("RunService").Heartbeat:Connect(function()
-		wait(0.4);
+		task.wait(0.4);
 		if (autoclick == true) then
 			game:GetService("ReplicatedStorage").Packages.Knit.Services.ClickerService.RF.DoClick:InvokeServer();
 		end
@@ -1412,8 +1412,8 @@ if (game.PlaceId == 9328724748) then
 		end);
 	end
 	game:GetService("RunService").Heartbeat:Connect(function()
-		if ((nftsniper == true) and wait(5)) then
-			wait(1);
+		if ((nftsniper == true) and task.wait(5)) then
+			task.wait(1);
 			local args = {[1]="portrait_id_1"};
 			game:GetService("ReplicatedStorage").Packages.Knit.Services.AuctionService.RF.PurchasePortrait:InvokeServer(unpack(args));
 			local args = {[1]="portrait_id_2"};
@@ -1428,7 +1428,7 @@ if (game.PlaceId == 9328724748) then
 			game:GetService("ReplicatedStorage").Packages.Knit.Services.AuctionService.RF.PurchasePortrait:InvokeServer(unpack(args));
 			local args = {[1]="portrait_id_7"};
 			game:GetService("ReplicatedStorage").Packages.Knit.Services.AuctionService.RF.PurchasePortrait:InvokeServer(unpack(args));
-			wait(1);
+			task.wait(1);
 			local args = {[1]="portrait_id_8"};
 			game:GetService("ReplicatedStorage").Packages.Knit.Services.AuctionService.RF.PurchasePortrait:InvokeServer(unpack(args));
 			local args = {[1]="portrait_id_9"};
@@ -1441,14 +1441,14 @@ if (game.PlaceId == 9328724748) then
 			game:GetService("ReplicatedStorage").Packages.Knit.Services.AuctionService.RF.PurchasePortrait:InvokeServer(unpack(args));
 			local args = {[1]="portrait_id_13"};
 			game:GetService("ReplicatedStorage").Packages.Knit.Services.AuctionService.RF.PurchasePortrait:InvokeServer(unpack(args));
-			wait(1);
+			task.wait(1);
 			local args = {[1]="portrait_id_14"};
 			game:GetService("ReplicatedStorage").Packages.Knit.Services.AuctionService.RF.PurchasePortrait:InvokeServer(unpack(args));
 			local args = {[1]="portrait_id_15"};
 			game:GetService("ReplicatedStorage").Packages.Knit.Services.AuctionService.RF.PurchasePortrait:InvokeServer(unpack(args));
 			local args = {[1]="portrait_id_16"};
 			game:GetService("ReplicatedStorage").Packages.Knit.Services.AuctionService.RF.PurchasePortrait:InvokeServer(unpack(args));
-			wait(1);
+			task.wait(1);
 			local args = {[1]="portrait_id_17"};
 			game:GetService("ReplicatedStorage").Packages.Knit.Services.AuctionService.RF.PurchasePortrait:InvokeServer(unpack(args));
 			local args = {[1]="portrait_id_18"};
@@ -1457,7 +1457,7 @@ if (game.PlaceId == 9328724748) then
 			game:GetService("ReplicatedStorage").Packages.Knit.Services.AuctionService.RF.PurchasePortrait:InvokeServer(unpack(args));
 			local args = {[1]="portrait_id_23"};
 			game:GetService("ReplicatedStorage").Packages.Knit.Services.AuctionService.RF.PurchasePortrait:InvokeServer(unpack(args));
-			wait(1);
+			task.wait(1);
 		end
 	end);
 	venyx:SelectPage(venyx.pages[1], true);
@@ -1517,7 +1517,7 @@ if (game.PlaceId == 10596950867) then
 	getgenv().AutowalkToggled = false;
 	local autopickup = false;
 	local Speed = 150;
-	wait(0.5);
+	task.wait(0.5);
 	game("RunService").RenderStepped:Connect(function()
 		if ((getgenv().AutowalkToggled == true) and Player.Character and Player.Character:FindFirstChild("HumanoidRootPart")) then
 			Player.Character.HumanoidRootPart.Velocity = Player.Character.HumanoidRootPart.CFrame.LookVector * Speed;
@@ -1553,7 +1553,7 @@ if (game.PlaceId == 10596950867) then
 		end);
 	end);
 	section1:addButton("No Fire", function()
-		while wait() do
+		while task.wait() do
 			if (game:GetService("Players").LocalPlayer.Character:FindFirstChild("Burning") and game:GetService("Players").LocalPlayer.Character) then
 				game:GetService("Players").LocalPlayer.Character.CharacterHandler.Remotes.Dodge:FireServer();
 			end
@@ -1574,7 +1574,7 @@ if (game.PlaceId == 10596950867) then
 		end
 	end);
 	section1:addButton("Auto Trinket Pickup", function()
-		while wait(2) do
+		while task.wait(2) do
 			for i, v in pairs(game:GetService("Workspace").Trinkets:GetDescendants()) do
 				if (v.ClassName == "ClickDetector") then
 					fireclickdetector(v);
@@ -1684,7 +1684,7 @@ if (game.PlaceId == 10596950867) then
 		end
 	end);
 	section1:addButton("Illu Detector", function()
-		while wait(6) do
+		while task.wait(6) do
 			for i, v in pairs(game:GetService("Players"):GetDescendants()) do
 				if (v.Name == "Observe") then
 					augahghagw = true;
@@ -1717,7 +1717,7 @@ if (game.PlaceId == 10596950867) then
 			venyx:setTheme(theme, color3);
 		end);
 	end
-	while wait() do
+	while task.wait() do
 		if (autofarmt7 == true) then
 			local teleport_table = {location1=Vector3.new(3976, 439, -786),location2=Vector3.new(3991, 439, -1014),location3=Vector3.new(4021, 439, -1015)};
 			local tween_s = game:GetService("TweenService");
@@ -1736,23 +1736,23 @@ if (game.PlaceId == 10596950867) then
 				end
 			end
 			bypass_teleport(teleport_table.location1);
-			wait(5);
+			task.wait(5);
 			bypass_teleport(teleport_table.location2);
-			wait(2);
+			task.wait(2);
 			bypass_teleport(teleport_table.location3);
-			wait(2);
+			task.wait(2);
 		end
 	end
 	venyx:SelectPage(venyx.pages[1], true);
 end
 if (game.PlaceId == 3652625463) then
-	wait(2);
+	task.wait(2);
 	local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/GreenDeno/Venyx-UI-Library/main/source.lua"))();
 	local venyx = library.new("Statue Hub", 5013109572);
 	local af = false;
 	local themes = {Background=Color3.fromRGB(24, 24, 24),Glow=Color3.fromRGB(0, 0, 0),Accent=Color3.fromRGB(10, 10, 10),LightContrast=Color3.fromRGB(20, 20, 20),DarkContrast=Color3.fromRGB(14, 14, 14),TextColor=Color3.fromRGB(255, 255, 255)};
 	local lp = game:GetService("Players").LocalPlayer;
-	wait();
+	task.wait();
 	game:GetService("RunService").Heartbeat:Connect(function()
 		if (af == true) then
 			local args = {[1]={[1]="GainMuscle"}};
@@ -1782,7 +1782,7 @@ if (game.PlaceId == 3652625463) then
 	end
 	venyx:SelectPage(venyx.pages[1], true);
 end
-wait(1);
+task.wait(1);
 if (game.PlaceId == 8704181738) then
 	local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/GreenDeno/Venyx-UI-Library/main/source.lua"))();
 	local venyx = library.new("Statue Hub", 5013109572);
@@ -1794,7 +1794,7 @@ if (game.PlaceId == 8704181738) then
 		spellspam = spellspamtog;
 	end);
 	section1:addButton("Extend Hitboxes", function()
-		while wait(1) do
+		while task.wait(1) do
 			if game:GetService("Players").LocalPlayer.Character then
 				for i, v in pairs(game:GetService("Workspace"):GetDescendants()) do
 					if ((v.Name == "HumanoidRootPart") and v.Parent:FindFirstChild("Humanoid") and (v ~= game:GetService("Players").LocalPlayer.Character.HumanoidRootPart)) then
@@ -1818,7 +1818,7 @@ if (game.PlaceId == 8704181738) then
 		end);
 	end);
 	section2:addButton("Auto Attack", function()
-		while wait() do
+		while task.wait() do
 			if game:GetService("Players").LocalPlayer.Character then
 				for i, v in pairs(game:GetService("Players").LocalPlayer.Character:GetDescendants()) do
 					if ((v.Name == "Handle") and v.Parent:FindFirstChild("Combo")) then
@@ -1840,7 +1840,7 @@ if (game.PlaceId == 8704181738) then
 			venyx:setTheme(theme, color3);
 		end);
 	end
-	while wait(0.6) do
+	while task.wait(0.6) do
 		if (spellspam == true) then
 			for i, v in pairs(game:GetService("Players").LocalPlayer.Character:GetDescendants()) do
 				if ((v.Name == "Fire") or (v.Name == "RemoteEvent") or (v.Name == "RemoteEventS")) then
@@ -1914,7 +1914,7 @@ if (game.PlaceId == 10858274778) then
 	getgenv().AutowalkToggled = false;
 	local autopickup = false;
 	local Speed = 150;
-	wait(0.5);
+	task.wait(0.5);
 	game("RunService").RenderStepped:Connect(function()
 		if ((getgenv().AutowalkToggled == true) and Player.Character and Player.Character:FindFirstChild("HumanoidRootPart")) then
 			Player.Character.HumanoidRootPart.Velocity = Player.Character.HumanoidRootPart.CFrame.LookVector * Speed;
@@ -1950,7 +1950,7 @@ if (game.PlaceId == 10858274778) then
 		end);
 	end);
 	section1:addButton("No Fire", function()
-		while wait() do
+		while task.wait() do
 			if (game:GetService("Players").LocalPlayer.Character:FindFirstChild("Burning") and game:GetService("Players").LocalPlayer.Character) then
 				game:GetService("Players").LocalPlayer.Character.CharacterHandler.Remotes.Dodge:FireServer();
 			end
@@ -1971,7 +1971,7 @@ if (game.PlaceId == 10858274778) then
 		end
 	end);
 	section1:addButton("Auto Trinket Pickup", function()
-		while wait(2) do
+		while task.wait(2) do
 			for i, v in pairs(game:GetService("Workspace").Trinkets:GetDescendants()) do
 				if (v.ClassName == "ClickDetector") then
 					fireclickdetector(v);
@@ -2078,7 +2078,7 @@ if (game.PlaceId == 10858274778) then
 		end
 	end);
 	section1:addButton("Illu Detector", function()
-		while wait(6) do
+		while task.wait(6) do
 			for i, v in pairs(game:GetService("Players"):GetDescendants()) do
 				if (v.Name == "Observe") then
 					augahghagw = true;
@@ -2111,7 +2111,7 @@ if (game.PlaceId == 10858274778) then
 			venyx:setTheme(theme, color3);
 		end);
 	end
-	while wait() do
+	while task.wait() do
 		if (autofarmt7 == true) then
 			local teleport_table = {location1=Vector3.new(3976, 439, -786),location2=Vector3.new(3991, 439, -1014),location3=Vector3.new(4021, 439, -1015)};
 			local tween_s = game:GetService("TweenService");
@@ -2130,20 +2130,20 @@ if (game.PlaceId == 10858274778) then
 				end
 			end
 			bypass_teleport(teleport_table.location1);
-			wait(5);
+			task.wait(5);
 			bypass_teleport(teleport_table.location2);
-			wait(2);
+			task.wait(2);
 			bypass_teleport(teleport_table.location3);
-			wait(2);
+			task.wait(2);
 		end
 	end
 	venyx:SelectPage(venyx.pages[1], true);
 end
-wait(0.5);
+task.wait(0.5);
 if (game.PlaceId == 9980179145) then
 	local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/GreenDeno/Venyx-UI-Library/main/source.lua"))();
 	local venyx = library.new("Statue Hub", 5013109572);
-	wait(2);
+	task.wait(2);
 	local themes = {Background=Color3.fromRGB(24, 24, 24),Glow=Color3.fromRGB(0, 0, 0),Accent=Color3.fromRGB(10, 10, 10),LightContrast=Color3.fromRGB(20, 20, 20),DarkContrast=Color3.fromRGB(14, 14, 14),TextColor=Color3.fromRGB(255, 255, 255)};
 	local page = venyx:addPage("Speed Race Clicker", 5012544693);
 	local section1 = page:addSection("Main");
@@ -2156,7 +2156,7 @@ if (game.PlaceId == 9980179145) then
 		end);
 	end);
 	section1:addButton("Antilag (IY)", function()
-		while wait(5) do
+		while task.wait(5) do
 			local fps = workspace:GetRealPhysicsFPS();
 			if (fps < 10) then
 				game:GetService("TeleportService"):Teleport(537413528);
@@ -2225,7 +2225,7 @@ if (game.PlaceId == 9980179145) then
 			venyx:setTheme(theme, color3);
 		end);
 	end
-	while wait() do
+	while task.wait() do
 		if (AutoFarmsrc == true) then
 			local teleport_table = {location1=Vector3.new(12000, 3, 0),location2=Vector3.new(-270000, 3, 0),location3=Vector3.new(-726000, 3, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)};
 			local tween_s = game:GetService("TweenService");
@@ -2247,17 +2247,17 @@ if (game.PlaceId == 9980179145) then
 			bypass_teleport(teleport_table.location2);
 			bypass_teleport(teleport_table.location3);
 			repeat
-				wait();
+				task.wait();
 			until lp.Character 
 		end
 	end
 	venyx:SelectPage(venyx.pages[1], true);
 end
-wait(0.2);
+task.wait(0.2);
 if (game.PlaceId == 10429088113) then
 	local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/GreenDeno/Venyx-UI-Library/main/source.lua"))();
 	local venyx = library.new("Statue Hub", 5013109572);
-	wait(2);
+	task.wait(2);
 	local themes = {Background=Color3.fromRGB(24, 24, 24),Glow=Color3.fromRGB(0, 0, 0),Accent=Color3.fromRGB(10, 10, 10),LightContrast=Color3.fromRGB(20, 20, 20),DarkContrast=Color3.fromRGB(14, 14, 14),TextColor=Color3.fromRGB(255, 255, 255)};
 	local page = venyx:addPage("Jump Race", 5012544693);
 	local section1 = page:addSection("Main");
@@ -2289,7 +2289,7 @@ if (game.PlaceId == 10429088113) then
 			venyx:setTheme(theme, color3);
 		end);
 	end
-	while wait(1) do
+	while task.wait(1) do
 		if (AutoFarmjr == true) then
 			local tween_s = game:GetService("TweenService");
 			local tweeninfo = TweenInfo.new(0.5, Enum.EasingStyle.Linear);
@@ -2307,7 +2307,7 @@ if (game.PlaceId == 10429088113) then
 				end
 			end
 			repeat
-				wait();
+				task.wait();
 			until lp.Character 
 			bypass_teleport(game:GetService("Workspace").from100.Position);
 		end
@@ -2317,7 +2317,7 @@ end
 if (game.PlaceId == 537413528) then
 	local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/GreenDeno/Venyx-UI-Library/main/source.lua"))();
 	local venyx = library.new("Statue Hub", 5013109572);
-	wait(2);
+	task.wait(2);
 	local themes = {Background=Color3.fromRGB(24, 24, 24),Glow=Color3.fromRGB(0, 0, 0),Accent=Color3.fromRGB(10, 10, 10),LightContrast=Color3.fromRGB(20, 20, 20),DarkContrast=Color3.fromRGB(14, 14, 14),TextColor=Color3.fromRGB(255, 255, 255)};
 	local page = venyx:addPage("BBFT", 5012544693);
 	local section1 = page:addSection("Main");
@@ -2349,7 +2349,7 @@ if (game.PlaceId == 537413528) then
 			venyx:setTheme(theme, color3);
 		end);
 	end
-	while wait(0.5) do
+	while task.wait(0.5) do
 		if (AutoFarmbb == true) then
 			local teleport_table = {location1=Vector3.new(-59, 93, 124),location2=Vector3.new(-65, 90, 986),location3=Vector3.new(-71, 68, 1320),location4=Vector3.new(-73, 63, 1385),location5=Vector3.new(-79, 91, 1972),location6=Vector3.new(-79, 91, 2080),location7=Vector3.new(-81, 91, 2190),location8=Vector3.new(-84, 116, 2638),location9=Vector3.new(-69, 116, 2861),location10=Vector3.new(-69, 116, 2952),location11=Vector3.new(-69, 116, 3604),location12=Vector3.new(-69, 116, 3687),location13=Vector3.new(-69, 116, 4122),location14=Vector3.new(-70, 116, 4402),location15=Vector3.new(-70, 116, 4480),location16=Vector3.new(-70, 116, 4863),location17=Vector3.new(-70, 116, 5102),location18=Vector3.new(-70, 116, 5289),location19=Vector3.new(-58, 116, 5724),location20=Vector3.new(-61, 116, 5921),location21=Vector3.new(-61, 116, 6050),location22=Vector3.new(-59, 116, 6392),location23=Vector3.new(-58, 116, 6701),location24=Vector3.new(-58, 116, 6808),location25=Vector3.new(-81, 116, 7464),location26=Vector3.new(-87, 116, 7559),location27=Vector3.new(-56, 116, 8076),location28=Vector3.new(-56, 116, 8250),location29=Vector3.new(-56, -363, 9493)};
 			local tween_s = game:GetService("TweenService");
@@ -2372,127 +2372,127 @@ if (game.PlaceId == 537413528) then
 			antifall.Parent = lp.Character.HumanoidRootPart;
 			if lp.Character:FindFirstChild("HumanoidRootPart") then
 				lp.Character.HumanoidRootPart.CFrame = CFrame.new(teleport_table.location1);
-				wait(0.3);
+				task.wait(0.3);
 			end
 			if (success == false) then
 			end
 			if lp.Character:FindFirstChild("HumanoidRootPart") then
 				lp.Character.HumanoidRootPart.CFrame = CFrame.new(teleport_table.location2);
-				wait(0.3);
+				task.wait(0.3);
 			end
 			if lp.Character:FindFirstChild("HumanoidRootPart") then
 				lp.Character.HumanoidRootPart.CFrame = CFrame.new(teleport_table.location3);
-				wait(0.3);
+				task.wait(0.3);
 			end
 			if lp.Character:FindFirstChild("HumanoidRootPart") then
 				bypass_teleport(teleport_table.location4);
-				wait(0.3);
+				task.wait(0.3);
 			end
 			if lp.Character:FindFirstChild("HumanoidRootPart") then
 				lp.Character.HumanoidRootPart.CFrame = CFrame.new(teleport_table.location5);
-				wait(0.3);
+				task.wait(0.3);
 			end
 			if lp.Character:FindFirstChild("HumanoidRootPart") then
 				lp.Character.HumanoidRootPart.CFrame = CFrame.new(teleport_table.location6);
-				wait(0.3);
+				task.wait(0.3);
 			end
 			if lp.Character:FindFirstChild("HumanoidRootPart") then
 				bypass_teleport(teleport_table.location7);
-				wait(0.3);
+				task.wait(0.3);
 			end
 			if lp.Character:FindFirstChild("HumanoidRootPart") then
 				lp.Character.HumanoidRootPart.CFrame = CFrame.new(teleport_table.location8);
-				wait(0.3);
+				task.wait(0.3);
 			end
 			if lp.Character:FindFirstChild("HumanoidRootPart") then
 				lp.Character.HumanoidRootPart.CFrame = CFrame.new(teleport_table.location9);
-				wait(0.3);
+				task.wait(0.3);
 			end
 			if lp.Character:FindFirstChild("HumanoidRootPart") then
 				bypass_teleport(teleport_table.location10);
-				wait(0.3);
+				task.wait(0.3);
 			end
 			if lp.Character:FindFirstChild("HumanoidRootPart") then
 				lp.Character.HumanoidRootPart.CFrame = CFrame.new(teleport_table.location11);
-				wait(0.3);
+				task.wait(0.3);
 			end
 			if lp.Character:FindFirstChild("HumanoidRootPart") then
 				lp.Character.HumanoidRootPart.CFrame = CFrame.new(teleport_table.location12);
-				wait(0.3);
+				task.wait(0.3);
 			end
 			if lp.Character:FindFirstChild("HumanoidRootPart") then
 				bypass_teleport(teleport_table.location13);
-				wait(0.3);
+				task.wait(0.3);
 			end
 			if lp.Character:FindFirstChild("HumanoidRootPart") then
 				lp.Character.HumanoidRootPart.CFrame = CFrame.new(teleport_table.location14);
-				wait(0.3);
+				task.wait(0.3);
 			end
 			if lp.Character:FindFirstChild("HumanoidRootPart") then
 				lp.Character.HumanoidRootPart.CFrame = CFrame.new(teleport_table.location15);
-				wait(0.3);
+				task.wait(0.3);
 			end
 			if lp.Character:FindFirstChild("HumanoidRootPart") then
 				bypass_teleport(teleport_table.location16);
-				wait(0.3);
+				task.wait(0.3);
 			end
 			if lp.Character:FindFirstChild("HumanoidRootPart") then
 				lp.Character.HumanoidRootPart.CFrame = CFrame.new(teleport_table.location17);
-				wait(0.3);
+				task.wait(0.3);
 			end
 			if lp.Character:FindFirstChild("HumanoidRootPart") then
 				lp.Character.HumanoidRootPart.CFrame = CFrame.new(teleport_table.location18);
-				wait(0.3);
+				task.wait(0.3);
 			end
 			if lp.Character:FindFirstChild("HumanoidRootPart") then
 				bypass_teleport(teleport_table.location19);
-				wait(0.3);
+				task.wait(0.3);
 			end
 			if lp.Character:FindFirstChild("HumanoidRootPart") then
 				lp.Character.HumanoidRootPart.CFrame = CFrame.new(teleport_table.location20);
-				wait(0.3);
+				task.wait(0.3);
 			end
 			if lp.Character:FindFirstChild("HumanoidRootPart") then
 				lp.Character.HumanoidRootPart.CFrame = CFrame.new(teleport_table.location21);
-				wait(0.3);
+				task.wait(0.3);
 			end
 			if lp.Character:FindFirstChild("HumanoidRootPart") then
 				bypass_teleport(teleport_table.location22);
-				wait(0.3);
+				task.wait(0.3);
 			end
 			if lp.Character:FindFirstChild("HumanoidRootPart") then
 				lp.Character.HumanoidRootPart.CFrame = CFrame.new(teleport_table.location23);
-				wait(0.3);
+				task.wait(0.3);
 			end
 			if lp.Character:FindFirstChild("HumanoidRootPart") then
 				lp.Character.HumanoidRootPart.CFrame = CFrame.new(teleport_table.location24);
-				wait(0.3);
+				task.wait(0.3);
 			end
 			if lp.Character:FindFirstChild("HumanoidRootPart") then
 				bypass_teleport(teleport_table.location25);
 			end
 			if lp.Character:FindFirstChild("HumanoidRootPart") then
-				wait(0.3);
+				task.wait(0.3);
 			end
 			if lp.Character:FindFirstChild("HumanoidRootPart") then
 				lp.Character.HumanoidRootPart.CFrame = CFrame.new(teleport_table.location26);
-				wait(0.3);
+				task.wait(0.3);
 			end
 			if lp.Character:FindFirstChild("HumanoidRootPart") then
 				lp.Character.HumanoidRootPart.CFrame = CFrame.new(teleport_table.location27);
-				wait(0.3);
+				task.wait(0.3);
 			end
 			if lp.Character:FindFirstChild("HumanoidRootPart") then
 				bypass_teleport(teleport_table.location28);
 				lp.Character.HumanoidRootPart.CFrame = CFrame.new(teleport_table.location29);
 			end
 			repeat
-				wait();
+				task.wait();
 			until lp.Character 
 			rconsolename("STATUE HUB BBFT AUTOFARM");
-			wait(4);
+			task.wait(4);
 			repeat
-				wait();
+				task.wait();
 			until lp.Character 
 			rconsoleprint("@@MAGENTA@@");
 			local currentgold = game:GetService("Players").LocalPlayer.Data.Gold.Value;
@@ -2505,7 +2505,7 @@ end
 if (game.PlaceId == 9585537847) then
 	local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/GreenDeno/Venyx-UI-Library/main/source.lua"))();
 	local venyx = library.new("Statue Hub", 5013109572);
-	wait(2);
+	task.wait(2);
 	local themes = {Background=Color3.fromRGB(24, 24, 24),Glow=Color3.fromRGB(0, 0, 0),Accent=Color3.fromRGB(10, 10, 10),LightContrast=Color3.fromRGB(20, 20, 20),DarkContrast=Color3.fromRGB(14, 14, 14),TextColor=Color3.fromRGB(255, 255, 255)};
 	local page = venyx:addPage("Shadovis RPG", 5012544693);
 	local section1 = page:addSection("Main");
@@ -2517,7 +2517,7 @@ if (game.PlaceId == 9585537847) then
 		end
 	end);
 	section1:addButton("Spell Spam", function()
-		while wait(0.2) do
+		while task.wait(0.2) do
 			local args = {[1]="Input",[2]="Domini",[3]=4,[4]="Slam"};
 			game:GetService("Players").LocalPlayer.Character.Combat.RemoteEvent:FireServer(unpack(args));
 			local args = {[1]="Input",[2]="Scroll of Yorick",[3]=7,[4]="Barrage"};
@@ -2553,7 +2553,7 @@ if (gameid == 10524502174) then
 	end);
 	section1:addButton("KillAura", function()
 		local lp = game:GetService("Players").LocalPlayer;
-		while wait() do
+		while task.wait() do
 			for i, v in pairs(game:GetService("Workspace").__GAME.__Mobs:GetDescendants()) do
 				if ((v.Parent.Parent == game:GetService("Workspace").__GAME.__Mobs) and lp.Character:FindFirstChild("HumanoidRootPart")) then
 					local args = {[1]="Attack",[2]=v};
@@ -2569,7 +2569,7 @@ if (gameid == 10524502174) then
 		Autofarm = autofarmtoggletog;
 	end);
 	section1:addButton("Auto Punch", function()
-		while wait(0.2) do
+		while task.wait(0.2) do
 			local args = {[1]="Normal"};
 			game:GetService("ReplicatedStorage").Game.__Remotes.ClickEvent:FireServer(unpack(args));
 		end
@@ -2585,49 +2585,49 @@ if (gameid == 10524502174) then
 			venyx:setTheme(theme, color3);
 		end);
 	end
-	while wait() do
+	while task.wait() do
 		if ((Autofarm == true) and game:GetService("Players").LocalPlayer.Character:FindFirstChild("HumanoidRootPart")) then
 			hrp = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart;
 			hrp.CFrame = CFrame.new(14, 49, -350);
-			wait(0);
+			task.wait(0);
 			hrp.CFrame = CFrame.new(-219, 49, -289);
-			wait(0.02);
+			task.wait(0.02);
 			hrp.CFrame = CFrame.new(-591, 49, -311);
-			wait(0.02);
+			task.wait(0.02);
 			hrp.CFrame = CFrame.new(-1032, 49, -340);
-			wait(0.02);
+			task.wait(0.02);
 			hrp.CFrame = CFrame.new(-1751, 49, -292);
-			wait(0.02);
+			task.wait(0.02);
 			hrp.CFrame = CFrame.new(-2151, 49, -280);
-			wait(0.02);
+			task.wait(0.02);
 			hrp.CFrame = CFrame.new(-2353, 49, -159);
-			wait(0.02);
+			task.wait(0.02);
 			hrp.CFrame = CFrame.new(-2439, 49, 409);
-			wait(0.02);
+			task.wait(0.02);
 			hrp.CFrame = CFrame.new(-2431, 49, 637);
-			wait(0.02);
+			task.wait(0.02);
 			hrp.CFrame = CFrame.new(-2397, 49, 1221);
-			wait(0.02);
+			task.wait(0.02);
 			hrp.CFrame = CFrame.new(-2456, 49, 1547);
-			wait(0.02);
+			task.wait(0.02);
 			hrp.CFrame = CFrame.new(-2443, 49, 2016);
-			wait(0.02);
+			task.wait(0.02);
 			hrp.CFrame = CFrame.new(-2418, 49, 2493);
-			wait(0.02);
+			task.wait(0.02);
 			hrp.CFrame = CFrame.new(-2328, 49, 3005);
-			wait(0.02);
+			task.wait(0.02);
 			hrp.CFrame = CFrame.new(-2128, 49, 3036);
-			wait(0.02);
+			task.wait(0.02);
 			hrp.CFrame = CFrame.new(-1316, 49, 2963);
-			wait(0.02);
+			task.wait(0.02);
 			hrp.CFrame = CFrame.new(-869, 49, 3027);
-			wait(0.02);
+			task.wait(0.02);
 			hrp.CFrame = CFrame.new(-188, 49, 3066);
-			wait(0.02);
+			task.wait(0.02);
 			hrp.CFrame = CFrame.new(-50, 49, 3033);
-			wait(0.02);
+			task.wait(0.02);
 			hrp.CFrame = CFrame.new(247, 49, 3022);
-			wait(0.02);
+			task.wait(0.02);
 		end
 	end
 	venyx:SelectPage(venyx.pages[1], true);
@@ -2642,7 +2642,7 @@ if (gameid == 9284097280) then
 		game:GetService("CoreGui").PurchasePrompt:remove();
 	end);
 	section1:addButton("Auto Collect", function()
-		while wait(0.5) do
+		while task.wait(0.5) do
 			if game:GetService("Players").LocalPlayer.Character then
 				local Playerhead = game:GetService("Players").LocalPlayer.Character.Head;
 				for i, v in pairs(game:GetService("Workspace"):GetDescendants()) do
@@ -2655,7 +2655,7 @@ if (gameid == 9284097280) then
 		end
 	end);
 	section1:addButton("Auto Buy", function()
-		while wait(0.5) do
+		while task.wait(0.5) do
 			local Playerhead = game:GetService("Players").LocalPlayer.Character.Head;
 			for i, v in pairs(game:GetService("Workspace"):GetDescendants()) do
 				if game:GetService("Players").LocalPlayer.Character then
@@ -2668,7 +2668,7 @@ if (gameid == 9284097280) then
 		end
 	end);
 	section1:addButton("Auto Clean", function()
-		while wait(0.5) do
+		while task.wait(0.5) do
 			for i, v in pairs(game:GetService("Workspace"):GetDescendants()) do
 				if ((v.Name == "Puddle") and v:FindFirstChild("ProximityPrompt")) then
 					fireproximityprompt(v.ProximityPrompt, 1);
@@ -2692,10 +2692,10 @@ end
 if (gameid == 9872472334) then
 	local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/GreenDeno/Venyx-UI-Library/main/source.lua"))();
 	local venyx = library.new("Statue Hub", 5013109572);
-	wait(2);
+	task.wait(2);
 	local themes = {Background=Color3.fromRGB(24, 24, 24),Glow=Color3.fromRGB(0, 0, 0),Accent=Color3.fromRGB(10, 10, 10),LightContrast=Color3.fromRGB(20, 20, 20),DarkContrast=Color3.fromRGB(14, 14, 14),TextColor=Color3.fromRGB(255, 255, 255)};
 	local page = venyx:addPage("Evade", 5012544693);
-	wait(1);
+	task.wait(1);
 	local section1 = page:addSection("Section 1");
 	section1:addButton("FullBright", function()
 		game:GetService("Lighting").FogStart = 0;
@@ -2703,7 +2703,7 @@ if (gameid == 9872472334) then
 		game:GetService("Lighting").ClockTime = 12;
 		game:GetService("Lighting").Brightness = 1;
 		game:GetService("Lighting").GlobalShadows = false;
-		while wait(0.01) do
+		while task.wait(0.01) do
 			for i, v in pairs(game:GetService("Lighting"):GetDescendants()) do
 				if (v.Parent == "Lighting") then
 					v:remove();
@@ -2717,7 +2717,7 @@ if (gameid == 9872472334) then
 		end
 	end);
 	section1:addButton("Esp", function()
-		while wait(0.1) do
+		while task.wait(0.1) do
 			for i, v in pairs(game:GetService("Players"):GetChildren()) do
 				if ((v.ClassName == "Player") and v.Character and v.Character:FindFirstChild("Head") and v.Character:FindFirstChild("Humanoid")) then
 					local BillboardGui = Instance.new("BillboardGui");
@@ -2771,25 +2771,25 @@ if (gameid == 9872472334) then
 				end
 			end
 		end
-		while wait() do
+		while task.wait() do
 			game:GetService("Players").LocalPlayer.Character.Head.Esp:remove();
 		end
-		while wait() do
+		while task.wait() do
 			for i, v in pairs(game:GetService("Workspace"):GetDescendants()) do
 				if (v.Name == "Esp") then
-					wait(0.2);
+					task.wait(0.2);
 					v:remove();
 				end
 			end
 		end
-		while wait() do
+		while task.wait() do
 			if game:GetService("Players").LocalPlayer.Character.Head:FindFirstChild("Esp") then
 				game:GetService("Players").LocalPlayer.Character.Head.Esp:remove();
 			end
 		end
 	end);
 	section1:addButton("Bot Esp", function()
-		while wait(5) do
+		while task.wait(5) do
 			for i, v in pairs(game:GetService("Workspace").Game.Players:GetDescendants()) do
 				if (v.Name == "HRP") then
 					local esp = Instance.new("Highlight");
@@ -2860,7 +2860,7 @@ if (gameid == 9103898828) then
 		game:GetService("Players").LocalPlayer.Character.Humanoid.WalkSpeed = value;
 	end);
 	section1:addButton("AutoBreath", function()
-		while wait(0.5) do
+		while task.wait(0.5) do
 			local args = {[1]="Start"};
 			game:GetService("ReplicatedStorage").Knit.Packages.Knit.Services.BreathingService.RE.Breath:FireServer(unpack(args));
 		end
@@ -2922,7 +2922,7 @@ if (gameid == 9285238704) then
 			venyx:setTheme(theme, color3);
 		end);
 	end
-	while wait(7) do
+	while task.wait(7) do
 		if (autowintoggle == true) then
 			local plr = game("Players").LocalPlayer;
 			local tween_s = game("TweenService");
@@ -2944,17 +2944,17 @@ if (gameid == 9285238704) then
 	end
 	venyx:SelectPage(venyx.pages[1], true);
 end
-wait(0.1);
+task.wait(0.1);
 local gameid = game.PlaceId;
 if (gameid == 6839171747) then
-	wait(2);
+	task.wait(2);
 	local fesp = false;
 	local besp = false;
 	local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/GreenDeno/Venyx-UI-Library/main/source.lua"))();
 	local venyx = library.new("Statue Hub", 5013109572);
 	local autoopen = false;
 	local themes = {Background=Color3.fromRGB(24, 24, 24),Glow=Color3.fromRGB(0, 0, 0),Accent=Color3.fromRGB(10, 10, 10),LightContrast=Color3.fromRGB(20, 20, 20),DarkContrast=Color3.fromRGB(14, 14, 14),TextColor=Color3.fromRGB(255, 255, 255)};
-	wait();
+	task.wait();
 	local newroom = game:GetService("ReplicatedStorage").GameData.ChaseStart.Changed:Connect(function()
 		local ChaseStart = game:GetService("ReplicatedStorage").GameData.ChaseStart.Value;
 		local room = game:GetService("ReplicatedStorage").GameData.LatestRoom.Value;
@@ -2973,7 +2973,7 @@ if (gameid == 6839171747) then
 		game:GetService("Lighting").ClockTime = 12;
 		game:GetService("Lighting").Brightness = 1;
 		game:GetService("Lighting").GlobalShadows = false;
-		while wait(0.01) do
+		while task.wait(0.01) do
 			for i, v in pairs(game:GetService("Lighting"):GetDescendants()) do
 				if (v.Parent == "Lighting") then
 					v:remove();
@@ -2984,9 +2984,9 @@ if (gameid == 6839171747) then
 	section1:addButton("Complete Elevator Power Puzzle", function()
 		game:GetService("ReplicatedStorage").Bricks.EBF:FireServer();
 	end);
-	wait();
+	task.wait();
 	section1:addButton("Auto Complete (buggy)", function()
-		while wait() do
+		while task.wait() do
 			local name = game:GetService("ReplicatedStorage").GameData.LatestRoom.Value;
 			local latest = game:GetService("Workspace").CurrentRooms:FindFirstChild(name).Door;
 			if latest then
@@ -3001,10 +3001,10 @@ if (gameid == 6839171747) then
 							local CF = CFrame.new;
 							if HasKey then
 								game.Players.LocalPlayer.Character:PivotTo(CF(HasKey.Hitbox.Position));
-								wait(0.3);
+								task.wait(0.3);
 								fireproximityprompt(HasKey.ModulePrompt, 0);
 								game.Players.LocalPlayer.Character:PivotTo(CF(latest.Door.Position));
-								wait(0.3);
+								task.wait(0.3);
 								fireproximityprompt(latest.Lock.UnlockPrompt, 0);
 							end
 							for i, v in pairs(game:GetService("Workspace").CurrentRooms:GetDescendants()) do
@@ -3012,7 +3012,7 @@ if (gameid == 6839171747) then
 									fireproximityprompt(v);
 								end
 							end
-							wait(0.5);
+							task.wait(0.5);
 							fireproximityprompt(latest.Lock.UnlockPrompt, 1);
 						end
 					end
@@ -3022,7 +3022,7 @@ if (gameid == 6839171747) then
 			if (latest.Parent.Name == "50") then
 				print("ran");
 				latest = game:GetService("Workspace").CurrentRooms:FindFirstChild("51").Door;
-				wait(1.5);
+				task.wait(1.5);
 			end
 			if game:GetService("Workspace"):FindFirstChild("RushMoving") then
 				local Players = game:GetService("Players");
@@ -3033,7 +3033,7 @@ if (gameid == 6839171747) then
 					character:PivotTo(currentPivot * CFrame.new(4, 100, 3));
 				end
 				repeat
-					wait();
+					task.wait();
 				until not game:GetService("Workspace"):FindFirstChild("RushMoving") 
 			end
 			if game:GetService("Workspace"):FindFirstChild("AmbushMoving") then
@@ -3045,7 +3045,7 @@ if (gameid == 6839171747) then
 					character:PivotTo(currentPivot * CFrame.new(0, 30, 0));
 				end
 				repeat
-					wait();
+					task.wait();
 				until not game:GetService("Workspace"):FindFirstChild("AmbushMoving") 
 			end
 			game:GetService("Players").LocalPlayer.Character:PivotTo(latest.Parent.RoomEnd.CFrame + Vector3.new(0, 0, 0));
@@ -3053,7 +3053,7 @@ if (gameid == 6839171747) then
 		end
 	end);
 	section1:addButton("Fast Auto Complete (may kill u lol)", function()
-		while wait() do
+		while task.wait() do
 			local name = game:GetService("ReplicatedStorage").GameData.LatestRoom.Value;
 			local latest = game:GetService("Workspace").CurrentRooms:FindFirstChild(name).RoomEnd;
 			if latest then
@@ -3068,10 +3068,10 @@ if (gameid == 6839171747) then
 							local CF = CFrame.new;
 							if HasKey then
 								game.Players.LocalPlayer.Character:PivotTo(CF(HasKey.Hitbox.Position));
-								wait(0.3);
+								task.wait(0.3);
 								fireproximityprompt(HasKey.ModulePrompt, 0);
 								game.Players.LocalPlayer.Character:PivotTo(CF(latest.Door.Position));
-								wait(0.3);
+								task.wait(0.3);
 								fireproximityprompt(latest.Lock.UnlockPrompt, 0);
 							end
 							for i, v in pairs(game:GetService("Workspace").CurrentRooms:GetDescendants()) do
@@ -3079,7 +3079,7 @@ if (gameid == 6839171747) then
 									fireproximityprompt(v);
 								end
 							end
-							wait(0.5);
+							task.wait(0.5);
 							fireproximityprompt(latest.Lock.UnlockPrompt, 1);
 						end
 					end
@@ -3089,7 +3089,7 @@ if (gameid == 6839171747) then
 			if (latest.Parent.Name == "50") then
 				print("ran");
 				latest = game:GetService("Workspace").CurrentRooms:FindFirstChild("51").RoomEnd;
-				wait(1.5);
+				task.wait(1.5);
 			end
 			local Players = game:GetService("Players");
 			game:GetService("Players").LocalPlayer.Character:PivotTo(latest.Parent.RoomEnd.CFrame + Vector3.new(0, 0, 0));
@@ -3102,7 +3102,7 @@ if (gameid == 6839171747) then
 		end);
 	end);
 	section1:addButton("Auto Monster Notify", function()
-		while wait(3) do
+		while task.wait(3) do
 			if game:GetService("Workspace"):FindFirstChild("AmbushMoving") then
 				venyx:Notify("Monster Spawn Notifier", "Ambush Has Spawned, Hide Quickly!");
 			end
@@ -3115,7 +3115,7 @@ if (gameid == 6839171747) then
 		end
 	end);
 	section1:addButton("Esp Key", function()
-		while wait(0.5) do
+		while task.wait(0.5) do
 			for i, v in pairs(game:GetService("Workspace").CurrentRooms:GetDescendants()) do
 				if ((v.Name == "KeyObtain") or (v.Name == "ElectricalKeyObtain")) then
 					local esp = Instance.new("Highlight");
@@ -3129,7 +3129,7 @@ if (gameid == 6839171747) then
 			end
 		end
 	end);
-	wait(0.5);
+	task.wait(0.5);
 	section1:addButton("Esp Books", function()
 		game:GetService("RunService").Heartbeat:Connect(function()
 			for i, v in pairs(game:GetService("Workspace").CurrentRooms:GetDescendants()) do
@@ -3239,7 +3239,7 @@ if (gameid == 6839171747) then
 			venyx:setTheme(theme, color3);
 		end);
 	end
-	while wait(2) do
+	while task.wait(2) do
 		if (antirush == true) then
 			if (_G.RushSpawned == true) then
 				local Players = game:GetService("Players");
@@ -3249,7 +3249,7 @@ if (gameid == 6839171747) then
 					local currentPivot = character:GetPivot();
 					character:PivotTo(currentPivot * CFrame.new(0, 20, 0));
 					repeat
-						wait();
+						task.wait();
 					until _G.RushSpawned == false 
 					local Players = game:GetService("Players");
 					local player = Players.LocalPlayer;
@@ -3262,12 +3262,12 @@ if (gameid == 6839171747) then
 			end
 		end
 	end
-	while wait(2) do
+	while task.wait(2) do
 		if game:GetService("Workspace"):FindFirstChild("RushMoving") then
 			_G.RushSpawned = true;
 		end
 	end
-	while wait(2) do
+	while task.wait(2) do
 		if not game:GetService("Workspace"):FindFirstChild("RushMoving") then
 			_G.RushSpawned = false;
 		end
@@ -3281,12 +3281,12 @@ if (gameid == 6839171747) then
 		end
 	end);
 	venyx:SelectPage(venyx.pages[1], true);
-	while wait() do
+	while task.wait() do
 		if (autoopen == true) then
 			for i, v in pairs(game:GetService("Workspace").CurrentRooms:GetDescendants()) do
 				if (v.Name == "ClientOpen") then
 					v:FireServer();
-					wait(0.5);
+					task.wait(0.5);
 					for i, v in pairs(game:GetService("Workspace").CurrentRooms:GetDescendants()) do
 						if (v.Name == "PrismaticConstraint") then
 							v.TargetPosition = 10;
