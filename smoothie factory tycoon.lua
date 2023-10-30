@@ -10,7 +10,7 @@ repeat for i, v in pairs(game:GetService("Workspace").Tycoons:GetDescendants()) 
 	end
 	wait(.5)
 until plot ~= nil
-OrionLib:MakeNotification({Name = "Hello!",Content = "Script Version: 1.1",Image = "rbxassetid://4483345998",Time = 5})
+OrionLib:MakeNotification({Name = "Hello!",Content = "Script Version: 1.2",Image = "rbxassetid://4483345998",Time = 5})
 print(plot)
 
 local localplr = game.Players.LocalPlayer
@@ -267,8 +267,10 @@ Tab2:AddToggle({Name = "Auto Jar",Default = false,Callback = function(Value)
 							if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart then
 								game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.Parent.CFrame + Vector3.new(-1,2,2)
 								--print(v.Parent.Parent.Parent.Parent)
+											ajarc = true
 								repeat wait() fireproximityprompt(v) until tostring(v.Parent.Cooldown.TextLabel.Text) ~= "0"
-							end
+											ajarc = false
+										end
 						end
 					end
 				end
@@ -288,11 +290,13 @@ Tab2:AddToggle({Name = "Auto Blend",Default = false,Callback = function(Value)
 					if v.Name == "ActivateBlender" and wait(.05) and v.Parent.Parent.Parent.ActivationLight.Color ~= Color3.fromRGB(0, 255, 0) and v.Parent.Parent:FindFirstChild("Arrow") then
 						if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart then
 							game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.Parent.CFrame + Vector3.new(-1,2,2)
+							ablenderc = true
 							repeat
 								wait()
 								fireproximityprompt(v)
 							until
 								v.Parent.Parent.Parent.ActivationLight.Color == Color3.fromRGB(0, 255, 0)
+							ablenderc = false
 						end
 					end
 				end
