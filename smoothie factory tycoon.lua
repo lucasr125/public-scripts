@@ -10,7 +10,7 @@ repeat for i, v in pairs(game:GetService("Workspace").Tycoons:GetDescendants()) 
 	end
 	wait(.5)
 until plot ~= nil
-OrionLib:MakeNotification({Name = "Hello!",Content = "Script Version: 1.2",Image = "rbxassetid://4483345998",Time = 5})
+OrionLib:MakeNotification({Name = "Hello!",Content = "Script Version: 1.3",Image = "rbxassetid://4483345998",Time = 5})
 print(plot)
 
 local localplr = game.Players.LocalPlayer
@@ -239,6 +239,7 @@ end})
 Tab2:AddToggle({Name = "Auto Jar",Default = false,Callback = function(Value)
 	aj2 = Value
 	while aj2 do
+	wait()
 		if aj2 == true then
 					if ablenderc == false then
 			for i, v in pairs(plot.ProcessingMachines.JarFactory:GetDescendants()) do
@@ -277,13 +278,13 @@ Tab2:AddToggle({Name = "Auto Jar",Default = false,Callback = function(Value)
 						end
 			end
 		end
-	wait()
 	end
 end})
 
 Tab2:AddToggle({Name = "Auto Blend",Default = false,Callback = function(Value)
 	ab2 = Value
 	while ab2 do
+		wait()
 		if ab2 == true then
 			if ajarc == false then
 				for i, v in pairs(plot:GetDescendants()) do
