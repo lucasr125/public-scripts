@@ -10,12 +10,13 @@ repeat for i, v in pairs(game:GetService("Workspace").Tycoons:GetDescendants()) 
 	end
 	wait(.5)
 until plot ~= nil
-OrionLib:MakeNotification({Name = "Hello!",Content = "Script Version: 1.4",Image = "rbxassetid://4483345998",Time = 5})
+OrionLib:MakeNotification({Name = "Hello!",Content = "Script Version: 1.5",Image = "rbxassetid://4483345998",Time = 5})
 print(plot)
 
 local localplr = game.Players.LocalPlayer
 local Window = OrionLib:MakeWindow({Name = GameName, HidePremium = false, SaveConfig = true, ConfigFolder = "OrionLib"})
 local Tab = Window:MakeTab({Name = "Farming",Icon = "rbxassetid://4483345998",PremiumOnly = false})
+local Tab2 = Window:MakeTab({Name = "Farming 2",Icon = "rbxassetid://4483345998",PremiumOnly = false})
 
 local ao --Auto Obby
 local aj --Auto Jar
@@ -230,6 +231,72 @@ ws.Enabled = false
 Tab:AddToggle({Name = "White Screen / Anti Lag",Default = false,Callback = function(Value)
 	ws.Enabled = Value
 end})
+
+local autoJarActive = false
+local autoBlendActive = false
+
+local autoJarThread
+local autoBlendThread
+
+Tab2:AddToggle({
+    Name = "Auto Jar",
+    Default = false,
+    Callback = function(Value)
+        autoJarActive = Value
+        if autoJarActive then
+            if autoBlendThread then
+                autoBlendThread:Stop()
+                autoBlendThread = nil
+            end
+            autoJarThread = spawn(function()
+                while autoJarActive do
+                    if not autoBlendActive then
+                        for i, v in pairs(plot:GetDescendants()) do
+                            if v.Name == "ActivateJar" then
+                                if v.Parent.Parent.Parent.ActivationLight.Color ~= Color3.fromRGB(0, 255, 0) then
+                                    game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.Parent.CFrame + Vector3.new(-1, 2, 2)
+                                    fireproximityprompt(v)
+                                end
+                            end
+                        end
+                    end
+                    wait()
+                end
+            end)
+        elseif autoJarThread then
+            autoJarThread:Stop()
+            autoJarThread = nil
+        end
+    end
+})
+
+Tab2:AddToggle({
+    Name = "Auto Blend",
+    Default = false,
+    Callback = function(Value)
+        autoBlendActive = Value
+        if autoBlendActive then
+            if autoJarThread then
+                autoJarThread:Stop()
+                autoJarThread = nil
+            end
+            autoBlendThread = spawn(function()
+                while autoBlendActive do
+                    for i, v in pairs(plot:GetDescendants()) do
+                        if v.Name == "ActivateBlender" and v.Parent.Parent.Parent.ActivationLight.Color ~= Color3.fromRGB(0, 255, 0) then
+                            game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.Parent.CFrame + Vector3.new(-1, 2, 2)
+                            fireproximityprompt(v)
+                        end
+                    end
+                    wait()
+                end
+            end)
+        elseif autoBlendThread then
+            autoBlendThread:Stop()
+            autoBlendThread = nil
+        end
+    end
+})
 
 -- idk if this works but ok
 localplr.Idled:Connect(function()
