@@ -243,7 +243,7 @@ Tab2:AddToggle({
     Callback = function(Value)
         autoJarThread = Value
 	while autoJarThread do
-		if autoJarThread == true and not autoBlendeActive == true then
+		if autoJarThread == true and not autoBlendActive == true then
 			for i, v in pairs(plot.ProcessingMachines.JarFactory:GetDescendants()) do
 				if v.Name == "OpenDoorPrompt" and v.Parent.Parent.Parent.Parent.Name == "JarFactory"  then
 					if tostring(v.Parent.Cooldown.TextLabel.Text) == "0" or tostring(v.Parent.Cooldown.TextLabel.Text) == "?" then
@@ -251,7 +251,7 @@ Tab2:AddToggle({
 							game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.Parent.CFrame + Vector3.new(-1,2,2)
 							--print(v.Parent.Parent.Parent.Parent)
 							autoJarActive = true
-							repeat wait() fireproximityprompt(v) until tostring(v.Parent.Cooldown.TextLabel.Text) ~= "0" break
+							repeat wait() fireproximityprompt(v) until tostring(v.Parent.Cooldown.TextLabel.Text) ~= "0"
 							autoJarActive = false
 						end
 					end
@@ -298,7 +298,7 @@ Tab2:AddToggle({
 							wait()
 							fireproximityprompt(v)
 						until
-							v.Parent.Parent.Parent.ActivationLight.Color == Color3.fromRGB(0, 255, 0) break
+							v.Parent.Parent.Parent.ActivationLight.Color == Color3.fromRGB(0, 255, 0)
 							autoBlendActive = false
 					end
 				end
