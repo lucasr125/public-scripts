@@ -10,7 +10,7 @@ repeat for i, v in pairs(game:GetService("Workspace").Tycoons:GetDescendants()) 
 	end
 	wait(.5)
 until plot ~= nil
-OrionLib:MakeNotification({Name = "Hello!",Content = "Script Version: 1.5.4",Image = "rbxassetid://4483345998",Time = 5})
+OrionLib:MakeNotification({Name = "Hello!",Content = "Script Version: 1.5.5",Image = "rbxassetid://4483345998",Time = 5})
 print(plot)
 
 local localplr = game.Players.LocalPlayer
@@ -238,7 +238,7 @@ local autoJarThread
 local autoBlendThread
 
 Tab2:AddToggle({
-    Name = "Auto Jar",
+    Name = "Auto Jar ( fast ver. )",
     Default = false,
     Callback = function(Value)
         autoJarThread = Value
@@ -249,10 +249,7 @@ Tab2:AddToggle({
 					if tostring(v.Parent.Cooldown.TextLabel.Text) == "0" or tostring(v.Parent.Cooldown.TextLabel.Text) == "?" then
 						if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart then
 							game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.Parent.CFrame + Vector3.new(-1,2,2)
-							--print(v.Parent.Parent.Parent.Parent)
-							autoJarActive = true
-							repeat wait() fireproximityprompt(v) until tostring(v.Parent.Cooldown.TextLabel.Text) ~= "0"
-							autoJarActive = false
+							fireproximityprompt(v)
 						end
 					end
 				end
@@ -261,7 +258,7 @@ Tab2:AddToggle({
 						if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart then
 							game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.Parent.CFrame + Vector3.new(-1,2,2)
 							--print(v.Parent.Parent.Parent.Parent)
-							repeat wait() fireproximityprompt(v) until tostring(v.Parent.Cooldown.TextLabel.Text) ~= "0"
+							fireproximityprompt(v)
 						end
 					end
 				end
@@ -271,7 +268,7 @@ Tab2:AddToggle({
 							if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart then
 								game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.Parent.CFrame + Vector3.new(-1,2,2)
 								--print(v.Parent.Parent.Parent.Parent)
-								repeat wait() fireproximityprompt(v) until tostring(v.Parent.Cooldown.TextLabel.Text) ~= "0"
+								fireproximityprompt(v)
 							end
 						end
 					end
@@ -283,23 +280,18 @@ Tab2:AddToggle({
 end})
 
 Tab2:AddToggle({
-    Name = "Auto Blend",
+    Name = "Auto Blend ( fast ver. )",
     Default = false,
     Callback = function(Value)
         autoBlendThread = Value
 	while autoBlendThread do
-		if autoBlendThread == true and not autoJarActive == true then
+		if autoBlendThread == true then
 			for i, v in pairs(plot:GetDescendants()) do
 				if v.Name == "ActivateBlender" and wait(.05) and v.Parent.Parent.Parent.ActivationLight.Color ~= Color3.fromRGB(0, 255, 0) and v.Parent.Parent:FindFirstChild("Arrow") then
 					if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart then
 						game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.Parent.CFrame + Vector3.new(-1,2,2)
-						autoBlendActive = true
-						repeat
-							wait()
-							fireproximityprompt(v)
-						until
-							v.Parent.Parent.Parent.ActivationLight.Color == Color3.fromRGB(0, 255, 0)
-							autoBlendActive = false
+						wait()
+						fireproximityprompt(v)
 					end
 				end
 			end
