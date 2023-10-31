@@ -278,7 +278,6 @@ Tab2:AddToggle({
 				end
 			end
 		end
-			end
 	wait()
 	end
 end})
@@ -290,25 +289,23 @@ Tab2:AddToggle({
         autoBlendThread = Value
 	while autoBlendThread do
 		if autoBlendThread == true and not autoJarActive == true then
-		for i, v in pairs(plot:GetDescendants()) do
-			if v.Name == "ActivateBlender" and wait(.05) and v.Parent.Parent.Parent.ActivationLight.Color ~= Color3.fromRGB(0, 255, 0) and v.Parent.Parent:FindFirstChild("Arrow") then
-				if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart then
-					game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.Parent.CFrame + Vector3.new(-1,2,2)
-								autoBlendActive = true
-					repeat
-						wait()
-						fireproximityprompt(v)
-					until
-						v.Parent.Parent.Parent.ActivationLight.Color == Color3.fromRGB(0, 255, 0) break
-								autoBlendActive = false
+			for i, v in pairs(plot:GetDescendants()) do
+				if v.Name == "ActivateBlender" and wait(.05) and v.Parent.Parent.Parent.ActivationLight.Color ~= Color3.fromRGB(0, 255, 0) and v.Parent.Parent:FindFirstChild("Arrow") then
+					if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart then
+						game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.Parent.CFrame + Vector3.new(-1,2,2)
+						autoBlendActive = true
+						repeat
+							wait()
+							fireproximityprompt(v)
+						until
+							v.Parent.Parent.Parent.ActivationLight.Color == Color3.fromRGB(0, 255, 0) break
+							autoBlendActive = false
+					end
 				end
 			end
 		end
 	end
-			end
-	end
-		end
-})
+end})
 
 -- idk if this works but ok
 localplr.Idled:Connect(function()
