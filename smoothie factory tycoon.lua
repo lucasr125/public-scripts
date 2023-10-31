@@ -10,7 +10,7 @@ repeat for i, v in pairs(game:GetService("Workspace").Tycoons:GetDescendants()) 
 	end
 	wait(.5)
 until plot ~= nil
-OrionLib:MakeNotification({Name = "Hello!",Content = "Script Version: 1.5.2",Image = "rbxassetid://4483345998",Time = 5})
+OrionLib:MakeNotification({Name = "Hello!",Content = "Script Version: 1.5.3",Image = "rbxassetid://4483345998",Time = 5})
 print(plot)
 
 local localplr = game.Players.LocalPlayer
@@ -46,7 +46,7 @@ Tab:AddToggle({Name = "Auto Buy",Default = false,Callback = function(Value)
 	abuy = Value
 	while abuy do
 		if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart then
-			if abuy == true and wait() then
+			if abuy == true and wait(0.005) then
 				for i, v in pairs(plot.PurchaseButtons:GetDescendants()) do
 					if v.Name == "Button" and v:FindFirstChild("TouchInterest") and v.Material == Enum.Material.Neon and v.Parent.Name ~= "Rainbow Upgrader" and v.Parent.Name ~= "Rainbow Gem Upgrader" and v.Parent.Name ~= "Toggle Door Gamepass" and v.Parent.Name ~= "Toggle Door Gamepass 2" and v.Parent.Name ~= "Toggle Door Gamepass Event" and v.Parent.Name ~= "Gold Blender" and v.Parent.Name ~= "Gold Dropper 1" and v.Parent.Name ~= "Gold Dropper 2" and v.Parent.Name ~= "Gold Dropper 3" then
 						firetouchinterest(v, game:GetService("Players").LocalPlayer.Character.HumanoidRootPart, 0)
@@ -84,7 +84,7 @@ Tab:AddToggle({Name = "Auto Jar",Default = false,Callback = function(Value)
 						if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart then
 							game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.Parent.CFrame + Vector3.new(-1,2,2)
 							--print(v.Parent.Parent.Parent.Parent)
-							fireproximityprompt(v)
+							--fireproximityprompt(v)
 							repeat wait() fireproximityprompt(v) until tostring(v.Parent.Cooldown.TextLabel.Text) ~= "0"
 						end
 					end
