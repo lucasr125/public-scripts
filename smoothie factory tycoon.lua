@@ -109,6 +109,28 @@ Tab:AddToggle({Name = "Auto Jar",Default = false,Callback = function(Value)
 						end
 					end
 				end
+				if localplr.leaderstats.Rebirths.Value >= 21 then
+					if v.Name == "OpenDoorPrompt" and v.Parent.Parent.Parent.Parent.Name == "MoonJarFactory1" then
+						if tostring(v.Parent.Cooldown.TextLabel.Text) == "0" or tostring(v.Parent.Cooldown.TextLabel.Text) == "?" then
+							if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart then
+								game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.Parent.CFrame + Vector3.new(-1,2,2)
+								--print(v.Parent.Parent.Parent.Parent)
+								repeat wait() fireproximityprompt(v) until tostring(v.Parent.Cooldown.TextLabel.Text) ~= "0"
+							end
+						end
+					end
+				end
+				if localplr.leaderstats.Rebirths.Value >= 26 then
+					if v.Name == "OpenDoorPrompt" and v.Parent.Parent.Parent.Parent.Name == "MoonJarFactory2" then
+						if tostring(v.Parent.Cooldown.TextLabel.Text) == "0" or tostring(v.Parent.Cooldown.TextLabel.Text) == "?" then
+							if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart then
+								game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.Parent.CFrame + Vector3.new(-1,2,2)
+								--print(v.Parent.Parent.Parent.Parent)
+								repeat wait() fireproximityprompt(v) until tostring(v.Parent.Cooldown.TextLabel.Text) ~= "0"
+							end
+						end
+					end
+				end
 			end
 		end
 	wait()
@@ -267,7 +289,26 @@ Tab2:AddToggle({
 						if tostring(v.Parent.Cooldown.TextLabel.Text) == "0" or tostring(v.Parent.Cooldown.TextLabel.Text) == "?" then
 							if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart then
 								game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.Parent.CFrame + Vector3.new(-1,2,2)
-								--print(v.Parent.Parent.Parent.Parent)
+								fireproximityprompt(v)
+							end
+						end
+					end
+				end
+				if localplr.leaderstats.Rebirths.Value >= 21 then
+					if v.Name == "OpenDoorPrompt" and v.Parent.Parent.Parent.Parent.Name == "MoonJarFactory1" then
+						if tostring(v.Parent.Cooldown.TextLabel.Text) == "0" or tostring(v.Parent.Cooldown.TextLabel.Text) == "?" then
+							if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart then
+								game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.Parent.CFrame + Vector3.new(-1,2,2)
+								fireproximityprompt(v)
+							end
+						end
+					end
+				end
+				if localplr.leaderstats.Rebirths.Value >= 26 then
+					if v.Name == "OpenDoorPrompt" and v.Parent.Parent.Parent.Parent.Name == "MoonJarFactory2" then
+						if tostring(v.Parent.Cooldown.TextLabel.Text) == "0" or tostring(v.Parent.Cooldown.TextLabel.Text) == "?" then
+							if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart then
+								game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.Parent.CFrame + Vector3.new(-1,2,2)
 								fireproximityprompt(v)
 							end
 						end
