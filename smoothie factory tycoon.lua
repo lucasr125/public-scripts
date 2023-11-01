@@ -10,7 +10,7 @@ repeat for i, v in pairs(game:GetService("Workspace").Tycoons:GetDescendants()) 
 	end
 	wait(.5)
 until plot ~= nil
-OrionLib:MakeNotification({Name = "Hello!",Content = "Script Version: 1.5.5",Image = "rbxassetid://4483345998",Time = 5})
+OrionLib:MakeNotification({Name = "Hello!",Content = "Script Version: 1.5.6",Image = "rbxassetid://4483345998",Time = 5})
 print(plot)
 
 local localplr = game.Players.LocalPlayer
@@ -287,7 +287,7 @@ Tab2:AddToggle({
 	while autoBlendThread do
 		if autoBlendThread == true then
 			for i, v in pairs(plot:GetDescendants()) do
-				if v.Name == "ActivateBlender" and wait(.05) and v.Parent.Parent.Parent.ActivationLight.Color ~= Color3.fromRGB(0, 255, 0) and v.Parent.Parent:FindFirstChild("Arrow") then
+				if v.Name == "ActivateBlender" and wait(.05) and v.Parent.Parent.Parent.ActivationLight.Color ~= Color3.fromRGB(0, 255, 0) then
 					if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart then
 						game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.Parent.CFrame + Vector3.new(-1,2,2)
 						wait()
