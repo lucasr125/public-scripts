@@ -142,8 +142,8 @@ end})
 Tab:AddToggle({Name = "Auto Crate",Default = false,Callback = function(Value)
 	ac = Value
 	while ac do
-		if ac == true and plot.ProcessingMachines.CratePackager.CratePackager:FindFirstChild("Crates") then
-		for i, v in pairs(plot:GetDescendants()) do
+		if ac == true then
+		for i, v in pairs(plot.ProcessingMachines.CratePackager:GetDescendants()) do
 			if v.Name == "OpenDoorPrompt" and v.Parent.Parent.Parent.Parent.Name == "CratePackager" and (#v.Parent.Parent.Parent.Parent.Crates.Crate.Jars:GetChildren()) >= 8 then
 				if localplr.Character and localplr.Character.HumanoidRootPart then
 					localplr.Character.HumanoidRootPart.CFrame = plot.ProcessingMachines.CratePackager.CratePackager.Button.Button.CFrame + Vector3.new(-1,2,2)
@@ -162,7 +162,7 @@ Tab:AddToggle({Name = "Auto Blend",Default = false,Callback = function(Value)
 	ab = Value
 	while ab do
 		if ab == true then
-		for i, v in pairs(plot:GetDescendants()) do
+		for i, v in pairs(plot.Purchases:GetDescendants()) do
 			if v.Name == "ActivateBlender" and wait(.05) and v.Parent.Parent.Parent.ActivationLight.Color ~= Color3.fromRGB(0, 255, 0) and v.Parent.Parent:FindFirstChild("Arrow") then
 				if localplr.Character and localplr.Character.HumanoidRootPart then
 					localplr.Character.HumanoidRootPart.CFrame = v.Parent.Parent.CFrame + Vector3.new(-1,2,2)
