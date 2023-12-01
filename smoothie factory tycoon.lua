@@ -241,6 +241,14 @@ Tab:AddButton({Name = "Redeem All Code ( +3 Codes )",Callback = function()
 	localplr.PlayerGui.MainGui.Settings.Codes.RedeemCodeScript.Remote:FireServer("25MVisits")
 end})
 
+Tab:AddButton({Name = "Remove Others Tycoon",Callback = function()
+    for i, v in pairs(game:GetService("Workspace").Tycoons:GetDescendants()) do
+		if v ~= plot then
+			v:Remove
+		end
+	end
+end})
+
 local ws = Instance.new("ScreenGui")
 ws.Parent = game:GetService("CoreGui")
 
