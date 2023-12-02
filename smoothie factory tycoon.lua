@@ -242,8 +242,8 @@ Tab:AddButton({Name = "Redeem All Code ( +3 Codes )",Callback = function()
 end})
 
 Tab:AddButton({Name = "Remove Others Tycoon",Callback = function()
-    for i, v in pairs(game:GetService("Workspace").Tycoons:GetDescendants()) do
-		if v ~= plot then
+    for i, v in pairs(game:GetService("Workspace").Tycoons:Children()) do
+		if not plot then
 			v:Destroy()
 			wait()
 		end
