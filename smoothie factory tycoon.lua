@@ -245,6 +245,7 @@ Tab:AddButton({Name = "Remove Others Tycoon",Callback = function()
     for i, v in pairs(game:GetService("Workspace").Tycoons:GetDescendants()) do
 		if v ~= plot then
 			v:Destroy()
+			wait()
 		end
 	end
 end})
