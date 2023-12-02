@@ -243,7 +243,7 @@ end})
 
 Tab:AddButton({Name = "Remove Others Tycoon",Callback = function()
     for i, v in pairs(game:GetService("Workspace").Tycoons:GetDescendants()) do
-		if not v.Name == "Owner" and not v.Value == localplr then
+		if v.Name ~= "Owner" and v.Value ~= localplr then
 			v.Parent:Destroy()
 		end
 	end
