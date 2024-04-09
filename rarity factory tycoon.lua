@@ -132,9 +132,9 @@ game:GetService("RunService").Heartbeat:Connect(
     function()
         if getgenv().settings.AutoBuy == true then
             for _, v in pairs(PlrTycoon.Buttons:GetDescendants()) do
-                if v.ClassName == "TouchTransmitter" then
-                    firetouchinterest(v.Parent, LocalPlr.Character.HumanoidRootPart, 0)
-                    firetouchinterest(v.Parent, LocalPlr.Character.HumanoidRootPart, 1)
+                if v.ClassName == "TouchTransmitter" and v.Parent:IsA("BasePart") and v.Parent.Color == Color3.fromRGB(50, 181, 20)  then
+                    LocalPlr.Character:MoveTo(v.Parent.CFrame.Position)
+                    task.wait(0.1)
                 end
             end
         end
