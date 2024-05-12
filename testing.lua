@@ -687,7 +687,7 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			OrionLib:MakeNotification({Name="Error",Content="You have dead",Image="rbxassetid://7733658504",Time=5});
 		end
 	end});
-	Tab3:AddButton({Name="Get Glove Kinetic",Callback=function()
+	Tab3:AddButton({Name="Get Kinetic glove",Callback=function()
 		if ((game.Players.LocalPlayer.leaderstats.Glove.Value == "Stun") and game.Players.LocalPlayer.Character:FindFirstChild("entered")) then
 			OGL = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame;
 			for i = 1, 150 do
@@ -696,19 +696,19 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			end
 			wait(1.5);
 			repeat
-				local players = game.Players:GetChildren();
-				local RandomPlayer = players[math.random(1, #players)];
-				repeat
-					RandomPlayer = players[math.random(1, #players)];
-				until (RandomPlayer ~= game.Players.LocalPlayer) and RandomPlayer.Character:FindFirstChild("entered") and (RandomPlayer.Character:FindFirstChild("rock") == nil) and (RandomPlayer.Character.Head:FindFirstChild("UnoReverseCard") == nil) and (RandomPlayer.Character.Humanoid.Health ~= 0) 
-				Target = RandomPlayer;
-				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Target.Character.HumanoidRootPart.CFrame * CFrame.new(0, -20, 0);
-				wait(0.25);
+				--local players = game.Players:GetChildren();
+				--local RandomPlayer = players[math.random(1, #players)];
+				--repeat
+				--	RandomPlayer = players[math.random(1, #players)];
+				--until (RandomPlayer ~= game.Players.LocalPlayer) and RandomPlayer.Character:FindFirstChild("entered") and (RandomPlayer.Character:FindFirstChild("rock") == nil) and (RandomPlayer.Character.Head:FindFirstChild("UnoReverseCard") == nil) and (RandomPlayer.Character.Humanoid.Health ~= 0) 
+				--Target = RandomPlayer;
+				--game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Target.Character.HumanoidRootPart.CFrame * CFrame.new(0, -20, 0);
+				--wait(0.25);
 				game.ReplicatedStorage.StunR:FireServer(game.Players.LocalPlayer.Character.Stun);
-				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = OGL;
-				wait(0.5);
+				--game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = OGL;
+				--wait(0.5);
 				if (game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("EMPStunBadgeCounter")) then
-					OrionLib:MakeNotification({Name="Error",Content=("Counter Stun [ " .. game.Players.LocalPlayer.Character.EMPStunBadgeCounter.Value .. " ]"),Image="rbxassetid://7733658504",Time=5});
+					OrionLib:MakeNotification({Name="Kinetic badge ; Stun count",Content=("Emp count: [ " .. game.Players.LocalPlayer.Character.EMPStunBadgeCounter.Value .. " ]"),Image="rbxassetid://7733658504",Time=12.3});
 				end
 				wait(12.3);
 			until game.Players.LocalPlayer.Character:FindFirstChild("EMPStunBadgeCounter") and (game.Players.LocalPlayer.Character.EMPStunBadgeCounter.Value >= 50) 
@@ -716,7 +716,7 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			OrionLib:MakeNotification({Name="Error",Content="You don't have Stun equipped, or you aren't in the arena",Image="rbxassetid://7733658504",Time=5});
 		end
 	end});
-	Tab3:AddButton({Name="Win Obby Pyscho",Callback=function()
+	Tab3:AddButton({Name="Win Pyscho obby",Callback=function()
 		if (game.Workspace:FindFirstChild("RepressedMemoriesMap") ~= nil) then
 			OGL = game.Workspace.RepressedMemoriesMap.Psychokinesis.Triggers.StartPsychoEvent.CFrame;
 			OGL1 = game.Workspace.RepressedMemoriesMap.Psychokinesis.Triggers.StopPsychoEvent.CFrame;
@@ -732,7 +732,7 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			OrionLib:MakeNotification({Name="Error",Content="You have enter limbo [ don't show all, not work ]",Image="rbxassetid://7733658504",Time=5});
 		end
 	end});
-	Tab3:AddButton({Name="Get Glove Bomb",Callback=function()
+	Tab3:AddButton({Name="Get Bomb glove",Callback=function()
 		if ((game.Players.LocalPlayer.leaderstats.Glove.Value == "Warp") and not game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 2124919840)) then
 			local players = game.Players:GetChildren();
 			local RandomPlayer = players[math.random(1, #players)];
@@ -755,7 +755,7 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			OrionLib:MakeNotification({Name="Error",Content="You don't have Warp equipped, or you have owner badge",Image="rbxassetid://7733658504",Time=5});
 		end
 	end});
-	Tab3:AddButton({Name="Get Glove Plank",Callback=function()
+	Tab3:AddButton({Name="Get Plank glove",Callback=function()
 		if ((game.Players.LocalPlayer.leaderstats.Glove.Value == "Fort") and not game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 4031317971987872)) then
 			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(8, 97, 4);
 			wait(0.2);
@@ -767,10 +767,10 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			wait(0.1);
 			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(8, 106, -6);
 		else
-			OrionLib:MakeNotification({Name="Error",Content="You don't have Fort equipped, or you have owner badge [ Don't turn on shiftlock ]",Image="rbxassetid://7733658504",Time=5});
+			OrionLib:MakeNotification({Name="Error",Content="You don't have Fort glove equipped or you already own the badge. [ Don't turn on shiftlock ]",Image="rbxassetid://7733658504",Time=5});
 		end
 	end});
-	Tab3:AddButton({Name="Get Glove Blasphemy",Callback=function()
+	Tab3:AddButton({Name="Get Blasphemy glove",Callback=function()
 		if ((game.Players.LocalPlayer.leaderstats.Glove.Value == "bus") and not game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 3335299217032061)) then
 			OGL = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame;
 			repeat
@@ -803,7 +803,7 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 				task.wait(3.5);
 			until game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 3335299217032061) 
 		else
-			OrionLib:MakeNotification({Name="Error",Content="You don't have bus equipped, or you have owner badge",Image="rbxassetid://7733658504",Time=5});
+			OrionLib:MakeNotification({Name="Error",Content="You don't have bus glove equipped or you already own the badge.",Image="rbxassetid://7733658504",Time=5});
 		end
 	end});
 	Tab3:AddButton({Name="Auto Quests Chest All Glove",Callback=function()
@@ -820,10 +820,10 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			wait(3.75);
 			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.BountyHunterRoom.Union.CFrame * CFrame.new(0, 5, 0);
 		else
-			OrionLib:MakeNotification({Name="Error",Content="You have enter arena",Image="rbxassetid://7733658504",Time=5});
+			OrionLib:MakeNotification({Name="Error",Content="Enter in arena.",Image="rbxassetid://7733658504",Time=5});
 		end
 	end});
-	Tab3:AddButton({Name="Auto Get Glove FrostBite",Callback=function()
+	Tab3:AddButton({Name="Get Frostbite glove",Callback=function()
 		local teleportFunc = queueonteleport or queue_on_teleport or (syn and syn.queue_on_teleport);
 		if teleportFunc then
 			teleportFunc([[
@@ -849,7 +849,7 @@ for i,v in ipairs(game:GetService("Workspace"):GetDescendants()) do
 		end
 		game:GetService("TeleportService"):Teleport(17290438723);
 	end});
-	Tab3:AddButton({Name="Get Glove Chain",Callback=function()
+	Tab3:AddButton({Name="Get Chain glove",Callback=function()
 		if (game.Players.LocalPlayer.leaderstats.Slaps.Value >= 1000) then
 			local teleportFunc = queueonteleport or queue_on_teleport or (syn and syn.queue_on_teleport);
 			if teleportFunc then
@@ -1030,16 +1030,16 @@ game:GetService("TeleportService"):Teleport(6403373529)
 			end
 			game:GetService("TeleportService"):Teleport(9431156611);
 		else
-			OrionLib:MakeNotification({Name="Error",Content="You don't have 1000 slap.",Image="rbxassetid://7733658504",Time=5});
+			OrionLib:MakeNotification({Name="Error",Content="You don't have 1000 slaps.",Image="rbxassetid://7733658504",Time=5});
 		end
 	end});
-	Tab3:AddDropdown({Name="Join Maze Elude",Default="Auto Keypad",Options={"Teleport","Auto Keypad"},Callback=function(Value)
+	Tab3:AddDropdown({Name="Join maze elude using",Default="Auto Keypad",Options={"Teleport","Auto Keypad"},Callback=function(Value)
 		_G.SelectMaze = Value;
 	end});
-	Tab3:AddDropdown({Name="Badge Teleport",Default="",Options={"Elude","Counter"},Callback=function(Value)
+	Tab3:AddDropdown({Name="Select glove to get in elude",Default="",Options={"Elude","Counter"},Callback=function(Value)
 		_G.SelectMazeBadge = Value;
 	end});
-	Tab3:AddButton({Name="Get Glove Badge Teleport",Callback=function()
+	Tab3:AddButton({Name="Get glove badge in elude",Callback=function()
 		if (_G.SelectMazeBadge == "Elude") then
 			if (_G.SelectMaze == "Teleport") then
 				local teleportFunc = queueonteleport or queue_on_teleport or (syn and syn.queue_on_teleport);
@@ -1171,7 +1171,7 @@ end
 			end
 		end
 	end});
-	Tab3:AddButton({Name="Get Glove [Redacted]",Callback=function()
+	Tab3:AddButton({Name="Get [REDACTED] glove",Callback=function()
 		if (game.Players.LocalPlayer.leaderstats.Slaps.Value >= 5000) then
 			Door = 0;
 			for i = 1, 10 do
@@ -1184,7 +1184,7 @@ end
 				end
 			end
 		else
-			OrionLib:MakeNotification({Name="Error",Content="You don't have 5000 slap, or you have Owner bagde",Image="rbxassetid://7733658504",Time=5});
+			OrionLib:MakeNotification({Name="Error",Content="You don't have 5000 slaps or you already owns the badge",Image="rbxassetid://7733658504",Time=5});
 		end
 	end});
 	Tab3:AddButton({Name="Get Duck & Orange & Knife Badge",Callback=function()
@@ -1193,10 +1193,10 @@ end
 			fireclickdetector(game.Workspace.Arena.island5.Orange.ClickDetector);
 			fireclickdetector(game.Workspace.Arena["default island"]["Rubber Ducky"].ClickDetector);
 		else
-			OrionLib:MakeNotification({Name="Error",Content="You have Owner badge",Image="rbxassetid://7733658504",Time=5});
+			OrionLib:MakeNotification({Name="Error",Content="You already owns the badges.",Image="rbxassetid://7733658504",Time=5});
 		end
 	end});
-	Tab3:AddButton({Name="Get Free Ice Skate",Callback=function()
+	Tab3:AddButton({Name="Get IceSkate glove",Callback=function()
 		if not game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 2906002612987222) then
 			game:GetService("ReplicatedStorage").IceSkate:FireServer("Freeze");
 		else
