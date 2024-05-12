@@ -1854,8 +1854,8 @@ end
 	end});
 	SbeveAll = Tab14:AddToggle({Name="Auto Sbeve All Player",Default=false,Callback=function(Value)
 		_G.AutoSbeveAllPlayer = Value;
-		if (game.Players.LocalPlayer.leaderstats.Glove.Value == "Sbeve") then
-			while _G.AutoSbeveAllPlayer and (game.Players.LocalPlayer.leaderstats.Glove.Value == "Sbeve") do
+		--if (game.Players.LocalPlayer.leaderstats.Glove.Value == "Sbeve") then -- why needs glove when u transform too without using SBEVE?
+			while _G.AutoSbeveAllPlayer --[[and (game.Players.LocalPlayer.leaderstats.Glove.Value == "Sbeve")]] do
 				if (game.Players.LocalPlayer.Character:WaitForChild("stevebody") ~= nil) then
 					for i, v in pairs(game.Players:GetChildren()) do
 						if ((v ~= game.Players.LocalPlayer) and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") and v.Character) then
@@ -1870,11 +1870,6 @@ end
 				end
 				task.wait();
 			end
-		elseif (_G.AutoSbeveAllPlayer == true) then
-			OrionLib:MakeNotification({Name="Error",Content="You don't have Sbeve equipped",Image="rbxassetid://7733658504",Time=5});
-			wait(0.05);
-			SbeveAll:Set(false);
-		end
 	end});
 	Tab14:AddDropdown({Name="Black Hole",Default="",Options={"Normal","Teleport Cannon Island","Teleport Cannon Island + Black Hole"},Callback=function(Value)
 		_G.BlackHoleCre = Value;
