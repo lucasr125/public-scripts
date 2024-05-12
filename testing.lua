@@ -435,102 +435,103 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 		TournamentAntiVoid.CanCollide = false;
 	end
 	local Tab = Window:MakeTab({Name="Info",Icon="rbxassetid://7734053426",PremiumOnly=false});
-	local Tab1 = Window:MakeTab({Name="Script",Icon="rbxassetid://8997387937",PremiumOnly=false});
-	local Tab2 = Window:MakeTab({Name="Anti",Icon="rbxassetid://7734056608",PremiumOnly=false});
-	local Tab12 = Window:MakeTab({Name="Anti Void Badge",Icon="rbxassetid://7733673987",PremiumOnly=false});
+	local Tab1 = Window:MakeTab({Name="Scripts",Icon="rbxassetid://8997387937",PremiumOnly=false});
+	local Tab2 = Window:MakeTab({Name="Antis",Icon="rbxassetid://7734056608",PremiumOnly=false});
+	local Tab12 = Window:MakeTab({Name="Anti void badges",Icon="rbxassetid://7733673987",PremiumOnly=false});
 	local Tab3 = Window:MakeTab({Name="Badges",Icon="rbxassetid://7733673987",PremiumOnly=false});
 	local Tab5 = Window:MakeTab({Name="Local",Icon="rbxassetid://4335489011",PremiumOnly=false});
 	local Tab7 = Window:MakeTab({Name="Misc",Icon="rbxassetid://4370318685",PremiumOnly=false});
-	local Tab14 = Window:MakeTab({Name="Gloves Optional",Icon="rbxassetid://7733955740",PremiumOnly=false});
-	local Tab11 = Window:MakeTab({Name="Troller",Icon="rbxassetid://7733917120",PremiumOnly=false});
-	local Tab15 = Window:MakeTab({Name="Credit",Icon="rbxassetid://7733955511",PremiumOnly=false});
-	local Tab60 = Window:MakeTab({Name="Notify Update",Icon="rbxassetid://7733771472",PremiumOnly=false});
-	Tab:AddLabel("Owner Credits Script By Giang And DonjoSx");
+	local Tab14 = Window:MakeTab({Name="Gloves",Icon="rbxassetid://7733955740",PremiumOnly=false});
+	local Tab11 = Window:MakeTab({Name="Troll",Icon="rbxassetid://7733917120",PremiumOnly=false});
+	local Tab15 = Window:MakeTab({Name="Credits",Icon="rbxassetid://7733955511",PremiumOnly=false});
+	local Tab60 = Window:MakeTab({Name="Script updates",Icon="rbxassetid://7733771472",PremiumOnly=false});
+	Tab:AddLabel("Script owner: Giang and DonjoSx");
+	Tab:AddLabel("Modified.");
 	Tab:AddLabel("Bạn muốn vào nhóm zalo thì vào Credit nhé");
 	local InfoServer = Tab:AddSection({Name="Info"});
-	CanYouFps = Tab:AddLabel("Your Fps [ " .. math.floor(workspace:GetRealPhysicsFPS()) .. " ]");
-	CanYouPing = Tab:AddLabel("Your Ping [ " .. game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString() .. " ]");
-	ServerPlayer = Tab:AddLabel("Player In Server [ " .. #game.Players:GetPlayers() .. " / " .. game.Players.MaxPlayers .. " ]");
-	TimeServer = Tab:AddLabel("Server Time [ " .. math.floor((workspace.DistributedGameTime / 60) / 60) .. " Hour | " .. (math.floor(workspace.DistributedGameTime / 60) - (math.floor((workspace.DistributedGameTime / 60) / 60) * 60)) .. " Minute | " .. (math.floor(workspace.DistributedGameTime) - (math.floor(workspace.DistributedGameTime / 60) * 60)) .. " Second ]");
-	TimeNow = Tab:AddLabel("Now Time [ " .. os.date("%X") .. " ]");
-	AgeAccYou = Tab:AddLabel("You Account Age [ " .. game.Players.LocalPlayer.AccountAge .. " ]");
-	ViewAgeServer = Tab:AddLabel("Server's Age [ " .. game.Workspace.Lobby.ServerAge.Text.SurfaceGui.TextLabel.Text .. " ]");
+	CanYouFps = Tab:AddLabel("Your FPS [ " .. math.floor(workspace:GetRealPhysicsFPS()) .. " ]");
+	CanYouPing = Tab:AddLabel("Your ping [ " .. game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString() .. " ]");
+	ServerPlayer = Tab:AddLabel("Players in the game [ " .. #game.Players:GetPlayers() .. " / " .. game.Players.MaxPlayers .. " ]");
+	TimeServer = Tab:AddLabel("Server time [ " .. math.floor((workspace.DistributedGameTime / 60) / 60) .. " Hour | " .. (math.floor(workspace.DistributedGameTime / 60) - (math.floor((workspace.DistributedGameTime / 60) / 60) * 60)) .. " Minute | " .. (math.floor(workspace.DistributedGameTime) - (math.floor(workspace.DistributedGameTime / 60) * 60)) .. " Second ]");
+	TimeNow = Tab:AddLabel("Date [ " .. os.date("%X") .. " ]");
+	AgeAccYou = Tab:AddLabel("Account age [ " .. game.Players.LocalPlayer.AccountAge .. " ]");
+	ViewAgeServer = Tab:AddLabel("Server age [ " .. game.Workspace.Lobby.ServerAge.Text.SurfaceGui.TextLabel.Text .. " ]");
 	if (game.Players.LocalPlayer.Character.Humanoid.Health == 0) then
 		ResetTime = Tab:AddLabel("Time Spawn [ " .. game.Players.RespawnTime .. " ]");
 	else
 		ResetTime = Tab:AddLabel("Time Spawn [ Not Dead ]");
 	end
-	CodeKeypad = Tab:AddLabel("Code Keypad [ " .. tostring(((#game.Players:GetPlayers() * 25) + 1100) - 7) .. " ]");
+	CodeKeypad = Tab:AddLabel("Keypad code [ " .. tostring(((#game.Players:GetPlayers() * 25) + 1100) - 7) .. " ]");
 	if not game.Workspace:FindFirstChild("Keypad") then
-		KeypadSpawn = Tab:AddLabel("Keypad Spawn [ No ]");
+		KeypadSpawn = Tab:AddLabel("Keypad not spawned");
 	else
-		KeypadSpawn = Tab:AddLabel("Keypad Spawn [ Yes ]");
+		KeypadSpawn = Tab:AddLabel("Keypad spawned");
 	end
 	if (game.Workspace.Arena.island5.Slapples.GoldenSlapple:FindFirstChildWhichIsA("TouchTransmitter") == nil) then
-		GoldenSlappleSpawn = Tab:AddLabel("Golden Slapple Spawn [ No ]");
+		GoldenSlappleSpawn = Tab:AddLabel("Golden Slapple not spawned");
 	else
-		GoldenSlappleSpawn = Tab:AddLabel("Golden Slapple Spawn [ Yes ]");
+		GoldenSlappleSpawn = Tab:AddLabel("Golden Slapple spawned");
 	end
-	CheckSlap = Tab:AddLabel("Check Slap [ " .. game.Players.LocalPlayer.leaderstats.Slaps.Value .. " ]");
-	Glove = Tab:AddLabel("You're Using Glove [ " .. game.Players.LocalPlayer.leaderstats.Glove.Value .. " ]");
-	PlateTime = Tab:AddLabel("Plate Time [ " .. game.Players.LocalPlayer.PlayerGui.PlateIndicator.TextLabel.Text .. " ]");
-	Tab:AddParagraph("Game's ID [ " .. game.PlaceId .. " ]", "Server ID [ " .. game.JobId .. " ]");
+	CheckSlap = Tab:AddLabel("Player slaps [ " .. game.Players.LocalPlayer.leaderstats.Slaps.Value .. " ]");
+	Glove = Tab:AddLabel("Actual glove [ " .. game.Players.LocalPlayer.leaderstats.Glove.Value .. " ]");
+	PlateTime = Tab:AddLabel("Plate time [ " .. game.Players.LocalPlayer.PlayerGui.PlateIndicator.TextLabel.Text .. " ]");
+	Tab:AddParagraph("Game ID [ " .. game.PlaceId .. " ]", "Server ID [ " .. game.JobId .. " ]");
 	local InfoServer = Tab:AddSection({Name="Local Player"});
 	if game.Players.LocalPlayer.Character:FindFirstChild("rock") then
-		WalkspeedYou = Tab:AddLabel("Walk Speed [ Not Walk then rock ]");
-		JumppowerYou = Tab:AddLabel("Jump Power [ Not Jump Power then rock ]");
-		HealthYou = Tab:AddLabel("Health You [ Not Health then rock ]");
-		HipHeightYou = Tab:AddLabel("Hip Height [ Not Hip then rock ]");
+		WalkspeedYou = Tab:AddLabel("Walkspeed [ not available as a stone. ]");
+		JumppowerYou = Tab:AddLabel("Jumppower [ not available as a stone. ]");
+		HealthYou = Tab:AddLabel("Health [ not available as a stone. ]");
+		HipHeightYou = Tab:AddLabel("Hip Height [ not available as a stone. ]");
 	else
-		WalkspeedYou = Tab:AddLabel("Walk Speed [ " .. game.Players.LocalPlayer.Character.Humanoid.WalkSpeed .. " ]");
-		JumppowerYou = Tab:AddLabel("Jump Power [ " .. game.Players.LocalPlayer.Character.Humanoid.JumpPower .. " ]");
-		HealthYou = Tab:AddLabel("Health You [ " .. game.Players.LocalPlayer.Character.Humanoid.Health .. " ]");
+		WalkspeedYou = Tab:AddLabel("Walkspeed [ " .. game.Players.LocalPlayer.Character.Humanoid.WalkSpeed .. " ]");
+		JumppowerYou = Tab:AddLabel("Jumppower [ " .. game.Players.LocalPlayer.Character.Humanoid.JumpPower .. " ]");
+		HealthYou = Tab:AddLabel("Health [ " .. game.Players.LocalPlayer.Character.Humanoid.Health .. " ]");
 		HipHeightYou = Tab:AddLabel("Hip Height [ " .. game.Players.LocalPlayer.Character.Humanoid.HipHeight .. " ]");
 	end
 	GravityYou = Tab:AddLabel("Gravity [ " .. game.Workspace.Gravity .. " ]");
-	PositionYou = Tab:AddLabel("Position In Your [ " .. tostring(math.round(game.Players.LocalPlayer.Character.HumanoidRootPart.Position.X) .. ", " .. math.round(game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Y) .. ", " .. math.round(game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Z)) .. " ]");
-	Tab:AddToggle({Name="Auto Set Info",Default=true,Callback=function(Value)
+	PositionYou = Tab:AddLabel("Player position [ " .. tostring(math.round(game.Players.LocalPlayer.Character.HumanoidRootPart.Position.X) .. ", " .. math.round(game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Y) .. ", " .. math.round(game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Z)) .. " ]");
+	Tab:AddToggle({Name="Auto set infos",Default=false,Callback=function(Value)
 		_G.AutoSetInfo = Value;
 		game:GetService("RunService").RenderStepped:Connect(function()
 			if _G.AutoSetInfo then
-				CanYouFps:Set("Your Fps [ " .. math.floor(workspace:GetRealPhysicsFPS()) .. " ]");
-				ServerPlayer:Set("Player In Server [ " .. #game.Players:GetPlayers() .. " / " .. game.Players.MaxPlayers .. " ]");
-				TimeServer:Set("Server Time [ " .. math.floor((workspace.DistributedGameTime / 60) / 60) .. " Hour | " .. (math.floor(workspace.DistributedGameTime / 60) - (math.floor((workspace.DistributedGameTime / 60) / 60) * 60)) .. " Minutes | " .. (math.floor(workspace.DistributedGameTime) - (math.floor(workspace.DistributedGameTime / 60) * 60)) .. " Second ]");
-				CanYouPing:Set("Your Ping [ " .. game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString() .. " ]");
-				AgeAccYou:Set("Your Account Age [ " .. game.Players.LocalPlayer.AccountAge .. " ]");
-				TimeNow:Set("Now Time [ " .. os.date("%X") .. " ]");
-				ViewAgeServer:Set("Server's Age [ " .. game.Workspace.Lobby.ServerAge.Text.SurfaceGui.TextLabel.Text .. " ]");
-				PlateTime:Set("Plate Time [ " .. game.Players.LocalPlayer.PlayerGui.PlateIndicator.TextLabel.Text .. " ]");
+				CanYouFps:Set("Your FPS [ " .. math.floor(workspace:GetRealPhysicsFPS()) .. " ]");
+				ServerPlayer:Set("Players in the game [ " .. #game.Players:GetPlayers() .. " / " .. game.Players.MaxPlayers .. " ]");
+				TimeServer:Set("Server time [ " .. math.floor((workspace.DistributedGameTime / 60) / 60) .. " Hour | " .. (math.floor(workspace.DistributedGameTime / 60) - (math.floor((workspace.DistributedGameTime / 60) / 60) * 60)) .. " Minutes | " .. (math.floor(workspace.DistributedGameTime) - (math.floor(workspace.DistributedGameTime / 60) * 60)) .. " Second ]");
+				CanYouPing:Set("Your ping [ " .. game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString() .. " ]");
+				AgeAccYou:Set("Account age [ " .. game.Players.LocalPlayer.AccountAge .. " ]");
+				TimeNow:Set("Date [ " .. os.date("%X") .. " ]");
+				ViewAgeServer:Set("Server age [ " .. game.Workspace.Lobby.ServerAge.Text.SurfaceGui.TextLabel.Text .. " ]");
+				PlateTime:Set("Plate time [ " .. game.Players.LocalPlayer.PlayerGui.PlateIndicator.TextLabel.Text .. " ]");
 				if (game.Players.LocalPlayer.Character.Humanoid.Health == 0) then
 					ResetTime:Set("Time Spawn [ " .. game.Players.RespawnTime .. " ]");
 				else
 					ResetTime:Set("Time Spawn [ Not Dead ]");
 				end
-				PositionYou:Set("Position In You [ " .. tostring(math.round(game.Players.LocalPlayer.Character.HumanoidRootPart.Position.X) .. ", " .. math.round(game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Y) .. ", " .. math.round(game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Z)) .. " ]");
-				CodeKeypad:Set("Code Keypad [ " .. tostring(((#game.Players:GetPlayers() * 25) + 1100) - 7) .. " ]");
-				CheckSlap:Set("Check Slap [ " .. game.Players.LocalPlayer.leaderstats.Slaps.Value .. " ]");
-				Glove:Set("You're Using Glove [ " .. game.Players.LocalPlayer.leaderstats.Glove.Value .. " ]");
+				PositionYou:Set("Player position [ " .. tostring(math.round(game.Players.LocalPlayer.Character.HumanoidRootPart.Position.X) .. ", " .. math.round(game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Y) .. ", " .. math.round(game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Z)) .. " ]");
+				CodeKeypad:Set("Keypad code [ " .. tostring(((#game.Players:GetPlayers() * 25) + 1100) - 7) .. " ]");
+				CheckSlap:Set("Player slaps [ " .. game.Players.LocalPlayer.leaderstats.Slaps.Value .. " ]");
+				Glove:Set("Actual glove [ " .. game.Players.LocalPlayer.leaderstats.Glove.Value .. " ]");
 				if game.Players.LocalPlayer.Character:FindFirstChild("rock") then
-					WalkspeedYou:Set("Walk Speed [ Not Walk then rock ]");
-					JumppowerYou:Set("Jump Power [ Not Jump Power then rock ]");
-					HealthYou:Set("Health You [ Not Health then rock ]");
-					HipHeightYou:Set("Hip Height [ Not Hip then rock ]");
+					WalkspeedYou:Set("Walkspeed [ not available as a stone. ]");
+					JumppowerYou:Set("Jumppower [ not available as a stone. ]");
+					HealthYou:Set("Health [ not available as a stone. ]");
+					HipHeightYou:Set("Hip Height [ not available as a stone. ]");
 				else
-					WalkspeedYou:Set("Walk Speed [ " .. game.Players.LocalPlayer.Character.Humanoid.WalkSpeed .. " ]");
-					JumppowerYou:Set("Jump Power [ " .. game.Players.LocalPlayer.Character.Humanoid.JumpPower .. " ]");
-					HealthYou:Set("Health You [ " .. game.Players.LocalPlayer.Character.Humanoid.Health .. " ]");
+					WalkspeedYou:Set("Walkspeed [ " .. game.Players.LocalPlayer.Character.Humanoid.WalkSpeed .. " ]");
+					JumppowerYou:Set("Jumppower [ " .. game.Players.LocalPlayer.Character.Humanoid.JumpPower .. " ]");
+					HealthYou:Set("Health [ " .. game.Players.LocalPlayer.Character.Humanoid.Health .. " ]");
 					HipHeightYou:Set("Hip Height [ " .. game.Players.LocalPlayer.Character.Humanoid.HipHeight .. " ]");
 				end
 				GravityYou:Set("Gravity [ " .. game.Workspace.Gravity .. " ]");
 				if not game.Workspace:FindFirstChild("Keypad") then
-					KeypadSpawn:Set("Keypad Spawn [ No ]");
+					KeypadSpawn:Set("Keypad not spawned");
 				else
-					KeypadSpawn:Set("Keypad Spawn [ Yes ]");
+					KeypadSpawn:Set("Keypad spawned");
 				end
 				if (game.Workspace.Arena.island5.Slapples.GoldenSlapple:FindFirstChildWhichIsA("TouchTransmitter") == nil) then
-					GoldenSlappleSpawn:Set("Golden Slapple Spawn [ No ]");
+					GoldenSlappleSpawn:Set("Golden Slapple not spawned");
 				else
-					GoldenSlappleSpawn:Set("Golden Slapple Spawn [ Yes ]");
+					GoldenSlappleSpawn:Set("Golden Slapple spawned");
 				end
 			end
 		end);
@@ -604,16 +605,16 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 	Tab1:AddButton({Name="Dex V3",Callback=function()
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/Babyhamsta/RBLX_Scripts/main/Universal/BypassedDarkDexV3.lua", true))();
 	end});
-	Tab1:AddButton({Name="TP gui player",Callback=function()
+	Tab1:AddButton({Name="Teleport GUI",Callback=function()
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/Giangplay/Script/main/TP_Player.lua"))();
 	end});
-	Tab1:AddButton({Name="Turies Spy",Callback=function()
+	Tab1:AddButton({Name="Turies remote spy",Callback=function()
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/Giangplay/Script/main/Reamsrpy.lua", true))();
 	end});
-	Tab1:AddButton({Name="Simple Spy",Callback=function()
+	Tab1:AddButton({Name="Simple remote spy",Callback=function()
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/Giangplay/Script/main/RemoteSpy-V2.lua", true))();
 	end});
-	Tab1:AddButton({Name="Hydroxide",Callback=function()
+	Tab1:AddButton({Name="Hydroxide remote spy",Callback=function()
 		local owner = "Upbolt";
 		local branch = "revision";
 		local function webImport(file)
@@ -622,7 +623,7 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 		webImport("init");
 		webImport("ui/main");
 	end});
-	Tab3:AddDropdown({Name="Teleport Safe",Default="",Options={"SafeSpotBox 1.0","SafeSpotBox 2.0","Bed"},Callback=function(Value)
+	Tab3:AddDropdown({Name="Teleport to safe spots",Default="",Options={"SafeSpotBox 1.0","SafeSpotBox 2.0","Bed"},Callback=function(Value)
 		if (Value == "SafeSpotBox 1.0") then
 			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace['SafeBox'].CFrame * CFrame.new(0, 5, 0);
 		elseif (Value == "SafeSpotBox 2.0") then
@@ -650,7 +651,7 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			end
 		end
 	end});
-	Tab3:AddDropdown({Name="Repressed Memory",Default="",Options={"Show All","Off Show All","Teleport Enter","Teleport Portal","Teleport Bob Plushie","Click Bob Plushie [ Quests Hitman ]"},Callback=function(Value)
+	Tab3:AddDropdown({Name="Repressed Memories",Default="",Options={"Show All","Off Show All","Teleport Enter","Teleport Portal","Teleport Bob Plushie","Click Bob Plushie [ Quests Hitman ]"},Callback=function(Value)
 		if (Value == "Show All") then
 			game.ReplicatedStorage.RepressedMemoriesMap.Parent = game.Workspace;
 		elseif (Value == "Off Show All") then
@@ -671,7 +672,7 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false;
 		end
 	end});
-	Tab3:AddDropdown({Name="Map Kraken",Default="",Options={"Show All","Off Show All","Teleport Enter"},Callback=function(Value)
+	Tab3:AddDropdown({Name="Kraken map",Default="",Options={"Show All","Off Show All","Teleport Enter"},Callback=function(Value)
 		if (Value == "Show All") then
 			game.ReplicatedStorage.AbyssAssets.Abyss.Parent = game.Workspace;
 		elseif (Value == "Off Show All") then
@@ -680,11 +681,9 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(194, 35, -12671);
 		end
 	end});
-	Tab3:AddButton({Name="Reset Player",Callback=function()
+	Tab3:AddButton({Name="Reset player",Callback=function()
 		if (game.Players.LocalPlayer.Character.Humanoid.Health ~= 0) then
 			game:GetService("ReplicatedStorage"):WaitForChild("HumanoidDied"):FireServer(game.Players.LocalPlayer.Character, false);
-		else
-			OrionLib:MakeNotification({Name="Error",Content="You have dead",Image="rbxassetid://7733658504",Time=5});
 		end
 	end});
 	Tab3:AddButton({Name="Get Kinetic glove",Callback=function()
@@ -806,7 +805,7 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			OrionLib:MakeNotification({Name="Error",Content="You don't have bus glove equipped or you already own the badge.",Image="rbxassetid://7733658504",Time=5});
 		end
 	end});
-	Tab3:AddButton({Name="Auto Quests Chest All Glove",Callback=function()
+	Tab3:AddButton({Name="Auto Quest Chest All Glove",Callback=function()
 		if game.Players.LocalPlayer.Character:FindFirstChild("entered") then
 			repeat
 				task.wait();
@@ -1033,13 +1032,13 @@ game:GetService("TeleportService"):Teleport(6403373529)
 			OrionLib:MakeNotification({Name="Error",Content="You don't have 1000 slaps.",Image="rbxassetid://7733658504",Time=5});
 		end
 	end});
-	Tab3:AddDropdown({Name="Join maze elude using",Default="Auto Keypad",Options={"Teleport","Auto Keypad"},Callback=function(Value)
+	Tab3:AddDropdown({Name="Join maze elude by",Default="Auto Keypad",Options={"Teleport","Auto Keypad"},Callback=function(Value)
 		_G.SelectMaze = Value;
 	end});
-	Tab3:AddDropdown({Name="Select glove to get in elude",Default="",Options={"Elude","Counter"},Callback=function(Value)
+	Tab3:AddDropdown({Name="Select glove to get in elude maze",Default="",Options={"Elude","Counter"},Callback=function(Value)
 		_G.SelectMazeBadge = Value;
 	end});
-	Tab3:AddButton({Name="Get glove badge in elude",Callback=function()
+	Tab3:AddButton({Name="Teleport to elude maze",Callback=function()
 		if (_G.SelectMazeBadge == "Elude") then
 			if (_G.SelectMaze == "Teleport") then
 				local teleportFunc = queueonteleport or queue_on_teleport or (syn and syn.queue_on_teleport);
@@ -1203,7 +1202,7 @@ end
 			OrionLib:MakeNotification({Name="Error",Content="You have Owner badge",Image="rbxassetid://7733658504",Time=5});
 		end
 	end});
-	Tab3:AddButton({Name="Get Free Lamp",Callback=function()
+	Tab3:AddButton({Name="Get Lamp glove",Callback=function()
 		if ((game.Players.LocalPlayer.leaderstats.Glove.Value == "ZZZZZZZ") and not game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 490455814138437)) then
 			for i = 1, 5 do
 				game:GetService("ReplicatedStorage").nightmare:FireServer("LightBroken");
@@ -1212,7 +1211,7 @@ end
 			OrionLib:MakeNotification({Name="Error",Content="You don't have ZZZZZZZ equipped, or Owner badge",Image="rbxassetid://7733658504",Time=5});
 		end
 	end});
-	AutoFarmGetAlchemist = Tab3:AddToggle({Name="Auto Farm Alchemist",Default=false,Callback=function(Value)
+	AutoFarmGetAlchemist = Tab3:AddToggle({Name="Auto Farm Alchemist glove",Default=false,Callback=function(Value)
 		_G.AutoFarmAlchemist = Value;
 		if (game.Players.LocalPlayer.leaderstats.Glove.Value == "Plague") then
 			while _G.AutoFarmAlchemist do
@@ -1242,7 +1241,7 @@ end
 			AutoFarmGetAlchemist:Set(false);
 		end
 	end});
-	Tab3:AddToggle({Name="Auto Exit Run",Default=false,Callback=function(Value)
+	Tab3:AddToggle({Name="Auto Exit Run maze",Default=false,Callback=function(Value)
 		_G.AutoExit = Value;
 		while _G.AutoExit do
 			if (game.Players.LocalPlayer.Character:FindFirstChild("InLabyrinth") ~= nil) then
@@ -1261,11 +1260,11 @@ end
 			task.wait();
 		end
 	end});
-	Tab5:AddSlider({Name="WalkSpeed",Min=20,Max=1000,Default=20,Color=Color3.fromRGB(255, 255, 255),Increment=1,ValueName="WalkSpeed",Callback=function(Value)
+	Tab5:AddSlider({Name="Walkspeed",Min=20,Max=1000,Default=20,Color=Color3.fromRGB(255, 255, 255),Increment=1,ValueName="WalkSpeed",Callback=function(Value)
 		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value;
 		Walkspeed = Value;
 	end});
-	Tab5:AddToggle({Name="Walkspeed Set Auto",Default=false,Callback=function(Value)
+	Tab5:AddToggle({Name="Auto Set Walkspeed",Default=false,Callback=function(Value)
 		KeepWalkspeed = Value;
 		while KeepWalkspeed do
 			if ((game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") ~= nil) and (game.Players.LocalPlayer.Character.Humanoid.WalkSpeed ~= Walkspeed)) then
@@ -1274,11 +1273,11 @@ end
 			task.wait();
 		end
 	end});
-	Tab5:AddSlider({Name="JumpPower",Min=50,Max=1000,Default=50,Color=Color3.fromRGB(255, 255, 255),Increment=1,ValueName="JumpPower",Callback=function(Value)
+	Tab5:AddSlider({Name="Jumppower",Min=50,Max=1000,Default=50,Color=Color3.fromRGB(255, 255, 255),Increment=1,ValueName="JumpPower",Callback=function(Value)
 		game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value;
 		Jumppower = Value;
 	end});
-	Tab5:AddToggle({Name="Jumppower Set Auto",Default=false,Callback=function(Value)
+	Tab5:AddToggle({Name="Auto Set Jumppower",Default=false,Callback=function(Value)
 		KeepJumppower = Value;
 		while KeepJumppower do
 			if ((game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") ~= nil) and (game.Players.LocalPlayer.Character.Humanoid.JumpPower ~= Jumppower)) then
@@ -1291,7 +1290,7 @@ end
 		game.Players.LocalPlayer.Character.Humanoid.HipHeight = Value;
 		HipHeight = Value;
 	end});
-	Tab5:AddToggle({Name="Hip Height Set Auto",Default=false,Callback=function(Value)
+	Tab5:AddToggle({Name="Auto Set Hip Height",Default=false,Callback=function(Value)
 		KeepHipHeight = Value;
 		while KeepHipHeight do
 			if ((game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") ~= nil) and (game.Players.LocalPlayer.Character.Humanoid.HipHeight ~= HipHeight)) then
@@ -1304,7 +1303,7 @@ end
 		game.Workspace.Gravity = Value;
 		Gravity = Value;
 	end});
-	Tab5:AddToggle({Name="Gravity Set Auto",Default=false,Callback=function(Value)
+	Tab5:AddToggle({Name="Auto Set Gravity",Default=false,Callback=function(Value)
 		KeepGravity = Value;
 		while KeepGravity do
 			if ((game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") ~= nil) and (game.Workspace.Gravity ~= nil) and (game.Workspace.Gravity ~= Gravity)) then
