@@ -804,26 +804,20 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			OrionLib:MakeNotification({Name="Error",Content="You don't have bus glove equipped or you already own the badge.",Image="rbxassetid://7733658504",Time=5});
 		end
 	end});
-	Tab3:AddButton({Name="Get Blasphemy glove V2",Callback=function()
+	Tab3:AddToggle({Name="Get Blasphemy glove V3",Value=false,Callback=function(Value)
+		local blasphemytest = Value
 		if ((game.Players.LocalPlayer.leaderstats.Glove.Value == "bus") and not game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 3335299217032061)) then
-			OGL = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame;
-			repeat
-				if ((game.Players.LocalPlayer.Character.Humanoid.Health == 0) or (game.Players.LocalPlayer.Character:FindFirstChild("entered") == nil)) then
-					break;
-				else
-					if game.Players.LocalPlayer.Character:FindFirstChild("entered") then
-						for i, v in pairs(game.Workspace:GetChildren()) do
-							if (v.Name == "BusModel") then
-								firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v, 0)
-								firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v, 1)
-							end
+			while blasphemytest do
+				task.wait()
+				if blasphemytest == true and game.Players.LocalPlayer.Character.Humanoid.Health ~= 0 and game.Players.LocalPlayer.Character:FindFirstChild("entered") ~= nil then
+					for i, v in pairs(game.Workspace:GetChildren()) do
+						if v.Name == "BusModel" then
+							firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v, 0)
+							firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v, 1)
 						end
 					end
 				end
-				task.wait();
-			until game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 3335299217032061) 
-		else
-			OrionLib:MakeNotification({Name="Error",Content="You don't have bus glove equipped or you already own the badge.",Image="rbxassetid://7733658504",Time=5});
+			end
 		end
 	end});
 	Tab3:AddButton({Name="Auto Quest Chest All Glove",Callback=function()
