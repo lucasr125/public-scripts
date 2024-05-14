@@ -810,12 +810,13 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			repeat
 				if ((game.Players.LocalPlayer.Character.Humanoid.Health == 0) or (game.Players.LocalPlayer.Character:FindFirstChild("entered") == nil)) then
 					break;
-				end
-				if game.Players.LocalPlayer.Character:FindFirstChild("entered") then
-					for i, v in pairs(game.Workspace:GetChildren()) do
-						if (v.Name == "BusModel") then
-							firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v, 0)
-							firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v, 1)
+				else
+					if game.Players.LocalPlayer.Character:FindFirstChild("entered") then
+						for i, v in pairs(game.Workspace:GetChildren()) do
+							if (v.Name == "BusModel") then
+								firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v, 0)
+								firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v, 1)
+							end
 						end
 					end
 				end
