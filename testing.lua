@@ -812,17 +812,14 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 					break;
 				end
 				if game.Players.LocalPlayer.Character:FindFirstChild("entered") then
-					for i = 1, 36 do
-						for i, v in pairs(game.Workspace:GetChildren()) do
-							if (v.Name == "BusModel") then
-								firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v, 0)
-								firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v, 1)
-							end
+					for i, v in pairs(game.Workspace:GetChildren()) do
+						if (v.Name == "BusModel") then
+							firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v, 0)
+							firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v, 1)
 						end
 					end
-					task.wait();
 				end
-				task.wait(3.5);
+				task.wait();
 			until game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 3335299217032061) 
 		else
 			OrionLib:MakeNotification({Name="Error",Content="You don't have bus glove equipped or you already own the badge.",Image="rbxassetid://7733658504",Time=5});
