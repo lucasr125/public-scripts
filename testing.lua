@@ -1,4 +1,3 @@
-
 if not game:IsLoaded() then
 	game.Loaded:Wait();
 end
@@ -794,6 +793,30 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 						for i, v in pairs(game.Workspace:GetChildren()) do
 							if (v.Name == "BusModel") then
 								v.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame;
+							end
+						end
+					end
+					task.wait();
+				end
+				task.wait(3.5);
+			until game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 3335299217032061) 
+		else
+			OrionLib:MakeNotification({Name="Error",Content="You don't have bus glove equipped or you already own the badge.",Image="rbxassetid://7733658504",Time=5});
+		end
+	end});
+	Tab3:AddButton({Name="Get Blasphemy glove V2",Callback=function()
+		if ((game.Players.LocalPlayer.leaderstats.Glove.Value == "bus") and not game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 3335299217032061)) then
+			OGL = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame;
+			repeat
+				if ((game.Players.LocalPlayer.Character.Humanoid.Health == 0) or (game.Players.LocalPlayer.Character:FindFirstChild("entered") == nil)) then
+					break;
+				end
+				if game.Players.LocalPlayer.Character:FindFirstChild("entered") then
+					for i = 1, 36 do
+						for i, v in pairs(game.Workspace:GetChildren()) do
+							if (v.Name == "BusModel") then
+								firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v, 0)
+								firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v, 1)
 							end
 						end
 					end
