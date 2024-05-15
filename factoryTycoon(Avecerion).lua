@@ -1,36 +1,60 @@
+local settings = {
+  ["walkspeed"] = 16,
+  ["jumppower"] = 50,
+  ["gravity"] = 196.6,
+  ["hipheight"] = 2,
+  ["autoCollectMoney"] = false,
+  ["autoBuyItems"] = false
+}
+
+local localPlayer = game.Players.LocalPlayer
+local tycoonOwned = localPlayer:FindFirstChild("TycoonOwned").Value
 local gameName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
 
-local autoCollectMoney = false
-local autoBuyItems = false
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/lucasr125/Bracket_Orion/main/orionlib.lua')))();
+local Window = OrionLib:MakeWindow({Name = gameName.." ; "..identifyexecutor(), HidePremium = false, SaveConfig = false, IntroEnabled = true, IntroText = identifyexecutor().." ; "..gameName});
 
-local plr = game.Players.LocalPlayer
-local tycoonOwned = plr:FindFirstChild("TycoonOwned").Value
-
-
-local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))();
-local Window = OrionLib:MakeWindow({Name = gameName.." ; "..identifyexecutor(), HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"});
-local Tab = Window:MakeTab({Name = "Main Tab",Icon = "rbxassetid://4483345998", PremiumOnly = false});
-Tab:AddToggle({Name = "Auto collect money",Default = false,Callback = function(Value)
-	autoCollectMoney = Value
+local localTab = Window:MakeTab({Name = "Local",Icon = "rbxassetid://4483345998",PremiumOnly = false});
+local walkspeedSlider = localTab:AddSlider({Name = "Set walkspeed",Min = 0,Max = 1000,Default = settings.walkspeed,Color = Color3.fromRGB(255,255,255),Increment = 1,ValueName = "walkspeed",Callback = function(Value)
+  settings.walkspeed = Value
+  localPlayer.Character.Humanoid.WalkSpeed = settings.walkspeed
 end});
-Tab:AddToggle({Name = "Auto buy items",Default = false,Callback = function(Value)
-	autoBuyItems = Value
+local jumppowerSlider = localTab:AddSlider({Name = "Set jumppower",Min = 0,Max = 1000,Default = settings.jumppower,Color = Color3.fromRGB(255,255,255),Increment = 1,ValueName = "jumppower",Callback = function(Value)
+  settings.jumppower = Value
+  localPlayer.Character.Humanoid.JumpPower = settings.jumppower
+  localPlayer.Character.Humanoid.UseJumpPower = true
 end});
-
-while wait(0.1) do
-	if autoCollectMoney == true then
-		local collector = tycoonOwned.Build.Collect.Part
-		firetouchinterest(plr.Character.HumanoidRootPart, collector, 1)
-		firetouchinterest(plr.Character.HumanoidRootPart, collector, 0)
-		wait()
+local hipheightSlider = localTab:AddSlider({Name = "Set hipheight",Min = 0,Max = 50,Default = settings.hipheight,Color = Color3.fromRGB(255,255,255),Increment = 1,ValueName = "hipheight",Callback = function(Value)
+  settings.hipheight = Value
+  localPlayer.Character.Humanoid.HipHeight = settings.hipheight
+end});
+local gravitySlider = localTab:AddSlider({Name = "Set gravity",Min = 0,Max = 1000,Default = settings.gravity,Color = Color3.fromRGB(255,255,255),Increment = 1,ValueName = "gravity",Callback = function(Value)
+  settings.gravity = Value
+  game.Workspace.Gravity = settings.gravity
+end});
+local mainTab = Window:MakeTab({Name = "Main",Icon = "rbxassetid://4483345998", PremiumOnly = false});
+local collectMoney = mainTab:AddToggle({Name = "Auto collect money",Default = false,Callback = function(Value)
+	settings.autoCollectMoney = Value
+	while settings.autoCollectMoney do
+		if settings.autoCollectMoney == true then
+			local collector = tycoonOwned.Build.Collect.Part
+			firetouchinterest(plr.Character.HumanoidRootPart, collector, 1)
+			firetouchinterest(plr.Character.HumanoidRootPart, collector, 0)
+			task.wait()
+		end
 	end
-	if autoBuyItems == true then
-		for i, v in pairs(tycoonOwned.Buttons:GetDescendants()) do
-			if v.Name == "Part" and v.Parent.Name == "Button" and v:FindFirstChild("TouchInterest") and v.BrickColor == BrickColor.new("Shamrock") then
-				firetouchinterest(plr.Character.HumanoidRootPart, v, 1)
-				firetouchinterest(plr.Character.HumanoidRootPart, v, 0)
-				wait()
+end});
+local buyItems = mainTab:AddToggle({Name = "Auto buy items",Default = false,Callback = function(Value)
+	settings.autoBuyItems = Value
+	while settings.autoBuyItems do
+		if settings.autoBuyItems == true then
+			for i, v in pairs(tycoonOwned.Buttons:GetDescendants()) do
+				if v.Name == "Part" and v.Parent.Name == "Button" and v:FindFirstChild("TouchInterest") and v.BrickColor == BrickColor.new("Shamrock") then
+					firetouchinterest(plr.Character.HumanoidRootPart, v, 1)
+					firetouchinterest(plr.Character.HumanoidRootPart, v, 0)
+					task.wait()
+				end
 			end
 		end
 	end
-end
+end});
