@@ -445,7 +445,7 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 	local Tab15 = Window:MakeTab({Name="Credits",Icon="rbxassetid://7733955511",PremiumOnly=false});
 	local Tab60 = Window:MakeTab({Name="Script updates",Icon="rbxassetid://7733771472",PremiumOnly=false});
 	Tab:AddLabel("Script owner: Giang and DonjoSx");
-	Tab:AddLabel("Modified.");
+	Tab:AddLabel("Modified script.");
 	Tab:AddLabel("Bạn muốn vào nhóm zalo thì vào Credit nhé");
 	local InfoServer = Tab:AddSection({Name="Info"});
 	CanYouFps = Tab:AddLabel("Your FPS [ " .. math.floor(workspace:GetRealPhysicsFPS()) .. " ]");
@@ -1334,7 +1334,7 @@ end
 		_G.AutoFarmBob = Value;
 		if (game.Players.LocalPlayer.leaderstats.Glove.Value == "Replica") then
 			while _G.AutoFarmBob and (Autobob == "Auto Spawn E") do
-				if (game.Players.LocalPlayer.Character:FindFirstChild("entered") or (game.Workspace:FindFirstChild("bobcap") == nil)) then
+				if (game.Players.LocalPlayer.Character:FindFirstChild("entered") or (game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 2125950512)) then
 					game:GetService("VirtualInputManager"):SendKeyEvent(true, "E", false, x);
 				else
 					OrionLib:MakeNotification({Name="Error",Content="You got Bob spawn",Image="rbxassetid://7733658504",Time=5});
@@ -1343,7 +1343,7 @@ end
 				task.wait(0.5);
 			end
 			while _G.AutoFarmBob and (Autobob == "Auto Spawn") do
-				if (game.Players.LocalPlayer.Character:FindFirstChild("entered") or (game.Workspace:FindFirstChild("bobcap") == nil)) then
+				if (game.Players.LocalPlayer.Character:FindFirstChild("entered") or (game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 2125950512)) then
 					game.ReplicatedStorage.Duplicate:FireServer(true);
 				else
 					OrionLib:MakeNotification({Name="Error",Content="You got Bob spawn",Image="rbxassetid://7733658504",Time=5});
@@ -1363,7 +1363,7 @@ end
 					until game.Players.LocalPlayer.Character:FindFirstChild("entered") and game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Tool") 
 					task.wait(0.5);
 					game:GetService("VirtualInputManager"):SendKeyEvent(true, "E", false, x);
-					if (game.Workspace:FindFirstChild("bobcap") == nil) then
+					if (game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 2125950512)) then
 						game:GetService("ReplicatedStorage"):WaitForChild("HumanoidDied"):FireServer(game.Players.LocalPlayer.Character, false);
 					else
 						OrionLib:MakeNotification({Name="Error",Content="You got Bob spawn",Image="rbxassetid://7733658504",Time=5});
@@ -1383,7 +1383,7 @@ end
 					game.Players.LocalPlayer.Character.Humanoid.WalkToPoint = game.Players.LocalPlayer.Character.HumanoidRootPart.Position;
 					task.wait(0.2);
 					game:GetService("VirtualInputManager"):SendKeyEvent(true, "E", false, x);
-					if (game.Workspace:FindFirstChild("bobcap") == nil) then
+					if (game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 2125950512)) then
 						if (game.Players.LocalPlayer.Character.Humanoid.Health == 100) then
 							game:GetService("ReplicatedStorage"):WaitForChild("HumanoidDied"):FireServer(game.Players.LocalPlayer.Character, false);
 						end
@@ -1395,17 +1395,20 @@ end
 				task.wait();
 			end
 			while _G.AutoFarmBob and (Autobob == "Super Fast Spawn") do
+				replicaClone = 0
 				firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1.TouchInterest.Parent, 0);
 				firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1.TouchInterest.Parent, 1);
 				wait(0.5);
 				game:GetService("VirtualInputManager"):SendKeyEvent(true, "E", false, x);
 				task.wait(0.2);
-				if (game.Workspace:FindFirstChild("bobcap") == nil) then
+				if (game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 2125950512)) then --Why the old one? it can falsely be activated if someone spawns bob and disables the script 
 					game:GetService("ReplicatedStorage"):WaitForChild("HumanoidDied"):FireServer(game.Players.LocalPlayer.Character, false);
 				else
 					OrionLib:MakeNotification({Name="Error",Content="You got Bob spawn",Image="rbxassetid://7733658504",Time=5});
 					GetBob:Set(false);
 				end
+				replicaClone += 1
+				OrionLib:MakeNotification({Name="Count",Content="You spawned "..replicaClone.." replicas. "..replicaClone.."/7500",Image="rbxassetid://7733658504",Time=5});
 				task.wait(1.8);
 			end
 		elseif (_G.AutoFarmBob == true) then
