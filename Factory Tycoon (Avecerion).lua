@@ -36,11 +36,11 @@ local mainTab = Window:MakeTab({Name = "Main",Icon = "rbxassetid://4483345998", 
 local collectMoney = mainTab:AddToggle({Name = "Auto collect money",Default = false,Callback = function(Value)
 	settings.autoCollectMoney = Value
 	while settings.autoCollectMoney do
-		if settings.autoCollectMoney == true then
+		if settings.autoCollectMoney == true and v.BrickColor ~= BrickColor.new("Really red") then
 			local collector = tycoonOwned.Build.Collect.Part
-			firetouchinterest(plr.Character.HumanoidRootPart, collector, 1)
-			firetouchinterest(plr.Character.HumanoidRootPart, collector, 0)
-			task.wait()
+			firetouchinterest(localPlayer.Character.HumanoidRootPart, collector, 1)
+			firetouchinterest(localPlayer.Character.HumanoidRootPart, collector, 0)
+			task.wait(0.1)
 		end
 	end
 end});
@@ -50,9 +50,9 @@ local buyItems = mainTab:AddToggle({Name = "Auto buy items",Default = false,Call
 		if settings.autoBuyItems == true then
 			for i, v in pairs(tycoonOwned.Buttons:GetDescendants()) do
 				if v.Name == "Part" and v.Parent.Name == "Button" and v:FindFirstChild("TouchInterest") and v.BrickColor == BrickColor.new("Shamrock") then
-					firetouchinterest(plr.Character.HumanoidRootPart, v, 1)
-					firetouchinterest(plr.Character.HumanoidRootPart, v, 0)
-					task.wait()
+					firetouchinterest(localPlayer.Character.HumanoidRootPart, v, 1)
+					firetouchinterest(localPlayer.Character.HumanoidRootPart, v, 0)
+					task.wait(0.1)
 				end
 			end
 		end
