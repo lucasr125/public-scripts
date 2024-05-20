@@ -18,7 +18,7 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 		return Namecall(self, ...);
 	end);
 	_G.GetPotion = {Grug={"Mushroom"},idIot={"Cake Mix"},Nightmare={"Dark Root","Dark Root","Dark Root"},Confusion={"Red Crystal","Blue Crystal","Glowing Mushroom"},Power={"Dire Flower","Red Crystal","Wild Vine"},Paralyzing={"Plane Flower","Plane Flower"},Haste={"Autumn Sprout","Jade Stone"},Invisibility={"Hazel Lily","Hazel Lily","Blue Crystal"},Explosion={"Red Crystal","Fire Flower","Fire Flower"},Invincible={"Elder Wood","Mushroom","Mushroom"},Toxic={"Dark Root","Dark Root","Blood Rose","Red Crystal"},Freeze={"Winter Rose","Winter Rose","Wild Vine","Blue Crystal","Glowing Mushroom"},Feather={"Mushroom","Hazel Lily"},Speed={"Mushroom","Mushroom","Plane Flower","Hazel Lily","Blue Crystal"},Lethal={"Blood Rose","Blood Rose","Blood Rose","Blood Rose","Blood Rose","Blood Rose","Blood Rose","Blood Rose","Blood Rose","Blood Rose","Dark Root","Dark Root","Dark Root","Dark Root","Dark Root","Dark Root","Dark Root","Dark Root","Dark Root","Dark Root"},Slow={"Mushroom","Mushroom","Blue Crystal","Blue Crystal","Jade Stone","Plane Flower"},Antitoxin={"Blue Crystal","Glowing Mushroom","Plane Flower","Plane Flower","Elder Wood"},["Corrupted Vine"]={"Wild Vine","Wild Vine","Wild Vine","Blood Rose","Dark Root","Elder Wood","Jade Stone"},Field={"Hazel Lily","Plane Flower","Plane Flower"}};
-	gloveHits = {Default=game.ReplicatedStorage.b,Extended=game.ReplicatedStorage.b,["T H I C K"]=game.ReplicatedStorage.GeneralHit,Squid=game.ReplicatedStorage.GeneralHit,Gummy=game.ReplicatedStorage.GeneralHit,RNG=game.ReplicatedStorage.GeneralHit,Tycoon=game.ReplicatedStorage.GeneralHit,Charge=game.ReplicatedStorage.GeneralHit,Baller=game.ReplicatedStorage.GeneralHit,Tableflip=game.ReplicatedStorage.GeneralHit,Booster=game.ReplicatedStorage.GeneralHit,Shield=game.ReplicatedStorage.GeneralHit,Track=game.ReplicatedStorage.GeneralHit,Goofy=game.ReplicatedStorage.GeneralHit,Confusion=game.ReplicatedStorage.GeneralHit,Elude=game.ReplicatedStorage.GeneralHit,Glitch=game.ReplicatedStorage.GeneralHit,Snowball=game.ReplicatedStorage.GeneralHit,fish=game.ReplicatedStorage.GeneralHit,Killerfish=game.ReplicatedStorage.GeneralHit,["🗿"]=game.ReplicatedStorage.GeneralHit,Obby=game.ReplicatedStorage.GeneralHit,Voodoo=game.ReplicatedStorage.GeneralHit,Leash=game.ReplicatedStorage.GeneralHit,Flamarang=game.ReplicatedStorage.GeneralHit,Berserk=game.ReplicatedStorage.GeneralHit,Quake=game.ReplicatedStorage.GeneralHit,Rattlebones=game.ReplicatedStorage.GeneralHit,Chain=game.ReplicatedStorage.GeneralHit,["Ping Pong"]=game.ReplicatedStorage.GeneralHit,Whirlwind=game.ReplicatedStorage.GeneralHit,Slicer=game.ReplicatedStorage.GeneralHit,Counter=game.ReplicatedStorage.GeneralHit,Hammer=game.ReplicatedStorage.GeneralHit,Excavator=game.ReplicatedStorage.GeneralHit,["Home Run"]=game.ReplicatedStorage.GeneralHit,Psycho=game.ReplicatedStorage.GeneralHit,Kraken=game.ReplicatedStorage.GeneralHit,Gravity=game.ReplicatedStorage.GeneralHit,Lure=game.ReplicatedStorage.GeneralHit,Jebaited=game.ReplicatedStorage.GeneralHit,Meteor=game.ReplicatedStorage.GeneralHit,Tinkerer=game.ReplicatedStorage.GeneralHit,["Guardian Angel"]=game.ReplicatedStorage.GeneralHit,Sun=game.ReplicatedStorage.GeneralHit,Necromancer=game.ReplicatedStorage.GeneralHit,Zombie=game.ReplicatedStorage.GeneralHit,Dual=game.ReplicatedStorage.GeneralHit,Alchemist=game.ReplicatedStorage.GeneralHit,Parry=game.ReplicatedStorage.GeneralHit,Druid=game.ReplicatedStorage.GeneralHit,Oven=game.ReplicatedStorage.GeneralHit,Jester=game.ReplicatedStorage.GeneralHit,Ferryman=game.ReplicatedStorage.GeneralHit,Scythe=game.ReplicatedStorage.GeneralHit,Blackhole=game.ReplicatedStorage.GeneralHit,Santa=game.ReplicatedStorage.GeneralHit,Grapple=game.ReplicatedStorage.GeneralHit,Iceskate=game.ReplicatedStorage.GeneralHit,Pan=game.ReplicatedStorage.GeneralHit,Blasphemy=game.ReplicatedStorage.GeneralHit,Blink=game.ReplicatedStorage.GeneralHit,["Ultra Instinct"]=game.ReplicatedStorage.GeneralHit,Admin=game.ReplicatedStorage.GeneralHit,Prop=game.ReplicatedStorage.GeneralHit,Joust=game.ReplicatedStorage.GeneralHit,Slapstick=game.ReplicatedStorage.GeneralHit,Firework=game.ReplicatedStorage.GeneralHit,Run=game.ReplicatedStorage.GeneralHit,Beatdown=game.ReplicatedStorage.GeneralHit,["L.O.L.B.O.M.B"]=game.ReplicatedStorage.GeneralHit,Glovel=game.ReplicatedStorage.GeneralHit,Chicken=game.ReplicatedStorage.GeneralHit,Divebomb=game.ReplicatedStorage.GeneralHit,Lamp=game.ReplicatedStorage.GeneralHit,Pocket=game.ReplicatedStorage.GeneralHit,BONK=game.ReplicatedStorage.GeneralHit,Knockoff=game.ReplicatedStorage.GeneralHit,Divert=game.ReplicatedStorage.GeneralHit,Frostbite=game.ReplicatedStorage.GeneralHit,Sbeve=game.ReplicatedStorage.GeneralHit,Plank=game.ReplicatedStorage.GeneralHit,ZZZZZZZ=game.ReplicatedStorage.ZZZZZZZHit,Brick=game.ReplicatedStorage.BrickHit,Snow=game.ReplicatedStorage.SnowHit,Pull=game.ReplicatedStorage.PullHit,Flash=game.ReplicatedStorage.FlashHit,Spring=game.ReplicatedStorage.springhit,Swapper=game.ReplicatedStorage.HitSwapper,Bull=game.ReplicatedStorage.BullHit,Dice=game.ReplicatedStorage.DiceHit,Ghost=game.ReplicatedStorage.GhostHit,Thanos=game.ReplicatedStorage.ThanosHit,Stun=game.ReplicatedStorage.HtStun,["Za Hando"]=game.ReplicatedStorage.zhramt,Fort=game.ReplicatedStorage.Fort,Magnet=game.ReplicatedStorage.MagnetHIT,Pusher=game.ReplicatedStorage.PusherHit,Anchor=game.ReplicatedStorage.hitAnchor,Space=game.ReplicatedStorage.HtSpace,Boomerang=game.ReplicatedStorage.BoomerangH,Speedrun=game.ReplicatedStorage.Speedrunhit,Mail=game.ReplicatedStorage.MailHit,Golden=game.ReplicatedStorage.GoldenHit,Cheeky=game.ReplicatedStorage.CheekyHit,Reaper=game.ReplicatedStorage.ReaperHit,Replica=game.ReplicatedStorage.ReplicaHit,Defense=game.ReplicatedStorage.DefenseHit,Killstreak=game.ReplicatedStorage.KSHit,Reverse=game.ReplicatedStorage.ReverseHit,Shukuchi=game.ReplicatedStorage.ShukuchiHit,Duelist=game.ReplicatedStorage.DuelistHit,woah=game.ReplicatedStorage.woahHit,Ice=game.ReplicatedStorage.IceHit,Adios=game.ReplicatedStorage.hitAdios,Blocked=game.ReplicatedStorage.BlockedHit,Engineer=game.ReplicatedStorage.engiehit,Rocky=game.ReplicatedStorage.RockyHit,Conveyor=game.ReplicatedStorage.ConvHit,STOP=game.ReplicatedStorage.STOP,Phantom=game.ReplicatedStorage.PhantomHit,Wormhole=game.ReplicatedStorage.WormHit,Acrobat=game.ReplicatedStorage.AcHit,Plague=game.ReplicatedStorage.PlagueHit,["[REDACTED]"]=game.ReplicatedStorage.ReHit,bus=game.ReplicatedStorage.hitbus,Phase=game.ReplicatedStorage.PhaseH,Warp=game.ReplicatedStorage.WarpHt,Bomb=game.ReplicatedStorage.BombHit,Bubble=game.ReplicatedStorage.BubbleHit,Jet=game.ReplicatedStorage.JetHit,Shard=game.ReplicatedStorage.ShardHIT,potato=game.ReplicatedStorage.potatohit,CULT=game.ReplicatedStorage.CULTHit,bob=game.ReplicatedStorage.bobhit,Buddies=game.ReplicatedStorage.buddiesHIT,Spy=game.ReplicatedStorage.SpyHit,Detonator=game.ReplicatedStorage.DetonatorHit,Rage=game.ReplicatedStorage.GRRRR,Trap=game.ReplicatedStorage.traphi,Orbit=game.ReplicatedStorage.Orbihit,Hybrid=game.ReplicatedStorage.HybridCLAP,Slapple=game.ReplicatedStorage.SlappleHit,Disarm=game.ReplicatedStorage.DisarmH,Dominance=game.ReplicatedStorage.DominanceHit,Link=game.ReplicatedStorage.LinkHit,Rojo=game.ReplicatedStorage.RojoHit,rob=game.ReplicatedStorage.robhit,Rhythm=game.ReplicatedStorage.rhythmhit,Nightmare=game.ReplicatedStorage.nightmarehit,Hitman=game.ReplicatedStorage.HitmanHit,Thor=game.ReplicatedStorage.ThorHit,Retro=game.ReplicatedStorage.RetroHit,Cloud=game.ReplicatedStorage.CloudHit,Null=game.ReplicatedStorage.NullHit,spin=game.ReplicatedStorage.spinhit,Kinetic=game.ReplicatedStorage.HtStun,Recall=game.ReplicatedStorage.HtStun,Balloony=game.ReplicatedStorage.HtStun,Sparky=game.ReplicatedStorage.HtStun,Boogie=game.ReplicatedStorage.HtStun,Stun=game.ReplicatedStorage.HtStun,Coil=game.ReplicatedStorage.HtStun,Diamond=game.ReplicatedStorage.DiamondHit,Megarock=game.ReplicatedStorage.DiamondHit,Moon=game.ReplicatedStorage.CelestialHit,Jupiter=game.ReplicatedStorage.CelestialHit,Mitten=game.ReplicatedStorage.MittenHit,["Hallow Jack"]=game.ReplicatedStorage.HallowHIT,OVERKILL=game.ReplicatedStorage.Overkillhit,["The Flex"]=game.ReplicatedStorage.FlexHit,Custom=game.ReplicatedStorage.CustomHit,["God's Hand"]=game.ReplicatedStorage.Godshand,Error=game.ReplicatedStorage.Errorhit};
+	gloveHits = {Default=game.ReplicatedStorage.b,Extended=game.ReplicatedStorage.b,["T H I C K"]=game.ReplicatedStorage.GeneralHit,Squid=game.ReplicatedStorage.GeneralHit,Gummy=game.ReplicatedStorage.GeneralHit,RNG=game.ReplicatedStorage.GeneralHit,Tycoon=game.ReplicatedStorage.GeneralHit,Charge=game.ReplicatedStorage.GeneralHit,Baller=game.ReplicatedStorage.GeneralHit,Tableflip=game.ReplicatedStorage.GeneralHit,Booster=game.ReplicatedStorage.GeneralHit,Shield=game.ReplicatedStorage.GeneralHit,Track=game.ReplicatedStorage.GeneralHit,Goofy=game.ReplicatedStorage.GeneralHit,Confusion=game.ReplicatedStorage.GeneralHit,Elude=game.ReplicatedStorage.GeneralHit,Glitch=game.ReplicatedStorage.GeneralHit,Snowball=game.ReplicatedStorage.GeneralHit,fish=game.ReplicatedStorage.GeneralHit,Killerfish=game.ReplicatedStorage.GeneralHit,["🗿"]=game.ReplicatedStorage.GeneralHit,Obby=game.ReplicatedStorage.GeneralHit,Voodoo=game.ReplicatedStorage.GeneralHit,Leash=game.ReplicatedStorage.GeneralHit,Flamarang=game.ReplicatedStorage.GeneralHit,Berserk=game.ReplicatedStorage.GeneralHit,Quake=game.ReplicatedStorage.GeneralHit,Rattlebones=game.ReplicatedStorage.GeneralHit,Chain=game.ReplicatedStorage.GeneralHit,["Ping Pong"]=game.ReplicatedStorage.GeneralHit,Whirlwind=game.ReplicatedStorage.GeneralHit,Slicer=game.ReplicatedStorage.GeneralHit,Counter=game.ReplicatedStorage.GeneralHit,Hammer=game.ReplicatedStorage.GeneralHit,Excavator=game.ReplicatedStorage.GeneralHit,["Home Run"]=game.ReplicatedStorage.GeneralHit,Psycho=game.ReplicatedStorage.GeneralHit,Kraken=game.ReplicatedStorage.GeneralHit,Gravity=game.ReplicatedStorage.GeneralHit,Lure=game.ReplicatedStorage.GeneralHit,Jebaited=game.ReplicatedStorage.GeneralHit,Meteor=game.ReplicatedStorage.GeneralHit,Tinkerer=game.ReplicatedStorage.GeneralHit,["Guardian Angel"]=game.ReplicatedStorage.GeneralHit,Sun=game.ReplicatedStorage.GeneralHit,Necromancer=game.ReplicatedStorage.GeneralHit,Zombie=game.ReplicatedStorage.GeneralHit,Dual=game.ReplicatedStorage.GeneralHit,Alchemist=game.ReplicatedStorage.GeneralHit,Parry=game.ReplicatedStorage.GeneralHit,Druid=game.ReplicatedStorage.GeneralHit,Oven=game.ReplicatedStorage.GeneralHit,Jester=game.ReplicatedStorage.GeneralHit,Ferryman=game.ReplicatedStorage.GeneralHit,Scythe=game.ReplicatedStorage.GeneralHit,Blackhole=game.ReplicatedStorage.GeneralHit,Santa=game.ReplicatedStorage.GeneralHit,Grapple=game.ReplicatedStorage.GeneralHit,Iceskate=game.ReplicatedStorage.GeneralHit,Pan=game.ReplicatedStorage.GeneralHit,Blasphemy=game.ReplicatedStorage.GeneralHit,Blink=game.ReplicatedStorage.GeneralHit,["Ultra Instinct"]=game.ReplicatedStorage.GeneralHit,Admin=game.ReplicatedStorage.GeneralHit,Prop=game.ReplicatedStorage.GeneralHit,Joust=game.ReplicatedStorage.GeneralHit,Slapstick=game.ReplicatedStorage.GeneralHit,Firework=game.ReplicatedStorage.GeneralHit,Run=game.ReplicatedStorage.GeneralHit,Beatdown=game.ReplicatedStorage.GeneralHit,["L.O.L.B.O.M.B"]=game.ReplicatedStorage.GeneralHit,Glovel=game.ReplicatedStorage.GeneralHit,Chicken=game.ReplicatedStorage.GeneralHit,Divebomb=game.ReplicatedStorage.GeneralHit,Lamp=game.ReplicatedStorage.GeneralHit,Pocket=game.ReplicatedStorage.GeneralHit,BONK=game.ReplicatedStorage.GeneralHit,Knockoff=game.ReplicatedStorage.GeneralHit,Divert=game.ReplicatedStorage.GeneralHit,Frostbite=game.ReplicatedStorage.GeneralHit,Sbeve=game.ReplicatedStorage.GeneralHit,Plank=game.ReplicatedStorage.GeneralHit,ZZZZZZZ=game.ReplicatedStorage.ZZZZZZZHit,Brick=game.ReplicatedStorage.BrickHit,Snow=game.ReplicatedStorage.SnowHit,Pull=game.ReplicatedStorage.PullHit,Flash=game.ReplicatedStorage.FlashHit,Spring=game.ReplicatedStorage.springhit,Swapper=game.ReplicatedStorage.HitSwapper,Bull=game.ReplicatedStorage.BullHit,Dice=game.ReplicatedStorage.DiceHit,Ghost=game.ReplicatedStorage.GhostHit,Thanos=game.ReplicatedStorage.ThanosHit,Stun=game.ReplicatedStorage.HtStun,["Za Hando"]=game.ReplicatedStorage.zhramt,Fort=game.ReplicatedStorage.Fort,Magnet=game.ReplicatedStorage.MagnetHIT,Pusher=game.ReplicatedStorage.PusherHit,Anchor=game.ReplicatedStorage.hitAnchor,Space=game.ReplicatedStorage.HtSpace,Boomerang=game.ReplicatedStorage.BoomerangH,Speedrun=game.ReplicatedStorage.Speedrunhit,Mail=game.ReplicatedStorage.MailHit,Golden=game.ReplicatedStorage.GoldenHit,MR=game.ReplicatedStorage.MisterHit,Reaper=game.ReplicatedStorage.ReaperHit,Replica=game.ReplicatedStorage.ReplicaHit,Defense=game.ReplicatedStorage.DefenseHit,Killstreak=game.ReplicatedStorage.KSHit,Reverse=game.ReplicatedStorage.ReverseHit,Shukuchi=game.ReplicatedStorage.ShukuchiHit,Duelist=game.ReplicatedStorage.DuelistHit,woah=game.ReplicatedStorage.woahHit,Ice=game.ReplicatedStorage.IceHit,Adios=game.ReplicatedStorage.hitAdios,Blocked=game.ReplicatedStorage.BlockedHit,Engineer=game.ReplicatedStorage.engiehit,Rocky=game.ReplicatedStorage.RockyHit,Conveyor=game.ReplicatedStorage.ConvHit,STOP=game.ReplicatedStorage.STOP,Phantom=game.ReplicatedStorage.PhantomHit,Wormhole=game.ReplicatedStorage.WormHit,Acrobat=game.ReplicatedStorage.AcHit,Plague=game.ReplicatedStorage.PlagueHit,["[REDACTED]"]=game.ReplicatedStorage.ReHit,bus=game.ReplicatedStorage.hitbus,Phase=game.ReplicatedStorage.PhaseH,Warp=game.ReplicatedStorage.WarpHt,Bomb=game.ReplicatedStorage.BombHit,Bubble=game.ReplicatedStorage.BubbleHit,Jet=game.ReplicatedStorage.JetHit,Shard=game.ReplicatedStorage.ShardHIT,potato=game.ReplicatedStorage.potatohit,CULT=game.ReplicatedStorage.CULTHit,bob=game.ReplicatedStorage.bobhit,Buddies=game.ReplicatedStorage.buddiesHIT,Spy=game.ReplicatedStorage.SpyHit,Detonator=game.ReplicatedStorage.DetonatorHit,Rage=game.ReplicatedStorage.GRRRR,Trap=game.ReplicatedStorage.traphi,Orbit=game.ReplicatedStorage.Orbihit,Hybrid=game.ReplicatedStorage.HybridCLAP,Slapple=game.ReplicatedStorage.SlappleHit,Disarm=game.ReplicatedStorage.DisarmH,Dominance=game.ReplicatedStorage.DominanceHit,Link=game.ReplicatedStorage.LinkHit,Rojo=game.ReplicatedStorage.RojoHit,rob=game.ReplicatedStorage.robhit,Rhythm=game.ReplicatedStorage.rhythmhit,Nightmare=game.ReplicatedStorage.nightmarehit,Hitman=game.ReplicatedStorage.HitmanHit,Thor=game.ReplicatedStorage.ThorHit,Retro=game.ReplicatedStorage.RetroHit,Cloud=game.ReplicatedStorage.CloudHit,Null=game.ReplicatedStorage.NullHit,spin=game.ReplicatedStorage.spinhit,Kinetic=game.ReplicatedStorage.HtStun,Recall=game.ReplicatedStorage.HtStun,Balloony=game.ReplicatedStorage.HtStun,Sparky=game.ReplicatedStorage.HtStun,Boogie=game.ReplicatedStorage.HtStun,Stun=game.ReplicatedStorage.HtStun,Coil=game.ReplicatedStorage.HtStun,Diamond=game.ReplicatedStorage.DiamondHit,Megarock=game.ReplicatedStorage.DiamondHit,Moon=game.ReplicatedStorage.CelestialHit,Jupiter=game.ReplicatedStorage.CelestialHit,Mitten=game.ReplicatedStorage.MittenHit,["Hallow Jack"]=game.ReplicatedStorage.HallowHIT,OVERKILL=game.ReplicatedStorage.Overkillhit,["The Flex"]=game.ReplicatedStorage.FlexHit,Custom=game.ReplicatedStorage.CustomHit,["God's Hand"]=game.ReplicatedStorage.Godshand,Error=game.ReplicatedStorage.Errorhit};
 	if not game.ReplicatedStorage:FindFirstChild("robAnimation") then
 		local robAnim = Instance.new("Animation");
 		robAnim.AnimationId = "rbxassetid://13675136513";
@@ -1330,93 +1330,126 @@ end
 	Tab3:AddDropdown({Name="Farm Bob",Default="Slow",Options={"Auto Spawn E","Auto Spawn","Fast Spawn","Normal","Super Fast Spawn"},Callback=function(Value)
 		Autobob = Value;
 	end});
-	GetBob = Tab3:AddToggle({Name="AutoFarm Bob",Default=false,Callback=function(Value)
-		_G.AutoFarmBob = Value;
-		if (game.Players.LocalPlayer.leaderstats.Glove.Value == "Replica") then
-			while _G.AutoFarmBob and (Autobob == "Auto Spawn E") do
-				if (game.Players.LocalPlayer.Character:FindFirstChild("entered") or (game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 2125950512)) then
-					game:GetService("VirtualInputManager"):SendKeyEvent(true, "E", false, x);
-				else
-					OrionLib:MakeNotification({Name="Error",Content="You got Bob spawn",Image="rbxassetid://7733658504",Time=5});
-					GetBob:Set(false);
-				end
-				task.wait(0.5);
-			end
-			while _G.AutoFarmBob and (Autobob == "Auto Spawn") do
-				if (game.Players.LocalPlayer.Character:FindFirstChild("entered") or (game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 2125950512)) then
-					game.ReplicatedStorage.Duplicate:FireServer(true);
-				else
-					OrionLib:MakeNotification({Name="Error",Content="You got Bob spawn",Image="rbxassetid://7733658504",Time=5});
-					GetBob:Set(false);
-				end
-				task.wait(5.3);
-			end
-			while _G.AutoFarmBob and (Autobob == "Fast Spawn") do
-				repeat
-					task.wait();
-				until game.Players.LocalPlayer.Character 
-				if ((game.Players.LocalPlayer.Character:FindFirstChild("entered") == nil) and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")) then
-					repeat
-						task.wait();
-						firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1.TouchInterest.Parent, 0);
-						firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1.TouchInterest.Parent, 1);
-					until game.Players.LocalPlayer.Character:FindFirstChild("entered") and game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Tool") 
-					task.wait(0.5);
-					game:GetService("VirtualInputManager"):SendKeyEvent(true, "E", false, x);
-					if (game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 2125950512)) then
-						game:GetService("ReplicatedStorage"):WaitForChild("HumanoidDied"):FireServer(game.Players.LocalPlayer.Character, false);
-					else
-						OrionLib:MakeNotification({Name="Error",Content="You got Bob spawn",Image="rbxassetid://7733658504",Time=5});
-						GetBob:Set(false);
-					end
-				end
-				task.wait();
-			end
-			while _G.AutoFarmBob and (Autobob == "Normal") do
-				repeat
-					task.wait();
-				until game.Players.LocalPlayer.Character 
-				if ((game.Players.LocalPlayer.Character:FindFirstChild("entered") == nil) and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") and game.Players.LocalPlayer.Character) then
-					game.Players.LocalPlayer.Character.Humanoid.WalkToPoint = game.Workspace.Lobby.Teleport1.Position;
-				end
-				if (game.Players.LocalPlayer.Character:FindFirstChild("entered") and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") and game.Players.LocalPlayer.Character) then
-					game.Players.LocalPlayer.Character.Humanoid.WalkToPoint = game.Players.LocalPlayer.Character.HumanoidRootPart.Position;
-					task.wait(0.2);
-					game:GetService("VirtualInputManager"):SendKeyEvent(true, "E", false, x);
-					if (game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 2125950512)) then
-						if (game.Players.LocalPlayer.Character.Humanoid.Health == 100) then
-							game:GetService("ReplicatedStorage"):WaitForChild("HumanoidDied"):FireServer(game.Players.LocalPlayer.Character, false);
-						end
-					else
-						OrionLib:MakeNotification({Name="Error",Content="You got Bob spawn",Image="rbxassetid://7733658504",Time=5});
-						GetBob:Set(false);
-					end
-				end
-				task.wait();
-			end
-			while _G.AutoFarmBob and (Autobob == "Super Fast Spawn") do
-				replicaClone = 0
-				firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1.TouchInterest.Parent, 0);
-				firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1.TouchInterest.Parent, 1);
-				wait(0.5);
-				game:GetService("VirtualInputManager"):SendKeyEvent(true, "E", false, x);
-				task.wait(0.2);
-				if (game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 2125950512)) then --Why the old one? it can falsely be activated if someone spawns bob and disables the script 
-					game:GetService("ReplicatedStorage"):WaitForChild("HumanoidDied"):FireServer(game.Players.LocalPlayer.Character, false);
-				else
-					OrionLib:MakeNotification({Name="Error",Content="You got Bob spawn",Image="rbxassetid://7733658504",Time=5});
-					GetBob:Set(false);
-				end
-				replicaClone += 1
-				OrionLib:MakeNotification({Name="Count",Content="You spawned "..replicaClone.." replicas. "..replicaClone.."/7500",Image="rbxassetid://7733658504",Time=5});
-				task.wait(1.8);
-			end
-		elseif (_G.AutoFarmBob == true) then
-			OrionLib:MakeNotification({Name="Error",Content="You don't have Replica equipped, or You have Owned Items",Image="rbxassetid://7733658504",Time=5});
-			wait(0.05);
-			GetBob:Set(false);
-		end
-	end});
+	GetBob = Tab3:AddToggle({
+    Name = "AutoFarm Bob",
+    Default = false,
+    Callback = function(Value)
+        _G.AutoFarmBob = Value
+        if game.Players.LocalPlayer.leaderstats.Glove.Value == "Replica" then
+            local replicaClone = 0
+            while _G.AutoFarmBob do
+                if Autobob == "Auto Spawn E" then
+                    if game.Players.LocalPlayer.Character:FindFirstChild("entered") or not game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 2125950512) then
+                        game:GetService("VirtualInputManager"):SendKeyEvent(true, "E", false, x)
+                    else
+                        OrionLib:MakeNotification({
+                            Name = "Error",
+                            Content = "You got Bob spawn",
+                            Image = "rbxassetid://7733658504",
+                            Time = 5
+                        })
+                        GetBob:Set(false)
+                    end
+                    task.wait(0.5)
+                elseif Autobob == "Auto Spawn" then
+                    if game.Players.LocalPlayer.Character:FindFirstChild("entered") or not game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 2125950512) then
+                        game.ReplicatedStorage.Duplicate:FireServer(true)
+                    else
+                        OrionLib:MakeNotification({
+                            Name = "Error",
+                            Content = "You got Bob spawn",
+                            Image = "rbxassetid://7733658504",
+                            Time = 5
+                        })
+                        GetBob:Set(false)
+                    end
+                    task.wait(5.3)
+                elseif Autobob == "Fast Spawn" then
+                    repeat task.wait() until game.Players.LocalPlayer.Character
+                    if not game.Players.LocalPlayer.Character:FindFirstChild("entered") and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+                        repeat
+                            task.wait()
+                            firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1.TouchInterest.Parent, 0)
+                            firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1.TouchInterest.Parent, 1)
+                        until game.Players.LocalPlayer.Character:FindFirstChild("entered") and game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Tool")
+                        task.wait(0.5)
+                        game:GetService("VirtualInputManager"):SendKeyEvent(true, "E", false, x)
+                        if not game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 2125950512) then
+                            game:GetService("ReplicatedStorage"):WaitForChild("HumanoidDied"):FireServer(game.Players.LocalPlayer.Character, false)
+                        else
+                            OrionLib:MakeNotification({
+                                Name = "Error",
+                                Content = "You got Bob spawn",
+                                Image = "rbxassetid://7733658504",
+                                Time = 5
+                            })
+                            GetBob:Set(false)
+                        end
+                    end
+                    task.wait()
+                elseif Autobob == "Normal" then
+                    repeat task.wait() until game.Players.LocalPlayer.Character
+                    if not game.Players.LocalPlayer.Character:FindFirstChild("entered") and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+                        game.Players.LocalPlayer.Character.Humanoid.WalkToPoint = game.Workspace.Lobby.Teleport1.Position
+                    end
+                    if game.Players.LocalPlayer.Character:FindFirstChild("entered") and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+                        game.Players.LocalPlayer.Character.Humanoid.WalkToPoint = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+                        task.wait(0.2)
+                        game:GetService("VirtualInputManager"):SendKeyEvent(true, "E", false, x)
+                        if not game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 2125950512) then
+                            if game.Players.LocalPlayer.Character.Humanoid.Health == 100 then
+                                game:GetService("ReplicatedStorage"):WaitForChild("HumanoidDied"):FireServer(game.Players.LocalPlayer.Character, false)
+                            end
+                        else
+                            OrionLib:MakeNotification({
+                                Name = "Error",
+                                Content = "You got Bob spawn",
+                                Image = "rbxassetid://7733658504",
+                                Time = 5
+                            })
+                            GetBob:Set(false)
+                        end
+                    end
+                    task.wait()
+                elseif Autobob == "Super Fast Spawn" then
+                    firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1.TouchInterest.Parent, 0)
+                    firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1.TouchInterest.Parent, 1)
+                    wait(0.5)
+                    game:GetService("VirtualInputManager"):SendKeyEvent(true, "E", false, x)
+                    task.wait(0.2)
+                    if not game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 2125950512) then
+                        game:GetService("ReplicatedStorage"):WaitForChild("HumanoidDied"):FireServer(game.Players.LocalPlayer.Character, false)
+                    else
+                        OrionLib:MakeNotification({
+                            Name = "Error",
+                            Content = "You got Bob spawn",
+                            Image = "rbxassetid://7733658504",
+                            Time = 5
+                        })
+                        GetBob:Set(false)
+                    end
+                    replicaClone = replicaClone + 1
+                    OrionLib:MakeNotification({
+                        Name = "Count",
+                        Content = "You spawned " .. replicaClone .. " replicas. " .. replicaClone .. "/7500",
+                        Image = "rbxassetid://7733658504",
+                        Time = 5
+                    })
+                    task.wait(1.8)
+                end
+            end
+        elseif _G.AutoFarmBob == true then
+            OrionLib:MakeNotification({
+                Name = "Error",
+                Content = "You don't have Replica equipped, or You have Owned Items",
+                Image = "rbxassetid://7733658504",
+                Time = 5
+            })
+            wait(0.05)
+            GetBob:Set(false)
+        end
+    end
+})
 	Tab3:AddToggle({Name="Toolbox Farm",Default=false,Callback=function(Value)
 		Toolboxfarm = Value;
 		while Toolboxfarm do
