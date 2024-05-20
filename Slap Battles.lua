@@ -1415,7 +1415,9 @@ end
                     firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1.TouchInterest.Parent, 0)
                     firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1.TouchInterest.Parent, 1)
                     wait(0.5)
-                    game:GetService("VirtualInputManager"):SendKeyEvent(true, "E", false, x)
+                    if game.Players.LocalPlayer.Character:FindFirstChild("entered") then
+                        game:GetService("VirtualInputManager"):SendKeyEvent(true, "E", false, x)
+                    end
                     task.wait(0.2)
                     if not game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 2125950512) then
                         game:GetService("ReplicatedStorage"):WaitForChild("HumanoidDied"):FireServer(game.Players.LocalPlayer.Character, false)
