@@ -5,7 +5,7 @@ game:GetService("GuiService"):ClearError();
 local OrionLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/Giangplay/Script/main/Orion_Library_PE_V2.lua"))();
 local GameName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name;
 if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceId == 11520107397)) then
-	local Window = OrionLib:MakeWindow({IntroText=GameName.." ; "..identifyexecutor(),IntroIcon="rbxassetid://15315284749",Name=(GameName .. " ; " .. identifyexecutor()),IntroToggleIcon="rbxassetid://7734091286",HidePremium=false,SaveConfig=false,IntroEnabled=true,ConfigFolder="slap battles"});
+	local Window = OrionLib:MakeWindow({IntroText=(GameName .. " ; " .. identifyexecutor()),IntroIcon="rbxassetid://15315284749",Name=(GameName .. " ; " .. identifyexecutor()),IntroToggleIcon="rbxassetid://7734091286",HidePremium=false,SaveConfig=false,IntroEnabled=true,ConfigFolder="slap battles"});
 	local Namecall;
 	Namecall = hookmetamethod(game, "__namecall", function(self, ...)
 		if ((getnamecallmethod() == "FireServer") and (tostring(self) == "Ban")) then
@@ -18,7 +18,7 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 		return Namecall(self, ...);
 	end);
 	_G.GetPotion = {Grug={"Mushroom"},idIot={"Cake Mix"},Nightmare={"Dark Root","Dark Root","Dark Root"},Confusion={"Red Crystal","Blue Crystal","Glowing Mushroom"},Power={"Dire Flower","Red Crystal","Wild Vine"},Paralyzing={"Plane Flower","Plane Flower"},Haste={"Autumn Sprout","Jade Stone"},Invisibility={"Hazel Lily","Hazel Lily","Blue Crystal"},Explosion={"Red Crystal","Fire Flower","Fire Flower"},Invincible={"Elder Wood","Mushroom","Mushroom"},Toxic={"Dark Root","Dark Root","Blood Rose","Red Crystal"},Freeze={"Winter Rose","Winter Rose","Wild Vine","Blue Crystal","Glowing Mushroom"},Feather={"Mushroom","Hazel Lily"},Speed={"Mushroom","Mushroom","Plane Flower","Hazel Lily","Blue Crystal"},Lethal={"Blood Rose","Blood Rose","Blood Rose","Blood Rose","Blood Rose","Blood Rose","Blood Rose","Blood Rose","Blood Rose","Blood Rose","Dark Root","Dark Root","Dark Root","Dark Root","Dark Root","Dark Root","Dark Root","Dark Root","Dark Root","Dark Root"},Slow={"Mushroom","Mushroom","Blue Crystal","Blue Crystal","Jade Stone","Plane Flower"},Antitoxin={"Blue Crystal","Glowing Mushroom","Plane Flower","Plane Flower","Elder Wood"},["Corrupted Vine"]={"Wild Vine","Wild Vine","Wild Vine","Blood Rose","Dark Root","Elder Wood","Jade Stone"},Field={"Hazel Lily","Plane Flower","Plane Flower"}};
-	gloveHits = {Default=game.ReplicatedStorage.b,Extended=game.ReplicatedStorage.b,["T H I C K"]=game.ReplicatedStorage.GeneralHit,Squid=game.ReplicatedStorage.GeneralHit,Gummy=game.ReplicatedStorage.GeneralHit,RNG=game.ReplicatedStorage.GeneralHit,Tycoon=game.ReplicatedStorage.GeneralHit,Charge=game.ReplicatedStorage.GeneralHit,Baller=game.ReplicatedStorage.GeneralHit,Tableflip=game.ReplicatedStorage.GeneralHit,Booster=game.ReplicatedStorage.GeneralHit,Shield=game.ReplicatedStorage.GeneralHit,Track=game.ReplicatedStorage.GeneralHit,Goofy=game.ReplicatedStorage.GeneralHit,Confusion=game.ReplicatedStorage.GeneralHit,Elude=game.ReplicatedStorage.GeneralHit,Glitch=game.ReplicatedStorage.GeneralHit,Snowball=game.ReplicatedStorage.GeneralHit,fish=game.ReplicatedStorage.GeneralHit,Killerfish=game.ReplicatedStorage.GeneralHit,["🗿"]=game.ReplicatedStorage.GeneralHit,Obby=game.ReplicatedStorage.GeneralHit,Voodoo=game.ReplicatedStorage.GeneralHit,Leash=game.ReplicatedStorage.GeneralHit,Flamarang=game.ReplicatedStorage.GeneralHit,Berserk=game.ReplicatedStorage.GeneralHit,Quake=game.ReplicatedStorage.GeneralHit,Rattlebones=game.ReplicatedStorage.GeneralHit,Chain=game.ReplicatedStorage.GeneralHit,["Ping Pong"]=game.ReplicatedStorage.GeneralHit,Whirlwind=game.ReplicatedStorage.GeneralHit,Slicer=game.ReplicatedStorage.GeneralHit,Counter=game.ReplicatedStorage.GeneralHit,Hammer=game.ReplicatedStorage.GeneralHit,Excavator=game.ReplicatedStorage.GeneralHit,["Home Run"]=game.ReplicatedStorage.GeneralHit,Psycho=game.ReplicatedStorage.GeneralHit,Kraken=game.ReplicatedStorage.GeneralHit,Gravity=game.ReplicatedStorage.GeneralHit,Lure=game.ReplicatedStorage.GeneralHit,Jebaited=game.ReplicatedStorage.GeneralHit,Meteor=game.ReplicatedStorage.GeneralHit,Tinkerer=game.ReplicatedStorage.GeneralHit,["Guardian Angel"]=game.ReplicatedStorage.GeneralHit,Sun=game.ReplicatedStorage.GeneralHit,Necromancer=game.ReplicatedStorage.GeneralHit,Zombie=game.ReplicatedStorage.GeneralHit,Dual=game.ReplicatedStorage.GeneralHit,Alchemist=game.ReplicatedStorage.GeneralHit,Parry=game.ReplicatedStorage.GeneralHit,Druid=game.ReplicatedStorage.GeneralHit,Oven=game.ReplicatedStorage.GeneralHit,Jester=game.ReplicatedStorage.GeneralHit,Ferryman=game.ReplicatedStorage.GeneralHit,Scythe=game.ReplicatedStorage.GeneralHit,Blackhole=game.ReplicatedStorage.GeneralHit,Santa=game.ReplicatedStorage.GeneralHit,Grapple=game.ReplicatedStorage.GeneralHit,Iceskate=game.ReplicatedStorage.GeneralHit,Pan=game.ReplicatedStorage.GeneralHit,Blasphemy=game.ReplicatedStorage.GeneralHit,Blink=game.ReplicatedStorage.GeneralHit,["Ultra Instinct"]=game.ReplicatedStorage.GeneralHit,Admin=game.ReplicatedStorage.GeneralHit,Prop=game.ReplicatedStorage.GeneralHit,Joust=game.ReplicatedStorage.GeneralHit,Slapstick=game.ReplicatedStorage.GeneralHit,Firework=game.ReplicatedStorage.GeneralHit,Run=game.ReplicatedStorage.GeneralHit,Beatdown=game.ReplicatedStorage.GeneralHit,["L.O.L.B.O.M.B"]=game.ReplicatedStorage.GeneralHit,Glovel=game.ReplicatedStorage.GeneralHit,Chicken=game.ReplicatedStorage.GeneralHit,Divebomb=game.ReplicatedStorage.GeneralHit,Lamp=game.ReplicatedStorage.GeneralHit,Pocket=game.ReplicatedStorage.GeneralHit,BONK=game.ReplicatedStorage.GeneralHit,Knockoff=game.ReplicatedStorage.GeneralHit,Divert=game.ReplicatedStorage.GeneralHit,Frostbite=game.ReplicatedStorage.GeneralHit,Sbeve=game.ReplicatedStorage.GeneralHit,Plank=game.ReplicatedStorage.GeneralHit,ZZZZZZZ=game.ReplicatedStorage.ZZZZZZZHit,Brick=game.ReplicatedStorage.BrickHit,Snow=game.ReplicatedStorage.SnowHit,Pull=game.ReplicatedStorage.PullHit,Flash=game.ReplicatedStorage.FlashHit,Spring=game.ReplicatedStorage.springhit,Swapper=game.ReplicatedStorage.HitSwapper,Bull=game.ReplicatedStorage.BullHit,Dice=game.ReplicatedStorage.DiceHit,Ghost=game.ReplicatedStorage.GhostHit,Thanos=game.ReplicatedStorage.ThanosHit,Stun=game.ReplicatedStorage.HtStun,["Za Hando"]=game.ReplicatedStorage.zhramt,Fort=game.ReplicatedStorage.Fort,Magnet=game.ReplicatedStorage.MagnetHIT,Pusher=game.ReplicatedStorage.PusherHit,Anchor=game.ReplicatedStorage.hitAnchor,Space=game.ReplicatedStorage.HtSpace,Boomerang=game.ReplicatedStorage.BoomerangH,Speedrun=game.ReplicatedStorage.Speedrunhit,Mail=game.ReplicatedStorage.MailHit,Golden=game.ReplicatedStorage.GoldenHit,MR=game.ReplicatedStorage.MisterHit,Reaper=game.ReplicatedStorage.ReaperHit,Replica=game.ReplicatedStorage.ReplicaHit,Defense=game.ReplicatedStorage.DefenseHit,Killstreak=game.ReplicatedStorage.KSHit,Reverse=game.ReplicatedStorage.ReverseHit,Shukuchi=game.ReplicatedStorage.ShukuchiHit,Duelist=game.ReplicatedStorage.DuelistHit,woah=game.ReplicatedStorage.woahHit,Ice=game.ReplicatedStorage.IceHit,Adios=game.ReplicatedStorage.hitAdios,Blocked=game.ReplicatedStorage.BlockedHit,Engineer=game.ReplicatedStorage.engiehit,Rocky=game.ReplicatedStorage.RockyHit,Conveyor=game.ReplicatedStorage.ConvHit,STOP=game.ReplicatedStorage.STOP,Phantom=game.ReplicatedStorage.PhantomHit,Wormhole=game.ReplicatedStorage.WormHit,Acrobat=game.ReplicatedStorage.AcHit,Plague=game.ReplicatedStorage.PlagueHit,["[REDACTED]"]=game.ReplicatedStorage.ReHit,bus=game.ReplicatedStorage.hitbus,Phase=game.ReplicatedStorage.PhaseH,Warp=game.ReplicatedStorage.WarpHt,Bomb=game.ReplicatedStorage.BombHit,Bubble=game.ReplicatedStorage.BubbleHit,Jet=game.ReplicatedStorage.JetHit,Shard=game.ReplicatedStorage.ShardHIT,potato=game.ReplicatedStorage.potatohit,CULT=game.ReplicatedStorage.CULTHit,bob=game.ReplicatedStorage.bobhit,Buddies=game.ReplicatedStorage.buddiesHIT,Spy=game.ReplicatedStorage.SpyHit,Detonator=game.ReplicatedStorage.DetonatorHit,Rage=game.ReplicatedStorage.GRRRR,Trap=game.ReplicatedStorage.traphi,Orbit=game.ReplicatedStorage.Orbihit,Hybrid=game.ReplicatedStorage.HybridCLAP,Slapple=game.ReplicatedStorage.SlappleHit,Disarm=game.ReplicatedStorage.DisarmH,Dominance=game.ReplicatedStorage.DominanceHit,Link=game.ReplicatedStorage.LinkHit,Rojo=game.ReplicatedStorage.RojoHit,rob=game.ReplicatedStorage.robhit,Rhythm=game.ReplicatedStorage.rhythmhit,Nightmare=game.ReplicatedStorage.nightmarehit,Hitman=game.ReplicatedStorage.HitmanHit,Thor=game.ReplicatedStorage.ThorHit,Retro=game.ReplicatedStorage.RetroHit,Cloud=game.ReplicatedStorage.CloudHit,Null=game.ReplicatedStorage.NullHit,spin=game.ReplicatedStorage.spinhit,Kinetic=game.ReplicatedStorage.HtStun,Recall=game.ReplicatedStorage.HtStun,Balloony=game.ReplicatedStorage.HtStun,Sparky=game.ReplicatedStorage.HtStun,Boogie=game.ReplicatedStorage.HtStun,Stun=game.ReplicatedStorage.HtStun,Coil=game.ReplicatedStorage.HtStun,Diamond=game.ReplicatedStorage.DiamondHit,Megarock=game.ReplicatedStorage.DiamondHit,Moon=game.ReplicatedStorage.CelestialHit,Jupiter=game.ReplicatedStorage.CelestialHit,Mitten=game.ReplicatedStorage.MittenHit,["Hallow Jack"]=game.ReplicatedStorage.HallowHIT,OVERKILL=game.ReplicatedStorage.Overkillhit,["The Flex"]=game.ReplicatedStorage.FlexHit,Custom=game.ReplicatedStorage.CustomHit,["God's Hand"]=game.ReplicatedStorage.Godshand,Error=game.ReplicatedStorage.Errorhit};
+	gloveHits = {Default=game.ReplicatedStorage.b,Extended=game.ReplicatedStorage.b,["T H I C K"]=game.ReplicatedStorage.GeneralHit,Squid=game.ReplicatedStorage.GeneralHit,Gummy=game.ReplicatedStorage.GeneralHit,RNG=game.ReplicatedStorage.GeneralHit,Tycoon=game.ReplicatedStorage.GeneralHit,Charge=game.ReplicatedStorage.GeneralHit,Baller=game.ReplicatedStorage.GeneralHit,Tableflip=game.ReplicatedStorage.GeneralHit,Booster=game.ReplicatedStorage.GeneralHit,Shield=game.ReplicatedStorage.GeneralHit,Track=game.ReplicatedStorage.GeneralHit,Goofy=game.ReplicatedStorage.GeneralHit,Confusion=game.ReplicatedStorage.GeneralHit,Elude=game.ReplicatedStorage.GeneralHit,Glitch=game.ReplicatedStorage.GeneralHit,Snowball=game.ReplicatedStorage.GeneralHit,fish=game.ReplicatedStorage.GeneralHit,Killerfish=game.ReplicatedStorage.GeneralHit,["🗿"]=game.ReplicatedStorage.GeneralHit,Obby=game.ReplicatedStorage.GeneralHit,Voodoo=game.ReplicatedStorage.GeneralHit,Leash=game.ReplicatedStorage.GeneralHit,Flamarang=game.ReplicatedStorage.GeneralHit,Berserk=game.ReplicatedStorage.GeneralHit,Quake=game.ReplicatedStorage.GeneralHit,Rattlebones=game.ReplicatedStorage.GeneralHit,Chain=game.ReplicatedStorage.GeneralHit,["Ping Pong"]=game.ReplicatedStorage.GeneralHit,Whirlwind=game.ReplicatedStorage.GeneralHit,Slicer=game.ReplicatedStorage.GeneralHit,Counter=game.ReplicatedStorage.GeneralHit,Hammer=game.ReplicatedStorage.GeneralHit,Excavator=game.ReplicatedStorage.GeneralHit,["Home Run"]=game.ReplicatedStorage.GeneralHit,Psycho=game.ReplicatedStorage.GeneralHit,Kraken=game.ReplicatedStorage.GeneralHit,Gravity=game.ReplicatedStorage.GeneralHit,Lure=game.ReplicatedStorage.GeneralHit,Jebaited=game.ReplicatedStorage.GeneralHit,Meteor=game.ReplicatedStorage.GeneralHit,Tinkerer=game.ReplicatedStorage.GeneralHit,["Guardian Angel"]=game.ReplicatedStorage.GeneralHit,Sun=game.ReplicatedStorage.GeneralHit,Necromancer=game.ReplicatedStorage.GeneralHit,Zombie=game.ReplicatedStorage.GeneralHit,Dual=game.ReplicatedStorage.GeneralHit,Alchemist=game.ReplicatedStorage.GeneralHit,Parry=game.ReplicatedStorage.GeneralHit,Druid=game.ReplicatedStorage.GeneralHit,Oven=game.ReplicatedStorage.GeneralHit,Jester=game.ReplicatedStorage.GeneralHit,Ferryman=game.ReplicatedStorage.GeneralHit,Scythe=game.ReplicatedStorage.GeneralHit,Blackhole=game.ReplicatedStorage.GeneralHit,Santa=game.ReplicatedStorage.GeneralHit,Grapple=game.ReplicatedStorage.GeneralHit,Iceskate=game.ReplicatedStorage.GeneralHit,Pan=game.ReplicatedStorage.GeneralHit,Blasphemy=game.ReplicatedStorage.GeneralHit,Blink=game.ReplicatedStorage.GeneralHit,["Ultra Instinct"]=game.ReplicatedStorage.GeneralHit,Admin=game.ReplicatedStorage.GeneralHit,Prop=game.ReplicatedStorage.GeneralHit,Joust=game.ReplicatedStorage.GeneralHit,Slapstick=game.ReplicatedStorage.GeneralHit,Firework=game.ReplicatedStorage.GeneralHit,Run=game.ReplicatedStorage.GeneralHit,Beatdown=game.ReplicatedStorage.GeneralHit,["L.O.L.B.O.M.B"]=game.ReplicatedStorage.GeneralHit,Glovel=game.ReplicatedStorage.GeneralHit,Chicken=game.ReplicatedStorage.GeneralHit,Divebomb=game.ReplicatedStorage.GeneralHit,Lamp=game.ReplicatedStorage.GeneralHit,Pocket=game.ReplicatedStorage.GeneralHit,BONK=game.ReplicatedStorage.GeneralHit,Knockoff=game.ReplicatedStorage.GeneralHit,Divert=game.ReplicatedStorage.GeneralHit,Frostbite=game.ReplicatedStorage.GeneralHit,Sbeve=game.ReplicatedStorage.GeneralHit,Plank=game.ReplicatedStorage.GeneralHit,Golem=game.ReplicatedStorage.GeneralHit,Spoonful=game.ReplicatedStorage.GeneralHit,ZZZZZZZ=game.ReplicatedStorage.ZZZZZZZHit,Brick=game.ReplicatedStorage.BrickHit,Snow=game.ReplicatedStorage.SnowHit,Pull=game.ReplicatedStorage.PullHit,Flash=game.ReplicatedStorage.FlashHit,Spring=game.ReplicatedStorage.springhit,Swapper=game.ReplicatedStorage.HitSwapper,Bull=game.ReplicatedStorage.BullHit,Dice=game.ReplicatedStorage.DiceHit,Ghost=game.ReplicatedStorage.GhostHit,Thanos=game.ReplicatedStorage.ThanosHit,Stun=game.ReplicatedStorage.HtStun,["Za Hando"]=game.ReplicatedStorage.zhramt,Fort=game.ReplicatedStorage.Fort,Magnet=game.ReplicatedStorage.MagnetHIT,Pusher=game.ReplicatedStorage.PusherHit,Anchor=game.ReplicatedStorage.hitAnchor,Space=game.ReplicatedStorage.HtSpace,Boomerang=game.ReplicatedStorage.BoomerangH,Speedrun=game.ReplicatedStorage.Speedrunhit,Mail=game.ReplicatedStorage.MailHit,Golden=game.ReplicatedStorage.GoldenHit,MR=game.ReplicatedStorage.MisterHit,Reaper=game.ReplicatedStorage.ReaperHit,Replica=game.ReplicatedStorage.ReplicaHit,Defense=game.ReplicatedStorage.DefenseHit,Killstreak=game.ReplicatedStorage.KSHit,Reverse=game.ReplicatedStorage.ReverseHit,Shukuchi=game.ReplicatedStorage.ShukuchiHit,Duelist=game.ReplicatedStorage.DuelistHit,woah=game.ReplicatedStorage.woahHit,Ice=game.ReplicatedStorage.IceHit,Adios=game.ReplicatedStorage.hitAdios,Blocked=game.ReplicatedStorage.BlockedHit,Engineer=game.ReplicatedStorage.engiehit,Rocky=game.ReplicatedStorage.RockyHit,Conveyor=game.ReplicatedStorage.ConvHit,STOP=game.ReplicatedStorage.STOP,Phantom=game.ReplicatedStorage.PhantomHit,Wormhole=game.ReplicatedStorage.WormHit,Acrobat=game.ReplicatedStorage.AcHit,Plague=game.ReplicatedStorage.PlagueHit,["[REDACTED]"]=game.ReplicatedStorage.ReHit,bus=game.ReplicatedStorage.hitbus,Phase=game.ReplicatedStorage.PhaseH,Warp=game.ReplicatedStorage.WarpHt,Bomb=game.ReplicatedStorage.BombHit,Bubble=game.ReplicatedStorage.BubbleHit,Jet=game.ReplicatedStorage.JetHit,Shard=game.ReplicatedStorage.ShardHIT,potato=game.ReplicatedStorage.potatohit,CULT=game.ReplicatedStorage.CULTHit,bob=game.ReplicatedStorage.bobhit,Buddies=game.ReplicatedStorage.buddiesHIT,Spy=game.ReplicatedStorage.SpyHit,Detonator=game.ReplicatedStorage.DetonatorHit,Rage=game.ReplicatedStorage.GRRRR,Trap=game.ReplicatedStorage.traphi,Orbit=game.ReplicatedStorage.Orbihit,Hybrid=game.ReplicatedStorage.HybridCLAP,Slapple=game.ReplicatedStorage.SlappleHit,Disarm=game.ReplicatedStorage.DisarmH,Dominance=game.ReplicatedStorage.DominanceHit,Link=game.ReplicatedStorage.LinkHit,Rojo=game.ReplicatedStorage.RojoHit,rob=game.ReplicatedStorage.robhit,Rhythm=game.ReplicatedStorage.rhythmhit,Nightmare=game.ReplicatedStorage.nightmarehit,Hitman=game.ReplicatedStorage.HitmanHit,Thor=game.ReplicatedStorage.ThorHit,Retro=game.ReplicatedStorage.RetroHit,Cloud=game.ReplicatedStorage.CloudHit,Null=game.ReplicatedStorage.NullHit,spin=game.ReplicatedStorage.spinhit,Kinetic=game.ReplicatedStorage.HtStun,Recall=game.ReplicatedStorage.HtStun,Balloony=game.ReplicatedStorage.HtStun,Sparky=game.ReplicatedStorage.HtStun,Boogie=game.ReplicatedStorage.HtStun,Stun=game.ReplicatedStorage.HtStun,Coil=game.ReplicatedStorage.HtStun,Diamond=game.ReplicatedStorage.DiamondHit,Megarock=game.ReplicatedStorage.DiamondHit,Moon=game.ReplicatedStorage.CelestialHit,Jupiter=game.ReplicatedStorage.CelestialHit,Mitten=game.ReplicatedStorage.MittenHit,["Hallow Jack"]=game.ReplicatedStorage.HallowHIT,OVERKILL=game.ReplicatedStorage.Overkillhit,["The Flex"]=game.ReplicatedStorage.FlexHit,Custom=game.ReplicatedStorage.CustomHit,["God's Hand"]=game.ReplicatedStorage.Godshand,Error=game.ReplicatedStorage.Errorhit};
 	if not game.ReplicatedStorage:FindFirstChild("robAnimation") then
 		local robAnim = Instance.new("Animation");
 		robAnim.AnimationId = "rbxassetid://13675136513";
@@ -97,6 +97,107 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			fireclickdetector(workspace.Lobby.Baller.ClickDetector);
 		end
 	end
+	function SpamReplicaBlinkReverseAndBaller()
+		if (_G.GetTeleport == "Up To You") then
+			OGL = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame;
+		end
+		while _G.ReplicaBlinkReverseBaller do
+			if ((game.Players.LocalPlayer.Character:FindFirstChild("entered") == nil) and (game.Players.LocalPlayer.leaderstats.Glove.Value == "Reverse")) then
+				game:GetService("ReplicatedStorage"):WaitForChild("ReverseAbility"):FireServer();
+				wait();
+				fireclickdetector(workspace.Lobby.Blink.ClickDetector);
+				wait(0.05);
+				if (_G.GetTeleport == "Up To You") then
+					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = OGL;
+				elseif (_G.GetTeleport == "SafeSpotBox 1.0") then
+					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace['SafeBox'].CFrame * CFrame.new(0, 5, 0);
+				elseif (_G.GetTeleport == "SafeSpotBox 2.0") then
+					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace['Safespot'].CFrame * CFrame.new(0, 10, 0);
+				end
+				wait(0.08);
+				game:GetService("ReplicatedStorage").Blink:FireServer("OutOfBody", {dir=Vector3.new(0, 0, 0),ismoving=false,mousebehavior=Enum.MouseBehavior.Default});
+				wait(0.05);
+				fireclickdetector(workspace.Lobby.Baller.ClickDetector);
+				game:GetService("ReplicatedStorage").GeneralAbility:FireServer();
+				task.wait(0.09);
+				game:GetService("ReplicatedStorage"):WaitForChild("HumanoidDied"):FireServer(game.Players.LocalPlayer.Character, false);
+				wait(3.75);
+				fireclickdetector(workspace.Lobby.Reverse.ClickDetector);
+				wait(2.5);
+				game:GetService("ReplicatedStorage"):WaitForChild("ReverseAbility"):FireServer();
+				wait(0.1);
+				fireclickdetector(workspace.Lobby.Replica.ClickDetector);
+				wait(0.1);
+				repeat
+					task.wait();
+				until game.Players.LocalPlayer.Character 
+				if ((game.Players.LocalPlayer.Character:FindFirstChild("entered") == nil) and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")) then
+					repeat
+						task.wait();
+						firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport2.TouchInterest.Parent, 0);
+						firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport2.TouchInterest.Parent, 1);
+					until game.Players.LocalPlayer.Character:FindFirstChild("entered") 
+				end
+				wait(0.04);
+				if (_G.GetTeleport == "Up To You") then
+					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = OGL;
+				elseif (_G.GetTeleport == "SafeSpotBox 1.0") then
+					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace['SafeBox'].CFrame * CFrame.new(0, 5, 0);
+				elseif (_G.GetTeleport == "SafeSpotBox 2.0") then
+					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace['Safespot'].CFrame * CFrame.new(0, 10, 0);
+				end
+				wait(0.3);
+				game:GetService("ReplicatedStorage").Duplicate:FireServer();
+				wait(20);
+				if (game.Players.LocalPlayer.Character.Humanoid.Health ~= 0) then
+					game:GetService("ReplicatedStorage"):WaitForChild("HumanoidDied"):FireServer(game.Players.LocalPlayer.Character, false);
+				end
+				wait(3.75);
+				fireclickdetector(workspace.Lobby.Reverse.ClickDetector);
+				wait(0.8);
+			end
+		end
+	end
+	function SpamBlinkReverse()
+		if (_G.GetTeleport == "Up To You") then
+			OGL = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame;
+		end
+		while _G.BlinkAndReverseGet do
+			if ((game.Players.LocalPlayer.Character:FindFirstChild("entered") == nil) and (game.Players.LocalPlayer.leaderstats.Glove.Value == "Reverse")) then
+				game:GetService("ReplicatedStorage"):WaitForChild("ReverseAbility"):FireServer();
+				wait();
+				fireclickdetector(workspace.Lobby.Blink.ClickDetector);
+				wait(0.01);
+				repeat
+					task.wait();
+				until game.Players.LocalPlayer.Character 
+				if (not game.Players.LocalPlayer.Character:FindFirstChild("entered") and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")) then
+					repeat
+						task.wait();
+						firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport2.TouchInterest.Parent, 0);
+						firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport2.TouchInterest.Parent, 1);
+					until game.Players.LocalPlayer.Character:FindFirstChild("entered") 
+				end
+				wait(0.04);
+				if (_G.GetTeleport == "Up To You") then
+					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = OGL;
+				elseif (_G.GetTeleport == "SafeSpotBox 1.0") then
+					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace['SafeBox'].CFrame * CFrame.new(0, 5, 0);
+				elseif (_G.GetTeleport == "SafeSpotBox 2.0") then
+					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace['Safespot'].CFrame * CFrame.new(0, 10, 0);
+				end
+				wait(0.1);
+				game:GetService("ReplicatedStorage").Blink:FireServer("OutOfBody", {dir=Vector3.new(0, 0, 0),ismoving=false,mousebehavior=Enum.MouseBehavior.Default});
+				wait(50.05);
+				if (game.Players.LocalPlayer.Character.Humanoid.Health ~= 0) then
+					game:GetService("ReplicatedStorage"):WaitForChild("HumanoidDied"):FireServer(game.Players.LocalPlayer.Character, false);
+				end
+				wait(3.75);
+				fireclickdetector(workspace.Lobby.Reverse.ClickDetector);
+				wait(0.8);
+			end
+		end
+	end
 	function SpamReplicaReverse()
 		if (_G.GetTeleport == "Up To You") then
 			OGL = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame;
@@ -113,8 +214,8 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 				if (not game.Players.LocalPlayer.Character:FindFirstChild("entered") and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")) then
 					repeat
 						task.wait();
-						firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1.TouchInterest.Parent, 0);
-						firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1.TouchInterest.Parent, 1);
+						firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport2.TouchInterest.Parent, 0);
+						firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport2.TouchInterest.Parent, 1);
 					until game.Players.LocalPlayer.Character:FindFirstChild("entered") 
 				end
 				wait(0.04);
@@ -466,7 +567,7 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 	else
 		KeypadSpawn = Tab:AddLabel("Keypad spawned");
 	end
-	if (game.Workspace.Arena.island5.Slapples.GoldenSlapple:FindFirstChildWhichIsA("TouchTransmitter") == nil) then
+	if (game.Workspace.Arena.island5.Slapples.GoldenSlapple.Glove:FindFirstChildWhichIsA("TouchTransmitter") == nil) then
 		GoldenSlappleSpawn = Tab:AddLabel("Golden Slapple not spawned");
 	else
 		GoldenSlappleSpawn = Tab:AddLabel("Golden Slapple spawned");
@@ -527,7 +628,7 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 				else
 					KeypadSpawn:Set("Keypad spawned");
 				end
-				if (game.Workspace.Arena.island5.Slapples.GoldenSlapple:FindFirstChildWhichIsA("TouchTransmitter") == nil) then
+				if (game.Workspace.Arena.island5.Slapples.GoldenSlapple.Glove:FindFirstChildWhichIsA("TouchTransmitter") == nil) then
 					GoldenSlappleSpawn:Set("Golden Slapple not spawned");
 				else
 					GoldenSlappleSpawn:Set("Golden Slapple spawned");
@@ -641,12 +742,12 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 		elseif (Value == "Teleport Spawn") then
 			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-16872.9, -6.1, 4774.94);
 		elseif (Value == "Click Button") then
-			if game:GetService("ReplicatedStorage").Assets.Retro.Map then
+			if (game:GetService("ReplicatedStorage").Assets.Retro ~= nil) then
 				game.ReplicatedStorage.Assets.Retro.Map.Parent = workspace;
-				wait(0.7);
-				fireclickdetector(workspace.Map.RetroObbyMap:GetChildren()[5].StaffApp.Button.ClickDetector);
+				wait(1.5);
+				fireclickdetector(workspace.Retro.Map.RetroObbyMap:GetChildren()[5].StaffApp.Button.ClickDetector);
 			else
-				fireclickdetector(workspace.Map.RetroObbyMap:GetChildren()[5].StaffApp.Button.ClickDetector);
+				fireclickdetector(workspace.Retro.Map.RetroObbyMap:GetChildren()[5].StaffApp.Button.ClickDetector);
 			end
 		end
 	end});
@@ -694,17 +795,10 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			end
 			wait(1.5);
 			repeat
-				--local players = game.Players:GetChildren();
-				--local RandomPlayer = players[math.random(1, #players)];
-				--repeat
-				--	RandomPlayer = players[math.random(1, #players)];
-				--until (RandomPlayer ~= game.Players.LocalPlayer) and RandomPlayer.Character:FindFirstChild("entered") and (RandomPlayer.Character:FindFirstChild("rock") == nil) and (RandomPlayer.Character.Head:FindFirstChild("UnoReverseCard") == nil) and (RandomPlayer.Character.Humanoid.Health ~= 0) 
-				--Target = RandomPlayer;
-				--game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Target.Character.HumanoidRootPart.CFrame * CFrame.new(0, -20, 0);
-				--wait(0.25);
+				if ((game.Players.LocalPlayer.Character.Humanoid.Health == 0) or (game.Players.LocalPlayer.Character:FindFirstChild("entered") == nil)) then
+					break;
+				end
 				game.ReplicatedStorage.StunR:FireServer(game.Players.LocalPlayer.Character.Stun);
-				--game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = OGL;
-				--wait(0.5);
 				if (game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("EMPStunBadgeCounter")) then
 					OrionLib:MakeNotification({Name="Kinetic badge ; Stun count",Content=("Emp count: [ " .. game.Players.LocalPlayer.Character.EMPStunBadgeCounter.Value .. " ]"),Image="rbxassetid://7733658504",Time=12.3});
 				end
@@ -747,7 +841,7 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			else
 				OrionLib:MakeNotification({Name="Error",Content="Please turn off Anti Death Barriers",Image="rbxassetid://7733658504",Time=5});
 			end
-			task.wait(0.2);
+			task.wait(0.1);
 			game:GetService("ReplicatedStorage").WLOC:FireServer();
 		else
 			OrionLib:MakeNotification({Name="Error",Content="You don't have Warp equipped, or you have owner badge",Image="rbxassetid://7733658504",Time=5});
@@ -780,7 +874,7 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 					local RandomPlayer = players[math.random(1, #players)];
 					repeat
 						RandomPlayer = players[math.random(1, #players)];
-					until (RandomPlayer ~= game.Players.LocalPlayer) and (RandomPlayer.Character:FindFirstChild("rock") == nil) and (RandomPlayer.Character.Head:FindFirstChild("UnoReverseCard") == nil) and RandomPlayer.Character:FindFirstChild("entered") 
+					until (RandomPlayer ~= game.Players.LocalPlayer) and (RandomPlayer.Character:FindFirstChild("rock") == nil) and (v.Character:FindFirstChild("stevebody") == nil) and (RandomPlayer.Character.Head:FindFirstChild("UnoReverseCard") == nil) and RandomPlayer.Character:FindFirstChild("entered") 
 					Target = RandomPlayer;
 					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Target.Character.HumanoidRootPart.CFrame;
 					task.wait(0.34);
@@ -789,14 +883,14 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 					wait(1.5);
 					game.ReplicatedStorage.SelfKnockback:FireServer({Force=0,Direction=Vector3.new(0, 0.01, 0)});
 					wait(0.8);
-					for i = 1, 36 do
+					for i = 1, 50 do
 						for i, v in pairs(game.Workspace:GetChildren()) do
 							if (v.Name == "BusModel") then
 								v.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame;
 							end
 						end
+						task.wait();
 					end
-					task.wait();
 				end
 				task.wait(3.5);
 			until game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 3335299217032061) 
@@ -805,15 +899,15 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 		end
 	end});
 	Tab3:AddToggle({Name="Get Blasphemy glove V3",Value=false,Callback=function(Value)
-		local blasphemytest = Value
+		local blasphemytest = Value;
 		if ((game.Players.LocalPlayer.leaderstats.Glove.Value == "bus") and not game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 3335299217032061)) then
 			while blasphemytest do
-				task.wait()
-				if blasphemytest == true and game.Players.LocalPlayer.Character.Humanoid.Health ~= 0 and game.Players.LocalPlayer.Character:FindFirstChild("entered") ~= nil then
+				task.wait();
+				if ((blasphemytest == true) and (game.Players.LocalPlayer.Character.Humanoid.Health ~= 0) and (game.Players.LocalPlayer.Character:FindFirstChild("entered") ~= nil)) then
 					for i, v in pairs(game.Workspace:GetChildren()) do
-						if v.Name == "BusModel" then
-							firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v, 0)
-							firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v, 1)
+						if (v.Name == "BusModel") then
+							firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v, 0);
+							firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v, 1);
 						end
 					end
 				end
@@ -829,7 +923,7 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			until (game.Workspace:FindFirstChild("TreasureChestFolder") ~= nil) and (game.Workspace.TreasureChestFolder:FindFirstChild("TreasureChest") ~= nil) 
 			wait(1);
 			game.Workspace.TreasureChestFolder.TreasureChest.OpenRemote:FireServer();
-			wait(1.9);
+			wait(0.9);
 			game.ReplicatedStorage.HumanoidDied:FireServer(game.Players.LocalPlayer.Character, false);
 			wait(3.75);
 			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.BountyHunterRoom.Union.CFrame * CFrame.new(0, 5, 0);
@@ -872,6 +966,7 @@ for i,v in ipairs(game:GetService("Workspace"):GetDescendants()) do
             game.Loaded:Wait()
         end
         repeat wait() until game.Players.LocalPlayer
+							wait(5)
  repeat wait() until game.Workspace:FindFirstChild("Map"):FindFirstChild("CodeBrick")
 if game.Workspace.Map.CodeBrick.SurfaceGui:FindFirstChild("IMGTemplate") then
 game.Workspace.Map.CodeBrick.SurfaceGui.IMGTemplate.Name = "1st"
@@ -1028,17 +1123,17 @@ for i,v in pairs(game.Workspace.Map.CodeBrick.SurfaceGui:GetChildren()) do
                     end
                 end
 fireclickdetector(game.Workspace.Map.OriginOffice.Door.Keypad.Buttons.Reset.ClickDetector)
-task.wait(1)
+task.wait(0.07)
 fireclickdetector(game.Workspace.Map.OriginOffice.Door.Keypad.Buttons[first].ClickDetector)
-task.wait(1)
+task.wait(0.07)
 fireclickdetector(game.Workspace.Map.OriginOffice.Door.Keypad.Buttons[second].ClickDetector)
-task.wait(1)
+task.wait(0.07)
 fireclickdetector(game.Workspace.Map.OriginOffice.Door.Keypad.Buttons[third].ClickDetector)
-task.wait(1)
+task.wait(0.07)
 fireclickdetector(game.Workspace.Map.OriginOffice.Door.Keypad.Buttons[fourth].ClickDetector)
-task.wait(1)
+task.wait(0.07)
 fireclickdetector(game.Workspace.Map.OriginOffice.Door.Keypad.Buttons.Enter.ClickDetector)
-task.wait(0.5)
+task.wait(2)
 game:GetService("TeleportService"):Teleport(6403373529)
     ]]);
 			end
@@ -1230,22 +1325,15 @@ end
 		_G.AutoFarmAlchemist = Value;
 		if (game.Players.LocalPlayer.leaderstats.Glove.Value == "Plague") then
 			while _G.AutoFarmAlchemist do
-				if (game.Players.LocalPlayer.Backpack:FindFirstChild("Plague") == nil) then
-					game.Players.LocalPlayer.Character.Humanoid:UnequipTools();
-				end
-				game.Players.LocalPlayer.Character.Humanoid:UnequipTools();
 				local players = game.Players:GetChildren();
 				local RandomPlayer = players[math.random(1, #players)];
 				repeat
 					RandomPlayer = players[math.random(1, #players)];
-				until (RandomPlayer ~= game.Players.LocalPlayer) and RandomPlayer.Character:FindFirstChild("entered") and (RandomPlayer.Character:FindFirstChild("ded") == nil) and (RandomPlayer.Character:FindFirstChild("InLabyrinth") == nil) and (RandomPlayer.Character:FindFirstChild("Ragdolled").Value == false) and (RandomPlayer.Character:FindFirstChild("rock") == nil) 
+				until (RandomPlayer ~= game.Players.LocalPlayer) and RandomPlayer.Character:FindFirstChild("entered") and (RandomPlayer.Character:FindFirstChild("ded") == nil) and (RandomPlayer.Character:FindFirstChild("InLabyrinth") == nil) and (RandomPlayer.Character:FindFirstChild("Ragdolled").Value == false) and (RandomPlayer.Character:FindFirstChild("rock") == nil) and (v.Character:FindFirstChild("stevebody") == nil) 
 				Target = RandomPlayer;
-				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Target.Character:FindFirstChild("HumanoidRootPart").CFrame * CFrame.new(0, 0, 10);
-				task.wait(0.2);
-				if game.Players.LocalPlayer.Backpack:FindFirstChild("Plague") then
-					game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack.Plague);
-				end
 				wait(0.2);
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Target.Character:FindFirstChild("HumanoidRootPart").CFrame * CFrame.new(0, 0, 10);
+				wait(0.1);
 				game.ReplicatedStorage.PlagueHit:FireServer(Target.Character:WaitForChild("HumanoidRootPart"));
 				task.wait(0.1);
 				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace['Safespot'].CFrame * CFrame.new(0, 10, 0);
@@ -1253,6 +1341,7 @@ end
 			end
 		elseif (_G.AutoFarmAlchemist == true) then
 			OrionLib:MakeNotification({Name="Error",Content="You don't have Plague equipped",Image="rbxassetid://7733658504",Time=5});
+			task.wait(0.05);
 			AutoFarmGetAlchemist:Set(false);
 		end
 	end});
@@ -1330,128 +1419,93 @@ end
 	Tab3:AddDropdown({Name="Farm Bob",Default="Slow",Options={"Auto Spawn E","Auto Spawn","Fast Spawn","Normal","Super Fast Spawn"},Callback=function(Value)
 		Autobob = Value;
 	end});
-	GetBob = Tab3:AddToggle({
-    Name = "AutoFarm Bob",
-    Default = false,
-    Callback = function(Value)
-        _G.AutoFarmBob = Value
-        if game.Players.LocalPlayer.leaderstats.Glove.Value == "Replica" then
-            local replicaClone = 0
-            while _G.AutoFarmBob do
-                if Autobob == "Auto Spawn E" then
-                    if game.Players.LocalPlayer.Character:FindFirstChild("entered") or not game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 2125950512) then
-                        game:GetService("VirtualInputManager"):SendKeyEvent(true, "E", false, x)
-                    else
-                        OrionLib:MakeNotification({
-                            Name = "Error",
-                            Content = "You got Bob spawn",
-                            Image = "rbxassetid://7733658504",
-                            Time = 5
-                        })
-                        GetBob:Set(false)
-                    end
-                    task.wait(0.5)
-                elseif Autobob == "Auto Spawn" then
-                    if game.Players.LocalPlayer.Character:FindFirstChild("entered") or not game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 2125950512) then
-                        game.ReplicatedStorage.Duplicate:FireServer(true)
-                    else
-                        OrionLib:MakeNotification({
-                            Name = "Error",
-                            Content = "You got Bob spawn",
-                            Image = "rbxassetid://7733658504",
-                            Time = 5
-                        })
-                        GetBob:Set(false)
-                    end
-                    task.wait(5.3)
-                elseif Autobob == "Fast Spawn" then
-                    repeat task.wait() until game.Players.LocalPlayer.Character
-                    if not game.Players.LocalPlayer.Character:FindFirstChild("entered") and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
-                        repeat
-                            task.wait()
-                            firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1.TouchInterest.Parent, 0)
-                            firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1.TouchInterest.Parent, 1)
-                        until game.Players.LocalPlayer.Character:FindFirstChild("entered") and game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Tool")
-                        task.wait(0.5)
-                        game:GetService("VirtualInputManager"):SendKeyEvent(true, "E", false, x)
-                        if not game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 2125950512) then
-                            game:GetService("ReplicatedStorage"):WaitForChild("HumanoidDied"):FireServer(game.Players.LocalPlayer.Character, false)
-                        else
-                            OrionLib:MakeNotification({
-                                Name = "Error",
-                                Content = "You got Bob spawn",
-                                Image = "rbxassetid://7733658504",
-                                Time = 5
-                            })
-                            GetBob:Set(false)
-                        end
-                    end
-                    task.wait()
-                elseif Autobob == "Normal" then
-                    repeat task.wait() until game.Players.LocalPlayer.Character
-                    if not game.Players.LocalPlayer.Character:FindFirstChild("entered") and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
-                        game.Players.LocalPlayer.Character.Humanoid.WalkToPoint = game.Workspace.Lobby.Teleport1.Position
-                    end
-                    if game.Players.LocalPlayer.Character:FindFirstChild("entered") and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
-                        game.Players.LocalPlayer.Character.Humanoid.WalkToPoint = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
-                        task.wait(0.2)
-                        game:GetService("VirtualInputManager"):SendKeyEvent(true, "E", false, x)
-                        if not game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 2125950512) then
-                            if game.Players.LocalPlayer.Character.Humanoid.Health == 100 then
-                                game:GetService("ReplicatedStorage"):WaitForChild("HumanoidDied"):FireServer(game.Players.LocalPlayer.Character, false)
-                            end
-                        else
-                            OrionLib:MakeNotification({
-                                Name = "Error",
-                                Content = "You got Bob spawn",
-                                Image = "rbxassetid://7733658504",
-                                Time = 5
-                            })
-                            GetBob:Set(false)
-                        end
-                    end
-                    task.wait()
-                elseif Autobob == "Super Fast Spawn" then
-                    firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1.TouchInterest.Parent, 0)
-                    firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1.TouchInterest.Parent, 1)
-                    wait(0.5)
-                    if game.Players.LocalPlayer.Character:FindFirstChild("entered") then
-                        game:GetService("VirtualInputManager"):SendKeyEvent(true, "E", false, x)
-                    end
-                    task.wait(0.2)
-                    if not game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 2125950512) then
-                        game:GetService("ReplicatedStorage"):WaitForChild("HumanoidDied"):FireServer(game.Players.LocalPlayer.Character, false)
-                    else
-                        OrionLib:MakeNotification({
-                            Name = "Error",
-                            Content = "You got Bob spawn",
-                            Image = "rbxassetid://7733658504",
-                            Time = 5
-                        })
-                        GetBob:Set(false)
-                    end
-                    replicaClone = replicaClone + 1
-                    OrionLib:MakeNotification({
-                        Name = "Count",
-                        Content = "You spawned " .. replicaClone .. " replicas. " .. replicaClone .. "/7500",
-                        Image = "rbxassetid://7733658504",
-                        Time = 5
-                    })
-                    task.wait(1.8)
-                end
-            end
-        elseif _G.AutoFarmBob == true then
-            OrionLib:MakeNotification({
-                Name = "Error",
-                Content = "You don't have Replica equipped, or You have Owned Items",
-                Image = "rbxassetid://7733658504",
-                Time = 5
-            })
-            wait(0.05)
-            GetBob:Set(false)
-        end
-    end
-})
+	GetBob = Tab3:AddToggle({Name="AutoFarm Bob",Default=false,Callback=function(Value)
+		_G.AutoFarmBob = Value;
+		if (game.Players.LocalPlayer.leaderstats.Glove.Value == "Replica") then
+			local replicaClone = 0;
+			while _G.AutoFarmBob do
+				if (Autobob == "Auto Spawn E") then
+					if (game.Players.LocalPlayer.Character:FindFirstChild("entered") or not game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 2125950512)) then
+						game:GetService("VirtualInputManager"):SendKeyEvent(true, "E", false, x);
+					else
+						OrionLib:MakeNotification({Name="Error",Content="You got Bob spawn",Image="rbxassetid://7733658504",Time=5});
+						GetBob:Set(false);
+					end
+					task.wait(0.5);
+				elseif (Autobob == "Auto Spawn") then
+					if (game.Players.LocalPlayer.Character:FindFirstChild("entered") or not game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 2125950512)) then
+						game.ReplicatedStorage.Duplicate:FireServer(true);
+					else
+						OrionLib:MakeNotification({Name="Error",Content="You got Bob spawn",Image="rbxassetid://7733658504",Time=5});
+						GetBob:Set(false);
+					end
+					task.wait(5.3);
+				elseif (Autobob == "Fast Spawn") then
+					repeat
+						task.wait();
+					until game.Players.LocalPlayer.Character 
+					if (not game.Players.LocalPlayer.Character:FindFirstChild("entered") and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")) then
+						repeat
+							task.wait();
+							firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1.TouchInterest.Parent, 0);
+							firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1.TouchInterest.Parent, 1);
+						until game.Players.LocalPlayer.Character:FindFirstChild("entered") and game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Tool") 
+						task.wait(0.5);
+						game:GetService("VirtualInputManager"):SendKeyEvent(true, "E", false, x);
+						if not game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 2125950512) then
+							game:GetService("ReplicatedStorage"):WaitForChild("HumanoidDied"):FireServer(game.Players.LocalPlayer.Character, false);
+						else
+							OrionLib:MakeNotification({Name="Error",Content="You got Bob spawn",Image="rbxassetid://7733658504",Time=5});
+							GetBob:Set(false);
+						end
+					end
+					task.wait();
+				elseif (Autobob == "Normal") then
+					repeat
+						task.wait();
+					until game.Players.LocalPlayer.Character 
+					if (not game.Players.LocalPlayer.Character:FindFirstChild("entered") and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")) then
+						game.Players.LocalPlayer.Character.Humanoid.WalkToPoint = game.Workspace.Lobby.Teleport1.Position;
+					end
+					if (game.Players.LocalPlayer.Character:FindFirstChild("entered") and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")) then
+						game.Players.LocalPlayer.Character.Humanoid.WalkToPoint = game.Players.LocalPlayer.Character.HumanoidRootPart.Position;
+						task.wait(0.2);
+						game:GetService("VirtualInputManager"):SendKeyEvent(true, "E", false, x);
+						if not game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 2125950512) then
+							if (game.Players.LocalPlayer.Character.Humanoid.Health == 100) then
+								game:GetService("ReplicatedStorage"):WaitForChild("HumanoidDied"):FireServer(game.Players.LocalPlayer.Character, false);
+							end
+						else
+							OrionLib:MakeNotification({Name="Error",Content="You got Bob spawn",Image="rbxassetid://7733658504",Time=5});
+							GetBob:Set(false);
+						end
+					end
+					task.wait();
+				elseif (Autobob == "Super Fast Spawn") then
+					firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1.TouchInterest.Parent, 0);
+					firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1.TouchInterest.Parent, 1);
+					wait(0.5);
+					if game.Players.LocalPlayer.Character:FindFirstChild("entered") then
+						game:GetService("VirtualInputManager"):SendKeyEvent(true, "E", false, x);
+					end
+					task.wait(0.2);
+					if not game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 2125950512) then
+						game:GetService("ReplicatedStorage"):WaitForChild("HumanoidDied"):FireServer(game.Players.LocalPlayer.Character, false);
+					else
+						OrionLib:MakeNotification({Name="Error",Content="You got Bob spawn",Image="rbxassetid://7733658504",Time=5});
+						GetBob:Set(false);
+					end
+					replicaClone = replicaClone + 1;
+					OrionLib:MakeNotification({Name="Count",Content=("You spawned " .. replicaClone .. " replicas. " .. replicaClone .. "/7500"),Image="rbxassetid://7733658504",Time=5});
+					task.wait(1.8);
+				end
+			end
+		elseif (_G.AutoFarmBob == true) then
+			OrionLib:MakeNotification({Name="Error",Content="You don't have Replica equipped, or You have Owned Items",Image="rbxassetid://7733658504",Time=5});
+			wait(0.05);
+			GetBob:Set(false);
+		end
+	end});
 	Tab3:AddToggle({Name="Toolbox Farm",Default=false,Callback=function(Value)
 		Toolboxfarm = Value;
 		while Toolboxfarm do
@@ -1607,7 +1661,7 @@ end
 			AutoTycoon:Set(false);
 		end
 	end});
-	Tab14:AddDropdown({Name="Prop Ability",Default="",Options={"Barrel","Bench","Brick","Bush 1","Bush 2","Cauldron","Diamond","Frenzy Bot","Gift","GoldenSlapple","Imp","Jet Orb","Larry","MEGAROCK","Moai Head","Obby 1","Obby 2","Obby 3","Obby 4","Obby 5","Orange","Oven","Phase Heart","Phase Orb","Rock 1","Rock 2","Rock 3","Sentry","Slapple","Snow Peep","Snow Turret","bob","rob"},Callback=function(Value)
+	Tab14:AddDropdown({Name="Prop Ability",Default="",Options={"Barrel","Bench","Brick","Bush 1","Bush 2","Cauldron","Diamond","Frenzy Bot","Gift","GoldenSlapple","Imp","Jet Orb","Larry","MEGAROCK","Moai Head","Obby 1","Obby 2","Obby 3","Obby 4","Obby 5","Orange","Oven","Phase Heart","Phase Orb","Rock 1","Rock 2","Rock 3","Sentry","Slapple","Snow Peep","Snow Turret","bob","rob","Sbeve"},Callback=function(Value)
 		PropAbility = Value;
 	end});
 	Prop = Tab14:AddToggle({Name="Auto Spam Prop",Default=false,Callback=function(Value)
@@ -1823,7 +1877,7 @@ end
 			end
 		end
 	end});
-	Tab14:AddSlider({Name="Charge Explosion",Min=0,Max=500,Default=5,Color=Color3.fromRGB(255, 255, 255),Increment=1,ValueName="Charge",Callback=function(Value)
+	Tab14:AddSlider({Name="Charge Explosion",Min=0,Max=100,Default=5,Color=Color3.fromRGB(255, 255, 255),Increment=1,ValueName="Charge",Callback=function(Value)
 		_G.ChargeExplosion = Value;
 	end});
 	AutoSpawnDivebomb = Tab14:AddToggle({Name="Auto Spam Divebomb",Default=false,Callback=function(Value)
@@ -1907,22 +1961,21 @@ end
 	end});
 	SbeveAll = Tab14:AddToggle({Name="Auto Sbeve All Player",Default=false,Callback=function(Value)
 		_G.AutoSbeveAllPlayer = Value;
-		--if (game.Players.LocalPlayer.leaderstats.Glove.Value == "Sbeve") then -- why needs glove when u transform too without using SBEVE?
-			while _G.AutoSbeveAllPlayer --[[and (game.Players.LocalPlayer.leaderstats.Glove.Value == "Sbeve")]] do
-				if (game.Players.LocalPlayer.Character:WaitForChild("stevebody") ~= nil) then
-					for i, v in pairs(game.Players:GetChildren()) do
-						if ((v ~= game.Players.LocalPlayer) and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") and v.Character) then
-							if (v.Character:FindFirstChild("entered") and v.Character:FindFirstChild("HumanoidRootPart") and (v.Character:FindFirstChild("stevebody") == nil) and (v.Character:FindFirstChild("rock") == nil) and (v.Character.Ragdolled.Value == false)) then
-								v.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame;
-								v.Character.HumanoidRootPart.CanCollide = true;
-							elseif (v.Character:FindFirstChild("stevebody") ~= nil) then
-								v.Character.HumanoidRootPart.CanCollide = false;
-							end
+		while _G.AutoSbeveAllPlayer do
+			if (game.Players.LocalPlayer.Character:WaitForChild("stevebody") ~= nil) then
+				for i, v in pairs(game.Players:GetChildren()) do
+					if ((v ~= game.Players.LocalPlayer) and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") and v.Character) then
+						if (v.Character:FindFirstChild("entered") and v.Character:FindFirstChild("HumanoidRootPart") and (v.Character:FindFirstChild("stevebody") == nil) and (v.Character:FindFirstChild("rock") == nil) and (v.Character.Ragdolled.Value == false)) then
+							v.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame;
+							v.Character.HumanoidRootPart.CanCollide = true;
+						elseif (v.Character:FindFirstChild("stevebody") ~= nil) then
+							v.Character.HumanoidRootPart.CanCollide = false;
 						end
 					end
 				end
-				task.wait();
 			end
+			task.wait();
+		end
 	end});
 	Tab14:AddDropdown({Name="Black Hole",Default="",Options={"Normal","Teleport Cannon Island","Teleport Cannon Island + Black Hole"},Callback=function(Value)
 		_G.BlackHoleCre = Value;
@@ -1931,15 +1984,14 @@ end
 		if (_G.BlackHoleCre == "Normal") then
 			if ((game.Players.LocalPlayer.Character:FindFirstChild("entered") == nil) and game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 2125950512) and game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 2147429609)) then
 				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Origo.CFrame * CFrame.new(0, 30, 0);
-				wait(0.05);
+				wait(0.1);
 				game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true;
 				wait(0.05);
 				fireclickdetector(workspace.Lobby['rob'].ClickDetector);
 				game:GetService("ReplicatedStorage").rob:FireServer();
 				wait(4.8);
 				game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false;
-				task.wait(0.01);
-				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Origo.CFrame * CFrame.new(0, 10, 0);
+				task.wait(0.5);
 				fireclickdetector(workspace.Lobby['bob'].ClickDetector);
 				game:GetService("ReplicatedStorage").bob:FireServer();
 				wait(0.5);
@@ -1949,7 +2001,6 @@ end
 							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame;
 						end
 					end
-					task.wait();
 				end
 			else
 				OrionLib:MakeNotification({Name="Error",Content="You have in lobby, or You don't have badge bob, or badge rob.",Image="rbxassetid://7733658504",Time=5});
@@ -1957,15 +2008,14 @@ end
 		elseif (_G.BlackHoleCre == "Teleport Cannon Island") then
 			if ((game.Players.LocalPlayer.Character:FindFirstChild("entered") == nil) and game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 2125950512) and game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 2147429609)) then
 				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Origo.CFrame * CFrame.new(0, 30, 0);
-				wait(0.05);
+				wait(0.1);
 				game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true;
 				wait(0.05);
 				fireclickdetector(workspace.Lobby['rob'].ClickDetector);
 				game:GetService("ReplicatedStorage").rob:FireServer();
 				wait(4.8);
 				game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false;
-				task.wait(0.01);
-				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Origo.CFrame * CFrame.new(0, 10, 0);
+				task.wait(0.5);
 				fireclickdetector(workspace.Lobby['bob'].ClickDetector);
 				game:GetService("ReplicatedStorage").bob:FireServer();
 				wait(0.5);
@@ -1975,7 +2025,6 @@ end
 							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame;
 						end
 					end
-					task.wait();
 				end
 				wait(0.5);
 				repeat
@@ -1999,15 +2048,14 @@ end
 		elseif (_G.BlackHoleCre == "Teleport Cannon Island + Black Hole") then
 			if ((game.Players.LocalPlayer.Character:FindFirstChild("entered") == nil) and game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 2125950512) and game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 2147429609)) then
 				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Origo.CFrame * CFrame.new(0, 30, 0);
-				wait(0.05);
+				wait(0.1);
 				game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true;
 				wait(0.05);
 				fireclickdetector(workspace.Lobby['rob'].ClickDetector);
 				game:GetService("ReplicatedStorage").rob:FireServer();
 				wait(4.8);
 				game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false;
-				task.wait(0.01);
-				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Origo.CFrame * CFrame.new(0, 10, 0);
+				task.wait(0.5);
 				fireclickdetector(workspace.Lobby['bob'].ClickDetector);
 				game:GetService("ReplicatedStorage").bob:FireServer();
 				wait(0.5);
@@ -2017,7 +2065,6 @@ end
 							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame;
 						end
 					end
-					task.wait();
 				end
 				wait(0.5);
 				repeat
@@ -2045,6 +2092,17 @@ end
 			else
 				OrionLib:MakeNotification({Name="Error",Content="You have in lobby, or You don't have badge bob, or badge rob.",Image="rbxassetid://7733658504",Time=5});
 			end
+		end
+	end});
+	Tab14:AddToggle({Name="Auto Teleport Black Hole",Default=false,Callback=function(Value)
+		_G.TeleportBlackHole = Value;
+		while _G.TeleportBlackHole do
+			if game.Players.LocalPlayer.Character:FindFirstChild("entered") then
+				if ((game.Workspace.Blackhole_Particles ~= nil) and (game.Workspace.Blackhole_Particles.BlackHole ~= nil)) then
+					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Blackhole_Particles.BlackHole.CFrame;
+				end
+			end
+			task.wait();
 		end
 	end});
 	Tab14:AddButton({Name="Replica UNO",Callback=function()
@@ -2353,7 +2411,7 @@ end
 				local RandomPlayer = players[math.random(1, #players)];
 				repeat
 					RandomPlayer = players[math.random(1, #players)];
-				until (RandomPlayer ~= game.Players.LocalPlayer) and (RandomPlayer.Character:FindFirstChild("rock") == nil) and (RandomPlayer.Character.Head:FindFirstChild("UnoReverseCard") == nil) and RandomPlayer.Character:FindFirstChild("entered") 
+				until (RandomPlayer ~= game.Players.LocalPlayer) and (RandomPlayer.Character:FindFirstChild("rock") == nil) and (v.Character:FindFirstChild("stevebody") == nil) and (RandomPlayer.Character.Head:FindFirstChild("UnoReverseCard") == nil) and RandomPlayer.Character:FindFirstChild("entered") 
 				Target = RandomPlayer;
 				if ((Target ~= game.Players.LocalPlayer.Name) and Target.Character and (Target.Character:WaitForChild("Ragdolled").Value == false)) then
 					for i, v in pairs(game.Workspace:GetChildren()) do
@@ -2423,49 +2481,177 @@ end
 			OrionLib:MakeNotification({Name="Error",Content="You aren't in the lobby.",Image="rbxassetid://7733658504",Time=5});
 		end
 	end});
-	Tab14:AddDropdown({Name="Will Teleport Farm",Default="Up To You",Options={"Up To You","SafeSpotBox 1.0","SafeSpotBox 2.0"},Callback=function(Value)
+	Tab14:AddDropdown({Name="Will Teleport Farm",Default="SafeSpotBox 1.0",Options={"Up To You","SafeSpotBox 1.0","SafeSpotBox 2.0"},Callback=function(Value)
 		_G.GetTeleport = Value;
 	end});
-	ReplicaAndReverse = Tab14:AddToggle({Name="Reverse + Replica Slap Farm",Default=false,Callback=function(Value)
-		ReplicaAndReverseGet = Value;
-		if ((game.Players.LocalPlayer.Character:FindFirstChild("entered") == nil) and (game.Players.LocalPlayer.leaderstats.Glove.Value == "Reverse")) then
-			if (ReplicaAndReverseGet == true) then
-				coroutine.wrap(SpamReplicaReverse)();
+	BlinkAndReverse = Tab14:AddToggle({Name="Reverse + Blink Slap Farm",Default=false,Callback=function(Value)
+		_G.BlinkAndReverseGet = Value;
+		if (_G.GetSlapGot == "Normal") then
+			if ((game.Players.LocalPlayer.Character:FindFirstChild("entered") == nil) and (game.Players.LocalPlayer.leaderstats.Glove.Value == "Reverse")) then
+				if (_G.BlinkAndReverseGet == true) then
+					coroutine.wrap(BlinkAndReverse)();
+				end
+				while _G.BlinkAndReverseGet do
+					if (game.Players.LocalPlayer.Character:FindFirstChild("entered") and (game.Players.LocalPlayer.Character.Humanoid.Health ~= 0)) then
+						for i, v in pairs(workspace:GetChildren()) do
+							if (v.Name:match(game.Players.LocalPlayer.Name) and v:FindFirstChild("HumanoidRootPart")) then
+								game:GetService("ReplicatedStorage").b:FireServer(v:WaitForChild("Head"), true);
+							end
+						end
+					end
+					task.wait();
+				end
+			elseif (_G.BlinkAndReverseGet == true) then
+				OrionLib:MakeNotification({Name="Error",Content="You don't have Reverse equipped or you have in lobby.",Image="rbxassetid://7733658504",Time=5});
+				wait(0.05);
+				BlinkAndReverse:Set(false);
 			end
-			while ReplicaAndReverseGet do
+		elseif (_G.GetSlapGot == "Fast × Slap Farm [ Lag ]") then
+			if ((game.Players.LocalPlayer.Character:FindFirstChild("entered") == nil) and (game.Players.LocalPlayer.leaderstats.Glove.Value == "Reverse")) then
+				if (_G.BlinkAndReverseGet == true) then
+					coroutine.wrap(SpamBlinkReverse)();
+				end
+				while _G.BlinkAndReverseGet do
+					if (game.Players.LocalPlayer.Character:FindFirstChild("entered") and (game.Players.LocalPlayer.Character.Humanoid.Health ~= 0)) then
+						for i, v in pairs(workspace:GetChildren()) do
+							if (v.Name:match(game.Players.LocalPlayer.Name) and v:FindFirstChild("HumanoidRootPart")) then
+								for i = 1, _G.SlapFarmGet do
+									if (game.Players.LocalPlayer.Character:FindFirstChild("entered") and (game.Players.LocalPlayer.Character.Humanoid.Health ~= 0)) then
+										game:GetService("ReplicatedStorage").b:FireServer(v:WaitForChild("Head"), true);
+									end
+								end
+							end
+						end
+					end
+					task.wait(0.07);
+				end
+			elseif (_G.BlinkAndReverseGet == true) then
+				OrionLib:MakeNotification({Name="Error",Content="You don't have Reverse equipped or you have in lobby.",Image="rbxassetid://7733658504",Time=5});
+				wait(0.05);
+				BlinkAndReverse:Set(false);
+			end
+		end
+	end});
+	ReplicaBlinkReverseBaller = Tab14:AddToggle({Name="Reverse + Replica & Blink | Baller Slap Farm",Default=false,Callback=function(Value)
+		_G.ReplicaBlinkReverseBaller = Value;
+		if ((game.Players.LocalPlayer.Character:FindFirstChild("entered") == nil) and (game.Players.LocalPlayer.leaderstats.Glove.Value == "Reverse")) then
+			if (_G.ReplicaBlinkReverseBaller == true) then
+				coroutine.wrap(SpamReplicaBlinkReverseAndBaller)();
+			end
+			while _G.ReplicaBlinkReverseBaller do
 				if (game.Players.LocalPlayer.Character:FindFirstChild("entered") and (game.Players.LocalPlayer.Character.Humanoid.Health ~= 0)) then
 					for i, v in pairs(workspace:GetChildren()) do
 						if (v.Name:match(game.Players.LocalPlayer.Name) and v:FindFirstChild("HumanoidRootPart")) then
-							game:GetService("ReplicatedStorage").ReplicaHit:FireServer(v:WaitForChild("Head"), true);
+							game:GetService("ReplicatedStorage").b:FireServer(v:WaitForChild("Head"), true);
 						end
 					end
 				end
 				task.wait(0.07);
 			end
-		elseif (ReplicaAndReverseGet == true) then
+		elseif (_G.ReplicaBlinkReverseBaller == true) then
 			OrionLib:MakeNotification({Name="Error",Content="You don't have Reverse equipped or you have in lobby.",Image="rbxassetid://7733658504",Time=5});
 			wait(0.05);
 			ReplicaAndReverse:Set(false);
 		end
 	end});
+	Tab14:AddDropdown({Name="Slap Farm",Default="Normal",Options={"Normal","Fast × Slap Farm [ Lag ]"},Callback=function(Value)
+		_G.GetSlapGot = Value;
+	end});
+	Tab14:AddSlider({Name="Slap Farm",Min=1,Max=2000,Default=1,Color=Color3.fromRGB(255, 255, 255),Increment=1,ValueName="Slap",Callback=function(Value)
+		_G.SlapFarmGet = Value;
+	end});
+	ReplicaAndReverse = Tab14:AddToggle({Name="Reverse + Replica Slap Farm",Default=false,Callback=function(Value)
+		ReplicaAndReverseGet = Value;
+		if (_G.GetSlapGot == "Normal") then
+			if ((game.Players.LocalPlayer.Character:FindFirstChild("entered") == nil) and (game.Players.LocalPlayer.leaderstats.Glove.Value == "Reverse")) then
+				if (ReplicaAndReverseGet == true) then
+					coroutine.wrap(SpamBlinkReverse)();
+				end
+				while ReplicaAndReverseGet do
+					if (game.Players.LocalPlayer.Character:FindFirstChild("entered") and (game.Players.LocalPlayer.Character.Humanoid.Health ~= 0)) then
+						for i, v in pairs(workspace:GetChildren()) do
+							if (v.Name:match(game.Players.LocalPlayer.Name) and v:FindFirstChild("HumanoidRootPart")) then
+								game:GetService("ReplicatedStorage").b:FireServer(v:WaitForChild("Head"), true);
+							end
+						end
+					end
+					task.wait();
+				end
+			elseif (ReplicaAndReverseGet == true) then
+				OrionLib:MakeNotification({Name="Error",Content="You don't have Reverse equipped or you have in lobby.",Image="rbxassetid://7733658504",Time=5});
+				wait(0.05);
+				ReplicaAndReverse:Set(false);
+			end
+		elseif (_G.GetSlapGot == "Fast × Slap Farm [ Lag ]") then
+			if ((game.Players.LocalPlayer.Character:FindFirstChild("entered") == nil) and (game.Players.LocalPlayer.leaderstats.Glove.Value == "Reverse")) then
+				if (ReplicaAndReverseGet == true) then
+					coroutine.wrap(SpamReplicaReverse)();
+				end
+				while ReplicaAndReverseGet do
+					if (game.Players.LocalPlayer.Character:FindFirstChild("entered") and (game.Players.LocalPlayer.Character.Humanoid.Health ~= 0)) then
+						for i, v in pairs(workspace:GetChildren()) do
+							if (v.Name:match(game.Players.LocalPlayer.Name) and v:FindFirstChild("HumanoidRootPart")) then
+								for i = 1, _G.SlapFarmGet do
+									if (game.Players.LocalPlayer.Character:FindFirstChild("entered") and (game.Players.LocalPlayer.Character.Humanoid.Health ~= 0)) then
+										game:GetService("ReplicatedStorage").b:FireServer(v:WaitForChild("Head"), true);
+									end
+								end
+							end
+						end
+					end
+					task.wait();
+				end
+			elseif (ReplicaAndReverseGet == true) then
+				OrionLib:MakeNotification({Name="Error",Content="You don't have Reverse equipped or you have in lobby.",Image="rbxassetid://7733658504",Time=5});
+				wait(0.05);
+				ReplicaAndReverse:Set(false);
+			end
+		elseif (_G.GetSlapGot == "Fast × Slap Farm [ Lag ]") then
+			if ((game.Players.LocalPlayer.Character:FindFirstChild("entered") == nil) and (game.Players.LocalPlayer.leaderstats.Glove.Value == "Reverse")) then
+				if (_G.ReplicaBlinkReverseBaller == true) then
+					coroutine.wrap(SpamReplicaBlinkReverseAndBaller)();
+				end
+				while _G.ReplicaBlinkReverseBaller do
+					if (game.Players.LocalPlayer.Character:FindFirstChild("entered") and (game.Players.LocalPlayer.Character.Humanoid.Health ~= 0)) then
+						for i, v in pairs(workspace:GetChildren()) do
+							if (v.Name:match(game.Players.LocalPlayer.Name) and v:FindFirstChild("HumanoidRootPart")) then
+								for i = 1, _G.SlapFarmGet do
+									if (game.Players.LocalPlayer.Character:FindFirstChild("entered") and (game.Players.LocalPlayer.Character.Humanoid.Health ~= 0)) then
+										game:GetService("ReplicatedStorage").b:FireServer(v:WaitForChild("Head"), true);
+									end
+								end
+							end
+						end
+					end
+					task.wait();
+				end
+			elseif (_G.ReplicaBlinkReverseBaller == true) then
+				OrionLib:MakeNotification({Name="Error",Content="You don't have Reverse equipped or you have in lobby.",Image="rbxassetid://7733658504",Time=5});
+				wait(0.05);
+				ReplicaAndReverse:Set(false);
+			end
+		end
+	end});
 	ReplicaAndBallerFarm = Tab14:AddToggle({Name="Baller & Replica Slap Farm",Default=false,Callback=function(Value)
 		ReplicaBallerFarm = Value;
-		if (game.Players.LocalPlayer.leaderstats.Glove.Value == "Baller") then
-			if (ReplicaBallerFarm == true) then
-				coroutine.wrap(SpamReplicaBaller)();
-			end
-			while ReplicaBallerFarm do
-				for i, v in pairs(workspace:GetChildren()) do
-					if (v.Name:match(game.Players.LocalPlayer.Name) and v:FindFirstChild("HumanoidRootPart")) then
-						game.ReplicatedStorage.b:FireServer(v:WaitForChild("HumanoidRootPart"), true);
-					end
+		if (_G.GetSlapGot == "Normal") then
+			if (game.Players.LocalPlayer.leaderstats.Glove.Value == "Baller") then
+				if (ReplicaBallerFarm == true) then
+					coroutine.wrap(SpamReplicaBaller)();
 				end
-				task.wait();
+				while ReplicaBallerFarm do
+					for i, v in pairs(workspace:GetChildren()) do
+						if (v.Name:match(game.Players.LocalPlayer.Name) and v:FindFirstChild("HumanoidRootPart")) then
+							game.ReplicatedStorage.b:FireServer(v:WaitForChild("HumanoidRootPart"), true);
+						end
+					end
+					task.wait();
+				end
+			elseif (ReplicaBallerFarm == true) then
+				OrionLib:MakeNotification({Name="Error",Content="You don't have Baller equipped.",Image="rbxassetid://7733658504",Time=5});
+				wait(0.05);
+				ReplicaAndBallerFarm:Set(false);
 			end
-		elseif (ReplicaBallerFarm == true) then
-			OrionLib:MakeNotification({Name="Error",Content="You don't have Baller equipped.",Image="rbxassetid://7733658504",Time=5});
-			wait(0.05);
-			ReplicaAndBallerFarm:Set(false);
 		end
 	end});
 	ReplicaAndBallerAndBlinkFarm = Tab14:AddToggle({Name="Baller & Replica & Bink Slap Farm",Default=false,Callback=function(Value)
@@ -2600,7 +2786,7 @@ end
 			GetAllAlchemist:Set(false);
 		end
 	end});
-	Tab14:AddSlider({Name="Extend HitBox Rob",Min=5,Max=300,Default=20,Color=Color3.fromRGB(255, 255, 255),Increment=1,ValueName="Extend",Callback=function(Value)
+	Tab14:AddSlider({Name="Extend HitBox Rob",Min=5,Max=400,Default=20,Color=Color3.fromRGB(255, 255, 255),Increment=1,ValueName="Extend",Callback=function(Value)
 		_G.ExtendHitboxRob = Value;
 	end});
 	Tab14:AddColorpicker({Name="Color Hitbox Rob",Default=Color3.fromRGB(255, 255, 255),Callback=function(Value)
@@ -2875,6 +3061,8 @@ end
 	Tab14:AddButton({Name="Get Kill Player",Callback=function()
 		if ((game.Players.LocalPlayer.leaderstats.Glove.Value == "Home Run") and game.Players[_G.KillerPlayer].Character:FindFirstChild("entered")) then
 			OGL = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame;
+			OGLZ = game.Players[_G.KillerPlayer].Character.HumanoidRootPart.Size;
+			game.Players[_G.KillerPlayer].Character.HumanoidRootPart.Size = Vector3.new(50, 50, 50);
 			game:GetService("ReplicatedStorage").HomeRun:FireServer({start=true});
 			wait(4.2);
 			game:GetService("ReplicatedStorage").HomeRun:FireServer({finished=true});
@@ -2882,6 +3070,7 @@ end
 			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players[_G.KillerPlayer].Character.HumanoidRootPart.CFrame;
 			task.wait(0.25);
 			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = OGL;
+			game.Players[_G.KillerPlayer].Character.HumanoidRootPart.Size = OGLZ;
 		else
 			OrionLib:MakeNotification({Name="Error",Content="You don't have Home Run equipped",Image="rbxassetid://7733658504",Time=5});
 		end
@@ -2895,13 +3084,17 @@ end
 			local RandomPlayer = players[math.random(1, #players)];
 			repeat
 				RandomPlayer = players[math.random(1, #players)];
-			until (RandomPlayer ~= game.Players.LocalPlayer) and (RandomPlayer.Character:FindFirstChild("rock") == nil) and (RandomPlayer.Character.Head:FindFirstChild("UnoReverseCard") == nil) 
+			until (RandomPlayer ~= game.Players.LocalPlayer) and (RandomPlayer.Character:FindFirstChild("rock") == nil) and (v.Character:FindFirstChild("stevebody") == nil) and (RandomPlayer.Character.Head:FindFirstChild("UnoReverseCard") == nil) 
 			Target = RandomPlayer;
+			OGLZ = Target.Character.HumanoidRootPart.Size;
+			Target.Character.HumanoidRootPart.Size = Vector3.new(50, 50, 50);
+			wait(0.25);
 			game:GetService("ReplicatedStorage").HomeRun:FireServer({finished=true});
 			task.wait(0.12);
 			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Target.Character.HumanoidRootPart.CFrame;
 			task.wait(0.25);
 			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = OGL;
+			Target.Character.HumanoidRootPart.Size = OGLZ;
 		else
 			OrionLib:MakeNotification({Name="Error",Content="You don't have Home Run equipped",Image="rbxassetid://7733658504",Time=5});
 		end
@@ -2950,7 +3143,7 @@ end
 			local RandomPlayer = players[math.random(1, #players)];
 			repeat
 				RandomPlayer = players[math.random(1, #players)];
-			until (RandomPlayer ~= game.Players.LocalPlayer) and (RandomPlayer.Character:FindFirstChild("rock") == nil) and (RandomPlayer.Character.Head:FindFirstChild("UnoReverseCard") == nil) and RandomPlayer.Character:FindFirstChild("entered") 
+			until (RandomPlayer ~= game.Players.LocalPlayer) and (RandomPlayer.Character:FindFirstChild("rock") == nil) and (v.Character:FindFirstChild("stevebody") == nil) and (RandomPlayer.Character.Head:FindFirstChild("UnoReverseCard") == nil) and RandomPlayer.Character:FindFirstChild("entered") 
 			Target = RandomPlayer;
 			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Target.Character:FindFirstChild("Head").CFrame * CFrame.new(0, 4, 0);
 			task.wait(0.13);
@@ -2995,7 +3188,7 @@ end
 			local RandomPlayer = players[math.random(1, #players)];
 			repeat
 				RandomPlayer = players[math.random(1, #players)];
-			until (RandomPlayer ~= game.Players.LocalPlayer) and (RandomPlayer.Character:FindFirstChild("rock") == nil) and (RandomPlayer.Character.Head:FindFirstChild("UnoReverseCard") == nil) and RandomPlayer.Character:FindFirstChild("entered") 
+			until (RandomPlayer ~= game.Players.LocalPlayer) and (RandomPlayer.Character:FindFirstChild("rock") == nil) and (v.Character:FindFirstChild("stevebody") == nil) and (RandomPlayer.Character.Head:FindFirstChild("UnoReverseCard") == nil) and RandomPlayer.Character:FindFirstChild("entered") 
 			Target = RandomPlayer;
 			game:GetService("ReplicatedStorage").GeneralAbility:FireServer("Ability3", Target);
 		else
@@ -3041,7 +3234,7 @@ end
 				local RandomPlayer = players[math.random(1, #players)];
 				repeat
 					RandomPlayer = players[math.random(1, #players)];
-				until (RandomPlayer ~= game.Players.LocalPlayer) and (RandomPlayer.Character:FindFirstChild("rock") == nil) and (RandomPlayer.Character.Head:FindFirstChild("UnoReverseCard") == nil) and RandomPlayer.Character:FindFirstChild("entered") 
+				until (RandomPlayer ~= game.Players.LocalPlayer) and (RandomPlayer.Character:FindFirstChild("rock") == nil) and (v.Character:FindFirstChild("stevebody") == nil) and (RandomPlayer.Character.Head:FindFirstChild("UnoReverseCard") == nil) and RandomPlayer.Character:FindFirstChild("entered") 
 				Target = RandomPlayer;
 				if not game.Workspace:FindFirstChild(game.Players.LocalPlayer.Name .. "'s Oven") then
 					game:GetService("ReplicatedStorage").GeneralAbility:FireServer(Target.Character.HumanoidRootPart.CFrame);
@@ -3864,7 +4057,7 @@ game.CoreGui.RobloxLoadingGUI:Destroy()
 			pcall(function()
 				for i, v in next, game.Players:GetChildren() do
 					if ((v ~= game.Players.LocalPlayer) and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") and v.Character) then
-						if (game.Players.LocalPlayer.Character:FindFirstChild("entered") and v.Character:FindFirstChild("entered") and v.Character:FindFirstChild("HumanoidRootPart") and (v.Character:FindFirstChild("rock") == nil) and (v.Character.HumanoidRootPart.BrickColor ~= BrickColor.new("New Yeller")) and (v.Character.Ragdolled.Value == false)) then
+						if (game.Players.LocalPlayer.Character:FindFirstChild("entered") and v.Character:FindFirstChild("entered") and v.Character:FindFirstChild("HumanoidRootPart") and (v.Character:FindFirstChild("rock") == nil) and (v.Character:FindFirstChild("stevebody") == nil) and (v.Character.HumanoidRootPart.BrickColor ~= BrickColor.new("New Yeller")) and (v.Character.Ragdolled.Value == false)) then
 							if ((v.Character.Head:FindFirstChild("UnoReverseCard") == nil) or (game.Players.LocalPlayer.leaderstats.Glove.Value == "Error")) then
 								game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Character:FindFirstChild("HumanoidRootPart").CFrame * CFrame.new(0, _G.HipAutoFarmSlap, 0);
 								task.wait(0.5);
@@ -3898,7 +4091,7 @@ game.CoreGui.RobloxLoadingGUI:Destroy()
 			local RandomPlayer = players[math.random(1, #players)];
 			repeat
 				RandomPlayer = players[math.random(1, #players)];
-			until (RandomPlayer ~= game.Players.LocalPlayer) and (RandomPlayer.Character:FindFirstChild("rock") == nil) and (RandomPlayer.Character.Head:FindFirstChild("UnoReverseCard") == nil) 
+			until (RandomPlayer ~= game.Players.LocalPlayer) and (RandomPlayer.Character:FindFirstChild("rock") == nil) and (v.Character:FindFirstChild("stevebody") == nil) and (RandomPlayer.Character.Head:FindFirstChild("UnoReverseCard") == nil) 
 			Target = RandomPlayer;
 			if (game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") and (game.Players.LocalPlayer.Character.Head:FindFirstChild("RedEye") == nil)) then
 				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Target.Character.HumanoidRootPart.CFrame;
@@ -3967,7 +4160,7 @@ game.CoreGui.RobloxLoadingGUI:Destroy()
 			local RandomPlayer = players[math.random(1, #players)];
 			repeat
 				RandomPlayer = players[math.random(1, #players)];
-			until (RandomPlayer ~= game.Players.LocalPlayer) and RandomPlayer.Character:FindFirstChild("entered") and (RandomPlayer.Character:FindFirstChild("rock") == nil) 
+			until (RandomPlayer ~= game.Players.LocalPlayer) and RandomPlayer.Character:FindFirstChild("entered") and (RandomPlayer.Character:FindFirstChild("rock") == nil) and (v.Character:FindFirstChild("stevebody") == nil) 
 			Target = RandomPlayer;
 			game:GetService("ReplicatedStorage").AirStrike:FireServer(Target.Character);
 			wait(5.1);
@@ -4016,7 +4209,7 @@ game.CoreGui.RobloxLoadingGUI:Destroy()
 			local RandomPlayer = players[math.random(1, #players)];
 			repeat
 				RandomPlayer = players[math.random(1, #players)];
-			until (RandomPlayer ~= game.Players.LocalPlayer) and RandomPlayer.Character:FindFirstChild("entered") and (RandomPlayer.Character:FindFirstChild("rock") == nil) 
+			until (RandomPlayer ~= game.Players.LocalPlayer) and RandomPlayer.Character:FindFirstChild("entered") and (RandomPlayer.Character:FindFirstChild("rock") == nil) and (v.Character:FindFirstChild("stevebody") == nil) 
 			Target = RandomPlayer;
 			game:GetService("ReplicatedStorage").GeneralAbility:FireServer(Target.Character);
 			wait(10.1);
@@ -4228,7 +4421,7 @@ game.CoreGui.RobloxLoadingGUI:Destroy()
 			local randomPlayer = players[math.random(1, #players)];
 			repeat
 				randomPlayer = players[math.random(1, #players)];
-			until (randomPlayer ~= game.Players.LocalPlayer) and randomPlayer.Character:FindFirstChild("entered") and (randomPlayer.Character:FindFirstChild("ded") == nil) and (randomPlayer.Character:FindFirstChild("InLabyrinth") == nil) and (randomPlayer.Character:FindFirstChild("rock") == nil) 
+			until (randomPlayer ~= game.Players.LocalPlayer) and randomPlayer.Character:FindFirstChild("entered") and (randomPlayer.Character:FindFirstChild("ded") == nil) and (randomPlayer.Character:FindFirstChild("InLabyrinth") == nil) and (randomPlayer.Character:FindFirstChild("rock") == nil) and (v.Character:FindFirstChild("stevebody") == nil) 
 			Target = randomPlayer;
 			game.Players.LocalPlayer.Character.FerrymanStaff.StaffConfig.AbilityEvent:FireServer("Leap");
 			wait(1.85);
@@ -4280,18 +4473,13 @@ game.CoreGui.RobloxLoadingGUI:Destroy()
 			game:GetService("ReplicatedStorage").GeneralAbility:FireServer(0);
 			task.wait();
 		end
-	end});
-	Tab7:AddDropdown({Name="Ability Spam All Glove",Default="Null",Options={"Null","Rhythm Explosion"},Callback=function(Value)
-		AbilitySpamAllGlove = Value;
-	end});
-	Tab7:AddToggle({Name="Spam Ability All Glove",Default=false,Callback=function(Value)
-		SpamAbility = Value;
-		while SpamAbility and (AbilitySpamAllGlove == "Null") do
-			game:GetService("ReplicatedStorage").NullAbility:FireServer();
-			wait(0.1);
+		while On and (game.Players.LocalPlayer.leaderstats.Glove.Value == "Golem") do
+			game:GetService("ReplicatedStorage").GeneralAbility:FireServer("recall");
+			task.wait();
 		end
-		while SpamAbility and (AbilitySpamAllGlove == "Rhythm Explosion") do
-			game:GetService("ReplicatedStorage").rhythmevent:FireServer("AoeExplosion", 0);
+		while On and (game.Players.LocalPlayer.leaderstats.Glove.Value == "Spoonful") do
+			game:GetService("ReplicatedStorage").GeneralAbility:FireServer({state="vfx",origin=(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.Angles(-3.141592502593994, 1.0475832223892212, 3.141592502593994)),vfx="jumptween",sendplr=game:GetService("Players").LocalPlayer});
+			game:GetService("ReplicatedStorage").GeneralAbility:FireServer({state="vfx",cf=(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.Angles(-2.1319260597229004, 0.651054859161377, 2.3744168281555176)),vfx="crash"});
 			task.wait();
 		end
 	end});
@@ -4440,10 +4628,13 @@ game.CoreGui.RobloxLoadingGUI:Destroy()
 			end
 		end
 	end});
-	Tab7:AddButton({Name="Destroy AFK",Callback=function()
-		if getconnections then
-			for i, v in next, getconnections(game.Players.LocalPlayer.Idled) do
+	AntiAfk = Tab2:AddToggle({Name="Anti Afk",Default=false,Callback=function(Value)
+		_G.AntiAfk = Value;
+		for i, v in next, getconnections(game.Players.LocalPlayer.Idled) do
+			if _G.AntiAfk then
 				v:Disable();
+			else
+				v:Enable();
 			end
 		end
 	end});
@@ -4568,7 +4759,7 @@ game.CoreGui.RobloxLoadingGUI:Destroy()
 			pcall(function()
 				for i, v in next, game.Players:GetChildren() do
 					if ((v ~= game.Players.LocalPlayer) and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") and v.Character) then
-						if (v.Character:FindFirstChild("entered") and v.Character:FindFirstChild("HumanoidRootPart") and (v.Character:FindFirstChild("rock") == nil) and (v.Character.HumanoidRootPart.BrickColor ~= BrickColor.new("New Yeller")) and (v.Character.Ragdolled.Value == false)) then
+						if (v.Character:FindFirstChild("entered") and v.Character:FindFirstChild("HumanoidRootPart") and (v.Character:FindFirstChild("rock") == nil) and (v.Character:FindFirstChild("stevebody") == nil) and (v.Character.HumanoidRootPart.BrickColor ~= BrickColor.new("New Yeller")) and (v.Character.Ragdolled.Value == false)) then
 							if ((v.Character.Head:FindFirstChild("UnoReverseCard") == nil) or (game.Players.LocalPlayer.leaderstats.Glove.Value == "Error")) then
 								Magnitude = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Character.HumanoidRootPart.Position).Magnitude;
 								if ((_G.ReachSlapArua >= Magnitude) and (slapAuraDebounce == false)) then
@@ -4598,7 +4789,7 @@ game.CoreGui.RobloxLoadingGUI:Destroy()
 			pcall(function()
 				for i, v in next, game.Players:GetChildren() do
 					if ((v ~= game.Players.LocalPlayer) and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") and v.Character) then
-						if (v.Character:FindFirstChild("entered") and v.Character:FindFirstChild("HumanoidRootPart") and (v.Character:FindFirstChild("rock") == nil) and (v.Character.HumanoidRootPart.BrickColor ~= BrickColor.new("New Yeller")) and not game.Players.LocalPlayer:IsFriendsWith(v.UserId) and (v.Character.Ragdolled.Value == false)) then
+						if (v.Character:FindFirstChild("entered") and v.Character:FindFirstChild("HumanoidRootPart") and (v.Character:FindFirstChild("rock") == nil) and (v.Character:FindFirstChild("stevebody") == nil) and (v.Character.HumanoidRootPart.BrickColor ~= BrickColor.new("New Yeller")) and not game.Players.LocalPlayer:IsFriendsWith(v.UserId) and (v.Character.Ragdolled.Value == false)) then
 							if ((v.Character.Head:FindFirstChild("UnoReverseCard") == nil) or (game.Players.LocalPlayer.leaderstats.Glove.Value == "Error")) then
 								Magnitude = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Character.HumanoidRootPart.Position).Magnitude;
 								if (_G.ReachSlapArua >= Magnitude) then
@@ -4635,7 +4826,7 @@ game.CoreGui.RobloxLoadingGUI:Destroy()
 				while _G.AutoShukuchi and (game.Players.LocalPlayer.leaderstats.Glove.Value == "Shukuchi") and (ShukuchiFriend == "Fight") do
 					for i, v in pairs(game.Players:GetPlayers()) do
 						if ((v ~= game.Players.LocalPlayer) and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") and v.Character) then
-							if (v.Character:FindFirstChild("entered") and v.Character:FindFirstChild("HumanoidRootPart") and (v.Character:FindFirstChild("rock") == nil) and (v.Character.HumanoidRootPart.BrickColor ~= BrickColor.new("New Yeller")) and (v.Character.Head:FindFirstChild("RedEye") == nil) and not game.Players.LocalPlayer:IsFriendsWith(v.UserId)) then
+							if (v.Character:FindFirstChild("entered") and v.Character:FindFirstChild("HumanoidRootPart") and (v.Character:FindFirstChild("rock") == nil) and (v.Character:FindFirstChild("stevebody") == nil) and (v.Character.HumanoidRootPart.BrickColor ~= BrickColor.new("New Yeller")) and (v.Character.Head:FindFirstChild("RedEye") == nil) and not game.Players.LocalPlayer:IsFriendsWith(v.UserId)) then
 								if (v.Character.Head:FindFirstChild("UnoReverseCard") == nil) then
 									Magnitude = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Character.HumanoidRootPart.Position).Magnitude;
 									if (_G.ReachShukuchi >= Magnitude) then
@@ -4657,7 +4848,7 @@ game.CoreGui.RobloxLoadingGUI:Destroy()
 				while _G.AutoShukuchi and (game.Players.LocalPlayer.leaderstats.Glove.Value == "Shukuchi") and (ShukuchiFriend == "Not Fight") do
 					for i, v in pairs(game.Players:GetPlayers()) do
 						if ((v ~= game.Players.LocalPlayer) and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") and v.Character) then
-							if (v.Character:FindFirstChild("entered") and v.Character:FindFirstChild("HumanoidRootPart") and (v.Character:FindFirstChild("rock") == nil) and (v.Character.HumanoidRootPart.BrickColor ~= BrickColor.new("New Yeller")) and (v.Character.Head:FindFirstChild("RedEye") == nil)) then
+							if (v.Character:FindFirstChild("entered") and v.Character:FindFirstChild("HumanoidRootPart") and (v.Character:FindFirstChild("rock") == nil) and (v.Character:FindFirstChild("stevebody") == nil) and (v.Character.HumanoidRootPart.BrickColor ~= BrickColor.new("New Yeller")) and (v.Character.Head:FindFirstChild("RedEye") == nil)) then
 								if (v.Character.Head:FindFirstChild("UnoReverseCard") == nil) then
 									Magnitude = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Character.HumanoidRootPart.Position).Magnitude;
 									if (_G.ReachShukuchi >= Magnitude) then
@@ -4928,28 +5119,75 @@ game.CoreGui.RobloxLoadingGUI:Destroy()
 			task.wait();
 		end
 	end});
-	Tab7:AddToggle({Name="Auto Destroy Tycoon",Default=false,Callback=function(Value)
-		_G.AutoDestroyTycoon = Value;
-		while _G.AutoDestroyTycoon do
-			for _, v in pairs(game.Workspace:GetChildren()) do
-				if (string.find(v.Name, "ÅTycoon") and v:FindFirstChild("Destruct")) then
-					fireclickdetector(v.Destruct.ClickDetector, 0);
-					fireclickdetector(v.Destruct.ClickDetector, 1);
-				end
-			end
-			task.wait();
-		end
+	Tab7:AddDropdown({Name="Tycoon Auto",Default="All",Options={"Other","All","Your"},Callback=function(Value)
+		_G.TycoonAuto = Value;
 	end});
 	Tab7:AddToggle({Name="Auto Click Tycoon",Default=false,Callback=function(Value)
 		_G.AutoClickTycoon = Value;
-		while _G.AutoClickTycoon do
-			for _, v in pairs(game.Workspace:GetChildren()) do
-				if (string.find(v.Name, "ÅTycoon") and v:FindFirstChild("Click")) then
-					fireclickdetector(v.Click.ClickDetector, 0);
-					fireclickdetector(v.Click.ClickDetector, 1);
+		if (_G.TycoonAuto == "Other") then
+			while _G.AutoClickTycoon and (_G.TycoonAuto == "Other") do
+				for _, v in pairs(game.Workspace:GetChildren()) do
+					if ((string.find(v.Name, "ÅTycoon") ~= v.Name:match(game.Players.LocalPlayer.Name)) and v:FindFirstChild("Click")) then
+						fireclickdetector(v.Click.ClickDetector, 0);
+						fireclickdetector(v.Click.ClickDetector, 1);
+					end
 				end
+				task.wait();
 			end
-			task.wait();
+		elseif (_G.TycoonAuto == "All") then
+			while _G.AutoClickTycoon and (_G.TycoonAuto == "All") do
+				for _, v in pairs(game.Workspace:GetChildren()) do
+					if (string.find(v.Name, "ÅTycoon") and v:FindFirstChild("Click")) then
+						fireclickdetector(v.Click.ClickDetector, 0);
+						fireclickdetector(v.Click.ClickDetector, 1);
+					end
+				end
+				task.wait();
+			end
+		elseif (_G.TycoonAuto == "Your") then
+			while _G.AutoClickTycoon and (_G.TycoonAuto == "Your") do
+				for _, v in pairs(game.Workspace:GetChildren()) do
+					if (v.Name:match(game.Players.LocalPlayer.Name) and v:FindFirstChild("Click")) then
+						fireclickdetector(v.Click.ClickDetector, 0);
+						fireclickdetector(v.Click.ClickDetector, 1);
+					end
+				end
+				task.wait();
+			end
+		end
+	end});
+	Tab7:AddToggle({Name="Auto Destroy Tycoon",Default=false,Callback=function(Value)
+		_G.AutoDestroyTycoon = Value;
+		if (_G.TycoonAuto == "Other") then
+			while _G.AutoDestroyTycoon and (_G.TycoonAuto == "Other") do
+				for _, v in pairs(game.Workspace:GetChildren()) do
+					if ((string.find(v.Name, "ÅTycoon") ~= v.Name:match(game.Players.LocalPlayer.Name)) and string.find(v.Name, "ÅTycoon") and v:FindFirstChild("Destruct")) then
+						fireclickdetector(v.Destruct.ClickDetector, 0);
+						fireclickdetector(v.Destruct.ClickDetector, 1);
+					end
+				end
+				task.wait();
+			end
+		elseif (_G.TycoonAuto == "All") then
+			while _G.AutoDestroyTycoon do
+				for _, v in pairs(game.Workspace:GetChildren()) do
+					if (string.find(v.Name, "ÅTycoon") and v:FindFirstChild("Destruct")) then
+						fireclickdetector(v.Destruct.ClickDetector, 0);
+						fireclickdetector(v.Destruct.ClickDetector, 1);
+					end
+				end
+				task.wait();
+			end
+		elseif (_G.TycoonAuto == "Your") then
+			while _G.AutoDestroyTycoon do
+				for _, v in pairs(game.Workspace:GetChildren()) do
+					if (v.Name:match(game.Players.LocalPlayer.Name) and v:FindFirstChild("Destruct")) then
+						fireclickdetector(v.Destruct.ClickDetector, 0);
+						fireclickdetector(v.Destruct.ClickDetector, 1);
+					end
+				end
+				task.wait();
+			end
 		end
 	end});
 	AntiPyschoVoid = Tab12:AddToggle({Name="Anti Void Obby Pyscho",Default=false,Callback=function(Value)
@@ -5128,13 +5366,13 @@ game.CoreGui.RobloxLoadingGUI:Destroy()
 			task.wait();
 		end
 	end});
-	AntiPie = Tab2:AddToggle({Name="Anti Pie",Default=false,Callback=function(Value)
-		_G.AntiPie = Value;
-		while _G.AntiPie do
+	AntiLure = Tab2:AddToggle({Name="Anti Lure",Default=false,Callback=function(Value)
+		_G.AntiLure = Value;
+		while _G.AntiLure do
 			for i, v in pairs(game.Workspace:GetChildren()) do
-				if (v.Name == "Pie") then
-					v.CanTouch = false;
-					v.CanQuery = false;
+				if (string.find(v.Name, "_lure") and v:FindFirstChild("Root") and v:FindFirstChild("watercircle")) then
+					v.Root.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame;
+					v.watercircle.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame;
 				end
 			end
 			task.wait();
@@ -5656,6 +5894,9 @@ game.CoreGui.RobloxLoadingGUI:Destroy()
 		AntiKick:Set(game.Workspace.NoChanged.Value);
 	end);
 	game.Workspace.NoChanged.Changed:Connect(function()
+		AntiAfk:Set(game.Workspace.NoChanged.Value);
+	end);
+	game.Workspace.NoChanged.Changed:Connect(function()
 		AntiObby:Set(game.Workspace.NoChanged.Value);
 	end);
 	game.Workspace.NoChanged.Changed:Connect(function()
@@ -5677,7 +5918,7 @@ game.CoreGui.RobloxLoadingGUI:Destroy()
 		AntiMail:Set(game.Workspace.NoChanged.Value);
 	end);
 	game.Workspace.NoChanged.Changed:Connect(function()
-		AntiPie:Set(game.Workspace.NoChanged.Value);
+		AntiLure:Set(game.Workspace.NoChanged.Value);
 	end);
 	game.Workspace.NoChanged.Changed:Connect(function()
 		AntiAttackPlank:Set(game.Workspace.NoChanged.Value);
