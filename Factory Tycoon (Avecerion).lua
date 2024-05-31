@@ -11,7 +11,7 @@ local localPlayer = game.Players.LocalPlayer
 local tycoonOwned = localPlayer:FindFirstChild("TycoonOwned").Value
 local gameName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
 
-local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))();
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/lucasr125/Bracket_Orion/main/orionlib.lua')))();
 local Window = OrionLib:MakeWindow({Name = gameName.." ; "..identifyexecutor(), HidePremium = false, SaveConfig = false, IntroEnabled = true, IntroText = identifyexecutor().." ; "..gameName});
 
 local localTab = Window:MakeTab({Name = "Local",Icon = "rbxassetid://4483345998",PremiumOnly = false});
