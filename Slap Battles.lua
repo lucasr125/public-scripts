@@ -900,14 +900,17 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 	end});
 	Tab3:AddToggle({Name="Get Blasphemy glove V3",Value=false,Callback=function(Value)
 		local blasphemytest = Value;
+		local times = 0
 		if ((game.Players.LocalPlayer.leaderstats.Glove.Value == "bus") and not game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 3335299217032061)) then
-			while blasphemytest do
+			while blasphemytest == true do
 				task.wait();
-				if ((blasphemytest == true) and (game.Players.LocalPlayer.Character.Humanoid.Health ~= 0) and (game.Players.LocalPlayer.Character:FindFirstChild("entered") ~= nil)) then
+				if ((blasphemytest == true) and (game.Players.LocalPlayer.Character:FindFirstChild("Humanoid")) and (game.Players.LocalPlayer.Character:FindFirstChild("Humanoid").Health ~= 0) and (game.Players.LocalPlayer.Character:FindFirstChild("entered") ~= nil)) then
 					for i, v in pairs(game.Workspace:GetChildren()) do
 						if (v.Name == "BusModel") then
 							firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v, 0);
 							firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v, 1);
+							times += 1
+							print("Touched ".. times .. " times.")
 						end
 					end
 				end
