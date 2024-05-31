@@ -15,8 +15,8 @@ if not (getrawmetatable and getupvalues and setupvalue and (getreg or debug.getr
 	h:Destroy();
 	return;
 end
-local settings = {refill_at=50,refill_end=97,stay_in_kitchen=true};
-local doCashier, doBoxer, doCook, doSupplier, doDelivery = true, true, true, false, false;
+local settings = {refill_at=0,refill_end=60,deliver_at=24,stay_in_kitchen=true};
+local doCashier, doBoxer, doCook, doSupplier, doDelivery = true, true, true, false, true;
 if readfile then
 	pcall(function()
 		local new = game:GetService("HttpService"):JSONDecode(readfile("PizzaFarm.txt"));
@@ -49,46 +49,39 @@ local player = game:GetService("Players").LocalPlayer;
 local ffc = game.FindFirstChild;
 local RNG = Random.new();
 local network;
-local character, root;
+local character, root, humanoid;
 do
 	local reg = (getreg or debug.getregistry)();
 	for i = 1, #reg do
 		local f = reg[i];
-		if ((type(f) == "function") and (tostring(getfenv(f).script) == "Paycheck")) then
+		if (type(f) == "function") then
 			for k, v in next, getupvalues(f) do
-				if (tostring(v) == "CashOut") then
-					setupvalue(f, k, {MouseButton1Click={wait=function()
-					end,Wait=function()
-					end}});
-					break;
+				if (typeof(v) == "Instance") then
+					if (v.Name == "CashOut") then
+						setupvalue(f, k, {MouseButton1Click={wait=function()
+						end,Wait=function()
+						end}});
+					elseif (v.Name == "StickerName") then
+						setupvalue(f, k, nil);
+					end
+				end
+			end
+			if (tostring(getfenv(f).script) == "Music") then
+				local consts = getconstants(f);
+				local loc = false;
+				for ci, c in next, consts do
+					if (c == "location changed") then
+						loc = true;
+					elseif (loc and (c == "SendData")) then
+						setconstant(f, ci, "ExplodeString");
+						break;
+					end
 				end
 			end
 		elseif ((type(f) == "table") and rawget(f, "FireServer") and rawget(f, "BindEvents")) then
 			network = f;
 		end
 	end
-	local mt = getrawmetatable(game);
-	if setreadonly then
-		setreadonly(mt, false);
-	elseif make_writeable then
-		make_writeable(mt);
-	end
-	local old__newindex = mt.__newindex;
-	if newcclosure then
-		mt.__newindex = newcclosure(function(t, k, v)
-			if ((t ~= workspace.CurrentCamera) or (tostring(getfenv(2).script) ~= "LocalMain")) then
-				return old__newindex(t, k, v);
-			end
-		end);
-	else
-		mt.__newindex = function(t, k, v)
-			if ((t ~= workspace.CurrentCamera) or (tostring(getfenv(2).script) ~= "LocalMain")) then
-				return old__newindex(t, k, v);
-			end
-		end;
-	end
-	workspace.Main.RealignCamera.RealignCamera:Destroy();
-	Instance.new("BindableEvent", workspace.Main.RealignCamera).Name = "RealignCamera";
 end
 assert(network, "failed to find network");
 function Create(class, parent, props)
@@ -112,8 +105,8 @@ Label = Create("TextLabel", cashier, {TextWrapped=true,Size=UDim2.new(0.6, 0, 1,
 cashierBtn = Create("ImageButton", cashier, {Name="cashierBtn",ImageTransparency=1,BorderSizePixel=0,Size=UDim2.new(0.38, 0, 1, 0),BackgroundColor3=Color3.new(0.392, 0.392, 0.392)});
 cashierSlider = Create("Frame", cashierBtn, {Name="slider",Size=UDim2.new(0.5, -4, 1, -4),Position=UDim2.new((doCashier and 0.5) or 0, 2, 0, 2),BorderSizePixel=0,BackgroundColor3=Color3.new(0.784, 0.784, 0.784)});
 kitchen = Create("Frame", settings_1, {Name="kitchen",LayoutOrder=9,BackgroundTransparency=1,Size=UDim2.new(0, 100, 0, 100),BackgroundColor3=Color3.new(1, 1, 1)});
-Label_2 = Create("TextLabel", kitchen, {TextWrapped=true,Size=UDim2.new(0.6, 0, 1, 0),Text="[redacted]:",TextSize=14,TextXAlignment="Right",Font="SourceSans",BackgroundTransparency=1,TextColor3=Color3.new(1, 1, 1),TextScaled=true,BackgroundColor3=Color3.new(1, 1, 1)});
-kitchenBtn = Create("TextButton", kitchen, {Name="kitchenBtn",TextWrapped=true,Size=UDim2.new(0.25, 0, 1, 0),TextColor3=Color3.new(),Text=((settings.stay_in_kitchen and "X") or ""),Font="GothamBold",Position=UDim2.new(0.62, 0, 0, 0),TextSize=35,TextScaled=true,BackgroundColor3=Color3.new(0.784, 0.784, 0.784)});
+Label_2 = Create("TextLabel", kitchen, {TextWrapped=true,Size=UDim2.new(0.6, 0, 1, 0),Text="Deliver At:",TextSize=14,TextXAlignment="Right",Font="SourceSans",BackgroundTransparency=1,TextColor3=Color3.new(1, 1, 1),TextScaled=true,BackgroundColor3=Color3.new(1, 1, 1)});
+deliverAtBox = Create("TextBox", kitchen, {Name="deliverAtBox",TextWrapped=true,Size=UDim2.new(0.25, 0, 1, 0),Text=tostring(settings.deliver_at),TextSize=50,TextColor3=Color3.new(),Font="Code",Position=UDim2.new(0.62, 0, 0, 0),TextScaled=true,BackgroundColor3=Color3.new(0.784, 0.784, 0.784)});
 refillEnd = Create("Frame", settings_1, {Name="refillEnd",LayoutOrder=8,BackgroundTransparency=1,Size=UDim2.new(0, 100, 0, 100),BackgroundColor3=Color3.new(1, 1, 1)});
 refillEndBox = Create("TextBox", refillEnd, {Name="refillEndBox",TextWrapped=true,Size=UDim2.new(0.25, 0, 1, 0),Text=tostring(settings.refill_end),TextSize=50,TextColor3=Color3.new(),Font="Code",Position=UDim2.new(0.62, 0, 0, 0),TextScaled=true,BackgroundColor3=Color3.new(0.784, 0.784, 0.784)});
 Label_3 = Create("TextLabel", refillEnd, {TextWrapped=true,Size=UDim2.new(0.6, 0, 1, 0),Text="Refill End:",TextSize=14,TextXAlignment="Right",Font="SourceSans",BackgroundTransparency=1,TextColor3=Color3.new(1, 1, 1),TextScaled=true,BackgroundColor3=Color3.new(1, 1, 1)});
@@ -191,7 +184,6 @@ cashierBtn.MouseButton1Click:Connect(toggleCashier);
 cookBtn.MouseButton1Click:Connect(toggleCook);
 boxerBtn.MouseButton1Click:Connect(toggleBoxer);
 deliveryBtn.MouseButton1Click:Connect(toggleDelivery);
-supplierBtn.MouseButton1Click:Connect(toggleSupplier);
 allOffBtn.InputBegan:Connect(function()
 	if game:GetService("UserInputService"):IsMouseButtonPressed(Enum.UserInputType.MouseButton1) then
 		toggleCashier(false);
@@ -220,10 +212,6 @@ allOnBtn.InputBegan:Connect(function()
 		end
 	end
 end);
-kitchenBtn.MouseButton1Click:Connect(function()
-	settings.stay_in_kitchen = not settings.stay_in_kitchen;
-	kitchenBtn.Text = (settings.stay_in_kitchen and "X") or "";
-end);
 local oldRefillAt = refillAtBox.Text;
 refillAtBox:GetPropertyChangedSignal("Text"):Connect(function()
 	if ((#refillAtBox.Text > 2) or refillAtBox.Text:match("%D")) then
@@ -250,8 +238,22 @@ refillEndBox.FocusLost:Connect(function()
 	end
 	refillEndBox.Text = tostring(settings.refill_end);
 end);
+local oldDeliverAt = deliverAtBox.Text;
+deliverAtBox:GetPropertyChangedSignal("Text"):Connect(function()
+	if ((#deliverAtBox.Text > 2) or deliverAtBox.Text:match("%D")) then
+		deliverAtBox.Text = oldDeliverAt;
+	end
+	oldDeliverAt = deliverAtBox.Text;
+end);
+deliverAtBox.FocusLost:Connect(function()
+	if tonumber(deliverAtBox.Text) then
+		settings.deliver_at = tonumber(deliverAtBox.Text);
+	end
+	deliverAtBox.Text = tostring(settings.deliver_at);
+end);
 closeBtn.MouseButton1Click:Connect(function()
 	gui:Destroy();
+	doCashier, doBoxer, doCook, doSupplier, doDelivery = false, false, false, false, false;
 end);
 closeBtn.MouseEnter:Connect(function()
 	closeBtn.TextColor3 = Color3.new(0.9, 0, 0);
@@ -297,20 +299,24 @@ rightCamBtn.MouseButton1Click:Connect(function()
 		workspace.CurrentCamera:Interpolate(cf, cf + (cf.lookVector * 10), 0.5);
 	end
 end);
-local supplyCounts = {TomatoSauce=99,Cheese=99,Sausage=99,Pepperoni=99,Dough=99,Box=99,Dew=99};
-for name in pairs(supplyCounts) do
-	local lbl = workspace.SupplyCounters.Model[((name == "Dew") and "CounterMountainDew") or ("Counter" .. name)].a.SG.Counter;
-	supplyCounts[name] = tonumber(lbl.Text);
-	lbl.Changed:Connect(function()
-		supplyCounts[name] = tonumber(lbl.Text);
-	end);
-end
 local function FindFirstCustomer()
 	local children = workspace.Customers:GetChildren();
 	for i = 1, #children do
 		local c = children[i];
 		if (ffc(c, "Head") and ffc(c, "Humanoid") and (c.Head.CFrame.Z < 102) and ffc(c.Head, "Dialog") and ffc(c.Head.Dialog, "Correct") and ((c.Humanoid.SeatPart and c.Humanoid.SeatPart.Anchored) or ((c.Humanoid.SeatPart == nil) and (((c.Head.Velocity.Z ^ 2) ^ 0.5) < 0.0001)))) then
-			return c;
+			local dialog = c.Head.Dialog.Correct.ResponseDialog or "";
+			local order = "MountainDew";
+			if (dialog:sub(-8) == "instead.") then
+				dialog = dialog:sub(-30);
+			end
+			if dialog:find("pepperoni", 1, true) then
+				order = "PepperoniPizza";
+			elseif dialog:find("sausage", 1, true) then
+				order = "SausagePizza";
+			elseif dialog:find("cheese", 1, true) then
+				order = "CheesePizza";
+			end
+			return c, order;
 		end
 	end
 end
@@ -372,7 +378,6 @@ local function getOrders()
 		if o then
 			if (tempCookingDict[o] > 0) then
 				tempCookingDict[o] = tempCookingDict[o] - 1;
-			elseif (((o == "Dew") and (#workspace.AllMountainDew:GetChildren() > 0)) or ((supplyCounts[o] > 0) and (supplyCounts.TomatoSauce > 0) and (supplyCounts.Cheese > 0))) then
 				orders[#orders + 1] = o;
 			end
 		end
@@ -382,8 +387,18 @@ end
 local function FindFirstDew()
 	local children = workspace.AllMountainDew:GetChildren();
 	for i = 1, #children do
-		if not children[i].Anchored then
-			return children[i];
+		local d = children[i];
+		if (((ffc(d, "IsBurned") == nil) or (d.IsBurned.Value == false)) and not d.Anchored) then
+			return d;
+		end
+	end
+end
+local function FindBadDew()
+	local children = workspace.AllMountainDew:GetChildren();
+	for i = 1, #children do
+		local d = children[i];
+		if (((ffc(d, "IsBurned") == nil) or (d.IsBurned.Value == false)) and (d.Position.X > 53) and (d.Position.Z > 50) and not d.Anchored) then
+			return d;
 		end
 	end
 end
@@ -398,7 +413,7 @@ local function FindDoughAndWithout(str)
 		local d = children[i];
 		if ((d.Anchored == false) and (#d:GetChildren() > 9)) then
 			if (d.IsBurned.Value or d.HasBugs.Value or d.Cold.Value or ((d.BrickColor.Name == "Bright orange") and ffc(d, "XBillboard"))) then
-				if ((trash == nil) and (d.Position.Y > 0)) then
+				if ((trash == nil) and (d.Position.Y > 0) and (((d.Position * Vector3.new(1, 0, 1)) - Vector3.new(47.9, 0, 72.49)).Magnitude > 1)) then
 					trash = d;
 				end
 			elseif ((p == nil) and (d.BrickColor.Name == "Bright orange")) then
@@ -420,7 +435,7 @@ end
 local function getOvenNear(pos)
 	local children = workspace.Ovens:GetChildren();
 	for i = 1, #children do
-		if ((children[i].Bottom.Position - pos).magnitude < 1.5) then
+		if (ffc(children[i], "Bottom") and ((children[i].Bottom.Position - pos).magnitude < 1.5)) then
 			return children[i];
 		end
 	end
@@ -438,20 +453,20 @@ local function isFullyOpen(oven)
 end
 local bcolorToSupply = {["Dark orange"]="Sausage",["Bright blue"]="Pepperoni",["Bright yellow"]="Cheese",["Bright red"]="TomatoSauce",["Dark green"]="Dew",["Brick yellow"]="Dough",["Light stone grey"]="Box",["Really black"]="Dew"};
 local supplyButtons = {};
-for _, button in ipairs(workspace.SupplyButtons:GetChildren()) do
-	supplyButtons[bcolorToSupply[button.Unpressed.BrickColor.Name]] = button.Unpressed;
+for i, v in ipairs(workspace.SupplyButtons:GetChildren()) do
+	supplyButtons[i] = v.Unpressed;
 end
-local delTool;
-local function FindFirstDeliveryTool()
-	local t;
-	local children = workspace:GetChildren();
+table.sort(supplyButtons, function(a, b)
+	return a.Position.X < b.Position.X;
+end);
+local delTick = 0;
+local function FindAllDeliveryTools(parent)
+	local t = {};
+	local children = parent:GetChildren();
 	for i = 1, #children do
 		local v = children[i];
-		if ((v.ClassName == "Tool") and v.Name:match("^%u%d$") and ffc(v, "House") and ffc(v, "Handle") and ffc(v, "Order") and v.Order.Value:match("%a")) then
-			if ffc(v.Handle, "X10") then
-				return v;
-			end
-			t = v;
+		if ((v.ClassName == "Tool") and v.Name:match("^%u%d$") and ffc(v, "Handle") and ffc(v, "House") and ((parent ~= workspace) or ((v.Handle.Position - Vector3.new(54.45, 4.02, -16.56)).Magnitude < 30))) then
+			t[#t + 1] = v;
 		end
 	end
 	return t;
@@ -460,30 +475,9 @@ local function getHousePart(address)
 	local houses = workspace.Houses:GetChildren();
 	for i = 1, #houses do
 		local h = houses[i];
-		if (ffc(h, "CurrentUpgrade")) then
-			local currentUpgrade = tostring(h.CurrentUpgrade.Value);
-			if (ffc(h, "Address") and (h.Address.Value == address) and ffc(h, currentUpgrade) and ffc(h[currentUpgrade], "GivePizza")) then
-				return ffc(h[currentUpgrade], "GivePizza");
-			end
+		if (ffc(h, "Address") and (h.Address.Value == address) and ffc(h, "GivePizza", true)) then
+			return ffc(h, "GivePizza", true);
 		end
-	end
-end
-local delTouched = false;
-local function forgetDeliveryTool()
-	if delTool then
-		if (delTool.Parent == player.Backpack) then
-			delTool.Parent = character;
-		end
-		if (delTool.Parent == character) then
-			wait(0.1);
-			delTool.Parent = workspace;
-			wait(0.1);
-		end
-	end
-	delTool = nil;
-	delTouched = false;
-	if (ffc(character, "RightHand") and ffc(character.RightHand, "RightGrip")) then
-		character.RightHand.RightGrip:Destroy();
 	end
 end
 local function onCharacterAdded(char)
@@ -492,239 +486,355 @@ local function onCharacterAdded(char)
 	end
 	character = char;
 	root = character:WaitForChild("HumanoidRootPart");
-	character:WaitForChild("Humanoid"):GetPropertyChangedSignal("WalkSpeed"):Connect(function()
-		if delTool then
-			character.Humanoid.WalkSpeed = 16;
-		end
-	end);
+	humanoid = character:WaitForChild("Humanoid");
+	humanoid:SetStateEnabled("FallingDown", false);
 end
 onCharacterAdded(player.Character or player.CharacterAdded:Wait());
 player.CharacterAdded:Connect(onCharacterAdded);
-local function simTouch(part)
-	local oldcc = part.CanCollide;
-	local oldcf = part.CFrame;
-	part.CanCollide = false;
-	part.CFrame = root.CFrame;
-	delay(0.01, function()
-		part.CFrame = oldcf;
-		part.CanCollide = oldcc;
-	end);
+local function smoothTP2(cf)
+	local cf0 = (cf - cf.p) + root.Position + Vector3.new(0, 4, 0);
+	local diff = cf.p - root.Position;
+	local oldg = workspace.Gravity;
+	workspace.Gravity = 0;
+	for i = 0, diff.Magnitude, 0.9 do
+		humanoid.Sit = false;
+		root.CFrame = cf0 + (diff.Unit * i);
+		root.Velocity, root.RotVelocity = Vector3.new(), Vector3.new();
+		wait();
+	end
+	root.CFrame = cf;
+	workspace.Gravity = oldg;
 end
-while gui.Parent do
-	wait(0.3);
-	local hum = character:FindFirstChild("Humanoid");
-	if (hum and hum.Sit) then
-		hum.Jump = true;
+local function smoothTP(cf)
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = cf;
+end
+for _, o in ipairs(workspace.Ovens:GetChildren()) do
+	if ffc(o, "Bottom") then
+		o.Bottom.CanTouch = false;
 	end
-	if doCashier then
-		local c = FindFirstCustomer();
-		if c then
-			local dialog = c.Head.Dialog.Correct.ResponseDialog or "";
-			local rootMoved = false;
-			if ((root.Position - Vector3.new(46.34, 3.8, 82.02)).magnitude > 9) then
-				rootMoved = true;
-				root.CFrame = CFrame.new(46.34, 3.8, 82.02);
-				wait(0.1);
-			end
-			local order = "MountainDew";
-			if (dialog:sub(-8) == "instead.") then
-				dialog = dialog:sub(-30);
-			end
-			if dialog:find("pepperoni", 1, true) then
-				order = "PepperoniPizza";
-			elseif dialog:find("sausage", 1, true) then
-				order = "SausagePizza";
-			elseif dialog:find("cheese", 1, true) then
-				order = "CheesePizza";
-			end
-			network:FireServer("OrderComplete", c, order, workspace.Register3);
-			if rootMoved then
-				wait(0.1);
-			end
-		end
-	end
-	if doCook then
+end
+local function tryCook()
+	for zz = 1, 18 do
 		local order = getOrders()[1];
 		local topping;
 		if ((order == "Pepperoni") or (order == "Sausage")) then
 			topping = order;
 		end
 		local cookD = FindFirstDew();
+		local badD = FindBadDew();
 		local raw, cookP, trash;
 		if topping then
 			raw, cookP, trash = FindDoughAndWithout(((topping == "Pepperoni") and "Sausage") or "Pepperoni");
 		else
 			raw, cookP, trash = FindDoughAndWithout();
 		end
-		local rootMoved = false;
 		local ovens = workspace.Ovens:GetChildren();
+		for i = #ovens, 1, -1 do
+			if (#ovens[i]:GetChildren() < 10) then
+				table.remove(ovens, i);
+			end
+		end
 		for i = #ovens, 2, -1 do
 			local j = RNG:NextInteger(1, i);
 			ovens[j], ovens[i] = ovens[i], ovens[j];
 		end
-		if (cookP and ((tick() - cookPtick) > 0.8)) then
-			local oven = getOvenNear(cookP.Position);
-			if ((oven == nil) or oven.IsOpen.Value) then
-				cookPtick = tick();
-				if ((root.Position - Vector3.new(44.63, 6.6, 45.2)).magnitude > 9) then
-					rootMoved = true;
-					root.CFrame = CFrame.new(44.63, 6.6, 45.2);
-					wait(0.1);
-				end
-				network:FireServer("UpdateProperty", cookP, "CFrame", CFrame.new(56, 4.1, 38));
-			end
-		end
-		if order then
-			if ((order == "Dew") and cookD and ((tick() - cookDtick) > 0.8)) then
-				cookDtick = tick();
-				if ((root.Position - Vector3.new(44.63, 6.6, 45.2)).magnitude > 9) then
-					rootMoved = true;
-					root.CFrame = CFrame.new(44.63, 6.6, 45.2);
-					wait(0.1);
-				end
-				network:FireServer("UpdateProperty", cookD, "CFrame", CFrame.new(53, 4.68, 36.5));
-			elseif ((order ~= "Dew") and raw and raw.Parent and (supplyCounts[order] > 0) and (supplyCounts.TomatoSauce > 0) and (supplyCounts.Cheese > 0)) then
-				if (raw.Mesh.Scale.Y > 1.5) then
-					if ((root.Position - Vector3.new(44.63, 6.6, 45.2)).magnitude > 9) then
-						rootMoved = true;
-						root.CFrame = CFrame.new(44.63, 6.6, 45.2);
+		if doCook then
+			local didsomething = false;
+			if (cookP and ((tick() - cookPtick) > 0.8)) then
+				local oven = getOvenNear(cookP.Position);
+				if ((oven == nil) or oven.IsOpen.Value) then
+					cookPtick = tick();
+					didsomething = true;
+					if ((root.Position - Vector3.new(36.64, 3.8, 54.11)).magnitude > 9) then
+						smoothTP(CFrame.new(36.64, 3.8, 54.11));
 						wait(0.1);
 					end
-					network:FireServer("UpdateProperty", raw, "CFrame", CFrame.new(RNG:NextNumber(29.6, 44.6), 3.7, RNG:NextNumber(42.5, 48.5)));
-					wait();
-					network:FireServer("SquishDough", raw);
-				else
-					local oven;
-					for _, o in ipairs(ovens) do
-						if isFullyOpen(o) then
-							local other = getDoughNear(o.Bottom.Position);
-							if ((other == nil) or not ((other.BrickColor.Name == "Bright orange") and ffc(other.SG.Frame, "TomatoSauce") and ffc(other.SG.Frame, "MeltedCheese"))) then
-								if other then
-									if ((root.Position - Vector3.new(44.63, 6.6, 45.2)).magnitude > 9) then
-										rootMoved = true;
-										root.CFrame = CFrame.new(44.63, 6.6, 45.2);
-										wait(0.1);
-									end
-									network:FireServer("UpdateProperty", other, "CFrame", CFrame.new(RNG:NextNumber(29.6, 44.6), 3.7, RNG:NextNumber(42.5, 48.5)));
-									wait();
-								end
-								oven = o;
-								break;
-							end
-						end
+					network:FireServer("UpdateProperty", cookP, "CFrame", CFrame.new(RNG:NextNumber(56, 57), 4.1, 38));
+				end
+			end
+			if order then
+				if ((order == "Dew") and cookD and ((tick() - cookDtick) > 0.8)) then
+					cookDtick = tick();
+					didsomething = true;
+					if ((root.Position - Vector3.new(36.64, 3.8, 54.11)).magnitude > 9) then
+						smoothTP(CFrame.new(36.64, 3.8, 54.11));
+						wait(0.1);
 					end
-					if (oven and (raw.Parent == workspace.AllDough)) then
-						if ((root.Position - Vector3.new(44.63, 6.6, 45.2)).magnitude > 9) then
-							rootMoved = true;
-							root.CFrame = CFrame.new(44.63, 6.6, 45.2);
+					network:FireServer("UpdateProperty", cookD, "CFrame", CFrame.new(53, 4.68, 36.5));
+				elseif ((order ~= "Dew") and raw and raw.Parent and (supplyCounts[order] > 0) and (supplyCounts.TomatoSauce > 0) and (supplyCounts.Cheese > 0)) then
+					if (raw.Mesh.Scale.Y > 1.5) then
+						if ((root.Position - Vector3.new(36.64, 3.8, 54.11)).magnitude > 9) then
+							smoothTP(CFrame.new(36.64, 3.8, 54.11));
 							wait(0.1);
 						end
-						network:FireServer("AddIngredientToPizza", raw, "TomatoSauce");
-						network:FireServer("AddIngredientToPizza", raw, "Cheese");
-						network:FireServer("AddIngredientToPizza", raw, topping);
-						network:FireServer("UpdateProperty", raw, "CFrame", oven.Bottom.CFrame + Vector3.new(0, 0.7, 0));
-						oven.Door.ClickDetector.Detector:FireServer();
-						cookingDict[order] = cookingDict[order] + 1;
-						local revoked = false;
-						spawn(function()
-							raw.AncestryChanged:Wait();
-							if not revoked then
-								cookingDict[order] = cookingDict[order] - 1;
-								revoked = true;
+						didsomething = true;
+						network:FireServer("UpdateProperty", raw, "CFrame", CFrame.new(RNG:NextNumber(29.6, 44.6), 3.7, RNG:NextNumber(42.5, 48.5)));
+						wait();
+						network:FireServer("SquishDough", raw);
+					else
+						local oven;
+						for _, o in ipairs(ovens) do
+							if isFullyOpen(o) then
+								local other = getDoughNear(o.Bottom.Position);
+								if ((other == nil) or not ((other.BrickColor.Name == "Bright orange") and ffc(other.SG.Frame, "TomatoSauce") and ffc(other.SG.Frame, "MeltedCheese"))) then
+									if other then
+										didsomething = true;
+										if ((root.Position - Vector3.new(36.64, 3.8, 54.11)).magnitude > 9) then
+											smoothTP(CFrame.new(36.64, 3.8, 54.11));
+											wait(0.1);
+										end
+										network:FireServer("UpdateProperty", other, "CFrame", CFrame.new(RNG:NextNumber(29.6, 44.6), 3.7, RNG:NextNumber(42.5, 48.5)));
+										wait();
+									end
+									oven = o;
+									break;
+								end
 							end
-						end);
-						delay(40, function()
-							if not revoked then
-								cookingDict[order] = cookingDict[order] - 1;
-								revoked = true;
+						end
+						if (oven and (raw.Parent == workspace.AllDough)) then
+							if ((root.Position - Vector3.new(36.64, 3.8, 54.11)).magnitude > 9) then
+								smoothTP(CFrame.new(36.64, 3.8, 54.11));
+								wait(0.1);
 							end
-						end);
+							didsomething = true;
+							network:FireServer("AddIngredientToPizza", raw, "TomatoSauce");
+							network:FireServer("AddIngredientToPizza", raw, "Cheese");
+							network:FireServer("AddIngredientToPizza", raw, topping);
+							network:FireServer("UpdateProperty", raw, "CFrame", oven.Bottom.CFrame + Vector3.new(0, 0.7, 0));
+							oven.Door.ClickDetector.Detector:FireServer();
+							cookingDict[order] = cookingDict[order] + 1;
+							local revoked = false;
+							spawn(function()
+								raw.AncestryChanged:Wait();
+								if not revoked then
+									cookingDict[order] = cookingDict[order] - 1;
+									revoked = true;
+								end
+							end);
+							delay(40, function()
+								if not revoked then
+									cookingDict[order] = cookingDict[order] - 1;
+									revoked = true;
+								end
+							end);
+						end
 					end
 				end
 			end
-		end
-		for _, o in ipairs(ovens) do
-			local bar = o.Door.Meter.SurfaceGui.ProgressBar.Bar;
-			if ((o.IsOpen.Value == false) and ((o.IsCooking.Value == false) or ((Vector3.new(bar.ImageColor3.r, bar.ImageColor3.g, bar.ImageColor3.b) - Vector3.new(0.871, 0.518, 0.224)).magnitude > 0.1))) then
-				if ((root.Position - Vector3.new(44.63, 6.6, 45.2)).magnitude > 9) then
-					rootMoved = true;
-					root.CFrame = CFrame.new(44.63, 6.6, 45.2);
+			for _, o in ipairs(ovens) do
+				local bar = o.Door.Meter.SurfaceGui.ProgressBar.Bar;
+				if ((o.IsOpen.Value == false) and ((o.IsCooking.Value == false) or ((Vector3.new(bar.ImageColor3.r, bar.ImageColor3.g, bar.ImageColor3.b) - Vector3.new(0.871, 0.518, 0.224)).magnitude > 0.1))) then
+					didsomething = true;
+					if ((root.Position - Vector3.new(36.64, 3.8, 54.11)).magnitude > 9) then
+						smoothTP(CFrame.new(36.64, 3.8, 54.11));
+						wait(0.1);
+					end
+					o.Door.ClickDetector.Detector:FireServer();
+					break;
+				end
+			end
+			if badD then
+				didsomething = true;
+				if ((root.Position - Vector3.new(36.64, 3.8, 54.11)).magnitude > 9) then
+					smoothTP(CFrame.new(36.64, 3.8, 54.11));
 					wait(0.1);
 				end
-				o.Door.ClickDetector.Detector:FireServer();
+				network:FireServer("UpdateProperty", badD, "CFrame", CFrame.new(RNG:NextNumber(28, 30), 1.7, RNG:NextNumber(55, 57)));
+			end
+			if (trash and ((trash.IsBurned.Value == false) or (getOvenNear(trash.Position) == nil) or getOvenNear(trash.Position).IsOpen.Value)) then
+				didsomething = true;
+				if ((root.Position - Vector3.new(36.64, 3.8, 54.11)).magnitude > 9) then
+					smoothTP(CFrame.new(36.64, 3.8, 54.11));
+					wait(0.1);
+				end
+				network:FireServer("UpdateProperty", trash, "CFrame", CFrame.new(47.9, 7, 72.49, 1, 0, "-0", 0, 0, 1, 0, -1, 0));
+			end
+			if didsomething then
+				wait(0.5);
+			else
 				break;
 			end
-		end
-		if (trash and ((trash.IsBurned.Value == false) or (getOvenNear(trash.Position) == nil) or getOvenNear(trash.Position).IsOpen.Value)) then
-			if ((root.Position - Vector3.new(44.63, 6.6, 45.2)).magnitude > 9) then
-				rootMoved = true;
-				root.CFrame = CFrame.new(44.63, 6.6, 45.2);
-				wait(0.1);
-			end
-			network:FireServer("UpdateProperty", trash, "CFrame", CFrame.new(47.9, RNG:NextNumber(-10, -30), 72.5));
-		end
-		if rootMoved then
-			wait(0.1);
+		else
+			break;
 		end
 	end
-	if doBoxer then
-		local boxP, boxD = FindBoxingFoods();
-		local closedBox, openBox, fullBox = FindBoxes();
-		local rootMoved = false;
-		if (boxD and ((tick() - boxDtick) > 0.8)) then
-			boxDtick = tick();
-			if ((root.Position - Vector3.new(54.09, 3.8, 23.15)).magnitude > 9) then
-				rootMoved = true;
-				root.CFrame = CFrame.new(54.09, 3.8, 23.15);
+end
+wait(1);
+while gui.Parent do
+	wait(0.9);
+	humanoid.Sit = false;
+	if (RNG:NextInteger(1, 20) == 1) then
+		game:GetService("VirtualInputManager"):SendKeyEvent(true, "Z", false, game);
+		wait();
+		game:GetService("VirtualInputManager"):SendKeyEvent(false, "Z", false, game);
+	end
+	for zz = 1, 3 do
+		local c, order = FindFirstCustomer();
+		if (doCashier and c and order) then
+			local reg = 3;
+			if (c.Head.Position.X < 50) then
+				reg = 2;
+			elseif (c.Head.Position.X < 70) then
+				reg = 1;
+			end
+			if ((root.Position - Vector3.new(50.3, 3.8, 83.24)).magnitude > 9) then
+				smoothTP(CFrame.new(50.3, 3.8, 83.24));
 				wait(0.1);
 			end
-			network:FireServer("UpdateProperty", boxD, "CFrame", CFrame.new(63, 4.9, -1, -1, 0, 0, 0, 1, 0, 0, 0, -1));
-		end
-		if fullBox then
-			if (fullBox.Name == "BoxOpen") then
-				if ((root.Position - Vector3.new(54.09, 3.8, 23.15)).magnitude > 9) then
-					rootMoved = true;
-					root.CFrame = CFrame.new(54.09, 3.8, 23.15);
-					wait(0.1);
-				end
-				network:FireServer("CloseBox", fullBox);
-			elseif ((tick() - boxPtick) > 0.8) then
-				if ((root.Position - Vector3.new(54.09, 3.8, 23.15)).magnitude > 9) then
-					rootMoved = true;
-					root.CFrame = CFrame.new(54.09, 3.8, 23.15);
-					wait(0.1);
-				end
-				network:FireServer("UpdateProperty", fullBox, "CFrame", CFrame.new(68.2, 4.4, -1, -1, 0, 0, 0, 1, 0, 0, 0, -1));
-				boxPtick = tick();
-			end
-		end
-		if (closedBox and not openBox) then
-			if ((root.Position - Vector3.new(54.09, 3.8, 23.15)).magnitude > 9) then
-				rootMoved = true;
-				root.CFrame = CFrame.new(54.09, 3.8, 23.15);
-				wait(0.1);
-			end
-			network:FireServer("UpdateProperty", closedBox, "CFrame", CFrame.new(RNG:NextNumber(62.5, 70.5), 3.5, RNG:NextNumber(11, 25)));
-			wait();
-			network:FireServer("OpenBox", closedBox);
-		end
-		if (openBox and boxP) then
-			if ((root.Position - Vector3.new(54.09, 3.8, 23.15)).magnitude > 9) then
-				rootMoved = true;
-				root.CFrame = CFrame.new(54.09, 3.8, 23.15);
-				wait(0.1);
-			end
-			network:FireServer("UpdateProperty", boxP, "Anchored", true);
-			network:FireServer("UpdateProperty", openBox, "Anchored", true);
-			wait();
-			network:FireServer("UpdateProperty", boxP, "CFrame", openBox.CFrame + Vector3.new(0, -2, 0));
-			wait();
-			network:FireServer("AssignPizzaToBox", openBox, boxP);
-		end
-		if rootMoved then
-			wait(0.1);
+			network:FireServer("OrderComplete", c, order, workspace["Register" .. reg]);
+			wait(0.3);
+		else
+			break;
 		end
 	end
+	tryCook();
+	for zz = 1, 7 do
+		if doBoxer then
+			local didsomething = false;
+			local boxP, boxD = FindBoxingFoods();
+			local closedBox, openBox, fullBox = FindBoxes();
+			if (boxD and ((tick() - boxDtick) > 0.8)) then
+				boxDtick = tick();
+				didsomething = true;
+				if ((root.Position - Vector3.new(58.74, 3.8, 12.4)).magnitude > 9) then
+					smoothTP(CFrame.new(58.74, 3.8, 12.4));
+					wait(0.1);
+					continue;
+				end
+				network:FireServer("UpdateProperty", boxD, "CFrame", CFrame.new(63, 4.9, -1, -1, 0, 0, 0, 1, 0, 0, 0, -1));
+			end
+			if fullBox then
+				if (fullBox.Name == "BoxOpen") then
+					didsomething = true;
+					if ((root.Position - Vector3.new(58.74, 3.8, 12.4)).magnitude > 9) then
+						smoothTP(CFrame.new(58.74, 3.8, 12.4));
+						wait(0.1);
+						continue;
+					end
+					network:FireServer("CloseBox", fullBox);
+				elseif ((tick() - boxPtick) > 0.8) then
+					didsomething = true;
+					if ((root.Position - Vector3.new(58.74, 3.8, 12.4)).magnitude > 9) then
+						smoothTP(CFrame.new(58.74, 3.8, 12.4));
+						wait(0.1);
+						continue;
+					end
+					network:FireServer("UpdateProperty", fullBox, "CFrame", CFrame.new(68.2, 4.4, RNG:NextNumber(-3, -2), -1, 0, 0, 0, 1, 0, 0, 0, -1));
+					boxPtick = tick();
+				end
+			end
+			if (closedBox and not openBox) then
+				didsomething = true;
+				if ((root.Position - Vector3.new(58.74, 3.8, 12.4)).magnitude > 9) then
+					smoothTP(CFrame.new(58.74, 3.8, 12.4));
+					wait(0.1);
+					continue;
+				end
+				network:FireServer("UpdateProperty", closedBox, "CFrame", CFrame.new(RNG:NextNumber(62.5, 70.5), 3.5, RNG:NextNumber(11, 25)));
+				wait();
+				network:FireServer("OpenBox", closedBox);
+			end
+			if (openBox and boxP) then
+				didsomething = true;
+				if ((root.Position - Vector3.new(58.74, 3.8, 12.4)).magnitude > 9) then
+					smoothTP(CFrame.new(58.74, 3.8, 12.4));
+					wait(0.1);
+					continue;
+				end
+				network:FireServer("UpdateProperty", boxP, "Anchored", true);
+				network:FireServer("UpdateProperty", openBox, "Anchored", true);
+				wait();
+				network:FireServer("UpdateProperty", boxP, "CFrame", openBox.CFrame + Vector3.new(0, -2, 0));
+				wait();
+				network:FireServer("AssignPizzaToBox", openBox, boxP);
+			end
+			if didsomething then
+				wait(0.5);
+			else
+				break;
+			end
+		else
+			break;
+		end
+	end
+	if doDelivery then
+		local wstools = FindAllDeliveryTools(workspace);
+		if ((#wstools > 1) or (wstools[1] and ffc(wstools[1].Handle, "X10"))) then
+			if ((root.Position - Vector3.new(54.45, 4.02, -15)).magnitude > 9) then
+				smoothTP(CFrame.new(54.45, 4.02, -15));
+				wait(0.1);
+			end
+			for i = 1, #wstools do
+				if (wstools[i].Parent == workspace) then
+					humanoid:EquipTool(wstools[i]);
+					wait();
+				end
+			end
+			wait(0.3);
+			local t = FindAllDeliveryTools(character);
+			for i = 1, #t do
+				t[i].Parent = player.Backpack;
+			end
+			wait(0.1);
+			if (ffc(character, "RightHand") and ffc(character.RightHand, "RightGrip")) then
+				character.RightHand.RightGrip:Destroy();
+			end
+		end
+		local bptools = FindAllDeliveryTools(player.Backpack);
+		if ((#bptools >= settings.deliver_at) and (#bptools > 0) and ((tick() - delTick) > 30)) then
+			table.sort(bptools, function(a, b)
+				a, b = tostring(a), tostring(b);
+				if ((a:sub(1, 1) == "B") and (b:sub(1, 1) == "B")) then
+					return a < b;
+				end
+				return a > b;
+			end);
+			local fatass = false;
+			for i = 1, #bptools do
+				if not doDelivery then
+					break;
+				end
+				humanoid.Sit = false;
+				local tool = bptools[i];
+				local giver = getHousePart(tool.Name);
+				local ogp = giver.Position;
+				if giver then
+					if ((giver.Position - root.Position).Magnitude > 9) then
+						smoothTP(giver.CFrame + Vector3.new(0, 7, 0));
+						if ((giver.Parent == nil) or ((giver.Position - ogp).Magnitude > 1)) then
+							giver = getHousePart(tool.Name) or giver;
+							smoothTP(giver.CFrame + Vector3.new(0, 7, 0));
+						end
+						pcall(function()
+							tool.Parent = character;
+						end);
+						wait(1.2);
+						local t = FindAllDeliveryTools(character);
+						for i = 1, #t do
+							if (t[i] ~= tool) then
+								t[i].Parent = player.Backpack;
+							end
+						end
+						wait(2);
+						fatass = false;
+					else
+						if fatass then
+							wait(0.2);
+						else
+							wait(0.7);
+						end
+						pcall(function()
+							tool.Parent = character;
+						end);
+						wait();
+						fatass = true;
+					end
+				end
+			end
+			delTick = tick();
+		end
+	end
+	tryCook();
 	if doSupplier then
 		local refill = false;
 		for s, c in pairs(supplyCounts) do
@@ -735,39 +845,59 @@ while gui.Parent do
 		end
 		if refill then
 			local oldcf = root.CFrame;
-			local alt = 0;
 			local waiting = false;
 			local waitingTick = 0;
 			local lastBox;
 			while doSupplier do
 				local fulfilled = true;
 				local boxes = workspace.AllSupplyBoxes:GetChildren();
-				for s, c in pairs(supplyCounts) do
-					if (c < settings.refill_end) then
-						fulfilled = false;
-						local count = 0;
-						if (#boxes > 30) then
-							for i = 1, #boxes do
-								local box = boxes[i];
-								if ((bcolorToSupply[box.BrickColor.Name] == s) and (box.Anchored == false) and (box.Position.Z < -940)) then
-									count = count + 1;
+				for yy = 1, 2 do
+					local needtp = true;
+					local realc = 0;
+					for _, btn in ipairs(supplyButtons) do
+						local s = bcolorToSupply[btn.BrickColor.Name];
+						if (supplyCounts[s] < settings.refill_end) then
+							local count = 0;
+							if (#boxes > 30) then
+								for i = 1, #boxes do
+									local box = boxes[i];
+									if ((bcolorToSupply[box.BrickColor.Name] == s) and (box.Anchored == false) and (box.Position.Z < -940)) then
+										count = count + 1;
+									end
 								end
 							end
-						end
-						if (count < 2) then
-							root.CFrame = supplyButtons[s].CFrame;
-							wait(0.3);
+							if (count < 2) then
+								if needtp then
+									needtp = false;
+									smoothTP(btn.CFrame + Vector3.new(0, 3, 2.5));
+									wait(0.1);
+								end
+								if not doSupplier then
+									break;
+								end
+								root.CFrame = btn.CFrame + Vector3.new(0, 3, 0);
+								wait(0.1);
+								realc = realc + 1;
+							end
+							fulfilled = false;
 						end
 					end
+					wait(0.2);
+					if ((yy == 1) and (realc < 3)) then
+						wait(0.6);
+					end
 				end
-				if fulfilled then
+				if (fulfilled or not doSupplier) then
 					break;
 				end
-				wait(1.5);
-				if (waiting and ((lastBox.Position.X > 42) or ((tick() - waitingTick) > 5))) then
+				smoothTP(CFrame.new(8, 12.4, -1020));
+				if not doSupplier then
+					break;
+				end
+				if (waiting and ((lastBox.Position.X > 42) or ((tick() - waitingTick) > 6))) then
 					waiting = false;
 					if (lastBox.Position.X < 42) then
-						root.CFrame = CFrame.new(20.5, 8, -35);
+						smoothTP(CFrame.new(20.5, 8, -35));
 						wait(0.1);
 						local boxes = workspace.AllSupplyBoxes:GetChildren();
 						for i = 1, #boxes do
@@ -781,50 +911,30 @@ while gui.Parent do
 					end
 				end
 				if not waiting then
-					root.CFrame = CFrame.new(8, 12.4, -1020);
+					if (root.Position.Z > -900) then
+						smoothTP(CFrame.new(8, 12.4, -1020));
+					end
 					wait(0.1);
-					alt = 1 - alt;
 					lastBox = nil;
 					local j = 0;
 					local boxes = workspace.AllSupplyBoxes:GetChildren();
 					for i = 1, #boxes do
 						local box = boxes[i];
 						if ((box.Anchored == false) and (box.Position.Z < -940) and bcolorToSupply[box.BrickColor.Name] and (supplyCounts[bcolorToSupply[box.BrickColor.Name]] < settings.refill_end)) then
-							box.CFrame = CFrame.new(38 - (4 * j), 5, -7 - (5 * alt));
+							box.CFrame = CFrame.new(38 - (4.3 * math.floor(j / 2)), 5, -7 - (5 * (j % 2)));
 							network:FireServer("UpdateProperty", box, "CFrame", box.CFrame);
 							lastBox = box;
 							j = j + 1;
-							if (j > 8) then
+							if (j > 13) then
 								break;
 							end
 						end
 					end
-					if ((alt == 0) and lastBox) then
+					if lastBox then
 						waiting = true;
 						waitingTick = tick();
 					end
 				end
-			end
-			root.CFrame = oldcf;
-		end
-	end
-	if doDelivery then
-		local del = FindFirstDeliveryTool();
-		if ((delTool == nil) and del) then
-			delTool = del;
-			if ((root.Position - delTool.Handle.Position).magnitude > 19) then
-				root.CFrame = CFrame.new(delTool.Handle.Position + Vector3.new(0, 1, -15));
-			end
-			delTool.Handle.CanCollide = false;
-			delTool.Handle.CFrame = root.CFrame;
-			wait(0.9);
-			delay(6, forgetDeliveryTool);
-		elseif (delTool and (delTool.Parent == character) and (delTouched == false)) then
-			local housePart = getHousePart(delTool.Name);
-			if housePart then
-				delTouched = true;
-				root.CFrame = housePart.CFrame + Vector3.new(0, 9, 0);
-				wait(0.3);
 			end
 		end
 	end
