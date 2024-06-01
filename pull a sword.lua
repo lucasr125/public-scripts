@@ -51,14 +51,17 @@ end
 
 game:GetService("RunService").Heartbeat:Connect(function()
 	if getgenv().settings.AutoClick == true then
-		local string12 = "Click"
-		game:GetService("ReplicatedStorage").ClickEvent:FireServer(string12)	
+local ohString1 = "Click"
+local ohBoolean2 = false
+
+game:GetService("ReplicatedStorage").ClickEvent:FireServer(ohString1, ohBoolean2)
 	end
 end)
 
 game:GetService("RunService").Heartbeat:Connect(function()
 	if getgenv().settings.AutoRebirth == true then
-		game:GetService("ReplicatedStorage").GameClient.Events.RemoteEvent.RebirthEvent:FireServer()	
+		game:GetService("ReplicatedStorage").GameClient.Events.RemoteEvent.RebirthEvent:FireServer()
+game:GetService("ReplicatedStorage").GameClient.Events.RemoteEvent.SuperRebirthEvent:FireServer()
 	end
 end)
 
