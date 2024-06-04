@@ -158,46 +158,6 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			end
 		end
 	end
-	function SpamBlinkReverse()
-		if (_G.GetTeleport == "Up To You") then
-			OGL = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame;
-		end
-		while _G.BlinkAndReverseGet do
-			if ((game.Players.LocalPlayer.Character:FindFirstChild("entered") == nil) and (game.Players.LocalPlayer.leaderstats.Glove.Value == "Reverse")) then
-				game:GetService("ReplicatedStorage"):WaitForChild("ReverseAbility"):FireServer();
-				wait();
-				fireclickdetector(workspace.Lobby.Blink.ClickDetector);
-				wait(0.01);
-				repeat
-					task.wait();
-				until game.Players.LocalPlayer.Character 
-				if (not game.Players.LocalPlayer.Character:FindFirstChild("entered") and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")) then
-					repeat
-						task.wait();
-						firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport2.TouchInterest.Parent, 0);
-						firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport2.TouchInterest.Parent, 1);
-					until game.Players.LocalPlayer.Character:FindFirstChild("entered") 
-				end
-				wait(0.04);
-				if (_G.GetTeleport == "Up To You") then
-					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = OGL;
-				elseif (_G.GetTeleport == "SafeSpotBox 1.0") then
-					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace['SafeBox'].CFrame * CFrame.new(0, 5, 0);
-				elseif (_G.GetTeleport == "SafeSpotBox 2.0") then
-					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace['Safespot'].CFrame * CFrame.new(0, 10, 0);
-				end
-				wait(0.1);
-				game:GetService("ReplicatedStorage").Blink:FireServer("OutOfBody", {dir=Vector3.new(0, 0, 0),ismoving=false,mousebehavior=Enum.MouseBehavior.Default});
-				wait(50.05);
-				if (game.Players.LocalPlayer.Character.Humanoid.Health ~= 0) then
-					game:GetService("ReplicatedStorage"):WaitForChild("HumanoidDied"):FireServer(game.Players.LocalPlayer.Character, false);
-				end
-				wait(3.75);
-				fireclickdetector(workspace.Lobby.Reverse.ClickDetector);
-				wait(0.8);
-			end
-		end
-	end
 	function SpamReplicaReverse()
 		if (_G.GetTeleport == "Up To You") then
 			OGL = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame;
@@ -229,6 +189,46 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 				wait(0.1);
 				game:GetService("ReplicatedStorage").Duplicate:FireServer();
 				wait(20);
+				if (game.Players.LocalPlayer.Character.Humanoid.Health ~= 0) then
+					game:GetService("ReplicatedStorage"):WaitForChild("HumanoidDied"):FireServer(game.Players.LocalPlayer.Character, false);
+				end
+				wait(3.75);
+				fireclickdetector(workspace.Lobby.Reverse.ClickDetector);
+				wait(0.8);
+			end
+		end
+	end
+	function SpamBlinkReverse()
+		if (_G.GetTeleport == "Up To You") then
+			OGL = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame;
+		end
+		while _G.BlinkAndReverseGet do
+			if ((game.Players.LocalPlayer.Character:FindFirstChild("entered") == nil) and (game.Players.LocalPlayer.leaderstats.Glove.Value == "Reverse")) then
+				game:GetService("ReplicatedStorage"):WaitForChild("ReverseAbility"):FireServer();
+				wait();
+				fireclickdetector(workspace.Lobby.Blink.ClickDetector);
+				wait(0.01);
+				repeat
+					task.wait();
+				until game.Players.LocalPlayer.Character 
+				if (not game.Players.LocalPlayer.Character:FindFirstChild("entered") and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")) then
+					repeat
+						task.wait();
+						firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport2.TouchInterest.Parent, 0);
+						firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport2.TouchInterest.Parent, 1);
+					until game.Players.LocalPlayer.Character:FindFirstChild("entered") 
+				end
+				wait(0.04);
+				if (_G.GetTeleport == "Up To You") then
+					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = OGL;
+				elseif (_G.GetTeleport == "SafeSpotBox 1.0") then
+					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace['SafeBox'].CFrame * CFrame.new(0, 5, 0);
+				elseif (_G.GetTeleport == "SafeSpotBox 2.0") then
+					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace['Safespot'].CFrame * CFrame.new(0, 10, 0);
+				end
+				wait(0.1);
+				game:GetService("ReplicatedStorage").Blink:FireServer("OutOfBody", {dir=Vector3.new(0, 0, 0),ismoving=false,mousebehavior=Enum.MouseBehavior.Default});
+				wait(50.05);
 				if (game.Players.LocalPlayer.Character.Humanoid.Health ~= 0) then
 					game:GetService("ReplicatedStorage"):WaitForChild("HumanoidDied"):FireServer(game.Players.LocalPlayer.Character, false);
 				end
@@ -473,9 +473,7 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 		Psycho.Anchored = true;
 		Psycho.Transparency = 1;
 		Psycho.CanCollide = false;
-	end
-	if (workspace:FindFirstChild("Kraken") == nil) then
-		local Kraken = Instance.new("Part", workspace);
+		local Kraken = Instance.new("Part", Psycho);
 		Kraken.Position = Vector3.new(221, 29, -12632);
 		Kraken.Name = "Kraken";
 		Kraken.Size = Vector3.new(2000, 1, 2000);
@@ -483,9 +481,7 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 		Kraken.Anchored = true;
 		Kraken.Transparency = 1;
 		Kraken.CanCollide = false;
-	end
-	if (workspace:FindFirstChild("Retro1") == nil) then
-		local Retro1 = Instance.new("Part", workspace);
+		local Retro1 = Instance.new("Part", Psycho);
 		Retro1.Position = Vector3.new(-16643.62890625, 770.0464477539062, 4707.8193359375);
 		Retro1.Name = "Retro1";
 		Retro1.Size = Vector3.new(2000, 1, 2000);
@@ -509,6 +505,147 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 		Retro3.Anchored = true;
 		Retro3.Transparency = 1;
 		Retro3.CanCollide = false;
+	end
+	if (workspace:FindFirstChild("BobWalk1") == nil) then
+		local BobWalk1 = Instance.new("Part", workspace);
+		BobWalk1.CanCollide = false;
+		BobWalk1.Anchored = true;
+		BobWalk1.CFrame = CFrame.new(23.2798462, -19.8447475, 1.83554196, -1, 0, 0, 0, -1, 0, 0, 0, 1);
+		BobWalk1.Size = Vector3.new(1139.2593994140625, 1.5, 2048);
+		BobWalk1.Name = "BobWalk1";
+		BobWalk1.Transparency = 1;
+		local BobWalk2 = Instance.new("Part", BobWalk1);
+		BobWalk2.CanCollide = false;
+		BobWalk2.Anchored = true;
+		BobWalk2.CFrame = CFrame.new(-458.458344, -9.25, 1.83554196, -1, 0, 0, 0, -1, 0, 0, 0, 1);
+		BobWalk2.Size = Vector3.new(1139.2593994140625, 1.5, 2048);
+		BobWalk2.Name = "BobWalk2";
+		BobWalk2.Transparency = 1;
+		local BobWalk3 = Instance.new("Part", BobWalk1);
+		BobWalk3.CanCollide = false;
+		BobWalk3.Anchored = true;
+		BobWalk3.CFrame = CFrame.new(-690.65979, 47.25, 1.83554196, -1, 0, 0, 0, -1, 0, 0, 0, 1);
+		BobWalk3.Size = Vector3.new(674.8563232421875, 0.6048492789268494, 2048);
+		BobWalk3.Name = "BobWalk3";
+		BobWalk3.Transparency = 1;
+		local BobWalk4 = Instance.new("Part", BobWalk1);
+		BobWalk4.CanCollide = false;
+		BobWalk4.Anchored = true;
+		BobWalk4.CFrame = CFrame.new(402.964996, 29.25, 222.310089, -1, 0, 0, 0, -1, 0, 0, 0, 1);
+		BobWalk4.Size = Vector3.new(379.88922119140625, 1.5, 160.8837127685547);
+		BobWalk4.Name = "BobWalk4";
+		BobWalk4.Transparency = 1;
+		local BobWalk5 = Instance.new("Part", BobWalk1);
+		BobWalk5.CanCollide = false;
+		BobWalk5.Anchored = true;
+		BobWalk5.Orientation = Vector3.new(0, 0, 171.728);
+		BobWalk5.CFrame = CFrame.new(178.719162, -18.9417267, 1.83554196, -0.989596844, -0.143868446, 0, 0.143868446, -0.989596844, 0, 0, 0, 1);
+		BobWalk5.Size = Vector3.new(143.94830322265625, 1.5, 2048);
+		BobWalk5.Name = "BobWalk5";
+		BobWalk5.Transparency = 1;
+		local BobWalk6 = Instance.new("Part", BobWalk1);
+		BobWalk6.CanCollide = false;
+		BobWalk6.Anchored = true;
+		BobWalk6.Orientation = Vector3.new(0, 0, 144.782);
+		BobWalk6.CFrame = CFrame.new(-309.152832, 15.4761791, 1.83554196, -0.816968799, -0.576681912, 0, 0.576681912, -0.816968799, 0, 0, 0, 1);
+		BobWalk6.Size = Vector3.new(110.13511657714844, 2.740000009536743, 2048);
+		BobWalk6.Name = "BobWalk6";
+		BobWalk6.Transparency = 1;
+		local BobWalk7 = Instance.new("Part", BobWalk1);
+		BobWalk7.CanCollide = false;
+		BobWalk7.Anchored = true;
+		BobWalk7.Orientation = Vector3.new(0, 0, -147.002);
+		BobWalk7.CFrame = CFrame.new(174.971924, 5.34897423, 222.310089, -0.838688731, 0.544611216, 0, -0.544611216, -0.838688731, 0, 0, 0, 1);
+		BobWalk7.Size = Vector3.new(89.76103210449219, 1.5, 160.8837127685547);
+		BobWalk7.Name = "BobWalk7";
+		BobWalk7.Transparency = 1;
+		local BobWalk8 = Instance.new("Part", BobWalk1);
+		BobWalk8.CanCollide = false;
+		BobWalk8.Anchored = true;
+		BobWalk8.Orientation = Vector3.new(0.001, -90.002, -138.076);
+		BobWalk8.CFrame = CFrame.new(402.965027, 5.49165154, 74.8157959, 0.000029802322, -0.0000114142895, -1, -0.668144584, -0.744031429, -0.0000114142895, -0.744031489, 0.668144584, -0.000029802322);
+		BobWalk8.Size = Vector3.new(74.23055267333984, 1, 379.88922119140625);
+		BobWalk8.Name = "BobWalk8";
+		BobWalk8.Transparency = 1;
+		local BobWalk9 = Instance.new("Part", BobWalk1);
+		BobWalk9.CanCollide = false;
+		BobWalk9.Anchored = true;
+		BobWalk9.CFrame = CFrame.new(402.964996, 29.9136467, 121.981705, -1, 0, 0, 0, -1, 0, 0, 0, 1);
+		BobWalk9.Size = Vector3.new(379.88922119140625, 1.5, 39.77305603027344);
+		BobWalk9.Name = "BobWalk9";
+		BobWalk9.Transparency = 1;
+		local BobWalk10 = Instance.new("WedgePart", BobWalk1);
+		BobWalk10.CanCollide = false;
+		BobWalk10.Anchored = true;
+		BobWalk10.Orientation = Vector3.new(-30.453, 117.775, -102.906);
+		BobWalk10.CFrame = CFrame.new(134.084229, -17.8583984, 94.3953705, 0.541196942, -0.354067981, 0.762719929, -0.840263784, -0.192543149, 0.506837189, -0.0325982571, -0.915184677, -0.401714325);
+		BobWalk10.Size = Vector3.new(1, 88.66793823242188, 34.42972946166992);
+		BobWalk10.Name = "BobWalk10";
+		BobWalk10.Transparency = 1;
+		local BobWalk11 = Instance.new("WedgePart", BobWalk1);
+		BobWalk11.CanCollide = false;
+		BobWalk11.Anchored = true;
+		BobWalk11.Orientation = Vector3.new(-29.779, 117.596, -13.193);
+		BobWalk11.CFrame = CFrame.new(168.441879, 2.46393585, 125.815231, -0.350553155, -0.534268022, 0.769201458, -0.198098332, 0.845035911, 0.496660322, -0.915352523, 0.0217281878, -0.402067661);
+		BobWalk11.Size = Vector3.new(1, 0.9999924302101135, 82.1865463256836);
+		BobWalk11.Name = "BobWalk11";
+		BobWalk11.Transparency = 1;
+		local BobWalk12 = Instance.new("WedgePart", BobWalk1);
+		BobWalk12.CanCollide = false;
+		BobWalk12.Anchored = true;
+		BobWalk12.Orientation = Vector3.new(26.893, -124.388, -108.64);
+		BobWalk12.CFrame = CFrame.new(206.315063, 26.9295502, 105.471031, 0.534210563, -0.415855825, -0.73599112, -0.845072925, -0.285055399, -0.452321947, -0.021697551, 0.863601387, -0.503708005);
+		BobWalk12.Size = Vector3.new(1, 13.53612232208252, 9.847718238830566);
+		BobWalk12.Name = "BobWalk12";
+		BobWalk12.Transparency = 1;
+		local BobWalk13 = Instance.new("WedgePart", BobWalk1);
+		BobWalk13.CanCollide = false;
+		BobWalk13.Anchored = true;
+		BobWalk13.Orientation = Vector3.new(-26.893, 55.613, 108.64);
+		BobWalk13.CFrame = CFrame.new(165.965088, 2.12955856, 77.8575592, -0.53421092, -0.415855944, 0.735991359, 0.845073164, -0.285055757, 0.452322066, 0.0216975808, 0.863601625, 0.503708005);
+		BobWalk13.Size = Vector3.new(1, 13.53612232208252, 99.8001480102539);
+		BobWalk13.Name = "BobWalk13";
+		BobWalk13.Transparency = 1;
+		local BobWalk14 = Instance.new("WedgePart", BobWalk1);
+		BobWalk14.CanCollide = false;
+		BobWalk14.Anchored = true;
+		BobWalk14.Orientation = Vector3.new(-0.001, 90.003, 48.072);
+		BobWalk14.CFrame = CFrame.new(172.67041, 5.49164963, 74.8157959, -0.000045895576, 0.000020503998, 1, 0.743987858, 0.668193102, 0.000020503998, -0.668193102, 0.743987858, -0.000045895576);
+		BobWalk14.Size = Vector3.new(1, 74.23055267333984, 80.699951171875);
+		BobWalk14.Name = "BobWalk14";
+		BobWalk14.Transparency = 1;
+		local BobWalk15 = Instance.new("WedgePart", BobWalk1);
+		BobWalk15.CanCollide = false;
+		BobWalk15.Anchored = true;
+		BobWalk15.Orientation = Vector3.new(0, 0, 106.498);
+		BobWalk15.CFrame = CFrame.new(212.753906, 30.0632439, 121.981705, -0.283976078, -0.95883137, 0, 0.95883137, -0.283976078, 0, 0, 0, 1);
+		BobWalk15.Size = Vector3.new(1, 0.8520558476448059, 39.773048400878906);
+		BobWalk15.Name = "BobWalk15";
+		BobWalk15.Transparency = 1;
+		local BobWalk16 = Instance.new("WedgePart", BobWalk1);
+		BobWalk16.CanCollide = false;
+		BobWalk16.Anchored = true;
+		BobWalk16.Orientation = Vector3.new(29.777, -62.406, -75.066);
+		BobWalk16.CFrame = CFrame.new(212.884216, 30.1233234, 121.984734, 0.544644356, 0.33412537, -0.769235253, -0.838644743, 0.223680317, -0.496630788, 0.00612583756, 0.915602207, 0.402038693);
+		BobWalk16.Size = Vector3.new(1, 36.08900451660156, 16.739320755004883);
+		BobWalk16.Name = "BobWalk16";
+		BobWalk16.Transparency = 1;
+		local BobWalk17 = Instance.new("WedgePart", BobWalk1);
+		BobWalk17.CanCollide = false;
+		BobWalk17.Anchored = true;
+		BobWalk17.Orientation = Vector3.new(-29.777, 117.594, 75.066);
+		BobWalk17.CFrame = CFrame.new(174.83577, 5.55865097, 141.871262, -0.544644356, 0.33412537, 0.769235253, 0.838644743, 0.223680317, 0.496630788, -0.00612583756, 0.915602207, -0.402038693);
+		BobWalk17.Size = Vector3.new(1, 36.08900451660156, 82.1865463256836);
+		BobWalk17.Name = "BobWalk17";
+		BobWalk17.Transparency = 1;
+		local BobWalk18 = Instance.new("WedgePart", BobWalk1);
+		BobWalk18.CanCollide = false;
+		BobWalk18.Anchored = true;
+		BobWalk18.Orientation = Vector3.new(30.453, -62.225, 102.906);
+		BobWalk18.CFrame = CFrame.new(165.427338, 2.97219658, 77.884697, -0.541196942, -0.354067981, -0.762719929, 0.840263784, -0.192543149, -0.506837189, 0.0325982571, -0.915184677, 0.401714325);
+		BobWalk18.Size = Vector3.new(1, 88.66793823242188, 47.76289749145508);
+		BobWalk18.Name = "BobWalk18";
+		BobWalk18.Transparency = 1;
 	end
 	if (workspace:FindFirstChild("VoidPart") == nil) then
 		local VoidPart = Instance.new("Part", workspace);
@@ -900,7 +1037,7 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 	end});
 	Tab3:AddToggle({Name="Get Blasphemy glove V3",Value=false,Callback=function(Value)
 		local blasphemytest = Value;
-		local times = 0
+		local times = 0;
 		if ((game.Players.LocalPlayer.leaderstats.Glove.Value == "bus") and not game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 3335299217032061)) then
 			while blasphemytest == true do
 				task.wait();
@@ -910,7 +1047,7 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 							firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v, 0);
 							firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v, 1);
 							times += 1
-							print("Touched ".. times .. " times.")
+							print("Touched " .. times .. " times.");
 						end
 					end
 				end
