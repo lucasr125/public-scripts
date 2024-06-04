@@ -473,7 +473,7 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 		Psycho.Anchored = true;
 		Psycho.Transparency = 1;
 		Psycho.CanCollide = false;
-		local Kraken = Instance.new("Part", Psycho);
+		local Kraken = Instance.new("Part", workspace);
 		Kraken.Position = Vector3.new(221, 29, -12632);
 		Kraken.Name = "Kraken";
 		Kraken.Size = Vector3.new(2000, 1, 2000);
@@ -481,7 +481,7 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 		Kraken.Anchored = true;
 		Kraken.Transparency = 1;
 		Kraken.CanCollide = false;
-		local Retro1 = Instance.new("Part", Psycho);
+		local Retro1 = Instance.new("Part", workspace);
 		Retro1.Position = Vector3.new(-16643.62890625, 770.0464477539062, 4707.8193359375);
 		Retro1.Name = "Retro1";
 		Retro1.Size = Vector3.new(2000, 1, 2000);
@@ -836,7 +836,7 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			game:GetService("ReplicatedStorage"):WaitForChild("HumanoidDied"):FireServer(game.Players.LocalPlayer.Character, false);
 		end
 	end});
-	local GetGlovesSection = Tab:AddSection({Name="Get gloves"});
+	local GetGlovesSection = Tab3:AddSection({Name="Get gloves"});
 	GetGlovesSection:AddButton({Name="Get Kinetic glove ( broken cuz it doesnt count anymore )",Callback=function()
 		if ((game.Players.LocalPlayer.leaderstats.Glove.Value == "Stun") and game.Players.LocalPlayer.Character:FindFirstChild("entered")) then
 			OGL = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame;
@@ -1470,10 +1470,10 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			task.wait();
 		end
 	end});
-	Tab3:AddDropdown({Name="Farm Bob",Default="Slow",Options={"Auto Spawn E","Auto Spawn","Fast Spawn","Normal","Super Fast Spawn"},Callback=function(Value)
+	GetGlovesSection:AddDropdown({Name="Select bob farm",Default="Slow",Options={"Auto Spawn E","Auto Spawn","Fast Spawn","Normal","Super Fast Spawn"},Callback=function(Value)
 		Autobob = Value;
 	end});
-	GetBob = Tab3:AddToggle({Name="AutoFarm Bob",Default=false,Callback=function(Value)
+	GetBob = GetGlovesSection:AddToggle({Name="AutoFarm Bob",Default=false,Callback=function(Value)
 		_G.AutoFarmBob = Value;
 		if (game.Players.LocalPlayer.leaderstats.Glove.Value == "Replica") then
 			local replicaClone = 0;
@@ -1560,7 +1560,7 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			GetBob:Set(false);
 		end
 	end});
-	Tab3:AddToggle({Name="Toolbox Farm",Default=false,Callback=function(Value)
+	GetGlovesSection:AddToggle({Name="Get Hammer glove",Default=false,Callback=function(Value)
 		Toolboxfarm = Value;
 		while Toolboxfarm do
 			if game.Workspace:FindFirstChild("Toolbox") then
@@ -1574,7 +1574,7 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			task.wait();
 		end
 	end});
-	Tab3:AddToggle({Name="Phase Or Jet Farm",Default=false,Callback=function(Value)
+	GetGlovesSection:AddToggle({Name="Get Phase/Jet orb",Default=false,Callback=function(Value)
 		_G.PhaseOrJetfarm = Value;
 		while _G.PhaseOrJetfarm do
 			for i, v in pairs(game.Workspace:GetChildren()) do
@@ -1586,7 +1586,7 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			task.wait();
 		end
 	end});
-	Glitchfarm = Tab3:AddToggle({Name="Phase Or Jet Glitch",Default=false,Callback=function(Value)
+	Glitchfarm = GetGlovesSection:AddToggle({Name="Get Phase/Glitch orb",Default=false,Callback=function(Value)
 		_G.Glitchfarm = Value;
 		if (game.Players.LocalPlayer.leaderstats.Glove.Value == "Error") then
 			while _G.Glitchfarm do
@@ -1679,10 +1679,10 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			end
 		end
 	end});
-	Tab3:AddDropdown({Name="Farm Brick",Default="Slow",Options={"Slow","Fast"},Callback=function(Value)
+	GetGlovesSection:AddDropdown({Name="Select brick farm velocity",Default="Slow",Options={"Slow","Fast"},Callback=function(Value)
 		AutoBrick = Value;
 	end});
-	AutoFarmBrick = Tab3:AddToggle({Name="AutoFram Brick",Default=false,Callback=function(Value)
+	AutoFarmBrick = GetGlovesSection:AddToggle({Name="AutoFarm Bricks",Default=false,Callback=function(Value)
 		Brickfarm = Value;
 		if (game.Players.LocalPlayer.leaderstats.Glove.Value == "Brick") then
 			while Brickfarm and (AutoBrick == "Slow") do
@@ -1700,7 +1700,7 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			AutoFarmBrick:Set(false);
 		end
 	end});
-	AutoTycoon = Tab3:AddToggle({Name="Get Tycoon",Default=false,Callback=function(Value)
+	AutoTycoon = GetGlovesSection:AddToggle({Name="Get Tycoon glove",Default=false,Callback=function(Value)
 		_G.AutoTpPlate = Value;
 		if (game.Players.LocalPlayer.Character:FindFirstChild("entered") and (#game.Players:GetPlayers() >= 7)) then
 			while _G.AutoTpPlate do
