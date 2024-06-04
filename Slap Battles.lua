@@ -672,7 +672,6 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 		TournamentAntiVoid.CanCollide = false;
 	end
 	local Tab = Window:MakeTab({Name="Info",Icon="rbxassetid://7734053426",PremiumOnly=false});
-	local Tab1 = Window:MakeTab({Name="Scripts",Icon="rbxassetid://8997387937",PremiumOnly=false});
 	local Tab2 = Window:MakeTab({Name="Antis",Icon="rbxassetid://7734056608",PremiumOnly=false});
 	local Tab12 = Window:MakeTab({Name="Anti void badges",Icon="rbxassetid://7733673987",PremiumOnly=false});
 	local Tab3 = Window:MakeTab({Name="Badges",Icon="rbxassetid://7733673987",PremiumOnly=false});
@@ -685,52 +684,52 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 	Tab:AddLabel("Script owner: Giang and DonjoSx");
 	Tab:AddLabel("Modified script.");
 	Tab:AddLabel("Bạn muốn vào nhóm zalo thì vào Credit nhé");
-	local InfoServer = Tab:AddSection({Name="Info"});
-	CanYouFps = Tab:AddLabel("Your FPS [ " .. math.floor(workspace:GetRealPhysicsFPS()) .. " ]");
-	CanYouPing = Tab:AddLabel("Your ping [ " .. game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString() .. " ]");
-	ServerPlayer = Tab:AddLabel("Players in the game [ " .. #game.Players:GetPlayers() .. " / " .. game.Players.MaxPlayers .. " ]");
-	TimeServer = Tab:AddLabel("Server time [ " .. math.floor((workspace.DistributedGameTime / 60) / 60) .. " Hour | " .. (math.floor(workspace.DistributedGameTime / 60) - (math.floor((workspace.DistributedGameTime / 60) / 60) * 60)) .. " Minute | " .. (math.floor(workspace.DistributedGameTime) - (math.floor(workspace.DistributedGameTime / 60) * 60)) .. " Second ]");
-	TimeNow = Tab:AddLabel("Date [ " .. os.date("%X") .. " ]");
-	AgeAccYou = Tab:AddLabel("Account age [ " .. game.Players.LocalPlayer.AccountAge .. " ]");
-	ViewAgeServer = Tab:AddLabel("Server age [ " .. game.Workspace.Lobby.ServerAge.Text.SurfaceGui.TextLabel.Text .. " ]");
+	local ServerInfoSection = Tab:AddSection({Name="Server Info"});
+	CanYouFps = ServerInfoSection:AddLabel("Your FPS [ " .. math.floor(workspace:GetRealPhysicsFPS()) .. " ]");
+	CanYouPing = ServerInfoSection:AddLabel("Your ping [ " .. game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString() .. " ]");
+	ServerPlayer = ServerInfoSection:AddLabel("Players in the game [ " .. #game.Players:GetPlayers() .. " / " .. game.Players.MaxPlayers .. " ]");
+	TimeServer = ServerInfoSection:AddLabel("Server time [ " .. math.floor((workspace.DistributedGameTime / 60) / 60) .. " Hour | " .. (math.floor(workspace.DistributedGameTime / 60) - (math.floor((workspace.DistributedGameTime / 60) / 60) * 60)) .. " Minute | " .. (math.floor(workspace.DistributedGameTime) - (math.floor(workspace.DistributedGameTime / 60) * 60)) .. " Second ]");
+	TimeNow = ServerInfoSection:AddLabel("Date [ " .. os.date("%X") .. " ]");
+	AgeAccYou = ServerInfoSection:AddLabel("Account age [ " .. game.Players.LocalPlayer.AccountAge .. " ]");
+	ViewAgeServer = ServerInfoSection:AddLabel("Server age [ " .. game.Workspace.Lobby.ServerAge.Text.SurfaceGui.TextLabel.Text .. " ]");
 	if (game.Players.LocalPlayer.Character.Humanoid.Health == 0) then
-		ResetTime = Tab:AddLabel("Time Spawn [ " .. game.Players.RespawnTime .. " ]");
+		ResetTime = ServerInfoSection:AddLabel("Time Spawn [ " .. game.Players.RespawnTime .. " ]");
 	else
-		ResetTime = Tab:AddLabel("Time Spawn [ Not Dead ]");
+		ResetTime = ServerInfoSection:AddLabel("Time Spawn [ Not Dead ]");
 	end
-	CodeKeypad = Tab:AddLabel("Keypad code [ " .. tostring(((#game.Players:GetPlayers() * 25) + 1100) - 7) .. " ]");
+	CodeKeypad = ServerInfoSection:AddLabel("Keypad code [ " .. tostring(((#game.Players:GetPlayers() * 25) + 1100) - 7) .. " ]");
 	if not game.Workspace:FindFirstChild("Keypad") then
-		KeypadSpawn = Tab:AddLabel("Keypad not spawned");
+		KeypadSpawn = ServerInfoSection:AddLabel("Keypad not spawned");
 	else
-		KeypadSpawn = Tab:AddLabel("Keypad spawned");
+		KeypadSpawn = ServerInfoSection:AddLabel("Keypad spawned");
 	end
 	if (game.Workspace.Arena.island5.Slapples.GoldenSlapple.Glove:FindFirstChildWhichIsA("TouchTransmitter") == nil) then
-		GoldenSlappleSpawn = Tab:AddLabel("Golden Slapple not spawned");
+		GoldenSlappleSpawn = ServerInfoSection:AddLabel("Golden Slapple not spawned");
 	else
-		GoldenSlappleSpawn = Tab:AddLabel("Golden Slapple spawned");
+		GoldenSlappleSpawn = ServerInfoSection:AddLabel("Golden Slapple spawned");
 	end
-	CheckSlap = Tab:AddLabel("Player slaps [ " .. game.Players.LocalPlayer.leaderstats.Slaps.Value .. " ]");
-	Glove = Tab:AddLabel("Actual glove [ " .. game.Players.LocalPlayer.leaderstats.Glove.Value .. " ]");
-	PlateTime = Tab:AddLabel("Plate time [ " .. game.Players.LocalPlayer.PlayerGui.PlateIndicator.TextLabel.Text .. " ]");
-	Tab:AddParagraph("Game ID [ " .. game.PlaceId .. " ]", "Server ID [ " .. game.JobId .. " ]");
-	local InfoServer = Tab:AddSection({Name="Local Player"});
+	CheckSlap = ServerInfoSection:AddLabel("Player slaps [ " .. game.Players.LocalPlayer.leaderstats.Slaps.Value .. " ]");
+	Glove = ServerInfoSection:AddLabel("Actual glove [ " .. game.Players.LocalPlayer.leaderstats.Glove.Value .. " ]");
+	PlateTime = ServerInfoSection:AddLabel("Plate time [ " .. game.Players.LocalPlayer.PlayerGui.PlateIndicator.TextLabel.Text .. " ]");
+	ServerInfoSection:AddParagraph("Game ID [ " .. game.PlaceId .. " ]", "Server ID [ " .. game.JobId .. " ]");
+	local LocalPlayerSection = Tab:AddSection({Name="Local Player"});
 	if game.Players.LocalPlayer.Character:FindFirstChild("rock") then
-		WalkspeedYou = Tab:AddLabel("Walkspeed [ not available as a stone. ]");
-		JumppowerYou = Tab:AddLabel("Jumppower [ not available as a stone. ]");
-		HealthYou = Tab:AddLabel("Health [ not available as a stone. ]");
-		HipHeightYou = Tab:AddLabel("Hip Height [ not available as a stone. ]");
+		WalkspeedYou = LocalPlayerSection:AddLabel("Walkspeed [ not available as a stone. ]");
+		JumppowerYou = LocalPlayerSection:AddLabel("Jumppower [ not available as a stone. ]");
+		HealthYou = LocalPlayerSection:AddLabel("Health [ not available as a stone. ]");
+		HipHeightYou = LocalPlayerSection:AddLabel("Hip Height [ not available as a stone. ]");
 	else
-		WalkspeedYou = Tab:AddLabel("Walkspeed [ " .. game.Players.LocalPlayer.Character.Humanoid.WalkSpeed .. " ]");
-		JumppowerYou = Tab:AddLabel("Jumppower [ " .. game.Players.LocalPlayer.Character.Humanoid.JumpPower .. " ]");
-		HealthYou = Tab:AddLabel("Health [ " .. game.Players.LocalPlayer.Character.Humanoid.Health .. " ]");
-		HipHeightYou = Tab:AddLabel("Hip Height [ " .. game.Players.LocalPlayer.Character.Humanoid.HipHeight .. " ]");
+		WalkspeedYou = LocalPlayerSection:AddLabel("Walkspeed [ " .. game.Players.LocalPlayer.Character.Humanoid.WalkSpeed .. " ]");
+		JumppowerYou = LocalPlayerSection:AddLabel("Jumppower [ " .. game.Players.LocalPlayer.Character.Humanoid.JumpPower .. " ]");
+		HealthYou = LocalPlayerSection:AddLabel("Health [ " .. game.Players.LocalPlayer.Character.Humanoid.Health .. " ]");
+		HipHeightYou = LocalPlayerSection:AddLabel("Hip Height [ " .. game.Players.LocalPlayer.Character.Humanoid.HipHeight .. " ]");
 	end
-	GravityYou = Tab:AddLabel("Gravity [ " .. game.Workspace.Gravity .. " ]");
-	PositionYou = Tab:AddLabel("Player position [ " .. tostring(math.round(game.Players.LocalPlayer.Character.HumanoidRootPart.Position.X) .. ", " .. math.round(game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Y) .. ", " .. math.round(game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Z)) .. " ]");
+	GravityYou = LocalPlayerSection:AddLabel("Gravity [ " .. game.Workspace.Gravity .. " ]");
+	PositionYou = LocalPlayerSection:AddLabel("Player position [ " .. tostring(math.round(game.Players.LocalPlayer.Character.HumanoidRootPart.Position.X) .. ", " .. math.round(game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Y) .. ", " .. math.round(game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Z)) .. " ]");
 	Tab:AddToggle({Name="Auto set infos",Default=false,Callback=function(Value)
 		_G.AutoSetInfo = Value;
 		game:GetService("RunService").RenderStepped:Connect(function()
-			if _G.AutoSetInfo then
+			if _G.AutoSetInfo == true then
 				CanYouFps:Set("Your FPS [ " .. math.floor(workspace:GetRealPhysicsFPS()) .. " ]");
 				ServerPlayer:Set("Players in the game [ " .. #game.Players:GetPlayers() .. " / " .. game.Players.MaxPlayers .. " ]");
 				TimeServer:Set("Server time [ " .. math.floor((workspace.DistributedGameTime / 60) / 60) .. " Hour | " .. (math.floor(workspace.DistributedGameTime / 60) - (math.floor((workspace.DistributedGameTime / 60) / 60) * 60)) .. " Minutes | " .. (math.floor(workspace.DistributedGameTime) - (math.floor(workspace.DistributedGameTime / 60) * 60)) .. " Second ]");
@@ -773,94 +772,8 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			end
 		end);
 	end});
-	Tab1:AddButton({Name="Synapse X [ PE Delta ]",Callback=function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/delta-hydro/secret-host-haha/main/syn_ui_new.lua"))();
-	end});
-	Tab1:AddButton({Name="Codex [ PE ]",Callback=function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/Giangplay/Script/main/Codex.lua"))();
-	end});
-	Tab1:AddButton({Name="Kiwi [ PE ]",Callback=function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/Giangplay/Script/main/Kiwi-Ui.lua"))();
-	end});
-	Tab1:AddButton({Name="Krypton [ PE ]",Callback=function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/Giangplay/Script/main/Krypton.lua"))();
-	end});
-	Tab1:AddButton({Name="Krnl [ PE ]",Callback=function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/Giangplay/Script/main/Knrl.lua"))();
-	end});
-	Tab1:AddButton({Name="Animation [ PE ]",Callback=function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/IlikeyocutgHAH12/EGEGESGGH/main/FE%20Animation%20GUI.txt"))();
-	end});
-	Tab1:AddButton({Name="Arceus x [ PE ]",Callback=function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/Giangplay/Script/main/Arceus_X_V3.lua"))();
-	end});
-	Tab1:AddButton({Name="Kill Player [ PE ]",Callback=function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/Giangplay/Script/main/Kill%20player"))();
-	end});
-	Tab1:AddButton({Name="Keyboard",Callback=function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/advxzivhsjjdhxhsidifvsh/mobkeyboard/main/main.txt", true))();
-	end});
-	Tab1:AddButton({Name="Rejoin Gui",Callback=function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/Giangplay/Script/main/Rejoin.lua"))();
-	end});
-	Tab1:AddButton({Name="Inf yield Delta",Callback=function()
-		loadstring(game:HttpGet("https://gist.githubusercontent.com/lxnnydev/c533c374ca4c1dcef4e1e10e33fa4a0c/raw/03e74f184f801dad77d3ebe1e2f18c6ac87ca612/delta___IY.gistfile1.txt.lua", true))();
-	end});
-	Tab1:AddButton({Name="Inf yield",Callback=function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source", true))();
-	end});
-	Tab1:AddButton({Name="Hitbox",Callback=function()
-		loadstring(game:HttpGet("https://gist.githubusercontent.com/stellar-4242/430ef3087d8d87eb306ca03e728ffbb8/raw/798429dd908b1f4471a1fa569ff62c5e5a93ec61/SLAP.LUA"))();
-	end});
-	Tab1:AddButton({Name="Slap battles new R2O",Callback=function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/cheesynob39/R2O/main/Games/6403373529.lua"))();
-	end});
-	Tab1:AddButton({Name="CherryUi's SB GUI",Callback=function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/RandomScriptr3/gggggggg/main/lolez.txt", true))();
-	end});
-	Tab1:AddButton({Name="Position Gui",Callback=function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/Giangplay/Script/main/Position_Gui.lua", true))();
-	end});
-	Tab1:AddButton({Name="Nuke Potion",Callback=function()
-		loadstring(game:HttpGet("https://pastefy.app/J0u9Qe7p/raw", true))();
-	end});
-	Tab1:AddButton({Name="Fe Fly V3",Callback=function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/Giangplay/Script/main/Fly_V3.lua"))();
-	end});
-	Tab1:AddButton({Name="MoonUI v10",Callback=function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/IlikeyocutgHAH12/MoonUI-v10-/main/MoonUI%20v10"))();
-	end});
-	Tab1:AddButton({Name="Cheesy UI",Callback=function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/Giangplay/Script/main/Cheesy-Ui.lua"))();
-	end});
-	Tab1:AddButton({Name="Btool Cute",Callback=function()
-		loadstring(game:GetObjects("rbxassetid://6695644299")[1].Source)();
-	end});
-	Tab1:AddButton({Name="Dex V2",Callback=function()
-		loadstring(game:HttpGet("https://cdn.wearedevs.net/scripts/Dex%20Explorer.txt"))();
-	end});
-	Tab1:AddButton({Name="Dex V3",Callback=function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/Babyhamsta/RBLX_Scripts/main/Universal/BypassedDarkDexV3.lua", true))();
-	end});
-	Tab1:AddButton({Name="Teleport GUI",Callback=function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/Giangplay/Script/main/TP_Player.lua"))();
-	end});
-	Tab1:AddButton({Name="Turies remote spy",Callback=function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/Giangplay/Script/main/Reamsrpy.lua", true))();
-	end});
-	Tab1:AddButton({Name="Simple remote spy",Callback=function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/Giangplay/Script/main/RemoteSpy-V2.lua", true))();
-	end});
-	Tab1:AddButton({Name="Hydroxide remote spy",Callback=function()
-		local owner = "Upbolt";
-		local branch = "revision";
-		local function webImport(file)
-			return loadstring(game:HttpGetAsync(("https://raw.githubusercontent.com/%s/Hydroxide/%s/%s.lua"):format(owner, branch, file)), file .. ".lua")();
-		end
-		webImport("init");
-		webImport("ui/main");
-	end});
-	Tab3:AddDropdown({Name="Teleport to safe spots",Default="",Options={"SafeSpotBox 1.0","SafeSpotBox 2.0","Bed"},Callback=function(Value)
+	local MapsSections = Tab3:AddSection({Name="Maps/Tps"});
+	MapsSections:AddDropdown({Name="Teleport to safe spots",Default="",Options={"SafeSpotBox 1.0","SafeSpotBox 2.0","Bed"},Callback=function(Value)
 		if (Value == "SafeSpotBox 1.0") then
 			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace['SafeBox'].CFrame * CFrame.new(0, 5, 0);
 		elseif (Value == "SafeSpotBox 2.0") then
@@ -869,7 +782,7 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace['Bed'].Bed3.CFrame * CFrame.new(0, 0, -1);
 		end
 	end});
-	Tab3:AddDropdown({Name="Retro Obby",Default="",Options={"Get Badge","Show All","Off Show All","Teleport Spawn","Click Button"},Callback=function(Value)
+	MapsSections:AddDropdown({Name="Retro Obby",Default="",Options={"Get Badge","Show All","Off Show All","Teleport Spawn","Click Button"},Callback=function(Value)
 		if (Value == "Get Badge") then
 			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.FinishDoor_Retro.Part.CFrame;
 		elseif (Value == "Show All") then
@@ -888,7 +801,7 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			end
 		end
 	end});
-	Tab3:AddDropdown({Name="Repressed Memories",Default="",Options={"Show All","Off Show All","Teleport Enter","Teleport Portal","Teleport Bob Plushie","Click Bob Plushie [ Quests Hitman ]"},Callback=function(Value)
+	MapsSections:AddDropdown({Name="Repressed Memories",Default="",Options={"Show All","Off Show All","Teleport Enter","Teleport Portal","Teleport Bob Plushie","Click Bob Plushie [ Quests Hitman ]"},Callback=function(Value)
 		if (Value == "Show All") then
 			game.ReplicatedStorage.RepressedMemoriesMap.Parent = game.Workspace;
 		elseif (Value == "Off Show All") then
@@ -909,7 +822,7 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false;
 		end
 	end});
-	Tab3:AddDropdown({Name="Kraken map",Default="",Options={"Show All","Off Show All","Teleport Enter"},Callback=function(Value)
+	MapsSections:AddDropdown({Name="Kraken map",Default="",Options={"Show All","Off Show All","Teleport Enter"},Callback=function(Value)
 		if (Value == "Show All") then
 			game.ReplicatedStorage.AbyssAssets.Abyss.Parent = game.Workspace;
 		elseif (Value == "Off Show All") then
@@ -918,12 +831,13 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(194, 35, -12671);
 		end
 	end});
-	Tab3:AddButton({Name="Reset player",Callback=function()
+	Tab3:AddButton({Name="Reset character",Callback=function()
 		if (game.Players.LocalPlayer.Character.Humanoid.Health ~= 0) then
 			game:GetService("ReplicatedStorage"):WaitForChild("HumanoidDied"):FireServer(game.Players.LocalPlayer.Character, false);
 		end
 	end});
-	Tab3:AddButton({Name="Get Kinetic glove",Callback=function()
+	local GetGlovesSection = Tab:AddSection({Name="Get gloves"});
+	GetGlovesSection:AddButton({Name="Get Kinetic glove ( broken cuz it doesnt count anymore )",Callback=function()
 		if ((game.Players.LocalPlayer.leaderstats.Glove.Value == "Stun") and game.Players.LocalPlayer.Character:FindFirstChild("entered")) then
 			OGL = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame;
 			for i = 1, 150 do
@@ -945,7 +859,7 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			OrionLib:MakeNotification({Name="Error",Content="You don't have Stun equipped, or you aren't in the arena",Image="rbxassetid://7733658504",Time=5});
 		end
 	end});
-	Tab3:AddButton({Name="Win Pyscho obby",Callback=function()
+	GetGlovesSection:AddButton({Name="Win Pyscho obby",Callback=function()
 		if (game.Workspace:FindFirstChild("RepressedMemoriesMap") ~= nil) then
 			OGL = game.Workspace.RepressedMemoriesMap.Psychokinesis.Triggers.StartPsychoEvent.CFrame;
 			OGL1 = game.Workspace.RepressedMemoriesMap.Psychokinesis.Triggers.StopPsychoEvent.CFrame;
@@ -958,10 +872,10 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			wait(2.5);
 			game.Workspace.RepressedMemoriesMap.Psychokinesis.Triggers.StopPsychoEvent.CFrame = OGL1;
 		else
-			OrionLib:MakeNotification({Name="Error",Content="You have enter limbo [ don't show all, not work ]",Image="rbxassetid://7733658504",Time=5});
+			OrionLib:MakeNotification({Name="Error",Content="You have enter to limbo [ show all doesnt work ]",Image="rbxassetid://7733658504",Time=5});
 		end
 	end});
-	Tab3:AddButton({Name="Get Bomb glove",Callback=function()
+	GetGlovesSection:AddButton({Name="Get Bomb glove",Callback=function()
 		if ((game.Players.LocalPlayer.leaderstats.Glove.Value == "Warp") and not game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 2124919840)) then
 			local players = game.Players:GetChildren();
 			local RandomPlayer = players[math.random(1, #players)];
@@ -981,10 +895,10 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			task.wait(0.1);
 			game:GetService("ReplicatedStorage").WLOC:FireServer();
 		else
-			OrionLib:MakeNotification({Name="Error",Content="You don't have Warp equipped, or you have owner badge",Image="rbxassetid://7733658504",Time=5});
+			OrionLib:MakeNotification({Name="Error",Content="You don't have Warp equipped or you already own the badge",Image="rbxassetid://7733658504",Time=5});
 		end
 	end});
-	Tab3:AddButton({Name="Get Plank glove",Callback=function()
+	GetGlovesSection:AddButton({Name="Get Plank glove",Callback=function()
 		if ((game.Players.LocalPlayer.leaderstats.Glove.Value == "Fort") and not game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 4031317971987872)) then
 			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(8, 97, 4);
 			wait(0.2);
@@ -999,7 +913,7 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			OrionLib:MakeNotification({Name="Error",Content="You don't have Fort glove equipped or you already own the badge. [ Don't turn on shiftlock ]",Image="rbxassetid://7733658504",Time=5});
 		end
 	end});
-	Tab3:AddButton({Name="Get Blasphemy glove",Callback=function()
+	GetGlovesSection:AddButton({Name="Get Blasphemy glove",Callback=function()
 		if ((game.Players.LocalPlayer.leaderstats.Glove.Value == "bus") and not game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 3335299217032061)) then
 			OGL = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame;
 			repeat
@@ -1035,7 +949,7 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			OrionLib:MakeNotification({Name="Error",Content="You don't have bus glove equipped or you already own the badge.",Image="rbxassetid://7733658504",Time=5});
 		end
 	end});
-	Tab3:AddToggle({Name="Get Blasphemy glove V3",Value=false,Callback=function(Value)
+	GetGlovesSection:AddToggle({Name="Get Blasphemy glove V3",Value=false,Callback=function(Value)
 		local blasphemytest = Value;
 		local times = 0;
 		if ((game.Players.LocalPlayer.leaderstats.Glove.Value == "bus") and not game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 3335299217032061)) then
@@ -1054,7 +968,7 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			end
 		end
 	end});
-	Tab3:AddButton({Name="Auto Quest Chest All Glove",Callback=function()
+	GetGlovesSection:AddButton({Name="Get Glovel glove",Callback=function()
 		if game.Players.LocalPlayer.Character:FindFirstChild("entered") then
 			repeat
 				task.wait();
@@ -1071,237 +985,237 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			OrionLib:MakeNotification({Name="Error",Content="Enter in arena.",Image="rbxassetid://7733658504",Time=5});
 		end
 	end});
-	Tab3:AddButton({Name="Get Frostbite glove",Callback=function()
+	GetGlovesSection:AddButton({Name="Get Frostbite glove",Callback=function()
 		local teleportFunc = queueonteleport or queue_on_teleport or (syn and syn.queue_on_teleport);
 		if teleportFunc then
 			teleportFunc([[
-            if not game:IsLoaded() then
-                game.Loaded:Wait()
-            end
-            repeat wait() until game.Players.LocalPlayer
-wait(4.6)
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-554, 177, 56)
-wait(0.7)
-for i,v in ipairs(game:GetService("Workspace"):GetDescendants()) do
-            if v.ClassName == "ProximityPrompt" then
-                v.HoldDuration = 0
-            end
-        end
-       wait(0.5)
-for i,v in ipairs(game:GetService("Workspace"):GetDescendants()) do
-            if v.ClassName == "ProximityPrompt" then
-                fireproximityprompt(v)
-            end
-        end
-]]);
+				if not game:IsLoaded() then
+					game.Loaded:Wait()
+				end
+				repeat wait() until game.Players.LocalPlayer
+					wait(4.6)
+					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-554, 177, 56)
+					wait(0.7)
+					for i,v in ipairs(game:GetService("Workspace"):GetDescendants()) do
+						if v.ClassName == "ProximityPrompt" then
+							v.HoldDuration = 0
+						end
+					end
+				wait(0.5)
+				for i,v in ipairs(game:GetService("Workspace"):GetDescendants()) do
+					if v.ClassName == "ProximityPrompt" then
+						fireproximityprompt(v)
+					end
+				end
+			]]);
 		end
 		game:GetService("TeleportService"):Teleport(17290438723);
 	end});
-	Tab3:AddButton({Name="Get Chain glove",Callback=function()
+	GetGlovesSection:AddButton({Name="Get Chain glove",Callback=function()
 		if (game.Players.LocalPlayer.leaderstats.Slaps.Value >= 1000) then
 			local teleportFunc = queueonteleport or queue_on_teleport or (syn and syn.queue_on_teleport);
 			if teleportFunc then
 				teleportFunc([[
-        if not game:IsLoaded() then
-            game.Loaded:Wait()
-        end
-        repeat wait() until game.Players.LocalPlayer
-							wait(5)
- repeat wait() until game.Workspace:FindFirstChild("Map"):FindFirstChild("CodeBrick")
-if game.Workspace.Map.CodeBrick.SurfaceGui:FindFirstChild("IMGTemplate") then
-game.Workspace.Map.CodeBrick.SurfaceGui.IMGTemplate.Name = "1st"
-game.Workspace.Map.CodeBrick.SurfaceGui.IMGTemplate.Name = "2nd"
-game.Workspace.Map.CodeBrick.SurfaceGui.IMGTemplate.Name = "3rd"
-game.Workspace.Map.CodeBrick.SurfaceGui.IMGTemplate.Name = "4th"
-end
-for i,v in pairs(game.Workspace.Map.CodeBrick.SurfaceGui:GetChildren()) do
-                    if v.Name == "1st" then
-                        if v.Image == "http://www.roblox.com/asset/?id=9648769161" then
-                    first = "4"
-                elseif v.Image == "http://www.roblox.com/asset/?id=9648765536" then
-                    first = "2"
-                elseif v.Image == "http://www.roblox.com/asset/?id=9648762863" then
-                    first = "3"
-                elseif v.Image == "http://www.roblox.com/asset/?id=9648759883" then
-                    first = "9"
-                elseif v.Image == "http://www.roblox.com/asset/?id=9648755440" then
-                    first = "8"
-                elseif v.Image == "http://www.roblox.com/asset/?id=9648752438" then
-                    first = "2"
-                elseif v.Image == "http://www.roblox.com/asset/?id=9648749145" then
-                    first = "8"
-                elseif v.Image == "http://www.roblox.com/asset/?id=9648745618" then
-                    first = "3"
-                elseif v.Image == "http://www.roblox.com/asset/?id=9648742013" then
-                    first = "7"
-                elseif v.Image == "http://www.roblox.com/asset/?id=9648738553" then
-                    first = "8"
-                elseif v.Image == "http://www.roblox.com/asset/?id=9648734698" then
-                    first = "2"
-                elseif v.Image == "http://www.roblox.com/asset/?id=9648730082" then
-                    first = "6"
-                elseif v.Image == "http://www.roblox.com/asset/?id=9648723237" then
-                    first = "3"
-                elseif v.Image == "http://www.roblox.com/asset/?id=9648718450" then
-                    first = "6"
-                elseif v.Image == "http://www.roblox.com/asset/?id=9648715920" then
-                    first = "6"
-                elseif v.Image == "http://www.roblox.com/asset/?id=9648712563" then
-                    first = "2"
-                end
-                    end
-                end
-for i,v in pairs(game.Workspace.Map.CodeBrick.SurfaceGui:GetChildren()) do
-                    if v.Name == "2nd" then
-                        if v.Image == "http://www.roblox.com/asset/?id=9648769161" then
-                    second = "4"
-                elseif v.Image == "http://www.roblox.com/asset/?id=9648765536" then
-                    second = "2"
-                elseif v.Image == "http://www.roblox.com/asset/?id=9648762863" then
-                    second = "3"
-                elseif v.Image == "http://www.roblox.com/asset/?id=9648759883" then
-                    second = "9"
-                elseif v.Image == "http://www.roblox.com/asset/?id=9648755440" then
-                    second = "8"
-                elseif v.Image == "http://www.roblox.com/asset/?id=9648752438" then
-                    second = "2"
-                elseif v.Image == "http://www.roblox.com/asset/?id=9648749145" then
-                    second = "8"
-                elseif v.Image == "http://www.roblox.com/asset/?id=9648745618" then
-                    second = "3"
-                elseif v.Image == "http://www.roblox.com/asset/?id=9648742013" then
-                    second = "7"
-                elseif v.Image == "http://www.roblox.com/asset/?id=9648738553" then
-                    second = "8"
-                elseif v.Image == "http://www.roblox.com/asset/?id=9648734698" then
-                    second = "2"
-                elseif v.Image == "http://www.roblox.com/asset/?id=9648730082" then
-                    second = "6"
-                elseif v.Image == "http://www.roblox.com/asset/?id=9648723237" then
-                    second = "3"
-                elseif v.Image == "http://www.roblox.com/asset/?id=9648718450" then
-                    second = "6"
-                elseif v.Image == "http://www.roblox.com/asset/?id=9648715920" then
-                    second = "6"
-                elseif v.Image == "http://www.roblox.com/asset/?id=9648712563" then
-                    second = "2"
-                end
-                    end
-                end
-for i,v in pairs(game.Workspace.Map.CodeBrick.SurfaceGui:GetChildren()) do
-                    if v.Name == "3rd" then
-                        if v.Image == "http://www.roblox.com/asset/?id=9648769161" then
-                    third = "4"
-                elseif v.Image == "http://www.roblox.com/asset/?id=9648765536" then
-                    third = "2"
-                elseif v.Image == "http://www.roblox.com/asset/?id=9648762863" then
-                    third = "3"
-                elseif v.Image == "http://www.roblox.com/asset/?id=9648759883" then
-                    third = "9"
-                elseif v.Image == "http://www.roblox.com/asset/?id=9648755440" then
-                    third = "8"
-                elseif v.Image == "http://www.roblox.com/asset/?id=9648752438" then
-                    third = "2"
-                elseif v.Image == "http://www.roblox.com/asset/?id=9648749145" then
-                    third = "8"
-                elseif v.Image == "http://www.roblox.com/asset/?id=9648745618" then
-                    third = "3"
-                elseif v.Image == "http://www.roblox.com/asset/?id=9648742013" then
-                    third = "7"
-                elseif v.Image == "http://www.roblox.com/asset/?id=9648738553" then
-                    third = "8"
-                elseif v.Image == "http://www.roblox.com/asset/?id=9648734698" then
-                    third = "2"
-                elseif v.Image == "http://www.roblox.com/asset/?id=9648730082" then
-                    third = "6"
-                elseif v.Image == "http://www.roblox.com/asset/?id=9648723237" then
-                    third = "3"
-                elseif v.Image == "http://www.roblox.com/asset/?id=9648718450" then
-                    third = "6"
-                elseif v.Image == "http://www.roblox.com/asset/?id=9648715920" then
-                    third = "6"
-                elseif v.Image == "http://www.roblox.com/asset/?id=9648712563" then
-                    third = "2"
-                end
-                    end
-                end
-for i,v in pairs(game.Workspace.Map.CodeBrick.SurfaceGui:GetChildren()) do
-                    if v.Name == "4th" then
-                        if v.Image == "http://www.roblox.com/asset/?id=9648769161" then
-                    fourth = "4"
-                elseif v.Image == "http://www.roblox.com/asset/?id=9648765536" then
-                    fourth = "2"
-                elseif v.Image == "http://www.roblox.com/asset/?id=9648762863" then
-                    fourth = "3"
-                elseif v.Image == "http://www.roblox.com/asset/?id=9648759883" then
-                    fourth = "9"
-                elseif v.Image == "http://www.roblox.com/asset/?id=9648755440" then
-                    fourth = "8"
-                elseif v.Image == "http://www.roblox.com/asset/?id=9648752438" then
-                    fourth = "2"
-                elseif v.Image == "http://www.roblox.com/asset/?id=9648749145" then
-                    fourth = "8"
-                elseif v.Image == "http://www.roblox.com/asset/?id=9648745618" then
-                    fourth = "3"
-                elseif v.Image == "http://www.roblox.com/asset/?id=9648742013" then
-                    fourth = "7"
-                elseif v.Image == "http://www.roblox.com/asset/?id=9648738553" then
-                    fourth = "8"
-                elseif v.Image == "http://www.roblox.com/asset/?id=9648734698" then
-                    fourth = "2"
-                elseif v.Image == "http://www.roblox.com/asset/?id=9648730082" then
-                    fourth = "6"
-                elseif v.Image == "http://www.roblox.com/asset/?id=9648723237" then
-                    fourth = "3"
-                elseif v.Image == "http://www.roblox.com/asset/?id=9648718450" then
-                    fourth = "6"
-                elseif v.Image == "http://www.roblox.com/asset/?id=9648715920" then
-                    fourth = "6"
-                elseif v.Image == "http://www.roblox.com/asset/?id=9648712563" then
-                    fourth = "2"
-                end
-                    end
-                end
-fireclickdetector(game.Workspace.Map.OriginOffice.Door.Keypad.Buttons.Reset.ClickDetector)
-task.wait(0.07)
-fireclickdetector(game.Workspace.Map.OriginOffice.Door.Keypad.Buttons[first].ClickDetector)
-task.wait(0.07)
-fireclickdetector(game.Workspace.Map.OriginOffice.Door.Keypad.Buttons[second].ClickDetector)
-task.wait(0.07)
-fireclickdetector(game.Workspace.Map.OriginOffice.Door.Keypad.Buttons[third].ClickDetector)
-task.wait(0.07)
-fireclickdetector(game.Workspace.Map.OriginOffice.Door.Keypad.Buttons[fourth].ClickDetector)
-task.wait(0.07)
-fireclickdetector(game.Workspace.Map.OriginOffice.Door.Keypad.Buttons.Enter.ClickDetector)
-task.wait(2)
-game:GetService("TeleportService"):Teleport(6403373529)
-    ]]);
+					if not game:IsLoaded() then
+						game.Loaded:Wait()
+					end
+					repeat wait() until game.Players.LocalPlayer
+					wait(5)
+					repeat wait() until game.Workspace:FindFirstChild("Map"):FindFirstChild("CodeBrick")
+					if game.Workspace.Map.CodeBrick.SurfaceGui:FindFirstChild("IMGTemplate") then
+						game.Workspace.Map.CodeBrick.SurfaceGui.IMGTemplate.Name = "1st"
+						game.Workspace.Map.CodeBrick.SurfaceGui.IMGTemplate.Name = "2nd"
+						game.Workspace.Map.CodeBrick.SurfaceGui.IMGTemplate.Name = "3rd"
+						game.Workspace.Map.CodeBrick.SurfaceGui.IMGTemplate.Name = "4th"
+					end
+					for i,v in pairs(game.Workspace.Map.CodeBrick.SurfaceGui:GetChildren()) do
+						if v.Name == "1st" then
+							if v.Image == "http://www.roblox.com/asset/?id=9648769161" then
+								first = "4"
+							elseif v.Image == "http://www.roblox.com/asset/?id=9648765536" then
+								first = "2"
+							elseif v.Image == "http://www.roblox.com/asset/?id=9648762863" then
+								first = "3"
+							elseif v.Image == "http://www.roblox.com/asset/?id=9648759883" then
+								first = "9"
+							elseif v.Image == "http://www.roblox.com/asset/?id=9648755440" then
+								first = "8"
+							elseif v.Image == "http://www.roblox.com/asset/?id=9648752438" then
+								first = "2"
+							elseif v.Image == "http://www.roblox.com/asset/?id=9648749145" then
+								first = "8"
+							elseif v.Image == "http://www.roblox.com/asset/?id=9648745618" then
+								first = "3"
+							elseif v.Image == "http://www.roblox.com/asset/?id=9648742013" then
+								first = "7"
+							elseif v.Image == "http://www.roblox.com/asset/?id=9648738553" then
+								first = "8"
+							elseif v.Image == "http://www.roblox.com/asset/?id=9648734698" then
+								first = "2"
+							elseif v.Image == "http://www.roblox.com/asset/?id=9648730082" then
+								first = "6"
+							elseif v.Image == "http://www.roblox.com/asset/?id=9648723237" then
+								first = "3"
+							elseif v.Image == "http://www.roblox.com/asset/?id=9648718450" then
+								first = "6"
+							elseif v.Image == "http://www.roblox.com/asset/?id=9648715920" then
+								first = "6"
+							elseif v.Image == "http://www.roblox.com/asset/?id=9648712563" then
+								first = "2"
+							end
+						end
+					end
+					for i,v in pairs(game.Workspace.Map.CodeBrick.SurfaceGui:GetChildren()) do
+						if v.Name == "2nd" then
+							if v.Image == "http://www.roblox.com/asset/?id=9648769161" then
+								second = "4"
+							elseif v.Image == "http://www.roblox.com/asset/?id=9648765536" then
+								second = "2"
+							elseif v.Image == "http://www.roblox.com/asset/?id=9648762863" then
+								second = "3"
+							elseif v.Image == "http://www.roblox.com/asset/?id=9648759883" then
+								second = "9"
+							elseif v.Image == "http://www.roblox.com/asset/?id=9648755440" then
+								second = "8"
+							elseif v.Image == "http://www.roblox.com/asset/?id=9648752438" then
+								second = "2"
+							elseif v.Image == "http://www.roblox.com/asset/?id=9648749145" then
+								second = "8"
+							elseif v.Image == "http://www.roblox.com/asset/?id=9648745618" then
+								second = "3"
+							elseif v.Image == "http://www.roblox.com/asset/?id=9648742013" then
+								second = "7"
+							elseif v.Image == "http://www.roblox.com/asset/?id=9648738553" then
+								second = "8"
+							elseif v.Image == "http://www.roblox.com/asset/?id=9648734698" then
+								second = "2"
+							elseif v.Image == "http://www.roblox.com/asset/?id=9648730082" then
+								second = "6"
+							elseif v.Image == "http://www.roblox.com/asset/?id=9648723237" then
+								second = "3"
+							elseif v.Image == "http://www.roblox.com/asset/?id=9648718450" then
+								second = "6"
+							elseif v.Image == "http://www.roblox.com/asset/?id=9648715920" then
+								second = "6"
+							elseif v.Image == "http://www.roblox.com/asset/?id=9648712563" then
+								second = "2"
+							end
+						end
+					end
+					for i,v in pairs(game.Workspace.Map.CodeBrick.SurfaceGui:GetChildren()) do
+						if v.Name == "3rd" then
+							if v.Image == "http://www.roblox.com/asset/?id=9648769161" then
+								third = "4"
+							elseif v.Image == "http://www.roblox.com/asset/?id=9648765536" then
+								third = "2"
+							elseif v.Image == "http://www.roblox.com/asset/?id=9648762863" then
+								third = "3"
+							elseif v.Image == "http://www.roblox.com/asset/?id=9648759883" then
+								third = "9"
+							elseif v.Image == "http://www.roblox.com/asset/?id=9648755440" then
+								third = "8"
+							elseif v.Image == "http://www.roblox.com/asset/?id=9648752438" then
+								third = "2"
+							elseif v.Image == "http://www.roblox.com/asset/?id=9648749145" then
+								third = "8"
+							elseif v.Image == "http://www.roblox.com/asset/?id=9648745618" then
+								third = "3"
+							elseif v.Image == "http://www.roblox.com/asset/?id=9648742013" then
+								third = "7"
+							elseif v.Image == "http://www.roblox.com/asset/?id=9648738553" then
+								third = "8"
+							elseif v.Image == "http://www.roblox.com/asset/?id=9648734698" then
+								third = "2"
+							elseif v.Image == "http://www.roblox.com/asset/?id=9648730082" then
+								third = "6"
+							elseif v.Image == "http://www.roblox.com/asset/?id=9648723237" then
+								third = "3"
+							elseif v.Image == "http://www.roblox.com/asset/?id=9648718450" then
+								third = "6"
+							elseif v.Image == "http://www.roblox.com/asset/?id=9648715920" then
+								third = "6"
+							elseif v.Image == "http://www.roblox.com/asset/?id=9648712563" then
+								third = "2"
+							end
+						end
+					end
+					for i,v in pairs(game.Workspace.Map.CodeBrick.SurfaceGui:GetChildren()) do
+						if v.Name == "4th" then
+							if v.Image == "http://www.roblox.com/asset/?id=9648769161" then
+								fourth = "4"
+							elseif v.Image == "http://www.roblox.com/asset/?id=9648765536" then
+								fourth = "2"
+							elseif v.Image == "http://www.roblox.com/asset/?id=9648762863" then
+								fourth = "3"
+							elseif v.Image == "http://www.roblox.com/asset/?id=9648759883" then
+								fourth = "9"
+							elseif v.Image == "http://www.roblox.com/asset/?id=9648755440" then
+								fourth = "8"
+							elseif v.Image == "http://www.roblox.com/asset/?id=9648752438" then
+								fourth = "2"
+							elseif v.Image == "http://www.roblox.com/asset/?id=9648749145" then
+								fourth = "8"
+							elseif v.Image == "http://www.roblox.com/asset/?id=9648745618" then
+								fourth = "3"
+							elseif v.Image == "http://www.roblox.com/asset/?id=9648742013" then
+								fourth = "7"
+							elseif v.Image == "http://www.roblox.com/asset/?id=9648738553" then
+								fourth = "8"
+							elseif v.Image == "http://www.roblox.com/asset/?id=9648734698" then
+								fourth = "2"
+							elseif v.Image == "http://www.roblox.com/asset/?id=9648730082" then
+								fourth = "6"
+							elseif v.Image == "http://www.roblox.com/asset/?id=9648723237" then
+								fourth = "3"
+							elseif v.Image == "http://www.roblox.com/asset/?id=9648718450" then
+								fourth = "6"
+							elseif v.Image == "http://www.roblox.com/asset/?id=9648715920" then
+								fourth = "6"
+							elseif v.Image == "http://www.roblox.com/asset/?id=9648712563" then
+								fourth = "2"
+							end
+						end
+					end
+					fireclickdetector(game.Workspace.Map.OriginOffice.Door.Keypad.Buttons.Reset.ClickDetector)
+					task.wait(0.07)
+					fireclickdetector(game.Workspace.Map.OriginOffice.Door.Keypad.Buttons[first].ClickDetector)
+					task.wait(0.07)
+					fireclickdetector(game.Workspace.Map.OriginOffice.Door.Keypad.Buttons[second].ClickDetector)
+					task.wait(0.07)
+					fireclickdetector(game.Workspace.Map.OriginOffice.Door.Keypad.Buttons[third].ClickDetector)
+					task.wait(0.07)
+					fireclickdetector(game.Workspace.Map.OriginOffice.Door.Keypad.Buttons[fourth].ClickDetector)
+					task.wait(0.07)
+					fireclickdetector(game.Workspace.Map.OriginOffice.Door.Keypad.Buttons.Enter.ClickDetector)
+					task.wait(2)
+					game:GetService("TeleportService"):Teleport(6403373529)
+				]]);
 			end
 			game:GetService("TeleportService"):Teleport(9431156611);
 		else
 			OrionLib:MakeNotification({Name="Error",Content="You don't have 1000 slaps.",Image="rbxassetid://7733658504",Time=5});
 		end
 	end});
-	Tab3:AddDropdown({Name="Join maze elude by",Default="Auto Keypad",Options={"Teleport","Auto Keypad"},Callback=function(Value)
+	GetGlovesSection:AddDropdown({Name="Join in maze elude using",Default="Auto Keypad",Options={"Teleport","Auto Keypad"},Callback=function(Value)
 		_G.SelectMaze = Value;
 	end});
-	Tab3:AddDropdown({Name="Select glove to get in elude maze",Default="",Options={"Elude","Counter"},Callback=function(Value)
+	GetGlovesSection:AddDropdown({Name="Select glove to get in elude maze",Default="",Options={"Elude","Counter"},Callback=function(Value)
 		_G.SelectMazeBadge = Value;
 	end});
-	Tab3:AddButton({Name="Teleport to elude maze",Callback=function()
+	GetGlovesSection:AddButton({Name="Teleport to elude maze",Callback=function()
 		if (_G.SelectMazeBadge == "Elude") then
 			if (_G.SelectMaze == "Teleport") then
 				local teleportFunc = queueonteleport or queue_on_teleport or (syn and syn.queue_on_teleport);
 				if teleportFunc then
 					teleportFunc([[
-        if not game:IsLoaded() then
-            game.Loaded:Wait()
-        end
-        repeat wait() until game.Players.LocalPlayer
-        game:GetService("RunService").RenderStepped:Connect(function()
-           game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-502.336, 14.228, -179.597)
-        end)
-    ]]);
+						if not game:IsLoaded() then
+							game.Loaded:Wait()
+						end
+						repeat wait() until game.Players.LocalPlayer
+						game:GetService("RunService").RenderStepped:Connect(function()
+							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-502.336, 14.228, -179.597)
+						end)
+					]]);
 				end
 				OrionLib:MakeNotification({Name="Error",Content="If you get kicked, get out or It's okay if you don't kick",Image="rbxassetid://7733658504",Time=5});
 				wait(2);
@@ -1319,15 +1233,15 @@ game:GetService("TeleportService"):Teleport(6403373529)
 					local teleportFunc = queueonteleport or queue_on_teleport or (syn and syn.queue_on_teleport);
 					if teleportFunc then
 						teleportFunc([[
-        if not game:IsLoaded() then
-            game.Loaded:Wait()
-        end
-        repeat wait() until game.Players.LocalPlayer
-        game:GetService("RunService").RenderStepped:Connect(function()
-           game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-502.336, 14.228, -179.597)
-        end)
-game:GetService("TeleportService"):Teleport(6403373529)
-    ]]);
+							if not game:IsLoaded() then
+								game.Loaded:Wait()
+							end
+							repeat wait() until game.Players.LocalPlayer
+							game:GetService("RunService").RenderStepped:Connect(function()
+								game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-502.336, 14.228, -179.597)
+							end)
+							game:GetService("TeleportService"):Teleport(6403373529)
+						]]);
 					end
 					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Keypad.Buttons.Enter.CFrame;
 					fireclickdetector(workspace:WaitForChild("Keypad").Buttons:FindFirstChild("Reset").ClickDetector);
@@ -1346,27 +1260,27 @@ game:GetService("TeleportService"):Teleport(6403373529)
 				local teleportFunc = queueonteleport or queue_on_teleport or (syn and syn.queue_on_teleport);
 				if teleportFunc then
 					teleportFunc([[
-        if not game:IsLoaded() then
-            game.Loaded:Wait()
-        end
-        repeat wait() until game.Players.LocalPlayer
-        task.wait(5)
-Time = 121
-fireclickdetector(game.Workspace.CounterLever.ClickDetector)
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0,100,0)
-wait(0.2)
-game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
-for i = 1,Time do
-Time = Time - 1
-game:GetService("StarterGui"):SetCore("SendNotification",{Title = "Error",Text = "You wait time [ "..Time.." ] receive.",Icon = "rbxassetid://7733658504",Duration = 2})
-wait(1)
-end
-for i,v in pairs(workspace.Maze:GetDescendants()) do
-if v:IsA("ClickDetector") then
-fireclickdetector(v)
-end
-end
-    ]]);
+						if not game:IsLoaded() then
+							game.Loaded:Wait()
+						end
+						repeat wait() until game.Players.LocalPlayer
+						task.wait(5)
+						Time = 121
+						fireclickdetector(game.Workspace.CounterLever.ClickDetector)
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0,100,0)
+						wait(0.2)
+						game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
+						for i = 1,Time do
+							Time = Time - 1
+							game:GetService("StarterGui"):SetCore("SendNotification",{Title = "Error",Text = "You wait time [ "..Time.." ] receive.",Icon = "rbxassetid://7733658504",Duration = 2})
+							wait(1)
+						end
+						for i,v in pairs(workspace.Maze:GetDescendants()) do
+							if v:IsA("ClickDetector") then
+								fireclickdetector(v)
+							end
+						end
+					]]);
 				end
 				OrionLib:MakeNotification({Name="Error",Content="If you get kicked, get out or It's okay if you don't kick",Image="rbxassetid://7733658504",Time=5});
 				wait(2);
@@ -1384,27 +1298,27 @@ end
 					local teleportFunc = queueonteleport or queue_on_teleport or (syn and syn.queue_on_teleport);
 					if teleportFunc then
 						teleportFunc([[
-        if not game:IsLoaded() then
-            game.Loaded:Wait()
-        end
-        repeat wait() until game.Players.LocalPlayer
-    task.wait(5)
-Time = 121
-fireclickdetector(game.Workspace.CounterLever.ClickDetector)
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0,100,0)
-wait(0.2)
-game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
-for i = 1,Time do
-Time = Time - 1
-game:GetService("StarterGui"):SetCore("SendNotification",{Title = "Error",Text = "You wait time [ "..Time.." ] receive.",Icon = "rbxassetid://7733658504",Duration = 2})
-wait(1)
-end
-for i,v in pairs(workspace.Maze:GetDescendants()) do
-if v:IsA("ClickDetector") then
-fireclickdetector(v)
-end
-end
-    ]]);
+							if not game:IsLoaded() then
+								game.Loaded:Wait()
+							end
+							repeat wait() until game.Players.LocalPlayer
+							task.wait(5)
+							Time = 121
+							fireclickdetector(game.Workspace.CounterLever.ClickDetector)
+							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0,100,0)
+							wait(0.2)
+							game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
+							for i = 1,Time do
+								Time = Time - 1
+								game:GetService("StarterGui"):SetCore("SendNotification",{Title = "Error",Text = "You wait time [ "..Time.." ] receive.",Icon = "rbxassetid://7733658504",Duration = 2})
+								wait(1)
+							end
+							for i,v in pairs(workspace.Maze:GetDescendants()) do
+								if v:IsA("ClickDetector") then
+									fireclickdetector(v)
+								end
+							end
+						]]);
 					end
 					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Keypad.Buttons.Enter.CFrame;
 					fireclickdetector(workspace:WaitForChild("Keypad").Buttons:FindFirstChild("Reset").ClickDetector);
@@ -1420,7 +1334,7 @@ end
 			end
 		end
 	end});
-	Tab3:AddButton({Name="Get [REDACTED] glove",Callback=function()
+	GetGlovesSection:AddButton({Name="Get [REDACTED] glove",Callback=function()
 		if (game.Players.LocalPlayer.leaderstats.Slaps.Value >= 5000) then
 			Door = 0;
 			for i = 1, 10 do
@@ -1445,7 +1359,7 @@ end
 			OrionLib:MakeNotification({Name="Error",Content="You already owns the badges.",Image="rbxassetid://7733658504",Time=5});
 		end
 	end});
-	Tab3:AddButton({Name="Get IceSkate glove",Callback=function()
+	GetGlovesSection:AddButton({Name="Get IceSkate glove",Callback=function()
 		if not game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 2906002612987222) then
 			game:GetService("ReplicatedStorage").IceSkate:FireServer("Freeze");
 		else
@@ -1461,7 +1375,7 @@ end
 			OrionLib:MakeNotification({Name="Error",Content="You don't have ZZZZZZZ equipped, or Owner badge",Image="rbxassetid://7733658504",Time=5});
 		end
 	end});
-	AutoFarmGetAlchemist = Tab3:AddToggle({Name="Auto Farm Alchemist glove",Default=false,Callback=function(Value)
+	AutoFarmGetAlchemist = GetGlovesSection:AddToggle({Name="Auto Farm Alchemist glove",Default=false,Callback=function(Value)
 		_G.AutoFarmAlchemist = Value;
 		if (game.Players.LocalPlayer.leaderstats.Glove.Value == "Plague") then
 			while _G.AutoFarmAlchemist do
@@ -1485,7 +1399,7 @@ end
 			AutoFarmGetAlchemist:Set(false);
 		end
 	end});
-	Tab3:AddToggle({Name="Auto Exit Run maze",Default=false,Callback=function(Value)
+	GetGlovesSection:AddToggle({Name="Auto Exit Run maze",Default=false,Callback=function(Value)
 		_G.AutoExit = Value;
 		while _G.AutoExit do
 			if (game.Players.LocalPlayer.Character:FindFirstChild("InLabyrinth") ~= nil) then
