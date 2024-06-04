@@ -1715,10 +1715,11 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			AutoTycoon:Set(false);
 		end
 	end});
-	Tab14:AddDropdown({Name="Prop Ability",Default="",Options={"Barrel","Bench","Brick","Bush 1","Bush 2","Cauldron","Diamond","Frenzy Bot","Gift","GoldenSlapple","Imp","Jet Orb","Larry","MEGAROCK","Moai Head","Obby 1","Obby 2","Obby 3","Obby 4","Obby 5","Orange","Oven","Phase Heart","Phase Orb","Rock 1","Rock 2","Rock 3","Sentry","Slapple","Snow Peep","Snow Turret","bob","rob","Sbeve"},Callback=function(Value)
+	local PropGloveSection = Tab14:AddSection({Name="Prop Glove"});
+	PropGloveSection:AddDropdown({Name="Prop Ability",Default="",Options={"Barrel","Bench","Brick","Bush 1","Bush 2","Cauldron","Diamond","Frenzy Bot","Gift","GoldenSlapple","Imp","Jet Orb","Larry","MEGAROCK","Moai Head","Obby 1","Obby 2","Obby 3","Obby 4","Obby 5","Orange","Oven","Phase Heart","Phase Orb","Rock 1","Rock 2","Rock 3","Sentry","Slapple","Snow Peep","Snow Turret","bob","rob","Sbeve"},Callback=function(Value)
 		PropAbility = Value;
 	end});
-	Prop = Tab14:AddToggle({Name="Auto Spam Prop",Default=false,Callback=function(Value)
+	Prop = PropGloveSection:AddToggle({Name="Auto Spam Prop",Default=false,Callback=function(Value)
 		PropSpam = Value;
 		if (game.Players.LocalPlayer.leaderstats.Glove.Value == "Prop") then
 			while PropSpam and (game.Players.LocalPlayer.leaderstats.Glove.Value == "Prop") do
@@ -1733,10 +1734,11 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			Prop:Set(false);
 		end
 	end});
-	Tab14:AddDropdown({Name="Santa Ability",Default="milk",Options={"bobplush","snowpeep","milk"},Callback=function(Value)
+	local SantaGloveSection = Tab14:AddSection({Name="Santa Glove"});
+	SantaGloveSection:AddDropdown({Name="Santa Ability",Default="milk",Options={"bobplush","snowpeep","milk"},Callback=function(Value)
 		SantaAbility = Value;
 	end});
-	Santa = Tab14:AddToggle({Name="Auto Spam Santa",Default=false,Callback=function(Value)
+	Santa = SantaGloveSection:AddToggle({Name="Auto Spam Santa",Default=false,Callback=function(Value)
 		SantaSpam = Value;
 		if (game.Players.LocalPlayer.leaderstats.Glove.Value == "Santa") then
 			while SantaSpam and (game.Players.LocalPlayer.leaderstats.Glove.Value == "Santa") do
@@ -1749,30 +1751,33 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			Santa:Set(false);
 		end
 	end});
-	Tab14:AddDropdown({Name="Admin Ability",Default="Fling",Options={"Fling","Anvil","Invisibility"},Callback=function(Value)
+	local AdminGloveSection = Tab14:AddSection({Name="Admin Glove"});
+	AdminGloveSection:AddDropdown({Name="Admin Ability",Default="Fling",Options={"Fling","Anvil","Invisibility"},Callback=function(Value)
 		AbilityAdmin = Value;
 	end});
-	Admin = Tab14:AddToggle({Name="Auto Spam Admin [ All Glove ]",Default=false,Callback=function(Value)
+	Admin = AdminGloveSection:AddToggle({Name="Auto Spam Admin [ All Glove ]",Default=false,Callback=function(Value)
 		AdminSpam = Value;
 		while AdminSpam do
 			game:GetService("ReplicatedStorage").AdminAbility:FireServer(AbilityAdmin);
 			task.wait();
 		end
 	end});
-	Tab14:AddDropdown({Name="Retro Ability",Default="Rocket Launcher",Options={"Rocket Launcher","Ban Hammer","Bomb"},Callback=function(Value)
+	local RetroGloveSection = Tab14:AddSection({Name="Retro Glove"});
+	RetroGloveSection:AddDropdown({Name="Retro Ability",Default="Rocket Launcher",Options={"Rocket Launcher","Ban Hammer","Bomb"},Callback=function(Value)
 		RetroAbility = Value;
 	end});
-	Tab14:AddToggle({Name="Auto Spam Retro [ All Glove ]",Default=false,Callback=function(Value)
+	RetroGloveSection:AddToggle({Name="Auto Spam Retro [ All Glove ]",Default=false,Callback=function(Value)
 		RetroSpam = Value;
 		while RetroSpam do
 			game:GetService("ReplicatedStorage").RetroAbility:FireServer(RetroAbility);
 			task.wait();
 		end
 	end});
-	Tab14:AddDropdown({Name="Slapstick Ability",Default="runeffect",Options={"runeffect","fullcharged","dash","addarm","charge","cancelrun","discharge"},Callback=function(Value)
+	local SlapstickGloveSection = Tab14:AddSection({Name="Slapstick Glove"});
+	SlapstickGloveSection:AddDropdown({Name="Slapstick Ability",Default="runeffect",Options={"runeffect","fullcharged","dash","addarm","charge","cancelrun","discharge"},Callback=function(Value)
 		SlapstickAbility = Value;
 	end});
-	Tab14:AddButton({Name="Spam Ability Slapstick",Callback=function()
+	SlapstickGloveSection:AddButton({Name="Spam Ability Slapstick",Callback=function()
 		if (SlapstickAbility == "runeffect") then
 			OldSpeed = game.Players.LocalPlayer.Character.Humanoid.WalkSpeed;
 			game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true;
@@ -1791,17 +1796,18 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			game:GetService("ReplicatedStorage").slapstick:FireServer("dash");
 		end
 	end});
-	Tab14:AddToggle({Name="Auto Spam Slapstick [ All Glove ]",Default=false,Callback=function(Value)
+	SlapstickGloveSection:AddToggle({Name="Auto Spam Slapstick [ All Glove ]",Default=false,Callback=function(Value)
 		SlapstickSpam = Value;
 		if (SlapstickSpam == true) then
 			game:GetService("ReplicatedStorage").slapstick:FireServer("addarm");
 		end
-		while SlapstickSpam do
+		while SlapstickSpam == true do
 			game:GetService("ReplicatedStorage").slapstick:FireServer(SlapstickAbility);
 			task.wait();
 		end
 	end});
-	Tab14:AddTextbox({Name="Godmode Player",Default="Username",TextDisappear=false,Callback=function(Value)
+	local GuardianAngelGloveSection = Tab14:AddSection({Name="Guardian Angel Glove"});
+	GuardianAngelGloveSection:AddTextbox({Name="Godmode Player",Default="Username",TextDisappear=false,Callback=function(Value)
 		if ((Value == "Me") or (Value == "me") or (Value == "Username") or (Value == "")) then
 			SaveThePlayer = game.Players.LocalPlayer.Name;
 		else
@@ -1821,7 +1827,7 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			end
 		end
 	end});
-	SavePlayer = Tab14:AddToggle({Name="Auto Godmode Player",Default=false,Callback=function(Value)
+	SavePlayer = GuardianAngelGloveSection:AddToggle({Name="Auto Godmode Player",Default=false,Callback=function(Value)
 		if (SaveThePlayer == nil) then
 			SaveThePlayer = game.Players.LocalPlayer.Name;
 		end
@@ -1837,44 +1843,8 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			SavePlayer:Set(false);
 		end
 	end});
-	Tab14:AddTextbox({Name="Beatdown Player",Default="Username",TextDisappear=false,Callback=function(Value)
-		if ((Value == "Me") or (Value == "me") or (Value == "Username") or (Value == "")) then
-			BeatdownPlayer = game.Players.LocalPlayer.Name;
-		else
-			local targetAbbreviation = Value;
-			local targetPlayer;
-			for _, v in pairs(game.Players:GetPlayers()) do
-				if (string.sub(v.Name, 1, #targetAbbreviation):lower() == targetAbbreviation:lower()) then
-					targetPlayer = v;
-					break;
-				end
-			end
-			if targetPlayer then
-				BeatdownPlayer = targetPlayer.Name;
-				OrionLib:MakeNotification({Name="Error",Content=("Found Player [ " .. BeatdownPlayer .. " ]"),Image="rbxassetid://7733658504",Time=5});
-			else
-				OrionLib:MakeNotification({Name="Error",Content="Can't find player",Image="rbxassetid://7733658504",Time=5});
-			end
-		end
-	end});
-	BeatdownPlayerGet = Tab14:AddToggle({Name="Auto Beatdown Player",Default=false,Callback=function(Value)
-		if (BeatdownPlayer == nil) then
-			BeatdownPlayer = game.Players.LocalPlayer.Name;
-		end
-		BeatdownSpam = Value;
-		if (game.Players.LocalPlayer.leaderstats.Glove.Value == "Beatdown") then
-			while BeatdownSpam and (game.Players.LocalPlayer.leaderstats.Glove.Value == "Beatdown") do
-				game:GetService("ReplicatedStorage").GeneralAbility:FireServer();
-				game:GetService("ReplicatedStorage").beatdownevent:FireServer("standhit", {cf=game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame,hit=game.Players[BeatdownPlayer].Character.HumanoidRootPart});
-				task.wait(0.3);
-			end
-		elseif (BeatdownSpam == true) then
-			OrionLib:MakeNotification({Name="Error",Content="You don't have Beatdown equipped.",Image="rbxassetid://7733658504",Time=5});
-			wait(0.05);
-			BeatdownPlayerGet:Set(false);
-		end
-	end});
-	Tab14:AddTextbox({Name="Spam Rojo Player",Default="Username",TextDisappear=false,Callback=function(Value)
+	local RojoGloveSection = Tab14:AddSection({Name="Rojo Glove"});
+	RojoGloveSection:AddTextbox({Name="Spam Rojo Player",Default="Username",TextDisappear=false,Callback=function(Value)
 		if ((Value == "Me") or (Value == "me") or (Value == "Username") or (Value == "")) then
 			Person = game.Players.LocalPlayer.Name;
 		else
@@ -1894,10 +1864,10 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			end
 		end
 	end});
-	Tab14:AddDropdown({Name="Rojo Ability",Default="",Options={"Normal","Down"},Callback=function(Value)
+	RojoGloveSection:AddDropdown({Name="Rojo Ability",Default="",Options={"Normal","Down"},Callback=function(Value)
 		RojoAbility = Value;
 	end});
-	Tab14:AddToggle({Name="Auto Spam Rojo [ All Glove ]",Default=false,Callback=function(Value)
+	RojoGloveSection:AddToggle({Name="Auto Spam Rojo [ All Glove ]",Default=false,Callback=function(Value)
 		if (Person == nil) then
 			Person = game.Players.LocalPlayer.Name;
 		end
@@ -1911,7 +1881,8 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			task.wait();
 		end
 	end});
-	Tab14:AddTextbox({Name="Spam Divebomb Player",Default="Username",TextDisappear=false,Callback=function(Value)
+	local DivebombGloveSection = Tab14:AddSection({Name="Divebomb Glove"});
+	DivebombGloveSection:AddTextbox({Name="Spam Divebomb Player",Default="Username",TextDisappear=false,Callback=function(Value)
 		if ((Value == "Me") or (Value == "me") or (Value == "Username") or (Value == "")) then
 			DivebombExplosion = game.Players.LocalPlayer.Name;
 		else
@@ -1931,10 +1902,10 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			end
 		end
 	end});
-	Tab14:AddSlider({Name="Charge Explosion",Min=0,Max=100,Default=5,Color=Color3.fromRGB(255, 255, 255),Increment=1,ValueName="Charge",Callback=function(Value)
+	DivebombGloveSection:AddSlider({Name="Charge Explosion",Min=0,Max=100,Default=5,Color=Color3.fromRGB(255, 255, 255),Increment=1,ValueName="Charge",Callback=function(Value)
 		_G.ChargeExplosion = Value;
 	end});
-	AutoSpawnDivebomb = Tab14:AddToggle({Name="Auto Spam Divebomb",Default=false,Callback=function(Value)
+	AutoSpawnDivebomb = DivebombGloveSection:AddToggle({Name="Auto Spam Divebomb",Default=false,Callback=function(Value)
 		if (DivebombExplosion == nil) then
 			DivebombExplosion = game.Players.LocalPlayer.Name;
 		end
@@ -1951,7 +1922,8 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			AutoSpawnDivebomb:Set(false);
 		end
 	end});
-	Tab14:AddTextbox({Name="Make Punish Player",Default="Username",TextDisappear=false,Callback=function(Value)
+	local SwapperGloveSection = Tab14:AddSection({Name="Swapper Glove"});
+	SwapperGloveSection:AddTextbox({Name="Make Punish Player",Default="Username",TextDisappear=false,Callback=function(Value)
 		local targetAbbreviation = Value;
 		local targetPlayer;
 		for _, v in pairs(game.Players:GetPlayers()) do
@@ -1968,7 +1940,7 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 		end
 	end});
 	Cancel = false;
-	Tab14:AddButton({Name="Get Punish Player",Callback=function()
+	SwapperGloveSection:AddButton({Name="Get Punish Player",Callback=function()
 		if (game.Players.LocalPlayer.Character:FindFirstChild("Swapper") or game.Players.LocalPlayer.Backpack:FindFirstChild("Swapper")) then
 			OGL = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame;
 			game.Workspace.VoidPart.VoidPart1.CanCollide = true;
@@ -1998,20 +1970,10 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			OrionLib:MakeNotification({Name="Error",Content="You don't have Swapper equipped, or you aren't in the arena.",Image="rbxassetid://7733658504",Time=5});
 		end
 	end});
-	Tab14:AddButton({Name="Cancel Punish Player",Callback=function()
+	SwapperGloveSection:AddButton({Name="Cancel Punish Player",Callback=function()
 		Cancel = true;
 		wait(0.1);
 		Cancel = false;
-	end});
-	Tab14:AddButton({Name="Beatdown All Player",Callback=function()
-		if (game.Players.LocalPlayer.leaderstats.Glove.Value == "Beatdown") then
-			game:GetService("ReplicatedStorage").GeneralAbility:FireServer();
-			for i, v in pairs(game.Players:GetPlayers()) do
-				game:GetService("ReplicatedStorage").beatdownevent:FireServer("standhit", {cf=game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame,hit=v.Character.HumanoidRootPart});
-			end
-		else
-			OrionLib:MakeNotification({Name="Error",Content="You don't have Beatdown equipped",Image="rbxassetid://7733658504",Time=5});
-		end
 	end});
 	SbeveAll = Tab14:AddToggle({Name="Auto Sbeve All Player",Default=false,Callback=function(Value)
 		_G.AutoSbeveAllPlayer = Value;
@@ -2031,10 +1993,11 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			task.wait();
 		end
 	end});
-	Tab14:AddDropdown({Name="Black Hole",Default="",Options={"Normal","Teleport Cannon Island","Teleport Cannon Island + Black Hole"},Callback=function(Value)
+	local BlackHoleGloveSection = Tab14:AddSection({Name="BlackHole Glove"});
+	BlackHoleGloveSection:AddDropdown({Name="Black Hole",Default="",Options={"Normal","Teleport Cannon Island","Teleport Cannon Island + Black Hole"},Callback=function(Value)
 		_G.BlackHoleCre = Value;
 	end});
-	Tab14:AddButton({Name="Auto Create Black Hole",Callback=function()
+	BlackHoleGloveSection:AddButton({Name="Auto Create Black Hole",Callback=function()
 		if (_G.BlackHoleCre == "Normal") then
 			if ((game.Players.LocalPlayer.Character:FindFirstChild("entered") == nil) and game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 2125950512) and game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 2147429609)) then
 				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Origo.CFrame * CFrame.new(0, 30, 0);
@@ -2148,7 +2111,7 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			end
 		end
 	end});
-	Tab14:AddToggle({Name="Auto Teleport Black Hole",Default=false,Callback=function(Value)
+	BlackHoleGloveSection:AddToggle({Name="Auto Teleport Black Hole",Default=false,Callback=function(Value)
 		_G.TeleportBlackHole = Value;
 		while _G.TeleportBlackHole do
 			if game.Players.LocalPlayer.Character:FindFirstChild("entered") then
@@ -2191,7 +2154,8 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			OrionLib:MakeNotification({Name="Error",Content="You don't have Reverse equipped.",Image="rbxassetid://7733658504",Time=5});
 		end
 	end});
-	Tab14:AddTextbox({Name="Teleport Player Recall",Default="Username",TextDisappear=false,Callback=function(Value)
+	local RecallGloveSection = Tab14:AddSection({Name="Recall Glove"});
+	RecallGloveSection:AddTextbox({Name="Teleport Player Recall",Default="Username",TextDisappear=false,Callback=function(Value)
 		local targetAbbreviation = Value;
 		local targetPlayer;
 		for _, v in pairs(game.Players:GetPlayers()) do
@@ -2207,10 +2171,10 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			OrionLib:MakeNotification({Name="Error",Content="Can't find player",Image="rbxassetid://7733658504",Time=5});
 		end
 	end});
-	Tab14:AddDropdown({Name="Teleport Old Place",Default="Yes",Options={"Yes","No","Player"},Callback=function(Value)
+	RecallGloveSection:AddDropdown({Name="Teleport Old Place",Default="Yes",Options={"Yes","No","Player"},Callback=function(Value)
 		_G.TeleportOldPlace = Value;
 	end});
-	Tab14:AddButton({Name="Player Teleport",Callback=function()
+	RecallGloveSection:AddButton({Name="Player Teleport",Callback=function()
 		if (game.Players.LocalPlayer.Character:FindFirstChild("entered") and (game.Players.LocalPlayer.leaderstats.Glove.Value == "Recall") and (game.Players.LocalPlayer.Backpack:FindFirstChild("Recall") == nil)) then
 			if (_G.TeleportOldPlace == "Yes") then
 				OLG = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame;
@@ -2228,7 +2192,8 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			OrionLib:MakeNotification({Name="Error",Content="You don't have Recall equipped or you haven't in arena or you have equip Backpack Recall.",Image="rbxassetid://7733658504",Time=5});
 		end
 	end});
-	Tab14:AddButton({Name="Kick Player Za Hando",Callback=function()
+	local ZaHandoGloveSection = Tab14:AddSection({Name="ZaHando Glove"});
+	ZaHandoGloveSection:AddButton({Name="Kick Player Za Hando",Callback=function()
 		if (game.Players.LocalPlayer.leaderstats.Glove.Value == "Za Hando") then
 			OGWS = game.Players.LocalPlayer.Character.Humanoid.WalkSpeed;
 			OGJP = game.Players.LocalPlayer.Character.Humanoid.JumpPower;
@@ -2252,7 +2217,7 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			OrionLib:MakeNotification({Name="Error",Content="You don't have Za Hando equipped.",Image="rbxassetid://7733658504",Time=5});
 		end
 	end});
-	Tab14:AddTextbox({Name="Kick Player Recall",Default="Username",TextDisappear=false,Callback=function(Value)
+	RecallGloveSection:AddTextbox({Name="Kick Player Recall",Default="Username",TextDisappear=false,Callback=function(Value)
 		local targetAbbreviation = Value;
 		local targetPlayer;
 		for _, v in pairs(game.Players:GetPlayers()) do
@@ -2268,7 +2233,7 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			OrionLib:MakeNotification({Name="Error",Content="Can't find player",Image="rbxassetid://7733658504",Time=5});
 		end
 	end});
-	Tab14:AddButton({Name="Start Kick Player Recall",Callback=function()
+	RecallGloveSection:AddButton({Name="Start Kick Player Recall",Callback=function()
 		if ((game.Players.LocalPlayer.leaderstats.Glove.Value == "Recall") and game.Players.LocalPlayer.Character:FindFirstChild("Recall") and game.Players.LocalPlayer.Character:FindFirstChild("entered") and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") and game.Players[PlayerKick].Character:FindFirstChild("entered") and game.Players[PlayerKick].Character:FindFirstChild("HumanoidRootPart")) then
 			OGL = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame;
 			for i, v in pairs(game.Workspace.Lobby.brazil:GetChildren()) do
@@ -2288,13 +2253,14 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			OrionLib:MakeNotification({Name="Error",Content="You don't have Recall equipped, or you have Backpack Recall equipped, or player not enter arena",Image="rbxassetid://7733658504",Time=5});
 		end
 	end});
-	Tab14:AddDropdown({Name="Potion",Default="Speed",Options={"Grug","idIot","Nightmare","Confusion","Power","Paralyzing","Haste","Invisibility","Explosion","Invincible","Toxic","Freeze","Feather","Speed","Lethal","Slow","Antitoxin","Corrupted Vine","Field"},Callback=function(Value)
+	local AlchemistGloveSection = Tab14:AddSection({Name="Alchemist Glove"});
+	AlchemistGloveSection:AddDropdown({Name="Potion",Default="Speed",Options={"Grug","idIot","Nightmare","Confusion","Power","Paralyzing","Haste","Invisibility","Explosion","Invincible","Toxic","Freeze","Feather","Speed","Lethal","Slow","Antitoxin","Corrupted Vine","Field"},Callback=function(Value)
 		_G.MakePotion = Value;
 	end});
-	Tab14:AddSlider({Name="Medicine Mix Potion",Min=1,Max=200,Default=5,Color=Color3.fromRGB(255, 255, 255),Increment=1,ValueName="Mix",Callback=function(Value)
+	AlchemistGloveSection:AddSlider({Name="Medicine Mix Potion",Min=1,Max=200,Default=5,Color=Color3.fromRGB(255, 255, 255),Increment=1,ValueName="Mix",Callback=function(Value)
 		_G.GivePotion = Value;
 	end});
-	Tab14:AddButton({Name="Get Potions",Callback=function()
+	AlchemistGloveSection:AddButton({Name="Get Potions",Callback=function()
 		if (game.Players.LocalPlayer.leaderstats.Glove.Value == "Alchemist") then
 			if not game.Workspace:FindFirstChild(game.Players.LocalPlayer.Name .. "'s Cauldron") then
 				game:GetService("ReplicatedStorage").GeneralAbility:FireServer();
@@ -2314,7 +2280,7 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			OrionLib:MakeNotification({Name="Error",Content="You don't have Alchemist equipped",Image="rbxassetid://7733658504",Time=5});
 		end
 	end});
-	PotionAuto = Tab14:AddToggle({Name="Auto Potion",Default=false,Callback=function(Value)
+	PotionAuto = AlchemistGloveSection:AddToggle({Name="Auto Potion",Default=false,Callback=function(Value)
 		_G.AutoGetPotion = Value;
 		if (game.Players.LocalPlayer.leaderstats.Glove.Value == "Alchemist") then
 			while _G.AutoGetPotion and (game.Players.LocalPlayer.leaderstats.Glove.Value == "Alchemist") do
@@ -2334,25 +2300,25 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			PotionAuto:Set(false);
 		end
 	end});
-	Tab14:AddDropdown({Name="Potion Throw",Default="Speed Potion",Options={"Grug Potion","IdIot Potion","Nightmare Potion","Confusion Potion","Power Potion","Paralyzing Potion","Haste Potion","Invisibility Potion","Expotion","Invincible Potion","Toxic Potion","Freeze Potion","Feather Potion","Speed Potion","Lethal Poison","Slow Potion","Antitoxin Potion"},Callback=function(Value)
+	AlchemistGloveSection:AddDropdown({Name="Potion Throw",Default="Speed Potion",Options={"Grug Potion","IdIot Potion","Nightmare Potion","Confusion Potion","Power Potion","Paralyzing Potion","Haste Potion","Invisibility Potion","Expotion","Invincible Potion","Toxic Potion","Freeze Potion","Feather Potion","Speed Potion","Lethal Poison","Slow Potion","Antitoxin Potion"},Callback=function(Value)
 		_G.PotionThrownNuke = Value;
 	end});
 	if (_G.NukeExtend == nil) then
 		_G.NukeExtend = "90";
 	end
-	Tab14:AddTextbox({Name="Nuke Extend",Default="UseNumber",TextDisappear=false,Callback=function(Value)
+	AlchemistGloveSection:AddTextbox({Name="Nuke Extend",Default="UseNumber",TextDisappear=false,Callback=function(Value)
 		_G.NukeExtend = Value;
 	end});
 	if (_G.NukeHeightPotion == nil) then
 		_G.NukeHeightPotion = "-5";
 	end
-	Tab14:AddTextbox({Name="Nuke Potion Height",Default="UseNumber",TextDisappear=false,Callback=function(Value)
+	AlchemistGloveSection:AddTextbox({Name="Nuke Potion Height",Default="UseNumber",TextDisappear=false,Callback=function(Value)
 		_G.NukeHeightPotion = Value;
 	end});
-	Tab14:AddDropdown({Name="Place",Default="",Options={"Arena","Island Slapple","Tournament","Moai Island","Player"},Callback=function(Value)
+	AlchemistGloveSection:AddDropdown({Name="Place",Default="",Options={"Arena","Island Slapple","Tournament","Moai Island","Player"},Callback=function(Value)
 		_G.PhaceNuke = Value;
 	end});
-	PotionThrowNukeAuto = Tab14:AddToggle({Name="Auto Throw Nuke Potion",Default=false,Callback=function(Value)
+	PotionThrowNukeAuto = AlchemistGloveSection:AddToggle({Name="Auto Throw Nuke Potion",Default=false,Callback=function(Value)
 		_G.AutoThrowPotion = Value;
 		if (_G.AutoThrowPotion == false) then
 			if (game.Workspace.CurrentCamera and game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Humanoid")) then
@@ -2405,17 +2371,18 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			PotionThrowNukeAuto:Set(false);
 		end
 	end});
-	Tab14:AddTextbox({Name="Speed Ping Pong",Default="UserSpeed",TextDisappear=false,Callback=function(Value)
+	local PingPongGloveSection = Tab14:AddSection({Name="PingPong Glove"});
+	PingPongGloveSection:AddTextbox({Name="Speed Ping Pong",Default="UserSpeed",TextDisappear=false,Callback=function(Value)
 		if ((Value == "inf") or (Value == "Inf") or (Value == "infinity") or (Value == "Infinity")) then
 			OrbitSpeed = 8999999488;
 		else
 			OrbitSpeed = Value;
 		end
 	end});
-	Tab14:AddSlider({Name="Extend Ping Pong",Min=0,Max=200,Default=15,Color=Color3.fromRGB(255, 255, 255),Increment=1,ValueName="Extend",Callback=function(Value)
+	PingPongGloveSection:AddSlider({Name="Extend Ping Pong",Min=0,Max=200,Default=15,Color=Color3.fromRGB(255, 255, 255),Increment=1,ValueName="Extend",Callback=function(Value)
 		_G.ExtendPingPong = Value;
 	end});
-	PingPong = Tab14:AddToggle({Name="Ping Pong Orbit",Default=false,Callback=function(Value)
+	PingPong = PingPongGloveSection:AddToggle({Name="Ping Pong Orbit",Default=false,Callback=function(Value)
 		PingPongOrbit = Value;
 		if (game.Players.LocalPlayer.leaderstats.Glove.Value == "Ping Pong") then
 			game.Players.LocalPlayer.Character.Torso.RadioPart.Rotation = game.Players.LocalPlayer.Character.HumanoidRootPart.Rotation;
@@ -2455,7 +2422,7 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			PingPong:Set(false);
 		end
 	end});
-	PingPongFling = Tab14:AddToggle({Name="Ping Pong Fling",Default=false,Callback=function(Value)
+	PingPongFling = PingPongGloveSection:AddToggle({Name="Ping Pong Fling",Default=false,Callback=function(Value)
 		_G.PingPongFlingAll = Value;
 		if (game.Players.LocalPlayer.leaderstats.Glove.Value == "Ping Pong") then
 			PingPongBall = game.Players.LocalPlayer.Name .. "_PingPongBall";
@@ -2482,7 +2449,7 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			PingPongFling:Set(false);
 		end
 	end});
-	Tab14:AddTextbox({Name="Ping Pong Player",Default="Username",TextDisappear=false,Callback=function(Value)
+	PingPongGloveSection:AddTextbox({Name="Ping Pong Player",Default="Username",TextDisappear=false,Callback=function(Value)
 		local targetAbbreviation = Value;
 		local targetPlayer;
 		for _, v in pairs(game.Players:GetPlayers()) do
@@ -2498,10 +2465,10 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			OrionLib:MakeNotification({Name="Error",Content="Can't find player",Image="rbxassetid://7733658504",Time=5});
 		end
 	end});
-	Tab14:AddSlider({Name="Extend Ping Pong Player",Min=0,Max=50,Default=15,Color=Color3.fromRGB(255, 255, 255),Increment=1,ValueName="Extend",Callback=function(Value)
+	PingPongGloveSection:AddSlider({Name="Extend Ping Pong Player",Min=0,Max=50,Default=15,Color=Color3.fromRGB(255, 255, 255),Increment=1,ValueName="Extend",Callback=function(Value)
 		_G.ExtendPingPongPlayer = Value;
 	end});
-	PingPongPlayerFling = Tab14:AddToggle({Name="Ping Pong Player",Default=false,Callback=function(Value)
+	PingPongPlayerFling = PingPongGloveSection:AddToggle({Name="Ping Pong Player",Default=false,Callback=function(Value)
 		_G.PingPongFlingPlayer = Value;
 		if (game.Players.LocalPlayer.leaderstats.Glove.Value == "Ping Pong") then
 			PingPongBall = game.Players.LocalPlayer.Name .. "_PingPongBall";
@@ -2788,17 +2755,17 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			FarmBlink:Set(false);
 		end
 	end});
-	Tab14:AddDropdown({Name="Ingredient",Default="",Options={"Autumn Sprout","Blood Rose","Blue Crystal","Dark Root","Dire Flower","Elder Wood","Fire Flower","Glowing Mushroom","Hazel Lily","Jade Stone","Lamp Grass","Mushroom","Plane Flower","Red Crystal","Wild Vine","Winter Rose","Cake Mix"},Callback=function(Value)
+	AlchemistGloveSection:AddDropdown({Name="Ingredient",Default="",Options={"Autumn Sprout","Blood Rose","Blue Crystal","Dark Root","Dire Flower","Elder Wood","Fire Flower","Glowing Mushroom","Hazel Lily","Jade Stone","Lamp Grass","Mushroom","Plane Flower","Red Crystal","Wild Vine","Winter Rose","Cake Mix"},Callback=function(Value)
 		AlchemistIngredientsGet = Value;
 	end});
-	Tab14:AddButton({Name="Get Alchemist Ingredients",Callback=function()
+	AlchemistGloveSection:AddButton({Name="Get Alchemist Ingredients",Callback=function()
 		if (game.Players.LocalPlayer.leaderstats.Glove.Value == "Alchemist") then
 			game.ReplicatedStorage.AlchemistEvent:FireServer("AddItem", AlchemistIngredientsGet);
 		else
 			OrionLib:MakeNotification({Name="Error",Content="You don't have Alchemist equipped.",Image="rbxassetid://7733658504",Time=5});
 		end
 	end});
-	GetAlchemist = Tab14:AddToggle({Name="Auto Get Alchemist Ingredients",Default=false,Callback=function(Value)
+	GetAlchemist = AlchemistGloveSection:AddToggle({Name="Auto Get Alchemist Ingredients",Default=false,Callback=function(Value)
 		AlchemistIngredients = Value;
 		if (game.Players.LocalPlayer.leaderstats.Glove.Value == "Alchemist") then
 			while AlchemistIngredients and (game.Players.LocalPlayer.leaderstats.Glove.Value == "Alchemist") do
@@ -2811,7 +2778,7 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			GetAlchemist:Set(false);
 		end
 	end});
-	GetAllAlchemist = Tab14:AddToggle({Name="Get All Alchemist Ingredients",Default=false,Callback=function(Value)
+	GetAllAlchemist = AlchemistGloveSection:AddToggle({Name="Get All Alchemist Ingredients",Default=false,Callback=function(Value)
 		AlchemistIngredients = Value;
 		if (game.Players.LocalPlayer.leaderstats.Glove.Value == "Alchemist") then
 			while AlchemistIngredients and (game.Players.LocalPlayer.leaderstats.Glove.Value == "Alchemist") do
@@ -2840,13 +2807,14 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			GetAllAlchemist:Set(false);
 		end
 	end});
-	Tab14:AddSlider({Name="Extend HitBox Rob",Min=5,Max=400,Default=20,Color=Color3.fromRGB(255, 255, 255),Increment=1,ValueName="Extend",Callback=function(Value)
+	local RobGloveSection = Tab14:AddSection({Name="Rob Glove"});
+	RobGloveSection:AddSlider({Name="Extend HitBox Rob",Min=5,Max=400,Default=20,Color=Color3.fromRGB(255, 255, 255),Increment=1,ValueName="Extend",Callback=function(Value)
 		_G.ExtendHitboxRob = Value;
 	end});
-	Tab14:AddColorpicker({Name="Color Hitbox Rob",Default=Color3.fromRGB(255, 255, 255),Callback=function(Value)
+	RobGloveSection:AddColorpicker({Name="Color Hitbox Rob",Default=Color3.fromRGB(255, 255, 255),Callback=function(Value)
 		_G.ColorHitboxRob = Value;
 	end});
-	Tab14:AddToggle({Name="Hitbox All Rob & Color",Default=false,Callback=function(Value)
+	RobGloveSection:AddToggle({Name="Hitbox All Rob & Color",Default=false,Callback=function(Value)
 		_G.HitboxRob = Value;
 		while _G.HitboxRob do
 			for i, v in pairs(game.Workspace:GetChildren()) do
@@ -2888,10 +2856,11 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			end
 		end
 	end});
-	Tab14:AddSlider({Name="Speed Cloud",Min=0.1,Max=1.2,Default=0.5,Color=Color3.fromRGB(255, 255, 255),Increment=0.1,ValueName="Speed",Callback=function(Value)
+	local CloudGloveSection = Tab14:AddSection({Name="Cloud Glove"});
+	CloudGloveSection:AddSlider({Name="Speed Cloud",Min=0.1,Max=1.2,Default=0.5,Color=Color3.fromRGB(255, 255, 255),Increment=0.1,ValueName="Speed",Callback=function(Value)
 		_G.SetSpeedCloud = Value;
 	end});
-	CloudSpeed = Tab14:AddToggle({Name="Auto Set Cloud Speed",Default=false,Callback=function(Value)
+	CloudSpeed = CloudGloveSection:AddToggle({Name="Auto Set Cloud Speed",Default=false,Callback=function(Value)
 		_G.CloudSpeed = Value;
 		if (game.Players.LocalPlayer.leaderstats.Glove.Value == "Cloud") then
 			while _G.CloudSpeed and (game.Players.LocalPlayer.leaderstats.Glove.Value == "Cloud") do
@@ -2908,10 +2877,10 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			CloudSpeed:Set(false);
 		end
 	end});
-	Tab14:AddDropdown({Name="Cloud Bring",Default="",Options={"Player","Your"},Callback=function(Value)
+	CloudGloveSection:AddDropdown({Name="Cloud Bring",Default="",Options={"Player","Your"},Callback=function(Value)
 		_G.CloudBring = Value;
 	end});
-	Tab14:AddTextbox({Name="Bring Cloud Player",Default="Username",TextDisappear=false,Callback=function(Value)
+	CloudGloveSection:AddTextbox({Name="Bring Cloud Player",Default="Username",TextDisappear=false,Callback=function(Value)
 		local targetAbbreviation = Value;
 		local targetPlayer;
 		for _, v in pairs(game.Players:GetPlayers()) do
@@ -2927,7 +2896,7 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			OrionLib:MakeNotification({Name="Error",Content="Can't find player",Image="rbxassetid://7733658504",Time=5});
 		end
 	end});
-	CloudBringSit = Tab14:AddToggle({Name="Auto Bring Cloud",Default=false,Callback=function(Value)
+	CloudBringSit = CloudGloveSection:AddToggle({Name="Auto Bring Cloud",Default=false,Callback=function(Value)
 		_G.BringCloud = Value;
 		if (game.Players.LocalPlayer.leaderstats.Glove.Value == "Cloud") then
 			while _G.BringCloud and (_G.CloudBring == "Player") and (game.Players.LocalPlayer.leaderstats.Glove.Value == "Cloud") do
@@ -2956,10 +2925,11 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			CloudBringSit:Set(false);
 		end
 	end});
-	Tab14:AddDropdown({Name="Firework Bring",Default="",Options={"Player","Your"},Callback=function(Value)
+	local FireworkGloveSection = Tab14:AddSection({Name="Firework Glove"});
+	FireworkGloveSection:AddDropdown({Name="Firework Bring",Default="",Options={"Player","Your"},Callback=function(Value)
 		_G.FireworkBring = Value;
 	end});
-	Tab14:AddTextbox({Name="Bring Firework Player",Default="Username",TextDisappear=false,Callback=function(Value)
+	FireworkGloveSection:AddTextbox({Name="Bring Firework Player",Default="Username",TextDisappear=false,Callback=function(Value)
 		local targetAbbreviation = Value;
 		local targetPlayer;
 		for _, v in pairs(game.Players:GetPlayers()) do
@@ -2975,7 +2945,7 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			OrionLib:MakeNotification({Name="Error",Content="Can't find player",Image="rbxassetid://7733658504",Time=5});
 		end
 	end});
-	FireworkBringSit = Tab14:AddToggle({Name="Auto Bring Firework",Default=false,Callback=function(Value)
+	FireworkBringSit = FireworkGloveSection:AddToggle({Name="Auto Bring Firework",Default=false,Callback=function(Value)
 		_G.BringFirework = Value;
 		if (game.Players.LocalPlayer.leaderstats.Glove.Value == "Firework") then
 			while _G.BringFirework and (_G.FireworkBring == "Player") and (game.Players.LocalPlayer.leaderstats.Glove.Value == "Firework") do
@@ -3004,7 +2974,8 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			FireworkBringSit:Set(false);
 		end
 	end});
-	FullKinetic = Tab14:AddToggle({Name="Auto Full Kinetic",Default=false,Callback=function(Value)
+	local KineticGloveSection = Tab14:AddSection({Name="Kinetic Glove"});
+	FullKinetic = KineticGloveSection:AddToggle({Name="Auto Full Kinetic",Default=false,Callback=function(Value)
 		FullKineticSpam = Value;
 		if ((game.Players.LocalPlayer.leaderstats.Glove.Value == "Kinetic") and game.Players.LocalPlayer.Character:FindFirstChild("entered")) then
 			while FullKineticSpam and (game.Players.LocalPlayer.leaderstats.Glove.Value == "Kinetic") do
@@ -3017,7 +2988,8 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			FullKinetic:Set(false);
 		end
 	end});
-	Tab14:AddButton({Name="Infinite Invisibility",Callback=function()
+	local GhostGloveSection = Tab14:AddSection({Name="Ghost Glove"});
+	GhostGloveSection:AddButton({Name="Infinite Invisibility",Callback=function()
 		if ((game.Players.LocalPlayer.Character:FindFirstChild("entered") == nil) and (game.Players.LocalPlayer.leaderstats.Slaps.Value >= 666)) then
 			OGlove = game.Players.LocalPlayer.leaderstats.Glove.Value;
 			fireclickdetector(workspace.Lobby.Ghost.ClickDetector);
@@ -3031,7 +3003,7 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			OrionLib:MakeNotification({Name="Error",Content="You need to be in lobby and have 666+ slaps.",Image="rbxassetid://7733658504",Time=5});
 		end
 	end});
-	Tab14:AddTextbox({Name="Make Void Player",Default="Username",TextDisappear=false,Callback=function(Value)
+	SwapperGloveSection:AddTextbox({Name="Make Void Player",Default="Username",TextDisappear=false,Callback=function(Value)
 		local targetAbbreviation = Value;
 		local targetPlayer;
 		for _, v in pairs(game.Players:GetPlayers()) do
@@ -3047,7 +3019,7 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			OrionLib:MakeNotification({Name="Error",Content="Can't find player",Image="rbxassetid://7733658504",Time=5});
 		end
 	end});
-	Tab14:AddButton({Name="Player Teleport Void",Callback=function()
+	SwapperGloveSection:AddButton({Name="Player Teleport Void",Callback=function()
 		if (game.Players.LocalPlayer.Character:FindFirstChild("Swapper") or game.Players.LocalPlayer.Backpack:FindFirstChild("Swapper")) then
 			OGL = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame;
 			task.wait(0.25);
@@ -3069,7 +3041,7 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			OrionLib:MakeNotification({Name="Error",Content="You don't have Swapper equipped, or you aren't in the arena.",Image="rbxassetid://7733658504",Time=5});
 		end
 	end});
-	Tab14:AddButton({Name="Random Player Teleport Void",Callback=function()
+	SwapperGloveSection:AddButton({Name="Random Player Teleport Void",Callback=function()
 		if (game.Players.LocalPlayer.Character:FindFirstChild("Swapper") or game.Players.LocalPlayer.Backpack:FindFirstChild("Swapper")) then
 			OGL = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame;
 			local players = game.Players:GetChildren();
@@ -3096,7 +3068,8 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			OrionLib:MakeNotification({Name="Error",Content="You don't have Swapper equipped, or you aren't in the arena.",Image="rbxassetid://7733658504",Time=5});
 		end
 	end});
-	Tab14:AddTextbox({Name="Make Kill Player",Default="Username",TextDisappear=false,Callback=function(Value)
+	local HomeRunGloveSection = Tab14:AddSection({Name="HomeRun Glove"});
+	HomeRunGloveSection:AddTextbox({Name="Make Kill Player",Default="Username",TextDisappear=false,Callback=function(Value)
 		local targetAbbreviation = Value;
 		local targetPlayer;
 		for _, v in pairs(game.Players:GetPlayers()) do
@@ -3112,7 +3085,7 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			OrionLib:MakeNotification({Name="Error",Content="Can't find player",Image="rbxassetid://7733658504",Time=5});
 		end
 	end});
-	Tab14:AddButton({Name="Get Kill Player",Callback=function()
+	HomeRunGloveSection:AddButton({Name="Get Kill Player",Callback=function()
 		if ((game.Players.LocalPlayer.leaderstats.Glove.Value == "Home Run") and game.Players[_G.KillerPlayer].Character:FindFirstChild("entered")) then
 			OGL = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame;
 			OGLZ = game.Players[_G.KillerPlayer].Character.HumanoidRootPart.Size;
@@ -3129,7 +3102,7 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			OrionLib:MakeNotification({Name="Error",Content="You don't have Home Run equipped",Image="rbxassetid://7733658504",Time=5});
 		end
 	end});
-	Tab14:AddButton({Name="Kill Player Random",Callback=function()
+	HomeRunGloveSection:AddButton({Name="Kill Player Random",Callback=function()
 		if (game.Players.LocalPlayer.leaderstats.Glove.Value == "Home Run") then
 			OGL = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame;
 			game:GetService("ReplicatedStorage").HomeRun:FireServer({start=true});
@@ -3153,7 +3126,8 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			OrionLib:MakeNotification({Name="Error",Content="You don't have Home Run equipped",Image="rbxassetid://7733658504",Time=5});
 		end
 	end});
-	Tab14:AddTextbox({Name="Make Player Quake",Default="Username",TextDisappear=false,Callback=function(Value)
+	local QuakeGloveSection = Tab14:AddSection({Name="Quake Glove"});
+	QuakeGloveSection:AddTextbox({Name="Make Player Quake",Default="Username",TextDisappear=false,Callback=function(Value)
 		local targetAbbreviation = Value;
 		local targetPlayer;
 		for _, v in pairs(game.Players:GetPlayers()) do
@@ -3169,7 +3143,7 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			OrionLib:MakeNotification({Name="Error",Content="Can't find player",Image="rbxassetid://7733658504",Time=5});
 		end
 	end});
-	Tab14:AddButton({Name="Get Player Quake",Callback=function()
+	QuakeGloveSection:AddButton({Name="Get Player Quake",Callback=function()
 		if ((game.Players.LocalPlayer.leaderstats.Glove.Value == "Quake") and game.Players.LocalPlayer.Character:FindFirstChild("entered") and game.Players[_G.PressIntoTheGround].Character:FindFirstChild("entered")) then
 			game.Players.LocalPlayer.Character.Humanoid:UnequipTools();
 			game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack.Quake);
@@ -3186,7 +3160,7 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			OrionLib:MakeNotification({Name="Error",Content="You don't have Quake equipped.",Image="rbxassetid://7733658504",Time=5});
 		end
 	end});
-	Tab14:AddButton({Name="Player Quake Random",Callback=function()
+	QuakeGloveSection:AddButton({Name="Player Quake Random",Callback=function()
 		if ((game.Players.LocalPlayer.leaderstats.Glove.Value == "Quake") and game.Players.LocalPlayer.Character:FindFirstChild("entered")) then
 			game.Players.LocalPlayer.Character.Humanoid:UnequipTools();
 			game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack.Quake);
@@ -3209,7 +3183,8 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			OrionLib:MakeNotification({Name="Error",Content="You don't have Quake equipped",Image="rbxassetid://7733658504",Time=5});
 		end
 	end});
-	Tab14:AddTextbox({Name="Make Player Cards",Default="Username",TextDisappear=false,Callback=function(Value)
+	local JesterGloveSection = Tab14:AddSection({Name="Jester Glove"});
+	JesterGloveSection:AddTextbox({Name="Make Player Cards",Default="Username",TextDisappear=false,Callback=function(Value)
 		if ((Value == "Me") or (Value == "me") or (Value == "Username") or (Value == "")) then
 			PersonCar = game.Players.LocalPlayer.Name;
 		else
@@ -3229,14 +3204,14 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			end
 		end
 	end});
-	Tab14:AddButton({Name="Cards Player",Callback=function()
+	JesterGloveSection:AddButton({Name="Cards Player",Callback=function()
 		if (game.Players.LocalPlayer.leaderstats.Glove.Value == "Jester") then
 			game:GetService("ReplicatedStorage").GeneralAbility:FireServer("Ability3", game.Players[PersonCar]);
 		else
 			OrionLib:MakeNotification({Name="Error",Content="You don't have Jester glove equipped",Image="rbxassetid://7733658504",Time=5});
 		end
 	end});
-	Tab14:AddButton({Name="Cards Player Random",Callback=function()
+	JesterGloveSection:AddButton({Name="Cards Player Random",Callback=function()
 		if (game.Players.LocalPlayer.leaderstats.Glove.Value == "Jester") then
 			local players = game.Players:GetChildren();
 			local RandomPlayer = players[math.random(1, #players)];
@@ -3249,7 +3224,8 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			OrionLib:MakeNotification({Name="Error",Content="You don't have Jester glove equipped",Image="rbxassetid://7733658504",Time=5});
 		end
 	end});
-	Tab14:AddTextbox({Name="Make Oven Player",Default="Username",TextDisappear=false,Callback=function(Value)
+	local OvenGloveSection = Tab14:AddSection({Name="Oven Glove"});
+	OvenGloveSection:AddTextbox({Name="Make Oven Player",Default="Username",TextDisappear=false,Callback=function(Value)
 		local targetAbbreviation = Value;
 		local targetPlayer;
 		for _, v in pairs(game.Players:GetPlayers()) do
@@ -3265,7 +3241,7 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			OrionLib:MakeNotification({Name="Error",Content="Can't find player",Image="rbxassetid://7733658504",Time=5});
 		end
 	end});
-	AutoOven = Tab14:AddToggle({Name="Auto Oven Player",Default=false,Callback=function(Value)
+	AutoOven = OvenGloveSection:AddToggle({Name="Auto Oven Player",Default=false,Callback=function(Value)
 		_G.OvenPlayerAuto = Value;
 		if (game.Players.LocalPlayer.leaderstats.Glove.Value == "Oven") then
 			while _G.OvenPlayerAuto and (game.Players.LocalPlayer.leaderstats.Glove.Value == "Oven") do
@@ -3280,7 +3256,7 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			AutoOven:Set(false);
 		end
 	end});
-	AutoOvenRandom = Tab14:AddToggle({Name="Auto Oven Player Random",Default=false,Callback=function(Value)
+	AutoOvenRandom = OvenGloveSection:AddToggle({Name="Auto Oven Player Random",Default=false,Callback=function(Value)
 		_G.OvenPlayerAutoRandom = Value;
 		if (game.Players.LocalPlayer.leaderstats.Glove.Value == "Oven") then
 			while _G.OvenPlayerAutoRandom and (game.Players.LocalPlayer.leaderstats.Glove.Value == "Oven") do
@@ -3301,10 +3277,11 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			AutoOvenRandom:Set(false);
 		end
 	end});
-	Tab14:AddColorpicker({Name="Set Color Skin",Default=Color3.fromRGB(255, 0, 0),Callback=function(Value)
+	local GoldenGloveSection = Tab14:AddSection({Name="Golden Glove"});
+	GoldenGloveSection:AddColorpicker({Name="Set Color Skin",Default=Color3.fromRGB(255, 0, 0),Callback=function(Value)
 		_G.skinColor = Value;
 	end});
-	ColorSkin = Tab14:AddToggle({Name="Auto Color Skin",Default=false,Callback=function(Value)
+	ColorSkin = GoldenGloveSection:AddToggle({Name="Auto Color Skin",Default=false,Callback=function(Value)
 		_G.GoldColor = Value;
 		if (game.Players.LocalPlayer.leaderstats.Glove.Value == "Golden") then
 			while _G.GoldColor and (game.Players.LocalPlayer.leaderstats.Glove.Value == "Golden") do
@@ -3317,7 +3294,7 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			ColorSkin:Set(false);
 		end
 	end});
-	RainBox = Tab14:AddToggle({Name="Auto Rainbow",Default=false,Callback=function(Value)
+	RainBox = GoldenGloveSection:AddToggle({Name="Auto Rainbow",Default=false,Callback=function(Value)
 		_G.Rainbow = Value;
 		if (game.Players.LocalPlayer.leaderstats.Glove.Value == "Golden") then
 			while _G.Rainbow and (game.Players.LocalPlayer.leaderstats.Glove.Value == "Golden") do
