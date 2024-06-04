@@ -4920,12 +4920,15 @@ game.CoreGui.RobloxLoadingGUI:Destroy()
 			end
 		end
 	end});
-	Tab7:AddSlider({Name="Extend Glove",Min=2,Max=50,Default=5,Color=Color3.fromRGB(255, 255, 255),Increment=1,ValueName="Extend",Callback=function(Value)
-		_G.GloveExtendReach = Value;
+	Tab7:AddSlider({Name="Extend Glove ( X )",Min=2,Max=50,Default=5,Color=Color3.fromRGB(255, 255, 255),Increment=1,ValueName="x",Callback=function(Value)
+		_G.GloveExtendReachX = Value;
 	end});
-	Tab7:AddDropdown({Name="Extend Option",Default="Meat Stick",Options={"Meat Stick","Pancake","Growth","North Korea Wall","Slight Extend"},Callback=function(Value)
-		GloveExtendOption = Value;
+	Tab7:AddSlider({Name="Extend Glove ( Y )",Min=2,Max=50,Default=5,Color=Color3.fromRGB(255, 255, 255),Increment=1,ValueName="y",Callback=function(Value)
+		_G.GloveExtendReachY = Value;
 	end});
+	Tab7:AddSlider({Name="Extend Glove ( Z )",Min=2,Max=50,Default=5,Color=Color3.fromRGB(255, 255, 255),Increment=1,ValueName="z",Callback=function(Value)
+		_G.GloveExtendReachZ = Value;
+	end});	
 	Tab7:AddToggle({Name="Extend Glove",Default=false,Callback=function(Value)
 		_G.GloveExtendGet = Value;
 		while _G.GloveExtendGet do
@@ -4933,17 +4936,7 @@ game.CoreGui.RobloxLoadingGUI:Destroy()
 				for _, v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
 					if (v:IsA("Tool") and (v.Name ~= "Radio")) then
 						if (v:FindFirstChild("Glove") ~= nil) then
-							if (GloveExtendOption == "Meat Stick") then
-								v:FindFirstChild("Glove").Size = Vector3.new(0, _G.GloveExtendReach, 2);
-							elseif (GloveExtendOption == "Pancake") then
-								v:FindFirstChild("Glove").Size = Vector3.new(0, _G.GloveExtendReach, _G.GloveExtendReach);
-							elseif (GloveExtendOption == "Growth") then
-								v:FindFirstChild("Glove").Size = Vector3.new(_G.GloveExtendReach, _G.GloveExtendReach, _G.GloveExtendReach);
-							elseif (GloveExtendOption == "North Korea Wall") then
-								v:FindFirstChild("Glove").Size = Vector3.new(_G.GloveExtendReach, 0, _G.GloveExtendReach);
-							elseif (GloveExtendOption == "Slight Extend") then
-								v:FindFirstChild("Glove").Size = Vector3.new(3, 3, 3.7);
-							end
+							v:FindFirstChild("Glove").Size = Vector3.new(_G.GloveExtendReachX, _G.GloveExtendReachY, _G.GloveExtendReachZ);
 							v:FindFirstChild("Glove").Transparency = 0.5;
 						end
 					end
@@ -4952,17 +4945,7 @@ game.CoreGui.RobloxLoadingGUI:Destroy()
 				for _, v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
 					if (v:IsA("Tool") and (v.Name ~= "Radio")) then
 						if (v:FindFirstChild("Glove") ~= nil) then
-							if (GloveExtendOption == "Meat Stick") then
-								v:FindFirstChild("Glove").Size = Vector3.new(0, _G.GloveExtendReach, 2);
-							elseif (GloveExtendOption == "Pancake") then
-								v:FindFirstChild("Glove").Size = Vector3.new(0, _G.GloveExtendReach, _G.GloveExtendReach);
-							elseif (GloveExtendOption == "Growth") then
-								v:FindFirstChild("Glove").Size = Vector3.new(_G.GloveExtendReach, _G.GloveExtendReach, _G.GloveExtendReach);
-							elseif (GloveExtendOption == "North Korea Wall") then
-								v:FindFirstChild("Glove").Size = Vector3.new(_G.GloveExtendReach, 0, _G.GloveExtendReach);
-							elseif (GloveExtendOption == "Slight Extend") then
-								v:FindFirstChild("Glove").Size = Vector3.new(3, 3, 3.7);
-							end
+							v:FindFirstChild("Glove").Size = Vector3.new(_G.GloveExtendReachX, _G.GloveExtendReachY, _G.GloveExtendReachZ);
 							v:FindFirstChild("Glove").Transparency = 0.5;
 						end
 					end
