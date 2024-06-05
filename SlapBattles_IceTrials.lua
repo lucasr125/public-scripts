@@ -1,4 +1,4 @@
-local Window = OrionLib:MakeWindow({IntroText=GameName,IntroIcon="rbxassetid://15315284749",Name=(GameName .. " | " .. identifyexecutor()),IntroToggleIcon="rbxassetid://7734091286",HidePremium=false,SaveConfig=false,IntroEnabled=true,ConfigFolder="slap battles"});
+local Window = OrionLib:MakeWindow({IntroText=GameName .. " ; Ice Trials map",IntroIcon="rbxassetid://15315284749",Name=(GameName .. " ; " .. identifyexecutor()),IntroToggleIcon="rbxassetid://7734091286",HidePremium=false,SaveConfig=false,IntroEnabled=true,ConfigFolder="slap battles"});
 local miscTab = Window:MakeTab({Name="Misc",Icon="rbxassetid://7733673987",PremiumOnly=false});
 local mainTab = Window:MakeTab({Name="Main",Icon="rbxassetid://7733673987",PremiumOnly=false});
 local fpsSection = miscTab:AddSection({Name="FPS/IDs"});
