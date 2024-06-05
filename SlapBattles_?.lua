@@ -1,4 +1,4 @@
-local Window = OrionLib:MakeWindow({IntroText=(GameName .. " ; Elude map"),Name=(GameName .. " - " .. identifyexecutor()),HidePremium=false,SaveConfig=false,IntroEnabled=true,ConfigFolder="slap battles"});
+local Window = OrionLib:MakeWindow({IntroText=GameName .. " ; Elude map",IntroIcon="rbxassetid://15315284749",Name=(GameName .. " ; " .. identifyexecutor()),IntroToggleIcon="rbxassetid://7734091286",HidePremium=false,SaveConfig=false,IntroEnabled=true,ConfigFolder="slap battles"});
 if (game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("VelocityHandler") == nil) then
 	local bv = Instance.new("BodyVelocity");
 	bv.Name = "VelocityHandler";
