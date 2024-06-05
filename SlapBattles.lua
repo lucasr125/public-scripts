@@ -2585,7 +2585,7 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 		if (_G.GetSlapGot == "Normal") then
 			if ((game.Players.LocalPlayer.Character:FindFirstChild("entered") == nil) and (game.Players.LocalPlayer.leaderstats.Glove.Value == "Reverse")) then
 				if (ReplicaAndReverseGet == true) then
-					coroutine.wrap(SpamBlinkReverse)();
+					coroutine.wrap(SpamReplicaReverse)();
 				end
 				while ReplicaAndReverseGet do
 					if (game.Players.LocalPlayer.Character:FindFirstChild("entered") and (game.Players.LocalPlayer.Character.Humanoid.Health ~= 0)) then
