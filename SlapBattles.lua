@@ -836,7 +836,7 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 		end
 	end});
 	local GetGlovesSection = Tab3:AddSection({Name="Get gloves"});
-	GetGlovesSection:AddButton({Name="Get Kinetic glove ( broken cuz it doesnt count anymore )",Callback=function()
+	GetGlovesSection:AddButton({Name="Get Kinetic glove [ maybe broken ( again ) ]",Callback=function()
 		if ((game.Players.LocalPlayer.leaderstats.Glove.Value == "Stun") and game.Players.LocalPlayer.Character:FindFirstChild("entered")) then
 			OGL = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame;
 			for i = 1, 150 do
@@ -845,15 +845,23 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			end
 			wait(1.5);
 			repeat
-				if ((game.Players.LocalPlayer.Character.Humanoid.Health == 0) or (game.Players.LocalPlayer.Character:FindFirstChild("entered") == nil)) then
-					break;
-				end
-				game.ReplicatedStorage.StunR:FireServer(game.Players.LocalPlayer.Character.Stun);
-				if (game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("EMPStunBadgeCounter")) then
-					OrionLib:MakeNotification({Name="Kinetic badge ; Stun count",Content=("Emp count: [ " .. game.Players.LocalPlayer.Character.EMPStunBadgeCounter.Value .. " ]"),Image="rbxassetid://7733658504",Time=12.3});
-				end
-				wait(12.3);
-			until game.Players.LocalPlayer.Character:FindFirstChild("EMPStunBadgeCounter") and (game.Players.LocalPlayer.Character.EMPStunBadgeCounter.Value >= 50) 
+if game.Players.LocalPlayer.Character.Humanoid.Health == 0 or game.Players.LocalPlayer.Character:FindFirstChild("entered") == nil then
+break
+end
+local players = game.Players:GetChildren()
+local RandomPlayer = players[math.random(1, #players)]
+repeat RandomPlayer = players[math.random(1, #players)] until RandomPlayer ~= game.Players.LocalPlayer and RandomPlayer.Character:FindFirstChild("entered") and RandomPlayer.Character:FindFirstChild("rock") == nil and RandomPlayer.Character.Head:FindFirstChild("UnoReverseCard") == nil and RandomPlayer.Character.Humanoid.Health ~= 0
+Target = RandomPlayer
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Target.Character.HumanoidRootPart.CFrame * CFrame.new(0,-25,0)
+wait(0.2)
+game.ReplicatedStorage.StunR:FireServer(game.Players.LocalPlayer.Character.Stun)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = OGL
+--wait(0.5)
+if game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("EMPStunBadgeCounter") then
+OrionLib:MakeNotification({Name = "EMP Count",Content = "Enabled ability [ "..game.Players.LocalPlayer.Character.EMPStunBadgeCounter.Value.." ] times",Image = "rbxassetid://7733658504",Time = 5})
+end
+wait(10)
+until game.Players.LocalPlayer.Character:FindFirstChild("EMPStunBadgeCounter") and game.Players.LocalPlayer.Character.EMPStunBadgeCounter.Value >= 50
 		else
 			OrionLib:MakeNotification({Name="Error",Content="You don't have Stun equipped, or you aren't in the arena",Image="rbxassetid://7733658504",Time=5});
 		end
