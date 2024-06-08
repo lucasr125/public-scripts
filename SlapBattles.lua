@@ -293,14 +293,14 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			fireclickdetector(workspace.Lobby.Blink.ClickDetector);
 		end
 	end
-	if (game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("VelocityHandler") == nil) and (falSEE == true) then
+	if (game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("VelocityHandler") == nil) then
 		local bv = Instance.new("BodyVelocity");
 		bv.Name = "VelocityHandler";
 		bv.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart;
 		bv.MaxForce = Vector3.new(0, 0, 0);
 		bv.Velocity = Vector3.new(0, 0, 0);
 	end
-	if (game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("GyroHandler") == nil) and (falSEE == true) then
+	if (game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("GyroHandler") == nil) then
 		local bg = Instance.new("BodyGyro");
 		bg.Name = "GyroHandler";
 		bg.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart;
@@ -309,19 +309,17 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 		bg.D = 50;
 	end
 	game:GetService("Players").LocalPlayer.CharacterAdded:Connect(function(NewChar)
-		if (falSEE == true) then
-			local bv = Instance.new("BodyVelocity");
-			bv.Name = "VelocityHandler";
-			bv.Parent = NewChar:WaitForChild("Humanoid").RootPart;
-			bv.MaxForce = Vector3.new(0, 0, 0);
-			bv.Velocity = Vector3.new(0, 0, 0);
-			local bg = Instance.new("BodyGyro");
-			bg.Name = "GyroHandler";
-			bg.Parent = NewChar:WaitForChild("Humanoid").RootPart;
-			bg.MaxTorque = Vector3.new(0, 0, 0);
-			bg.P = 1000;
-			bg.D = 50;
-		end
+		local bv = Instance.new("BodyVelocity");
+		bv.Name = "VelocityHandler";
+		bv.Parent = NewChar:WaitForChild("Humanoid").RootPart;
+		bv.MaxForce = Vector3.new(0, 0, 0);
+		bv.Velocity = Vector3.new(0, 0, 0);
+		local bg = Instance.new("BodyGyro");
+		bg.Name = "GyroHandler";
+		bg.Parent = NewChar:WaitForChild("Humanoid").RootPart;
+		bg.MaxTorque = Vector3.new(0, 0, 0);
+		bg.P = 1000;
+		bg.D = 50;
 	end);
 	if (workspace:FindFirstChild("SafeBox") == nil) then
 		local S = Instance.new("Part");
