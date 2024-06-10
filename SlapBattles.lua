@@ -1,7 +1,6 @@
 if not game:IsLoaded() then
 	game.Loaded:Wait();
 end
-local falSEE = false
 game:GetService("GuiService"):ClearError();
 local OrionLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/Giangplay/Script/main/Orion_Library_PE_V2.lua"))();
 local GameName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name;
@@ -19,7 +18,7 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 		return Namecall(self, ...);
 	end);
 	_G.GetPotion = {Grug={"Mushroom"},idIot={"Cake Mix"},Nightmare={"Dark Root","Dark Root","Dark Root"},Confusion={"Red Crystal","Blue Crystal","Glowing Mushroom"},Power={"Dire Flower","Red Crystal","Wild Vine"},Paralyzing={"Plane Flower","Plane Flower"},Haste={"Autumn Sprout","Jade Stone"},Invisibility={"Hazel Lily","Hazel Lily","Blue Crystal"},Explosion={"Red Crystal","Fire Flower","Fire Flower"},Invincible={"Elder Wood","Mushroom","Mushroom"},Toxic={"Dark Root","Dark Root","Blood Rose","Red Crystal"},Freeze={"Winter Rose","Winter Rose","Wild Vine","Blue Crystal","Glowing Mushroom"},Feather={"Mushroom","Hazel Lily"},Speed={"Mushroom","Mushroom","Plane Flower","Hazel Lily","Blue Crystal"},Lethal={"Blood Rose","Blood Rose","Blood Rose","Blood Rose","Blood Rose","Blood Rose","Blood Rose","Blood Rose","Blood Rose","Blood Rose","Dark Root","Dark Root","Dark Root","Dark Root","Dark Root","Dark Root","Dark Root","Dark Root","Dark Root","Dark Root"},Slow={"Mushroom","Mushroom","Blue Crystal","Blue Crystal","Jade Stone","Plane Flower"},Antitoxin={"Blue Crystal","Glowing Mushroom","Plane Flower","Plane Flower","Elder Wood"},["Corrupted Vine"]={"Wild Vine","Wild Vine","Wild Vine","Blood Rose","Dark Root","Elder Wood","Jade Stone"},Field={"Hazel Lily","Plane Flower","Plane Flower"}};
-	gloveHits = {Default=game.ReplicatedStorage.b,Extended=game.ReplicatedStorage.b,["T H I C K"]=game.ReplicatedStorage.GeneralHit,Squid=game.ReplicatedStorage.GeneralHit,Gummy=game.ReplicatedStorage.GeneralHit,RNG=game.ReplicatedStorage.GeneralHit,Tycoon=game.ReplicatedStorage.GeneralHit,Charge=game.ReplicatedStorage.GeneralHit,Baller=game.ReplicatedStorage.GeneralHit,Tableflip=game.ReplicatedStorage.GeneralHit,Booster=game.ReplicatedStorage.GeneralHit,Shield=game.ReplicatedStorage.GeneralHit,Track=game.ReplicatedStorage.GeneralHit,Goofy=game.ReplicatedStorage.GeneralHit,Confusion=game.ReplicatedStorage.GeneralHit,Elude=game.ReplicatedStorage.GeneralHit,Glitch=game.ReplicatedStorage.GeneralHit,Snowball=game.ReplicatedStorage.GeneralHit,fish=game.ReplicatedStorage.GeneralHit,Killerfish=game.ReplicatedStorage.GeneralHit,["🗿"]=game.ReplicatedStorage.GeneralHit,Obby=game.ReplicatedStorage.GeneralHit,Voodoo=game.ReplicatedStorage.GeneralHit,Leash=game.ReplicatedStorage.GeneralHit,Flamarang=game.ReplicatedStorage.GeneralHit,Berserk=game.ReplicatedStorage.GeneralHit,Quake=game.ReplicatedStorage.GeneralHit,Rattlebones=game.ReplicatedStorage.GeneralHit,Chain=game.ReplicatedStorage.GeneralHit,["Ping Pong"]=game.ReplicatedStorage.GeneralHit,Whirlwind=game.ReplicatedStorage.GeneralHit,Slicer=game.ReplicatedStorage.GeneralHit,Counter=game.ReplicatedStorage.GeneralHit,Hammer=game.ReplicatedStorage.GeneralHit,Excavator=game.ReplicatedStorage.GeneralHit,["Home Run"]=game.ReplicatedStorage.GeneralHit,Psycho=game.ReplicatedStorage.GeneralHit,Kraken=game.ReplicatedStorage.GeneralHit,Gravity=game.ReplicatedStorage.GeneralHit,Lure=game.ReplicatedStorage.GeneralHit,Jebaited=game.ReplicatedStorage.GeneralHit,Meteor=game.ReplicatedStorage.GeneralHit,Tinkerer=game.ReplicatedStorage.GeneralHit,["Guardian Angel"]=game.ReplicatedStorage.GeneralHit,Sun=game.ReplicatedStorage.GeneralHit,Necromancer=game.ReplicatedStorage.GeneralHit,Zombie=game.ReplicatedStorage.GeneralHit,Dual=game.ReplicatedStorage.GeneralHit,Alchemist=game.ReplicatedStorage.GeneralHit,Parry=game.ReplicatedStorage.GeneralHit,Druid=game.ReplicatedStorage.GeneralHit,Oven=game.ReplicatedStorage.GeneralHit,Jester=game.ReplicatedStorage.GeneralHit,Ferryman=game.ReplicatedStorage.GeneralHit,Scythe=game.ReplicatedStorage.GeneralHit,Blackhole=game.ReplicatedStorage.GeneralHit,Santa=game.ReplicatedStorage.GeneralHit,Grapple=game.ReplicatedStorage.GeneralHit,Iceskate=game.ReplicatedStorage.GeneralHit,Pan=game.ReplicatedStorage.GeneralHit,Blasphemy=game.ReplicatedStorage.GeneralHit,Blink=game.ReplicatedStorage.GeneralHit,["Ultra Instinct"]=game.ReplicatedStorage.GeneralHit,Admin=game.ReplicatedStorage.GeneralHit,Prop=game.ReplicatedStorage.GeneralHit,Joust=game.ReplicatedStorage.GeneralHit,Slapstick=game.ReplicatedStorage.GeneralHit,Firework=game.ReplicatedStorage.GeneralHit,Run=game.ReplicatedStorage.GeneralHit,Beatdown=game.ReplicatedStorage.GeneralHit,["L.O.L.B.O.M.B"]=game.ReplicatedStorage.GeneralHit,Glovel=game.ReplicatedStorage.GeneralHit,Chicken=game.ReplicatedStorage.GeneralHit,Divebomb=game.ReplicatedStorage.GeneralHit,Lamp=game.ReplicatedStorage.GeneralHit,Pocket=game.ReplicatedStorage.GeneralHit,BONK=game.ReplicatedStorage.GeneralHit,Knockoff=game.ReplicatedStorage.GeneralHit,Divert=game.ReplicatedStorage.GeneralHit,Frostbite=game.ReplicatedStorage.GeneralHit,Sbeve=game.ReplicatedStorage.GeneralHit,Plank=game.ReplicatedStorage.GeneralHit,Golem=game.ReplicatedStorage.GeneralHit,Spoonful=game.ReplicatedStorage.GeneralHit,ZZZZZZZ=game.ReplicatedStorage.ZZZZZZZHit,Brick=game.ReplicatedStorage.BrickHit,Snow=game.ReplicatedStorage.SnowHit,Pull=game.ReplicatedStorage.PullHit,Flash=game.ReplicatedStorage.FlashHit,Spring=game.ReplicatedStorage.springhit,Swapper=game.ReplicatedStorage.HitSwapper,Bull=game.ReplicatedStorage.BullHit,Dice=game.ReplicatedStorage.DiceHit,Ghost=game.ReplicatedStorage.GhostHit,Thanos=game.ReplicatedStorage.ThanosHit,Stun=game.ReplicatedStorage.HtStun,["Za Hando"]=game.ReplicatedStorage.zhramt,Fort=game.ReplicatedStorage.Fort,Magnet=game.ReplicatedStorage.MagnetHIT,Pusher=game.ReplicatedStorage.PusherHit,Anchor=game.ReplicatedStorage.hitAnchor,Space=game.ReplicatedStorage.HtSpace,Boomerang=game.ReplicatedStorage.BoomerangH,Speedrun=game.ReplicatedStorage.Speedrunhit,Mail=game.ReplicatedStorage.MailHit,Golden=game.ReplicatedStorage.GoldenHit,MR=game.ReplicatedStorage.MisterHit,Reaper=game.ReplicatedStorage.ReaperHit,Replica=game.ReplicatedStorage.ReplicaHit,Defense=game.ReplicatedStorage.DefenseHit,Killstreak=game.ReplicatedStorage.KSHit,Reverse=game.ReplicatedStorage.ReverseHit,Shukuchi=game.ReplicatedStorage.ShukuchiHit,Duelist=game.ReplicatedStorage.DuelistHit,woah=game.ReplicatedStorage.woahHit,Ice=game.ReplicatedStorage.IceHit,Adios=game.ReplicatedStorage.hitAdios,Blocked=game.ReplicatedStorage.BlockedHit,Engineer=game.ReplicatedStorage.engiehit,Rocky=game.ReplicatedStorage.RockyHit,Conveyor=game.ReplicatedStorage.ConvHit,STOP=game.ReplicatedStorage.STOP,Phantom=game.ReplicatedStorage.PhantomHit,Wormhole=game.ReplicatedStorage.WormHit,Acrobat=game.ReplicatedStorage.AcHit,Plague=game.ReplicatedStorage.PlagueHit,["[REDACTED]"]=game.ReplicatedStorage.ReHit,bus=game.ReplicatedStorage.hitbus,Phase=game.ReplicatedStorage.PhaseH,Warp=game.ReplicatedStorage.WarpHt,Bomb=game.ReplicatedStorage.BombHit,Bubble=game.ReplicatedStorage.BubbleHit,Jet=game.ReplicatedStorage.JetHit,Shard=game.ReplicatedStorage.ShardHIT,potato=game.ReplicatedStorage.potatohit,CULT=game.ReplicatedStorage.CULTHit,bob=game.ReplicatedStorage.bobhit,Buddies=game.ReplicatedStorage.buddiesHIT,Spy=game.ReplicatedStorage.SpyHit,Detonator=game.ReplicatedStorage.DetonatorHit,Rage=game.ReplicatedStorage.GRRRR,Trap=game.ReplicatedStorage.traphi,Orbit=game.ReplicatedStorage.Orbihit,Hybrid=game.ReplicatedStorage.HybridCLAP,Slapple=game.ReplicatedStorage.SlappleHit,Disarm=game.ReplicatedStorage.DisarmH,Dominance=game.ReplicatedStorage.DominanceHit,Link=game.ReplicatedStorage.LinkHit,Rojo=game.ReplicatedStorage.RojoHit,rob=game.ReplicatedStorage.robhit,Rhythm=game.ReplicatedStorage.rhythmhit,Nightmare=game.ReplicatedStorage.nightmarehit,Hitman=game.ReplicatedStorage.HitmanHit,Thor=game.ReplicatedStorage.ThorHit,Retro=game.ReplicatedStorage.RetroHit,Cloud=game.ReplicatedStorage.CloudHit,Null=game.ReplicatedStorage.NullHit,spin=game.ReplicatedStorage.spinhit,Kinetic=game.ReplicatedStorage.HtStun,Recall=game.ReplicatedStorage.HtStun,Balloony=game.ReplicatedStorage.HtStun,Sparky=game.ReplicatedStorage.HtStun,Boogie=game.ReplicatedStorage.HtStun,Stun=game.ReplicatedStorage.HtStun,Coil=game.ReplicatedStorage.HtStun,Diamond=game.ReplicatedStorage.DiamondHit,Megarock=game.ReplicatedStorage.DiamondHit,Moon=game.ReplicatedStorage.CelestialHit,Jupiter=game.ReplicatedStorage.CelestialHit,Mitten=game.ReplicatedStorage.MittenHit,["Hallow Jack"]=game.ReplicatedStorage.HallowHIT,OVERKILL=game.ReplicatedStorage.Overkillhit,["The Flex"]=game.ReplicatedStorage.FlexHit,Custom=game.ReplicatedStorage.CustomHit,["God's Hand"]=game.ReplicatedStorage.Godshand,Error=game.ReplicatedStorage.Errorhit};
+	gloveHits = {Default=game.ReplicatedStorage.b,Extended=game.ReplicatedStorage.b,["T H I C K"]=game.ReplicatedStorage.GeneralHit,Squid=game.ReplicatedStorage.GeneralHit,["the schlop"]=game.ReplicatedStorage.GeneralHit,Gummy=game.ReplicatedStorage.GeneralHit,RNG=game.ReplicatedStorage.GeneralHit,Tycoon=game.ReplicatedStorage.GeneralHit,Charge=game.ReplicatedStorage.GeneralHit,Baller=game.ReplicatedStorage.GeneralHit,Tableflip=game.ReplicatedStorage.GeneralHit,Booster=game.ReplicatedStorage.GeneralHit,Shield=game.ReplicatedStorage.GeneralHit,Track=game.ReplicatedStorage.GeneralHit,Goofy=game.ReplicatedStorage.GeneralHit,Confusion=game.ReplicatedStorage.GeneralHit,Elude=game.ReplicatedStorage.GeneralHit,Glitch=game.ReplicatedStorage.GeneralHit,Snowball=game.ReplicatedStorage.GeneralHit,fish=game.ReplicatedStorage.GeneralHit,Killerfish=game.ReplicatedStorage.GeneralHit,["🗿"]=game.ReplicatedStorage.GeneralHit,Obby=game.ReplicatedStorage.GeneralHit,Voodoo=game.ReplicatedStorage.GeneralHit,Leash=game.ReplicatedStorage.GeneralHit,Flamarang=game.ReplicatedStorage.GeneralHit,Berserk=game.ReplicatedStorage.GeneralHit,Quake=game.ReplicatedStorage.GeneralHit,Rattlebones=game.ReplicatedStorage.GeneralHit,Chain=game.ReplicatedStorage.GeneralHit,["Ping Pong"]=game.ReplicatedStorage.GeneralHit,Whirlwind=game.ReplicatedStorage.GeneralHit,Slicer=game.ReplicatedStorage.GeneralHit,Counter=game.ReplicatedStorage.GeneralHit,Hammer=game.ReplicatedStorage.GeneralHit,Excavator=game.ReplicatedStorage.GeneralHit,["Home Run"]=game.ReplicatedStorage.GeneralHit,Psycho=game.ReplicatedStorage.GeneralHit,Kraken=game.ReplicatedStorage.GeneralHit,Gravity=game.ReplicatedStorage.GeneralHit,Lure=game.ReplicatedStorage.GeneralHit,Jebaited=game.ReplicatedStorage.GeneralHit,Meteor=game.ReplicatedStorage.GeneralHit,Tinkerer=game.ReplicatedStorage.GeneralHit,["Guardian Angel"]=game.ReplicatedStorage.GeneralHit,Sun=game.ReplicatedStorage.GeneralHit,Necromancer=game.ReplicatedStorage.GeneralHit,Zombie=game.ReplicatedStorage.GeneralHit,Dual=game.ReplicatedStorage.GeneralHit,Alchemist=game.ReplicatedStorage.GeneralHit,Parry=game.ReplicatedStorage.GeneralHit,Druid=game.ReplicatedStorage.GeneralHit,Oven=game.ReplicatedStorage.GeneralHit,Jester=game.ReplicatedStorage.GeneralHit,Ferryman=game.ReplicatedStorage.GeneralHit,Scythe=game.ReplicatedStorage.GeneralHit,Blackhole=game.ReplicatedStorage.GeneralHit,Santa=game.ReplicatedStorage.GeneralHit,Grapple=game.ReplicatedStorage.GeneralHit,Iceskate=game.ReplicatedStorage.GeneralHit,Pan=game.ReplicatedStorage.GeneralHit,Blasphemy=game.ReplicatedStorage.GeneralHit,Blink=game.ReplicatedStorage.GeneralHit,["Ultra Instinct"]=game.ReplicatedStorage.GeneralHit,Admin=game.ReplicatedStorage.GeneralHit,Prop=game.ReplicatedStorage.GeneralHit,Joust=game.ReplicatedStorage.GeneralHit,Slapstick=game.ReplicatedStorage.GeneralHit,Firework=game.ReplicatedStorage.GeneralHit,Run=game.ReplicatedStorage.GeneralHit,Beatdown=game.ReplicatedStorage.GeneralHit,["L.O.L.B.O.M.B"]=game.ReplicatedStorage.GeneralHit,Glovel=game.ReplicatedStorage.GeneralHit,Chicken=game.ReplicatedStorage.GeneralHit,Divebomb=game.ReplicatedStorage.GeneralHit,Lamp=game.ReplicatedStorage.GeneralHit,Pocket=game.ReplicatedStorage.GeneralHit,BONK=game.ReplicatedStorage.GeneralHit,Knockoff=game.ReplicatedStorage.GeneralHit,Divert=game.ReplicatedStorage.GeneralHit,Frostbite=game.ReplicatedStorage.GeneralHit,Sbeve=game.ReplicatedStorage.GeneralHit,Plank=game.ReplicatedStorage.GeneralHit,Golem=game.ReplicatedStorage.GeneralHit,Spoonful=game.ReplicatedStorage.GeneralHit,ZZZZZZZ=game.ReplicatedStorage.ZZZZZZZHit,Brick=game.ReplicatedStorage.BrickHit,Snow=game.ReplicatedStorage.SnowHit,Pull=game.ReplicatedStorage.PullHit,Flash=game.ReplicatedStorage.FlashHit,Spring=game.ReplicatedStorage.springhit,Swapper=game.ReplicatedStorage.HitSwapper,Bull=game.ReplicatedStorage.BullHit,Dice=game.ReplicatedStorage.DiceHit,Ghost=game.ReplicatedStorage.GhostHit,Thanos=game.ReplicatedStorage.ThanosHit,Stun=game.ReplicatedStorage.HtStun,["Za Hando"]=game.ReplicatedStorage.zhramt,Fort=game.ReplicatedStorage.Fort,Magnet=game.ReplicatedStorage.MagnetHIT,Pusher=game.ReplicatedStorage.PusherHit,Anchor=game.ReplicatedStorage.hitAnchor,Space=game.ReplicatedStorage.HtSpace,Boomerang=game.ReplicatedStorage.BoomerangH,Speedrun=game.ReplicatedStorage.Speedrunhit,Mail=game.ReplicatedStorage.MailHit,Golden=game.ReplicatedStorage.GoldenHit,MR=game.ReplicatedStorage.MisterHit,Reaper=game.ReplicatedStorage.ReaperHit,Replica=game.ReplicatedStorage.ReplicaHit,Defense=game.ReplicatedStorage.DefenseHit,Killstreak=game.ReplicatedStorage.KSHit,Reverse=game.ReplicatedStorage.ReverseHit,Shukuchi=game.ReplicatedStorage.ShukuchiHit,Duelist=game.ReplicatedStorage.DuelistHit,woah=game.ReplicatedStorage.woahHit,Ice=game.ReplicatedStorage.IceHit,Adios=game.ReplicatedStorage.hitAdios,Blocked=game.ReplicatedStorage.BlockedHit,Engineer=game.ReplicatedStorage.engiehit,Rocky=game.ReplicatedStorage.RockyHit,Conveyor=game.ReplicatedStorage.ConvHit,STOP=game.ReplicatedStorage.STOP,Phantom=game.ReplicatedStorage.PhantomHit,Wormhole=game.ReplicatedStorage.WormHit,Acrobat=game.ReplicatedStorage.AcHit,Plague=game.ReplicatedStorage.PlagueHit,["[REDACTED]"]=game.ReplicatedStorage.ReHit,bus=game.ReplicatedStorage.hitbus,Phase=game.ReplicatedStorage.PhaseH,Warp=game.ReplicatedStorage.WarpHt,Bomb=game.ReplicatedStorage.BombHit,Bubble=game.ReplicatedStorage.BubbleHit,Jet=game.ReplicatedStorage.JetHit,Shard=game.ReplicatedStorage.ShardHIT,potato=game.ReplicatedStorage.potatohit,CULT=game.ReplicatedStorage.CULTHit,bob=game.ReplicatedStorage.bobhit,Buddies=game.ReplicatedStorage.buddiesHIT,Spy=game.ReplicatedStorage.SpyHit,Detonator=game.ReplicatedStorage.DetonatorHit,Rage=game.ReplicatedStorage.GRRRR,Trap=game.ReplicatedStorage.traphi,Orbit=game.ReplicatedStorage.Orbihit,Hybrid=game.ReplicatedStorage.HybridCLAP,Slapple=game.ReplicatedStorage.SlappleHit,Disarm=game.ReplicatedStorage.DisarmH,Dominance=game.ReplicatedStorage.DominanceHit,Link=game.ReplicatedStorage.LinkHit,Rojo=game.ReplicatedStorage.RojoHit,rob=game.ReplicatedStorage.robhit,Rhythm=game.ReplicatedStorage.rhythmhit,Nightmare=game.ReplicatedStorage.nightmarehit,Hitman=game.ReplicatedStorage.HitmanHit,Thor=game.ReplicatedStorage.ThorHit,Retro=game.ReplicatedStorage.RetroHit,Cloud=game.ReplicatedStorage.CloudHit,Null=game.ReplicatedStorage.NullHit,spin=game.ReplicatedStorage.spinhit,Kinetic=game.ReplicatedStorage.HtStun,Recall=game.ReplicatedStorage.HtStun,Balloony=game.ReplicatedStorage.HtStun,Sparky=game.ReplicatedStorage.HtStun,Boogie=game.ReplicatedStorage.HtStun,Stun=game.ReplicatedStorage.HtStun,Coil=game.ReplicatedStorage.HtStun,Diamond=game.ReplicatedStorage.DiamondHit,Megarock=game.ReplicatedStorage.DiamondHit,Moon=game.ReplicatedStorage.CelestialHit,Jupiter=game.ReplicatedStorage.CelestialHit,Mitten=game.ReplicatedStorage.MittenHit,["Hallow Jack"]=game.ReplicatedStorage.HallowHIT,OVERKILL=game.ReplicatedStorage.Overkillhit,["The Flex"]=game.ReplicatedStorage.FlexHit,Custom=game.ReplicatedStorage.CustomHit,["God's Hand"]=game.ReplicatedStorage.Godshand,Error=game.ReplicatedStorage.Errorhit};
 	if not game.ReplicatedStorage:FindFirstChild("robAnimation") then
 		local robAnim = Instance.new("Animation");
 		robAnim.AnimationId = "rbxassetid://13675136513";
@@ -846,23 +845,24 @@ if ((game.PlaceId == 6403373529) or (game.PlaceId == 9015014224) or (game.PlaceI
 			end
 			wait(1.5);
 			repeat
-if game.Players.LocalPlayer.Character.Humanoid.Health == 0 or game.Players.LocalPlayer.Character:FindFirstChild("entered") == nil then
-break
-end
-local players = game.Players:GetChildren()
-local RandomPlayer = players[math.random(1, #players)]
-repeat RandomPlayer = players[math.random(1, #players)] until RandomPlayer ~= game.Players.LocalPlayer and RandomPlayer.Character:FindFirstChild("entered") and RandomPlayer.Character:FindFirstChild("rock") == nil and RandomPlayer.Character.Head:FindFirstChild("UnoReverseCard") == nil and RandomPlayer.Character.Humanoid.Health ~= 0
-Target = RandomPlayer
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Target.Character.HumanoidRootPart.CFrame * CFrame.new(0,-25,0)
-wait(0.2)
-game.ReplicatedStorage.StunR:FireServer(game.Players.LocalPlayer.Character.Stun)
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = OGL
---wait(0.5)
-if game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("EMPStunBadgeCounter") then
-OrionLib:MakeNotification({Name = "EMP Count",Content = "Enabled ability [ "..game.Players.LocalPlayer.Character.EMPStunBadgeCounter.Value.." ] times",Image = "rbxassetid://7733658504",Time = 5})
-end
-wait(10)
-until game.Players.LocalPlayer.Character:FindFirstChild("EMPStunBadgeCounter") and game.Players.LocalPlayer.Character.EMPStunBadgeCounter.Value >= 50
+				if ((game.Players.LocalPlayer.Character.Humanoid.Health == 0) or (game.Players.LocalPlayer.Character:FindFirstChild("entered") == nil)) then
+					break;
+				end
+				local players = game.Players:GetChildren();
+				local RandomPlayer = players[math.random(1, #players)];
+				repeat
+					RandomPlayer = players[math.random(1, #players)];
+				until (RandomPlayer ~= game.Players.LocalPlayer) and RandomPlayer.Character:FindFirstChild("entered") and (RandomPlayer.Character:FindFirstChild("rock") == nil) and (RandomPlayer.Character.Head:FindFirstChild("UnoReverseCard") == nil) and (RandomPlayer.Character.Humanoid.Health ~= 0) 
+				Target = RandomPlayer;
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Target.Character.HumanoidRootPart.CFrame * CFrame.new(0, -25, 0);
+				wait(0.2);
+				game.ReplicatedStorage.StunR:FireServer(game.Players.LocalPlayer.Character.Stun);
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = OGL;
+				if (game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("EMPStunBadgeCounter")) then
+					OrionLib:MakeNotification({Name="EMP Count",Content=("Enabled ability [ " .. game.Players.LocalPlayer.Character.EMPStunBadgeCounter.Value .. " ] times"),Image="rbxassetid://7733658504",Time=5});
+				end
+				wait(10);
+			until game.Players.LocalPlayer.Character:FindFirstChild("EMPStunBadgeCounter") and (game.Players.LocalPlayer.Character.EMPStunBadgeCounter.Value >= 50) 
 		else
 			OrionLib:MakeNotification({Name="Error",Content="You don't have Stun equipped, or you aren't in the arena",Image="rbxassetid://7733658504",Time=5});
 		end
@@ -881,6 +881,60 @@ until game.Players.LocalPlayer.Character:FindFirstChild("EMPStunBadgeCounter") a
 			game.Workspace.RepressedMemoriesMap.Psychokinesis.Triggers.StopPsychoEvent.CFrame = OGL1;
 		else
 			OrionLib:MakeNotification({Name="Error",Content="You have enter to limbo [ show all doesnt work ]",Image="rbxassetid://7733658504",Time=5});
+		end
+	end});
+	GetGlovesSection:AddButton({Name="Get The Schlop glove",Callback=function()
+		if ((game.Players.LocalPlayer.leaderstats.Glove.Value == "Cloud") and game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 2130032297) and (game.Players.LocalPlayer.Character:FindFirstChild("entered") == nil)) then
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Arena.CannonIsland.Cannon.Base.CFrame * CFrame.new(0, 2, 35);
+			wait(0.3);
+			game:GetService("ReplicatedStorage").CloudAbility:FireServer();
+			fireclickdetector(workspace.Lobby.fish.ClickDetector);
+			wait(0.2);
+			repeat
+				task.wait();
+			until game.Players.LocalPlayer.Character 
+			if (not game.Players.LocalPlayer.Character:FindFirstChild("entered") and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")) then
+				repeat
+					task.wait();
+					firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1.TouchInterest.Parent, 0);
+					firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1.TouchInterest.Parent, 1);
+				until game.Players.LocalPlayer.Character:FindFirstChild("entered") 
+			end
+			wait(0.3);
+			if (game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("entered") and (game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid") ~= nil) and (game.Players.LocalPlayer.Character.Humanoid.Sit == false)) then
+				for i, v in pairs(game.Workspace:GetChildren()) do
+					if (v.Name:match(game.Players.LocalPlayer.Name) and v:FindFirstChild("VehicleSeat")) then
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.VehicleSeat.CFrame;
+					end
+				end
+			end
+			wait(0.7);
+			for _ = 1, 10 do
+				for i, v in pairs(game.Workspace:GetChildren()) do
+					if (v.Name:match(game.Players.LocalPlayer.Name) and v:FindFirstChild("VehicleSeat")) then
+						v.VehicleSeat.CFrame = CFrame.new(245, 129, -91);
+					end
+				end
+				task.wait();
+			end
+			wait(0.4);
+			game:GetService("ReplicatedStorage"):WaitForChild("GeneralAbility"):FireServer();
+			wait(0.5);
+			repeat
+				task.wait();
+				if (game.Players.LocalPlayer.Character:FindFirstChild("entered") == nil) then
+					break;
+				end
+				if (game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("entered")) then
+					for i, v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+						if ((v.ClassName == "Part") and (v.Name ~= "Humanoid")) then
+							v.CFrame = game.workspace.Arena.Plate.CFrame;
+						end
+					end
+				end
+			until game.Players.LocalPlayer.Character:WaitForChild("Ragdolled").Value == false 
+		else
+			OrionLib:MakeNotification({Name="Error",Content="You don't have equiped Cloud | Badge Fish | You are in the lobby.",Image="rbxassetid://7733658504",Time=5});
 		end
 	end});
 	GetGlovesSection:AddButton({Name="Get Bomb glove",Callback=function()
@@ -3623,78 +3677,6 @@ game.CoreGui.RobloxLoadingGUI:Destroy()
 			task.wait();
 		end
 	end});
-	Tab7:AddButton({Name="Auto Enter Map Null",Callback=function()
-		if (game.Workspace:FindFirstChild("Blackhole_Particles") == nil) then
-			OrionLib:MakeNotification({Name="Error",Content="When will someone create a black hole [ BOB + ROB ].",Image="rbxassetid://7733658504",Time=5});
-		elseif ((game.Players.LocalPlayer.Character:FindFirstChild("entered") ~= nil) and (game.Players.LocalPlayer.leaderstats.Glove.Value ~= "Default")) then
-			game:GetService("ReplicatedStorage"):WaitForChild("HumanoidDied"):FireServer(game.Players.LocalPlayer.Character, false);
-			wait(3.75);
-			fireclickdetector(game.Workspace.Lobby.Default.ClickDetector);
-			wait(0.5);
-			repeat
-				task.wait();
-			until game.Players.LocalPlayer.Character 
-			if (not game.Players.LocalPlayer.Character:FindFirstChild("entered") and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")) then
-				repeat
-					task.wait();
-					firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1.TouchInterest.Parent, 0);
-					firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1.TouchInterest.Parent, 1);
-				until game.Players.LocalPlayer.Character:FindFirstChild("entered") 
-			end
-			wait(0.5);
-			if ((game.Workspace.Blackhole_Particles ~= nil) and (game.Workspace.Blackhole_Particles.BlackHole ~= nil)) then
-				repeat
-					task.wait();
-					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Blackhole_Particles.BlackHole.CFrame;
-				until game.Players.LocalPlayer.Character.Humanoid.Health == 0 
-			end
-		elseif ((game.Players.LocalPlayer.Character:FindFirstChild("entered") ~= nil) and (game.Players.LocalPlayer.leaderstats.Glove.Value == "Default")) then
-			if ((game.Workspace.Blackhole_Particles ~= nil) and (game.Workspace.Blackhole_Particles.BlackHole ~= nil)) then
-				repeat
-					task.wait();
-					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Blackhole_Particles.BlackHole.CFrame;
-				until game.Players.LocalPlayer.Character.Humanoid.Health == 0 
-			end
-		elseif ((game.Players.LocalPlayer.Character:FindFirstChild("entered") == nil) and (game.Players.LocalPlayer.leaderstats.Glove.Value == "Default")) then
-			repeat
-				task.wait();
-			until game.Players.LocalPlayer.Character 
-			if (not game.Players.LocalPlayer.Character:FindFirstChild("entered") and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")) then
-				repeat
-					task.wait();
-					firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1.TouchInterest.Parent, 0);
-					firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1.TouchInterest.Parent, 1);
-				until game.Players.LocalPlayer.Character:FindFirstChild("entered") 
-			end
-			wait(0.5);
-			if ((game.Workspace.Blackhole_Particles ~= nil) and (game.Workspace.Blackhole_Particles.BlackHole ~= nil)) then
-				repeat
-					task.wait();
-					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Blackhole_Particles.BlackHole.CFrame;
-				until game.Players.LocalPlayer.Character.Humanoid.Health == 0 
-			end
-		elseif ((game.Players.LocalPlayer.Character:FindFirstChild("entered") == nil) and (game.Players.LocalPlayer.leaderstats.Glove.Value ~= "Default")) then
-			fireclickdetector(game.Workspace.Lobby.Default.ClickDetector);
-			wait(0.07);
-			repeat
-				task.wait();
-			until game.Players.LocalPlayer.Character 
-			if (not game.Players.LocalPlayer.Character:FindFirstChild("entered") and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")) then
-				repeat
-					task.wait();
-					firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1.TouchInterest.Parent, 0);
-					firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1.TouchInterest.Parent, 1);
-				until game.Players.LocalPlayer.Character:FindFirstChild("entered") 
-			end
-			wait(0.05);
-			if ((game.Workspace.Blackhole_Particles ~= nil) and (game.Workspace.Blackhole_Particles.BlackHole ~= nil)) then
-				repeat
-					task.wait();
-					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Blackhole_Particles.BlackHole.CFrame;
-				until game.Players.LocalPlayer.Character.Humanoid.Health == 0 
-			end
-		end
-	end});
 	Tab7:AddDropdown({Name="Pocket",Default="Add All Player",Options={"Add All Player","Remove All Player"},Callback=function(Value)
 		_G.StartMusicGot = Value;
 	end});
@@ -4156,9 +4138,13 @@ game.CoreGui.RobloxLoadingGUI:Destroy()
 			game:GetService("ReplicatedStorage").bob:FireServer();
 			wait(9);
 		end
-		while (On and (game.Players.LocalPlayer.leaderstats.Glove.Value == "Kraken")) or (game.Players.LocalPlayer.leaderstats.Glove.Value == "Sbeve") do
+		while On and (game.Players.LocalPlayer.leaderstats.Glove.Value == "Kraken") do
 			game:GetService("ReplicatedStorage").KrakenArm:FireServer();
 			wait(5);
+		end
+		while On and (game.Players.LocalPlayer.leaderstats.Glove.Value == "Sbeve") do
+			game:GetService("ReplicatedStorage").KrakenArm:FireServer();
+			task.wait();
 		end
 		while On and (game.Players.LocalPlayer.leaderstats.Glove.Value == "Psycho") do
 			game:GetService("ReplicatedStorage").Psychokinesis:InvokeServer({grabEnabled=true});
@@ -4623,41 +4609,6 @@ game.CoreGui.RobloxLoadingGUI:Destroy()
 			end
 		end);
 	end});
-	Tab7:AddSlider({Name="Time Give Kill Reaper",Min=1,Max=20,Default=20,Color=Color3.fromRGB(255, 255, 255),Increment=1,ValueName="Kill Reaper",Callback=function(Value)
-		_G.GiveKillReaper = Value;
-	end});
-	Tab7:AddButton({Name="Give Player Kill Reaper",Callback=function()
-		if game.Players.LocalPlayer.Character:FindFirstChild("DeathMark") then
-			for i = 1, _G.GiveKillReaper do
-				game:GetService("ReplicatedStorage"):WaitForChild("HumanoidDied"):FireServer(x, false);
-			end
-		else
-			OrionLib:MakeNotification({Name="Error",Content="Player hit you for glove reaper.",Image="rbxassetid://7733658504",Time=5});
-		end
-		for i, v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
-			if (v.Name == "DeathMark") then
-				game:GetService("ReplicatedStorage").ReaperGone:FireServer(v);
-				game:GetService("Lighting"):WaitForChild("DeathMarkColorCorrection"):Destroy();
-			end
-		end
-	end});
-	Tab7:AddToggle({Name="Auto Give Player Kill Reaper",Default=false,Callback=function(Value)
-		_G.AutoGiveKill = Value;
-		while _G.AutoGiveKill do
-			if game.Players.LocalPlayer.Character:FindFirstChild("DeathMark") then
-				for i = 1, _G.GiveKillReaper do
-					game:GetService("ReplicatedStorage"):WaitForChild("HumanoidDied"):FireServer(x, false);
-				end
-			end
-			for i, v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
-				if (v.Name == "DeathMark") then
-					game:GetService("ReplicatedStorage").ReaperGone:FireServer(v);
-					game:GetService("Lighting"):WaitForChild("DeathMarkColorCorrection"):Destroy();
-				end
-			end
-			task.wait();
-		end
-	end});
 	Tab7:AddButton({Name="Destroy All Tycoon",Callback=function()
 		for i, v in pairs(workspace:GetDescendants()) do
 			if ((v.Name == "Destruct") and v:FindFirstChild("ClickDetector")) then
@@ -4937,7 +4888,7 @@ game.CoreGui.RobloxLoadingGUI:Destroy()
 	end});
 	Tab7:AddSlider({Name="Extend Glove ( Z )",Min=2,Max=50,Default=5,Color=Color3.fromRGB(255, 255, 255),Increment=1,ValueName="z",Callback=function(Value)
 		_G.GloveExtendReachZ = Value;
-	end});	
+	end});
 	Tab7:AddToggle({Name="Extend Glove",Default=false,Callback=function(Value)
 		_G.GloveExtendGet = Value;
 		while _G.GloveExtendGet do
@@ -5014,84 +4965,6 @@ game.CoreGui.RobloxLoadingGUI:Destroy()
 					GloveEspText.TextColor3 = _G.ColorESP;
 					GloveEspText.TextStrokeTransparency = 0.5;
 					GloveEspText.Text = "Glove [ " .. v.leaderstats.Glove.Value .. " ]";
-				end
-			end
-			task.wait();
-		end
-	end});
-	Tab7:AddToggle({Name="ESP Gift | Jet | Phase",Default=false,Callback=function(Value)
-		_G.AllESP = Value;
-		if (_G.AllESP == false) then
-			for i, v in pairs(game.Workspace:GetChildren()) do
-				if v:FindFirstChild("BadgeEsp") then
-					v.BadgeEsp:Destroy();
-				end
-			end
-		end
-		while _G.AllESP do
-			for i, v in pairs(game.Workspace:GetChildren()) do
-				if ((v.Name == "Gift") or (v.Name == "PhaseOrb") or ((v.Name == "JetOrb") and (v:FindFirstChild("BadgeEsp") == nil))) then
-					BadgeEsp = Instance.new("BillboardGui", v);
-					BadgeEsp.Adornee = v;
-					BadgeEsp.Name = "BadgeEsp";
-					BadgeEsp.Size = UDim2.new(0, 100, 0, 150);
-					BadgeEsp.StudsOffset = Vector3.new(0, 1, 0);
-					BadgeEsp.AlwaysOnTop = true;
-					BadgeEsp.StudsOffset = Vector3.new(0, 3, 0);
-					BadgeEspText = Instance.new("TextLabel", BadgeEsp);
-					BadgeEspText.BackgroundTransparency = 1;
-					BadgeEspText.Size = UDim2.new(0, 100, 0, 100);
-					BadgeEspText.TextSize = 20;
-					BadgeEspText.Font = Enum.Font.FredokaOne;
-					BadgeEspText.TextColor3 = _G.ColorESP;
-					BadgeEspText.TextStrokeTransparency = 0.5;
-					BadgeEspText.Text = v.Name;
-				end
-			end
-			task.wait();
-		end
-	end});
-	Tab7:AddToggle({Name="Esp Exit Run",Default=false,Callback=function(Value)
-		_G.ExitESP = Value;
-		if (_G.ExitESP == false) then
-			if (game.Players.LocalPlayer.Character:FindFirstChild("InLabyrinth") ~= nil) then
-				for _, v in pairs(workspace:GetDescendants()) do
-					if (string.find(v.Name, "Labyrinth") and v:FindFirstChild("Doors")) then
-						local doors = v.Doors;
-						for _, y in ipairs(doors:GetChildren()) do
-							if (y:FindFirstChild("Hitbox") and y.Hitbox:FindFirstChild("ExitEsp") and y.Hitbox:FindFirstChild("TouchInterest")) then
-								y.Hitbox.ExitEsp:Destroy();
-							end
-						end
-					end
-				end
-			end
-		end
-		while _G.ExitESP do
-			if (game.Players.LocalPlayer.Character:FindFirstChild("InLabyrinth") ~= nil) then
-				for _, v in pairs(workspace:GetDescendants()) do
-					if (string.find(v.Name, "Labyrinth") and v:FindFirstChild("Doors")) then
-						local doors = v.Doors;
-						for _, y in ipairs(doors:GetChildren()) do
-							if (y:FindFirstChild("Hitbox") and (y.Hitbox:FindFirstChild("ExitEsp") == nil) and y.Hitbox:FindFirstChild("TouchInterest")) then
-								ExitEsp = Instance.new("BillboardGui", y.Hitbox);
-								ExitEsp.Adornee = y.Hitbox;
-								ExitEsp.Name = "ExitEsp";
-								ExitEsp.Size = UDim2.new(0, 100, 0, 150);
-								ExitEsp.StudsOffset = Vector3.new(0, 1, 0);
-								ExitEsp.AlwaysOnTop = true;
-								ExitEsp.StudsOffset = Vector3.new(0, 3, 0);
-								ExitEspText = Instance.new("TextLabel", ExitEsp);
-								ExitEspText.BackgroundTransparency = 1;
-								ExitEspText.Size = UDim2.new(0, 50, 0, 50);
-								ExitEspText.TextSize = 15;
-								ExitEspText.Font = Enum.Font.FredokaOne;
-								ExitEspText.TextColor3 = _G.ColorESP;
-								ExitEspText.TextStrokeTransparency = 0.5;
-								ExitEspText.Text = "Exit";
-							end
-						end
-					end
 				end
 			end
 			task.wait();
@@ -5710,14 +5583,18 @@ game.CoreGui.RobloxLoadingGUI:Destroy()
 		if (_G.NoclipBarrier == false) then
 			for i, v in pairs(game.Workspace:GetChildren()) do
 				if string.find(v.Name, "ÅBarrier") then
-					v.CanCollide = true;
+					if (v.CanCollide == false) then
+						v.CanCollide = true;
+					end
 				end
 			end
 		end
 		while _G.NoclipBarrier do
 			for i, v in pairs(game.Workspace:GetChildren()) do
 				if string.find(v.Name, "ÅBarrier") then
-					v.CanCollide = false;
+					if (v.CanCollide == true) then
+						v.CanCollide = false;
+					end
 				end
 			end
 			task.wait();
@@ -5727,7 +5604,7 @@ game.CoreGui.RobloxLoadingGUI:Destroy()
 		_G.AntiPlank = Value;
 		while _G.AntiPlank do
 			for i, v in pairs(game.Workspace:GetChildren()) do
-				if (string.find(v.Name, "'s Plank") and (v.Name == "Part")) then
+				if (string.find(v.Name, "'s Plank") and (v.ClassName == "Part")) then
 					v.CanTouch = false;
 					v.CanQuery = false;
 				end
