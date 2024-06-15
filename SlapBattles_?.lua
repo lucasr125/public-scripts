@@ -1,19 +1,4 @@
-local Window = OrionLib:MakeWindow({IntroText=GameName .. " ; Elude map",IntroIcon="rbxassetid://15315284749",Name=(GameName .. " ; " .. identifyexecutor()),IntroToggleIcon="rbxassetid://7734091286",HidePremium=false,SaveConfig=false,IntroEnabled=true,ConfigFolder="slap battles"});
-if (game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("VelocityHandler") == nil) then
-	local bv = Instance.new("BodyVelocity");
-	bv.Name = "VelocityHandler";
-	bv.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart;
-	bv.MaxForce = Vector3.new(0, 0, 0);
-	bv.Velocity = Vector3.new(0, 0, 0);
-end
-if (game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("GyroHandler") == nil) then
-	local bg = Instance.new("BodyGyro");
-	bg.Name = "GyroHandler";
-	bg.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart;
-	bg.MaxTorque = Vector3.new(0, 0, 0);
-	bg.P = 1000;
-	bg.D = 50;
-end
+local Window = OrionLib:MakeWindow({IntroText=(GameName .. " ; Elude map"),IntroIcon="rbxassetid://15315284749",Name=(GameName .. " ; " .. identifyexecutor()),IntroToggleIcon="rbxassetid://7734091286",HidePremium=false,SaveConfig=false,IntroEnabled=true,ConfigFolder="slap battles"});
 local miscTab = Window:MakeTab({Name="Misc",Icon="rbxassetid://7733673987",PremiumOnly=false});
 local mainTab = Window:MakeTab({Name="Main",Icon="rbxassetid://7733673987",PremiumOnly=false});
 local fpsSection = miscTab:AddSection({Name="FPS/IDs"});
@@ -22,7 +7,6 @@ local glovesSection = mainTab:AddSection({Name="Gloves"});
 local teleportSection = miscTab:AddSection({Name="Teleport"});
 CanYouFps = fpsSection:AddLabel("FPS [ " .. math.floor(workspace:GetRealPhysicsFPS()) .. " ]");
 fpsSection:AddParagraph("Game's ID [ " .. game.PlaceId .. " ]", "Server ID [ " .. game.JobId .. " ]");
-
 glovesSection:AddButton({Name="Get Elude",Callback=function()
 	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-502.336, 14.228, -179.597);
 	game:GetService("TeleportService"):Teleport(6403373529);
@@ -35,7 +19,7 @@ glovesSection:AddButton({Name="Get Counter",Callback=function()
 	game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true;
 	for i = 1, Time do
 		Time = Time - 1;
-		game:GetService("StarterGui"):SetCore("SendNotification", {Title="Error",Text=("You wait time [ " .. Time .. " ] receive."),Icon="rbxassetid://7733658504",Duration=0.85});
+		game:GetService("StarterGui"):SetCore("SendNotification", {Title="Error",Text=("You wait time [ " .. Time .. " ] receive."),Icon="rbxassetid://7733658504",Duration=1});
 		wait(1);
 	end
 	for i, v in pairs(workspace.Maze:GetDescendants()) do
@@ -58,14 +42,28 @@ _G.SetSpeedFly = 50;
 localSection:AddToggle({Name="Start Fly",Default=false,Callback=function(Value)
 	_G.StartFly = Value;
 	if (_G.StartFly == false) then
-		if (game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("VelocityHandler") and game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("GyroHandler")) then
-			game.Players.LocalPlayer.Character.HumanoidRootPart.VelocityHandler.MaxForce = Vector3.new(0, 0, 0);
-			game.Players.LocalPlayer.Character.HumanoidRootPart.GyroHandler.MaxTorque = Vector3.new(0, 0, 0);
+		if (game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid") and game.Players.LocalPlayer.Character.Humanoid.RootPart and game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("VelocityHandler") and game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("GyroHandler")) then
+			game.Players.LocalPlayer.Character.HumanoidRootPart.VelocityHandler:Destroy();
+			game.Players.LocalPlayer.Character.HumanoidRootPart.GyroHandler:Destroy();
 			game.Players.LocalPlayer.Character.Humanoid.PlatformStand = false;
+		end
+	elseif (_G.StartFly == true) then
+		if (game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid") and game.Players.LocalPlayer.Character.Humanoid.RootPart and (game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("VelocityHandler") == nil) and (game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("GyroHandler") == nil)) then
+			local bv = Instance.new("BodyVelocity");
+			local bg = Instance.new("BodyGyro");
+			bv.Name = "VelocityHandler";
+			bv.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart;
+			bv.MaxForce = Vector3.new(0, 0, 0);
+			bv.Velocity = Vector3.new(0, 0, 0);
+			bg.Name = "GyroHandler";
+			bg.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart;
+			bg.MaxTorque = Vector3.new(0, 0, 0);
+			bg.P = 1000;
+			bg.D = 50;
 		end
 	end
 	while _G.StartFly do
-		if (game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("VelocityHandler") and game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("GyroHandler")) then
+		if (game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid") and game.Players.LocalPlayer.Character.Humanoid.RootPart and game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("VelocityHandler") and game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("GyroHandler")) then
 			game.Players.LocalPlayer.Character.HumanoidRootPart.VelocityHandler.MaxForce = Vector3.new(8999999488, 8999999488, 8999999488);
 			game.Players.LocalPlayer.Character.HumanoidRootPart.GyroHandler.MaxTorque = Vector3.new(8999999488, 8999999488, 8999999488);
 			game.Players.LocalPlayer.Character.Humanoid.PlatformStand = true;
