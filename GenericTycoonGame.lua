@@ -75,10 +75,10 @@ local TycoonSection = mainTab:AddSection({
 	Name = "Tycoon Section"
 })
 
-local buyitemcooldownSlider = TycoonSection:AddSlider({Name = "Set buy item cooldown",Min = 0,Max = 5,Default = settings.buyitemcooldown,Color = Color3.fromRGB(255,255,255),Increment = 0.1,ValueName = "buyitemcooldown",Callback = function(Value)
+local buyitemcooldownSlider = TycoonSection:AddSlider({Name = "Set buy item cooldown",Min = 0,Max = 10,Default = settings.buyitemcooldown,Color = Color3.fromRGB(255,255,255),Increment = 0.1,ValueName = "cooldown",Callback = function(Value)
 	settings.buyitemcooldown = Value
 end});
-local autobuyitemToggle = TycoonSection:AddToggle({Name = "Auto buy item",Default = false,Callback = function(Value)
+local autobuyitemToggle = TycoonSection:AddToggle({Name = "Auto buy item",Default = settings.autobuyitem,Callback = function(Value)
 	settings.autobuyitem = Value
 	if settings.autobuyitem == true then
 		while task.wait(settings.buyitemcooldown) and settings.autobuyitem == true do
@@ -91,7 +91,7 @@ local autobuyitemToggle = TycoonSection:AddToggle({Name = "Auto buy item",Defaul
 		end
 	end
 end});
-local autorebirthToggle = TycoonSection:AddToggle({Name = "Auto rebirth",Default = false,Callback = function(Value)
+local autorebirthToggle = TycoonSection:AddToggle({Name = "Auto rebirth",Default = settings.autorebirth,Callback = function(Value)
 	settings.autorebirth = Value
 	if settings.autorebirth == true then
 		while task.wait(0.1) and settings.autorebirth == true do
@@ -105,7 +105,7 @@ local autorebirthToggle = TycoonSection:AddToggle({Name = "Auto rebirth",Default
 		end
 	end
 end});
-local disablenotificationsToggle = TycoonSection:AddToggle({Name = "Disable notifications",Default = false,Callback = function(Value)
+local disablenotificationsToggle = TycoonSection:AddToggle({Name = "Disable notifications",Default = settings.disablenotifications,Callback = function(Value)
 	settings.disablenotifications = Value
 	localPlayer.PlayerGui.MainUI.PromptList.Visible = settings.disablenotifications
 end});
