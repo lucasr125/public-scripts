@@ -1,4 +1,4 @@
-local Window = OrionLib:MakeWindow({IntroIcon="rbxassetid://15315284749",Name=(GameName .. " | " .. identifyexecutor()),IntroToggleIcon="rbxassetid://7734091286",HidePremium=false,SaveConfig=false,IntroEnabled=false,ConfigFolder="slap battles"});
+local Window = OrionLib:MakeWindow({IntroText=GameName,IntroIcon="rbxassetid://15315284749",Name=(GameName .. " / The dark realm"),IntroToggleIcon="rbxassetid://7734091286",HidePremium=false,SaveConfig=false,IntroEnabled=true,ConfigFolder="slap battles"});
 if (workspace:FindFirstChild("VoidPart") == nil) then
 	local VoidPart = Instance.new("Part", workspace);
 	VoidPart.Name = "VoidPart";
