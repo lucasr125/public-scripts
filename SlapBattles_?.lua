@@ -1,4 +1,4 @@
-local Window = OrionLib:MakeWindow({IntroText=GameName,IntroIcon="rbxassetid://15315284749",Name=(GameName .. " / Elude"),IntroToggleIcon="rbxassetid://7734091286",HidePremium=false,SaveConfig=false,IntroEnabled=true,ConfigFolder="slap battles"});
+local Window = OrionLib:MakeWindow({IntroText = GameName, IntroIcon = "rbxassetid://15315284749",Name = (GameName.." - ".. identifyexecutor().." / Elude"),IntroToggleIcon = "rbxassetid://7734091286", HidePremium = false, SaveConfig = false, IntroEnabled = true, ConfigFolder = "slap battles"});
 local Tab = Window:MakeTab({Name="Misc",Icon="rbxassetid://7733673987",PremiumOnly=false});
 Tab:AddLabel("Owner Credits Script By [ Giang ]");
 Tab:AddLabel("DonjoSx Shared Script Me, GoodLuck");
