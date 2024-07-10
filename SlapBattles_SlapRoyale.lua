@@ -1,4 +1,4 @@
-local Window = OrionLib:MakeWindow({IntroText=GameName,IntroIcon="rbxassetid://15315284749",Name=(GameName .. " / Slap royale"),IntroToggleIcon="rbxassetid://7734091286",HidePremium=false,SaveConfig=false,IntroEnabled=true,ConfigFolder="slap battles"});
+local Window = OrionLib:MakeWindow({IntroText = GameName, IntroIcon = "rbxassetid://15315284749",Name = (GameName.." - ".. identifyexecutor().." / Slap Royale"),IntroToggleIcon = "rbxassetid://7734091286", HidePremium = false, SaveConfig = false, IntroEnabled = true, ConfigFolder = "slap battles"})
 local bypass;
 bypass = hookmetamethod(game, "__namecall", function(method, ...)
 	if ((getnamecallmethod() == "FireServer") and (method == game.ReplicatedStorage.Events.Ban)) then
