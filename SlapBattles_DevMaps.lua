@@ -1,4 +1,4 @@
-local Window = OrionLib:MakeWindow({IntroText=GameName,Name=(GameName .. " - " .. identifyexecutor()),HidePremium=false,SaveConfig=false,IntroEnabled=true,ConfigFolder="slap battles"});
+local Window = OrionLib:MakeWindow({IntroText = GameName, IntroIcon = "rbxassetid://15315284749",Name = (GameName.." - ".. identifyexecutor()),IntroToggleIcon = "rbxassetid://7734091286", HidePremium = false, SaveConfig = false, IntroEnabled = true, ConfigFolder = "slap battles"});
 local Tab = Window:MakeTab({Name="Main",Icon="rbxassetid://4370345144",PremiumOnly=false});
 Tab:AddButton({Name="Testing Server Freecam",Callback=function()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/SB%20Freecam"))();
