@@ -17,7 +17,7 @@ local Tab = Window:MakeTab({
 })
 
 Tab:AddButton({
-	Name = "Start Enter + 1 Heart",
+	Name = "Enter + 1 Heart",
 	Callback = function()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(3258, -75, 823)
 wait(2.8)
@@ -37,7 +37,7 @@ fireclickdetector(v.ClickDetector, 1)
 })
 
 Tab:AddButton({
-	Name = "Start Enter ( gives extra badge )",
+	Name = "Enter ( gives extra badge )",
 	Callback = function()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(3258, -75, 823)
 wait(2.8)
