@@ -121,7 +121,7 @@ Tab:AddToggle({
 							game.Players.LocalPlayer.Backpack:FindFirstChild("Lantern").Parent = game.Players.LocalPlayer.Character
 						elseif game.Players.LocalPlayer.Character:FindFirstChild("Lantern") then
 							game.Players.LocalPlayer.Character:FindFirstChild("Lantern"):Activate()
-							if game.Workspace:FindFirstChild("TrackGloveMissile") and game.Players.LocalPlayer.Character:FindFirstChild("Lantern") then
+							if game.Workspace:FindFirstChild("TrackGloveMissile") and game.Players.LocalPlayer.Character:FindFirstChild("Lantern") and game.Players.LocalPlayer.Character:FindFirstChild("Lantern"):FindFirstChild("Network") then
 								game:GetService("Players").LocalPlayer.Character.Lantern.Network:FireServer("Hit", v)
 							end
 						end
@@ -147,7 +147,7 @@ Tab:AddToggle({
 							game.Players.LocalPlayer.Backpack:FindFirstChild("Lantern").Parent = game.Players.LocalPlayer.Character
 						elseif game.Players.LocalPlayer.Character:FindFirstChild("Lantern") then
 							game.Players.LocalPlayer.Character:FindFirstChild("Lantern"):Activate()
-							if game.Workspace:FindFirstChild("GuideNPC") and game.Players.LocalPlayer.Character:FindFirstChild("Lantern") then
+							if game.Workspace:FindFirstChild("GuideNPC") and game.Players.LocalPlayer.Character:FindFirstChild("Lantern") and game.Players.LocalPlayer.Character:FindFirstChild("Lantern"):FindFirstChild("Network") then
 								game:GetService("Players").LocalPlayer.Character.Lantern.Network:FireServer("Hit", v.HumanoidRootPart)
 							end
 						end
@@ -165,7 +165,7 @@ Tab:AddToggle({
 	Callback = function(Value)
 		_G.FightGolem = Value
 		while _G.FightGolem do
-			if game.Workspace:FindFirstChild("golem") then
+			if game.Workspace:FindFirstChild("golem") and game.Workspace.golem:FindFirstChild("Hitbox") then
 				for i,v in pairs(game.Workspace:GetChildren()) do
 					if v.Name == "golem" and v:FindFirstChild("Hitbox") then
 						v.Hitbox.CFrame = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,0,-4)
@@ -173,8 +173,34 @@ Tab:AddToggle({
 							game.Players.LocalPlayer.Backpack:FindFirstChild("Lantern").Parent = game.Players.LocalPlayer.Character
 						elseif game.Players.LocalPlayer.Character:FindFirstChild("Lantern") then
 							game.Players.LocalPlayer.Character:FindFirstChild("Lantern"):Activate()
-							if game.Workspace:FindFirstChild("golem") and game.Players.LocalPlayer.Character:FindFirstChild("Lantern") then
+							if game.Workspace:FindFirstChild("golem") and game.Players.LocalPlayer.Character:FindFirstChild("Lantern") and game.Players.LocalPlayer.Character:FindFirstChild("Lantern"):FindFirstChild("Network") then
 								game:GetService("Players").LocalPlayer.Character.Lantern.Network:FireServer("Hit", v.Hitbox)
+							end
+						end
+					end
+				end
+			end
+			task.wait()
+		end
+	end    
+})
+
+Tab:AddToggle({
+	Name = "Auto slap dungeon golem",
+	Default = false,
+	Callback = function(Value)
+		_G.FightDungeonGolem = Value
+		while _G.FightDungeonGolem do
+			if game.Workspace:FindFirstChild("DungeonGolem") and game.Workspace.DungeonGolem:FindFirstChild("Cube.001") then
+				for i,v in pairs(game.Workspace:GetChildren()) do
+					if v.Name == "DungeonGolem" and v:FindFirstChild("Cube.001") then
+						v["Cube.001"].CFrame = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,0,-4)
+						if game.Players.LocalPlayer.Backpack:FindFirstChild("Lantern") then
+							game.Players.LocalPlayer.Backpack:FindFirstChild("Lantern").Parent = game.Players.LocalPlayer.Character
+						elseif game.Players.LocalPlayer.Character:FindFirstChild("Lantern") then
+							game.Players.LocalPlayer.Character:FindFirstChild("Lantern"):Activate()
+							if game.Workspace:FindFirstChild("DungeonGolem") and game.Players.LocalPlayer.Character:FindFirstChild("Lantern") and game.Players.LocalPlayer.Character:FindFirstChild("Lantern"):FindFirstChild("Network") then
+								game:GetService("Players").LocalPlayer.Character.Lantern.Network:FireServer("Hit", v["Cube.001"])
 							end
 						end
 					end
@@ -199,7 +225,33 @@ Tab:AddToggle({
 							game.Players.LocalPlayer.Backpack:FindFirstChild("Lantern").Parent = game.Players.LocalPlayer.Character
 						elseif game.Players.LocalPlayer.Character:FindFirstChild("Lantern") then
 							game.Players.LocalPlayer.Character:FindFirstChild("Lantern"):Activate()
-							if game.Workspace:FindFirstChild("ReplicaNPC") and game.Players.LocalPlayer.Character:FindFirstChild("Lantern") then
+							if game.Workspace:FindFirstChild("ReplicaNPC") and game.Players.LocalPlayer.Character:FindFirstChild("Lantern") and game.Players.LocalPlayer.Character:FindFirstChild("Lantern"):FindFirstChild("Network") then
+								game:GetService("Players").LocalPlayer.Character.Lantern.Network:FireServer("Hit", v.HumanoidRootPart)
+							end
+						end
+					end
+				end
+			end
+			task.wait()
+		end
+	end    
+})
+
+Tab:AddToggle({
+	Name = "Auto slap potato lord",
+	Default = false,
+	Callback = function(Value)
+		_G.FightNPC = Value
+		while _G.FightNPC do
+			if game.Workspace:FindFirstChild("PotatoLord") then
+				for i,v in pairs(game.Workspace:GetChildren()) do
+					if v.Name == "PotatoLord" and v:FindFirstChild("HumanoidRootPart") then
+						v.HumanoidRootPart.CFrame = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,0,-4)
+						if game.Players.LocalPlayer.Backpack:FindFirstChild("Lantern") then
+							game.Players.LocalPlayer.Backpack:FindFirstChild("Lantern").Parent = game.Players.LocalPlayer.Character
+						elseif game.Players.LocalPlayer.Character:FindFirstChild("Lantern") then
+							game.Players.LocalPlayer.Character:FindFirstChild("Lantern"):Activate()
+							if game.Workspace:FindFirstChild("PotatoLord") and game.Players.LocalPlayer.Character:FindFirstChild("Lantern") and game.Players.LocalPlayer.Character:FindFirstChild("Lantern"):FindFirstChild("Network") then
 								game:GetService("Players").LocalPlayer.Character.Lantern.Network:FireServer("Hit", v.HumanoidRootPart)
 							end
 						end
