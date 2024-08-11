@@ -96,7 +96,7 @@ local autorebirthToggle = TycoonSection:AddToggle({Name = "Auto rebirth",Default
 	if settings.autorebirth == true then
 		while task.wait(0.1) and settings.autorebirth == true do
 			if localPlayer.PlayerGui.MainUI.ActionHotbar.Rebirth.HotspotHighlight.Visible == true then
-				if localPlayer.leaderstats.Rebirths.Value == 5 then
+				if localPlayer.leaderstats.Rebirths.Value == 7 then
 					game.ReplicatedStorage.RemoteFunctions.Ascend:InvokeServer()
 				else
 					game.ReplicatedStorage.RemoteFunctions.Rebirth:InvokeServer()
@@ -108,4 +108,18 @@ end});
 local disablenotificationsToggle = TycoonSection:AddToggle({Name = "Disable notifications",Default = settings.disablenotifications,Callback = function(Value)
 	settings.disablenotifications = Value
 	localPlayer.PlayerGui.MainUI.PromptList.Visible = settings.disablenotifications
+end});
+local function Animate(Parent, Time, Style, Direction, Animation)
+	game:GetService("TweenService"):Create(Parent, TweenInfo.new(Time, Style, Direction, 0, false, 0), Animation):Play();
+end;
+local getgrowables = TycoonSection:AddButton({Name = "Get growables",Callback = function(Value)
+    local OldPos = localPlayer.Character.HumanoidRootPart.CFrame
+    for i, v in pairs(game.Workspace.Growables:GetChildren()) do
+        if v.ClassName == "Part" then
+            task.wait(0.02)
+	        Animate(localPlayer.Character.HumanoidRootPart, 0.01, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut, {CFrame = v.CFrame})
+        end
+    end
+    wait(1)
+    localPlayer.Character.HumanoidRootPart.CFrame = OldPos
 end});
