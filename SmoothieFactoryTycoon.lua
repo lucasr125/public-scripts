@@ -43,42 +43,39 @@ local obbycooldownSlider = Tab:AddSlider({Name = "Set obby cooldown",Min = 0,Max
 	settings["obbycooldown"] = Value
 end});
 
-local autobuyToggle = Tab:AddToggle({Name = "Auto buy",Default = false,Callback = function(Value)
-	settings["autobuy"] = Value
-    if settings["autobuy"] == true then
-        while settings["autobuy"] and localplr.Character and localplr.Character.Humanoid.Health == 100 do
-
-            task.wait(settings["buycooldown"])
-
-            if settings["includeupgraders"] == false then
-
-                for i, v in pairs(plot.PurchaseButtons:GetDescendants()) do
-                    if v.Name == "Button" and v:FindFirstChild("TouchInterest") and v.PurchaseBillboard.Price.Text ~= "Gamepass" and v.Parent.Name ~= "Rainbow Upgrader" and v.Parent.Name ~= "Rainbow Gem Upgrader" and v.Parent.Name ~= "Toggle Door Gamepass" and v.Parent.Name ~= "Toggle Door Gamepass 2" and v.Parent.Name ~= "Toggle Door Gamepass Event" and v.Parent.Name ~= "Gold Blender" and v.Parent.Name ~= "Gold Dropper 1" and v.Parent.Name ~= "Gold Dropper 2" and v.Parent.Name ~= "Gold Dropper 3" then
-                        firetouchinterest(v, localplr.Character.HumanoidRootPart, 0)
-						firetouchinterest(v, localplr.Character.HumanoidRootPart, 1)
-                    end                
-                end
-
-            elseif settings["includeupgraders"] == true then
-
-                for i, v in pairs(plot.PurchaseButtons:GetDescendants()) do
-                    if v.Name == "Button" and v:FindFirstChild("TouchInterest") and v.PurchaseBillboard.Price.Text ~= "Gamepass" and v.Parent.Name ~= "Rainbow Upgrader" and v.Parent.Name ~= "Rainbow Gem Upgrader" and v.Parent.Name ~= "Toggle Door Gamepass" and v.Parent.Name ~= "Toggle Door Gamepass 2" and v.Parent.Name ~= "Toggle Door Gamepass Event" and v.Parent.Name ~= "Gold Blender" and v.Parent.Name ~= "Gold Dropper 1" and v.Parent.Name ~= "Gold Dropper 2" and v.Parent.Name ~= "Gold Dropper 3" then
-                        firetouchinterest(v, localplr.Character.HumanoidRootPart, 0)
-						firetouchinterest(v, localplr.Character.HumanoidRootPart, 1)
-                    end                
-                end
-
-                for i, v in pairs(plot.UpgradeButtons:GetDescendants()) do
-                    if v.Name == "Button" and v:FindFirstChild("TouchInterest") then
-                        firetouchinterest(v, localplr.Character.HumanoidRootPart, 0)
-						firetouchinterest(v, localplr.Character.HumanoidRootPart, 1)
-                    end                
-                end
-
+local autobuyToggle = Tab:AddToggle({
+    Name = "Auto buy",
+    Default = false,
+    Callback = function(Value)
+        settings["autobuy"] = Value
+        if settings["autobuy"] == true then
+            while settings["autobuy"] and localplr.Character and localplr.Character.Humanoid.Health == 100 do
+                task.wait(settings["buycooldown"])
+                    if settings["includeupgraders"] == false then
+                        for i, v in pairs(plot.PurchaseButtons:GetDescendants()) do
+                            if v.Name == "Button" and v:FindFirstChild("TouchInterest") and v.PurchaseBillboard.Price.Text ~= "Gamepass" and v.Parent.Name ~= "Rainbow Upgrader" and v.Parent.Name ~= "Rainbow Gem Upgrader" and v.Parent.Name ~= "Toggle Door Gamepass" and v.Parent.Name ~= "Toggle Door Gamepass 2" and v.Parent.Name ~= "Toggle Door Gamepass Event" and v.Parent.Name ~= "Gold Blender" and v.Parent.Name ~= "Gold Dropper 1" and v.Parent.Name ~= "Gold Dropper 2" and v.Parent.Name ~= "Gold Dropper 3" then
+                                firetouchinterest(v, localplr.Character.HumanoidRootPart, 0)
+                                firetouchinterest(v, localplr.Character.HumanoidRootPart, 1)
+                            end                
+                        end
+                    elseif settings["includeupgraders"] == true then
+                        for i, v in pairs(plot.PurchaseButtons:GetDescendants()) do
+                            if v.Name == "Button" and v:FindFirstChild("TouchInterest") and v.PurchaseBillboard.Price.Text ~= "Gamepass" and v.Parent.Name ~= "Rainbow Upgrader" and v.Parent.Name ~= "Rainbow Gem Upgrader" and v.Parent.Name ~= "Toggle Door Gamepass" and v.Parent.Name ~= "Toggle Door Gamepass 2" and v.Parent.Name ~= "Toggle Door Gamepass Event" and v.Parent.Name ~= "Gold Blender" and v.Parent.Name ~= "Gold Dropper 1" and v.Parent.Name ~= "Gold Dropper 2" and v.Parent.Name ~= "Gold Dropper 3" then
+                                firetouchinterest(v, localplr.Character.HumanoidRootPart, 0)
+                                firetouchinterest(v, localplr.Character.HumanoidRootPart, 1)
+                            end                
+                        end
+                        for i, v in pairs(plot.UpgradeButtons:GetDescendants()) do
+                            if v.Name == "Button" and v:FindFirstChild("TouchInterest") then
+                                firetouchinterest(v, localplr.Character.HumanoidRootPart, 0)
+                                firetouchinterest(v, localplr.Character.HumanoidRootPart, 1)
+                            end                
+                        end
+                    end
             end
         end
     end
-end})
+})
 local includeupgradersToggle = Tab:AddToggle({Name = "Include upgraders buttons",Default = false,Callback = function(Value)
 	settings["includeupgraders"] = Value
 end})
@@ -178,49 +175,42 @@ Tab:AddToggle({Name = "Auto blend",Default = false,Callback = function(Value)
 end})
 
 Tab:AddToggle({Name = "Auto drops",Default = false,Callback = function(Value)
-	adrop = Value
-	while adrop do
-		wait()
-		if adrop == true then
-			local dropfolder = game.Workspace.RandomCrateDropsFolder
-			for i, v in pairs(dropfolder:GetDescendants()) do
-				if v.ClassName == "TouchTransmitter" then 
-					local characterpart = localplr.Character.PrimaryPart
-					firetouchinterest(v.Parent, characterpart, 0)
-					firetouchinterest(v.Parent, characterpart, 1)
-				end
-			end
-		end
-	end
+    settings["autogetdrops"] = Value
+    if settings["autogetdrops"] == true then
+        while settings["autogetdrops"] == true do
+            task.wait()
+            for i, v in pairs(game.Workspace.RandomCrateDropsFolder:GetChildren()) do
+                if v:FindFirstChild("Box") and v:FindFirstChild("Box"):FindFirstChild("TouchInterest") then
+                    firetouchinterest(v:FindFirstChild("Box"), localplr.Character.HumanoidRootPart, 0)
+                    firetouchinterest(v:FindFirstChild("Box"), localplr.Character.HumanoidRootPart, 1)
+                end
+            end
+        end
+    end
 end})
 
 Tab:AddToggle({Name = "Auto Rebirth",Default = false,Callback = function(Value)
-	arebirth = Value
-	while arebirth do
-		wait()
-		if arebirth == true then
-			local success, err = pcall(function()
-firetouchinterest(plot.RebirthButtons.RebirthButton.Button, localplr.Character.HumanoidRootPart, 1)
-		firetouchinterest(plot.RebirthButtons.RebirthButton.Button, localplr.Character.HumanoidRootPart, 0)
-		if localplr.PlayerGui.MainGui.RebirthUi.Visible == true then
-			firesignal(localplr.PlayerGui.MainGui.RebirthUi.Rebirth.MouseButton1Click)
-		end
-			end)
-			if not success then
-				warn("Error:", err)
-                end
-	end
-	end
+    settings["autorebirth"] = Value
+    if settings["autorebirth"] == true then
+        while settings["autorebirth"] == true do
+            task.wait()
+            coroutine.resume(coroutine.create(function()
+                firetouchinterest(plot.RebirthButtons:WaitForChild("RebirthButton").Button, localplr.Character.HumanoidRootPart, 0)
+                firetouchinterest(plot.RebirthButtons:WaitForChild("RebirthButton").Button, localplr.Character.HumanoidRootPart, 1)
+                --game.ReplicatedStorage.Remotes.Event.Rebirth:FireServer(true)
+            end))
+        end
+    end
 end})
 
 Tab:AddToggle({Name = "Fast Arm",Default = false,Callback = function(Value)
-	fc = Value
-	while fc do
-		if fc == true then
-		game:GetService("ReplicatedStorage").Remotes.Event.Animations.moveArm:FireServer()
-	end
-	wait()
-	end
+    settings["fastarm"] = Value
+    if settings["fastarm"] == true then
+        while settings["fastarm"] == true do
+            task.wait()
+            game:GetService("ReplicatedStorage").Remotes.Event.Animations.moveArm:FireServer()
+        end
+    end
 end})
 
 Tab:AddButton({Name = "Redeem All Code ( +3 Codes )",Callback = function()
@@ -240,13 +230,6 @@ Tab:AddButton({Name = "Redeem All Code ( +3 Codes )",Callback = function()
 	localplr.PlayerGui.MainGui.Settings.Codes.RedeemCodeScript.Remote:FireServer("25MVisits")
 end})
 
-Tab:AddButton({Name = "Remove Others Tycoon",Callback = function()
-    for i, v in pairs(game:GetService("Workspace").Tycoons:GetDescendants()) do
-		if v.Name ~= "Owner" and v.Value ~= localplr then
-			v.Parent:Destroy()
-		end
-	end
-end})
 
 local ws = Instance.new("ScreenGui")
 ws.Parent = game:GetService("CoreGui")
@@ -254,7 +237,7 @@ ws.Parent = game:GetService("CoreGui")
 local wsf = Instance.new("Frame")
 wsf.Parent = ws
 wsf.BackgroundColor3 = Color3.new(355,355,355)
-wsf.Size = UDim2.new(100,100,100)
+wsf.Size = UDim2.new(1, 0, 1, 0)
 ws.Enabled = false
 
 Tab:AddToggle({Name = "White Screen / Anti Lag",Default = false,Callback = function(Value)
