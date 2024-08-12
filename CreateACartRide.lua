@@ -97,16 +97,14 @@ local itemsToDestroy = {
     "PartDropper", "Rocket", "SnowballCannon", "FallingIcicle", 
     "Boulder", "DamagePart"
 }
-
-local connection
 local delEnemy = {}
 
 function destroyExistentEnemy()
     for i, v in ipairs(game.Workspace:GetDescendants()) do
-        if table.find(itemsToDestroy, v.Name) and not table.find(delEnemy, v) then
+        if table.find(itemsToDestroy, v.Name) and not table.find(delEnemy, v) and settings.destroyenemies == true then
             table.insert(delEnemy, v)
             print("Destroyed part: "..v.Name)
-			task.wait(0.1)
+			task.wait(0.01)
             v:Destroy()
         end
     end
@@ -154,24 +152,23 @@ if game.Workspace.CartRideWorkspace.Objects:FindFirstChild("CartGiver") ~= nil t
 		end
 	})
 end
-	local delJunksButton = CartSection:AddButton({
-		Name = "Delete junks",
-		Callback = function()
-			game.Workspace:FindFirstChild("Junk"):Destroy()
-		end
-	})
+local delJunksButton = CartSection:AddButton({
+	Name = "Delete junks",
+	Callback = function()
+		game.Workspace:FindFirstChild("Junk"):Destroy()
+	end
+})
 
-	local destroyEnemiesToggle = CartSection:AddToggle({
-		Name = "Enable/disable destroy enemies ( bad )",
-		Default = settings.destroyenemies,
-		Callback = function(Value)
-			settings.destroyenemies = Value
-            if settings.destroyenemies == true then
-                while settings.destroyenemies == true do
-			        destroyExistentEnemy()
-                    wait(1)
-                end
-            end
-		end
-	})
-
+local destroyEnemiesToggle = CartSection:AddToggle({
+	Name = "Enable/disable destroy enemies ( bad )",
+	Default = settings.destroyenemies,
+	Callback = function(Value)
+		settings.destroyenemies = Value
+           if settings.destroyenemies == true then
+               while settings.destroyenemies == true do
+				task.wait(1)
+		        destroyExistentEnemy()
+               end
+           end
+	end
+})
