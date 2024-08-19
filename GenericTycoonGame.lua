@@ -133,3 +133,18 @@ local autogetgrowables = TycoonSection:AddToggle({Name = "Auto get growables",De
 		end
 	end
 end});
+
+local function Animate(Parent, Time, Style, Direction, Animation)
+	game:GetService("TweenService"):Create(Parent, TweenInfo.new(Time, Style, Direction, 0, false, 0), Animation):Play();
+end;
+local getgrowables = TycoonSection:AddButton({Name = "Get growables",Callback = function(Value)
+    local OldPos = localPlayer.Character.HumanoidRootPart.CFrame
+    for i, v in pairs(game.Workspace.Growables:GetChildren()) do
+        if v.ClassName == "Part" then
+            task.wait(0.02)
+	        Animate(localPlayer.Character.HumanoidRootPart, 0.01, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut, {CFrame = v.CFrame})
+        end
+    end
+    wait(1)
+    localPlayer.Character.HumanoidRootPart.CFrame = OldPos
+end});
