@@ -1,11 +1,18 @@
+-- make upgraders big
+
 local plot
-for i, v in pairs(game.Workspace.Plots:GetChildren()) do
-    if v.Name == "Plot" and v:FindFirstChild("OwnerDisplay") and v:FindFirstChild("OwnerDisplay"):FindFirstChild("BillboardGui") then
-        if v:FindFirstChild("OwnerDisplay").BillboardGui.TextLabel.Text == game.Players.LocalPlayer.Name.."'s Plot" then
-            plot = v
+function updatePlotVariable()
+    for i, v in pairs(game.Workspace.Plots:GetChildren()) do
+        if v.Name == "Plot" and v:FindFirstChild("OwnerDisplay") and v:FindFirstChild("OwnerDisplay"):FindFirstChild("BillboardGui") then
+            if v:FindFirstChild("OwnerDisplay").BillboardGui.TextLabel.Text == game.Players.LocalPlayer.Name.."'s Plot" then
+                plot = v
+            end
         end
     end
+    print(plot)
 end
+updatePlotVariable()
+
 local localPlayer = game.Players.LocalPlayer
 local gameName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
 
@@ -22,9 +29,10 @@ local settings = {
     ["buycooldown"] = 1,
     ["infiniteboosts"] = false,
     ["autohaverst"] = false,
-	["antikick"] = false,
 	["increaseminifactory"] = false,
-	["minifactorysize"] = 1,
+	["minifactorysizemultiplier"] = 1,
+    ["increaseallupgraderssize"] = false,
+    ["upgradersize"] = 1,
 }
 
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/lucasr125/Bracket_Orion/main/orionlib.lua')))();
@@ -94,19 +102,6 @@ local alwaysdayToggle = TycoonSection:AddToggle({Name = "Always day",Default = s
 	end
 end});
 
-local antikickToggle = TycoonSection:AddToggle({Name = "Anti kick ( useful when rebirthing )",Default = settings["antikick"],Callback = function(Value)
-	settings["antikick"] = Value
-	if settings["antikick"] == true then
-		while task.wait(0.1) and settings["antikick"] == true do
-			for i,v in pairs(game.CoreGui.RobloxPromptGui.promptOverlay:GetDescendants()) do
-				if v.Name == "ErrorPrompt" then
-					game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, game.Players.LocalPlayer)
-				end
-			end
-		end
-	end
-end});
-
 local infiniteboostsToggle = TycoonSection:AddToggle({Name = "Infinite boosts ( 2x & 3x )",Default = settings["infiniteboosts"],Callback = function(Value)
 	settings["infiniteboosts"] = Value
 	if settings["infiniteboosts"] == true then
@@ -121,23 +116,16 @@ local autobuyToggle = TycoonSection:AddToggle({Name = "Auto buy", Default = sett
 	settings["autobuy"] = Value
 	if settings["autobuy"] == true then
 		while task.wait(settings["buycooldown"]) and settings["autobuy"] == true do
+            updatePlotVariable()
 			for _, v in pairs(plot:FindFirstChild("Buttons"):GetChildren()) do
-				if v.Name == "Button" and v:GetAttribute("Hidden") == false and tonumber(v:GetAttribute("Price")) <= tonumber(localPlayer.leaderstats.Cash.Value) then
+				if v.Name == "Button" and v.Color == Color3.fromRGB(75, 151, 75) and tonumber(v:GetAttribute("Price")) <= tonumber(localPlayer.leaderstats.Cash.Value) then
 					local button1 = v
 					local bCFrame1 = v.CFrame
 					coroutine.resume(coroutine.create(function()
 						button1.CanCollide = false
-						button1.Transparency = 1
 						button1.CFrame = localPlayer.Character.HumanoidRootPart.CFrame
 						task.wait(settings["buycooldown"]/2)
 						button1.CFrame = bCFrame1
-                        if button1:GetAttribute("Hidden") == true then
-                            button1.Transparency = 1
-						    button1.CanCollide = false
-                        elseif button1:GetAttribute("Hidden") == false then
-						    button1.Transparency = 0
-						    button1.CanCollide = true
-                        end
 					end))
 				end
 			end
@@ -148,39 +136,62 @@ local buycooldownSlider = TycoonSection:AddSlider({Name = "Set buy cooldown",Min
 	settings["buycooldown"] = Value
 end});
 
-local autohaverstToggle = TycoonSection:AddToggle({Name = "Auto haverst", Default = settings["autohaverst"], Callback = function(Value)
-	settings["autohaverst"] = Value
-	if settings["autohaverst"] == true then
-		while task.wait(1) and settings["autohaverst"] == true do
-			for i, v in pairs(plot:FindFirstChild("Items"):GetChildren()) do
-				if string.find(v.Name, "Farm") then
-					if v:FindFirstChild("Area") and v:FindFirstChild("Area"):FindFirstChild("ClickDetector") and v:FindFirstChild("imgpart"):FindFirstChild("BillboardGui").Enabled == true then
-						fireclickdetector(v:FindFirstChild("Area"):FindFirstChild("ClickDetector"))
-					end
-					if v.Name == "Farm 1" then
-						for j, w in pairs(v:FindFirstChild("BoostDrops"):GetChildren()) do
-							if w.ClassName == "Part" and w:FindFirstChild("TouchInterest") then
-								w.CFrame = localPlayer.Character.HumanoidRootPart.CFrame
-							end
-						end
-					end
-				end
-			end
-		end
-	end
-end});
+if fireclickdetector then
+    local autohaverstToggle = TycoonSection:AddToggle({Name = "Auto haverst", Default = settings["autohaverst"], Callback = function(Value)
+	    settings["autohaverst"] = Value
+	    if settings["autohaverst"] == true then
+	    	while task.wait(1) and settings["autohaverst"] == true do
+                updatePlotVariable()
+	    		for i, v in pairs(plot:FindFirstChild("Items"):GetChildren()) do
+	    			if string.find(v.Name, "Farm") then
+	    				if v:FindFirstChild("Area") and v:FindFirstChild("Area"):FindFirstChild("ClickDetector") and v:FindFirstChild("imgpart"):FindFirstChild("BillboardGui").Enabled == true then
+	    					fireclickdetector(v:FindFirstChild("Area"):FindFirstChild("ClickDetector"))
+	    				end
+	    				if v.Name == "Farm 1" then
+	    					for j, w in pairs(v:FindFirstChild("BoostDrops"):GetChildren()) do
+	    						if w.ClassName == "Part" and w:FindFirstChild("TouchInterest") then
+	    							w.CFrame = localPlayer.Character.HumanoidRootPart.CFrame
+	    						end
+	    					end
+	    				end
+	    			end
+	    		end
+    		end
+	    end
+    end});
+else
+    OrionLib:MakeNotification({Name = "Warning",Content = "Your executor "..identifyexecutor().." doesnt support 'fireclickdetector' function, auto haverst function disabled.",Image = "rbxassetid://4483345998",Time = 5})
+end
 
 local increaseminifactoryToggle = TycoonSection:AddToggle({Name = "Increase mini factory size",Default = settings["increaseminifactory"],Callback = function(Value)
 	settings["increaseminifactory"] = Value
 	if settings["increaseminifactory"] == true then
-		while task.wait() and settings["increaseminifactory"] == true do
+		while task.wait(0.1) and settings["increaseminifactory"] == true do
+            updatePlotVariable()
 			if plot:FindFirstChild("Items"):WaitForChild("Mini Factory", 9999):FindFirstChild("TouchPart") then
 				local factoryTouchPart = plot:FindFirstChild("Items"):WaitForChild("Mini Factory", 9999):FindFirstChild("TouchPart")
-				factoryTouchPart.Size = Vector3.new(settings["minifactorysize"], settings["minifactorysize"], settings["minifactorysize"])
+				factoryTouchPart.Size = Vector3.new(settings["minifactorysizemultiplier"], settings["minifactorysizemultiplier"], settings["minifactorysizemultiplier"])
 			end
 		end
 	end
 end});
-local minifactorysizeSlider = TycoonSection:AddSlider({Name = "Set mini factory size",Min = 1,Max = 50,Default = settings["minifactorysize"],Color = Color3.fromRGB(255,255,255),Increment = 1,ValueName = "size",Callback = function(Value)
-	settings["minifactorysize"] = Value
+local minifactorysizemultiplierSlider = TycoonSection:AddSlider({Name = "Set mini factory multiplier size",Min = 1,Max = 100,Default = settings["minifactorysizemultiplier"],Color = Color3.fromRGB(255,255,255),Increment = 1,ValueName = "size",Callback = function(Value)
+	settings["minifactorysizemultiplier"] = Value
+end});
+
+local increaseallupgraderssizeToggle = TycoonSection:AddToggle({Name = "Increase ALL upgraders size",Default = settings["increaseallupgraderssize"],Callback = function(Value)
+	settings["increaseallupgraderssize"] = Value
+	if settings["increaseallupgraderssize"] == true then
+		while task.wait(0.1) and settings["increaseallupgraderssize"] == true do
+            updatePlotVariable()
+			for i, v in pairs(plot:FindFirstChild("Items"):GetDescendants()) do
+                if v.Name == "Washer" or v.Name == "Sander" or v.Name == "TouchPart" or v.Name == "Eletric" or v.Name == "SprayPart" or v.Name == "Touch" and v.Parent.Name ~= "Blender" and v.Parent.Name ~= "Soul Extractor" and v.ClassName == "Part" then
+                    v.Size = Vector3.new(settings["upgradersize"], settings["upgradersize"], settings["upgradersize"])
+                end
+            end
+		end
+	end
+end});
+local upgradersizeSlider = TycoonSection:AddSlider({Name = "Set ALL upgraders size",Min = 1,Max = 200,Default = settings["upgradersize"],Color = Color3.fromRGB(255,255,255),Increment = 1,ValueName = "size",Callback = function(Value)
+	settings["upgradersize"] = Value
 end});
