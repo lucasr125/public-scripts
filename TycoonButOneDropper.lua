@@ -1,5 +1,3 @@
--- make upgraders big
-
 local plot
 function updatePlotVariable()
     for i, v in pairs(game.Workspace.Plots:GetChildren()) do
@@ -33,6 +31,7 @@ local settings = {
 	["minifactorysizemultiplier"] = 1,
     ["increaseallupgraderssize"] = false,
     ["upgradersize"] = 1,
+    ["autorebirth"] = false,
 }
 
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/lucasr125/Bracket_Orion/main/orionlib.lua')))();
@@ -117,18 +116,22 @@ local autobuyToggle = TycoonSection:AddToggle({Name = "Auto buy", Default = sett
 	if settings["autobuy"] == true then
 		while task.wait(settings["buycooldown"]) and settings["autobuy"] == true do
             updatePlotVariable()
-			for _, v in pairs(plot:FindFirstChild("Buttons"):GetChildren()) do
-				if v.Name == "Button" and v.Color == Color3.fromRGB(75, 151, 75) and tonumber(v:GetAttribute("Price")) <= tonumber(localPlayer.leaderstats.Cash.Value) then
-					local button1 = v
-					local bCFrame1 = v.CFrame
-					coroutine.resume(coroutine.create(function()
-						button1.CanCollide = false
-						button1.CFrame = localPlayer.Character.HumanoidRootPart.CFrame
-						task.wait(settings["buycooldown"]/2)
-						button1.CFrame = bCFrame1
-					end))
-				end
-			end
+            if plot then
+                coroutine.resume(coroutine.create(function()
+                    for _, v in pairs(plot:FindFirstChild("Buttons"):GetChildren()) do
+                        if v.Name == "Button" and v.Color == Color3.fromRGB(75, 151, 75) and tonumber(v:GetAttribute("Price")) <= tonumber(localPlayer.leaderstats.Cash.Value) then
+                            local button1 = v
+                            local bCFrame1 = v.CFrame
+                            coroutine.resume(coroutine.create(function()
+                                button1.CanCollide = false
+                                button1.CFrame = localPlayer.Character.HumanoidRootPart.CFrame
+                                task.wait(settings["buycooldown"]/2)
+                                button1.CFrame = bCFrame1
+                            end))
+                        end
+                    end
+                end))
+            end
 		end
 	end
 end});
@@ -185,7 +188,7 @@ local increaseallupgraderssizeToggle = TycoonSection:AddToggle({Name = "Increase
 		while task.wait(0.1) and settings["increaseallupgraderssize"] == true do
             updatePlotVariable()
 			for i, v in pairs(plot:FindFirstChild("Items"):GetDescendants()) do
-                if v.Name == "Washer" or v.Name == "Sander" or v.Name == "TouchPart" or v.Name == "Eletric" or v.Name == "SprayPart" or v.Name == "Touch" and v.Parent.Name ~= "Blender" and v.Parent.Name ~= "Soul Extractor" and v.ClassName == "Part" then
+                if v.Name == "Washer" or v.Name == "Sander" or v.Name == "TouchPart" or v.Name == "Eletric" or v.Name == "SprayPart" or v.Name == "Touch" and v.Parent.Name ~= "Blender" or v.Parent.Name ~= "Soul Extractor" and v.ClassName == "Part" then
                     v.Size = Vector3.new(settings["upgradersize"], settings["upgradersize"], settings["upgradersize"])
                 end
             end
@@ -194,4 +197,22 @@ local increaseallupgraderssizeToggle = TycoonSection:AddToggle({Name = "Increase
 end});
 local upgradersizeSlider = TycoonSection:AddSlider({Name = "Set ALL upgraders size",Min = 1,Max = 200,Default = settings["upgradersize"],Color = Color3.fromRGB(255,255,255),Increment = 1,ValueName = "size",Callback = function(Value)
 	settings["upgradersize"] = Value
+end});
+
+local autorebirthToggle = TycoonSection:AddToggle({Name = "Auto rebirth",Default = settings["autorebirth"],Callback = function(Value)
+	settings["autorebirth"] = Value
+    rebirthDebounce = false
+	if settings["autorebirth"] == true then
+		while task.wait(0.1) and settings["autorebirth"] == true and rebirthDebounce == false do
+            updatePlotVariable()
+            rebirthDebounce = true
+			if localPlayer and localPlayer:FindFirstChild("PlayerGui"):FindFirstChild("ObeliskScreen"):FindFirstChild("Display"):FindFirstChild("NewRebirth") then
+                if localPlayer:FindFirstChild("PlayerGui"):FindFirstChild("ObeliskScreen"):FindFirstChild("Display"):FindFirstChild("NewRebirth").Visible == true then
+                    game:GetService("ReplicatedStorage"):WaitForChild("RebirthEvent"):FireServer()
+                    wait(10)
+                end
+            end
+            rebirthDebounce = false
+		end
+	end
 end});
