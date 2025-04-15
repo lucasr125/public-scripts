@@ -34,7 +34,7 @@ local settings = {
     ["autorebirth"] = false,
 }
 
-local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/lucasr125/Bracket_Orion/main/orionlib.lua')))();
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/lucasr125/orion/main/orionlib.lua')))();
 local Window = OrionLib:MakeWindow({Name = gameName.." ; "..identifyexecutor(), HidePremium = false, SaveConfig = false, IntroEnabled = true, IntroText = gameName});
 
 local localTab = Window:MakeTab({Name = "Local",Icon = "rbxassetid://4483345998",PremiumOnly = false});
@@ -135,7 +135,7 @@ local autobuyToggle = TycoonSection:AddToggle({Name = "Auto buy", Default = sett
 		end
 	end
 end});
-local buycooldownSlider = TycoonSection:AddSlider({Name = "Set buy cooldown",Min = 1,Max = 10,Default = settings["buycooldown"],Color = Color3.fromRGB(255,255,255),Increment = 1,ValueName = "cooldown",Callback = function(Value)
+local buycooldownSlider = TycoonSection:AddSlider({Name = "Set buy cooldown",Min = 0.1,Max = 10,Default = settings["buycooldown"],Color = Color3.fromRGB(255,255,255),Increment = 1,ValueName = "cooldown",Callback = function(Value)
 	settings["buycooldown"] = Value
 end});
 
@@ -188,8 +188,12 @@ local increaseallupgraderssizeToggle = TycoonSection:AddToggle({Name = "Increase
 		while task.wait(0.1) and settings["increaseallupgraderssize"] == true do
             updatePlotVariable()
 			for i, v in pairs(plot:FindFirstChild("Items"):GetDescendants()) do
-                if v.Name == "Washer" or v.Name == "Sander" or v.Name == "TouchPart" or v.Name == "Eletric" or v.Name == "SprayPart" or v.Name == "Touch" and v.Parent.Name ~= "Blender" or v.Parent.Name ~= "Soul Extractor" and v.ClassName == "Part" then
+                if v.Name == "Washer" or v.Name == "Sander" or v.Name == "TouchPart" or v.Name == "Eletric" or v.Name == "SprayPart" or v.Name == "Touch" and v.Name ~= "Blender" or v.Name ~= "Soul Extractor" or v.Name ~= "MCollector" or v.Name ~= "Collector" then
+                    if v:FindFirstChild("TouchInterest") then
+                    v.Transparency = 0.9
+                    v.CanCollide = false
                     v.Size = Vector3.new(settings["upgradersize"], settings["upgradersize"], settings["upgradersize"])
+                    end
                 end
             end
 		end
