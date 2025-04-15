@@ -117,34 +117,3 @@ local disablenotificationsToggle = TycoonSection:AddToggle({Name = "Disable noti
         game.SoundService:FindFirstChild("PLAYING"):Destroy()
     end
 end});
-local growablescooldownSlider = TycoonSection:AddSlider({Name = "Set get growables cooldown",Min = 0,Max = 10,Default = settings.buyitemcooldown,Color = Color3.fromRGB(255,255,255),Increment = 0.1,ValueName = "cooldown",Callback = function(Value)
-	settings.growablescooldown = Value
-end});
-local autogetgrowables = TycoonSection:AddToggle({Name = "Auto get growables",Default = settings.autogetgrowables,Callback = function(Value)
-	settings.autogetgrowables = Value
-	if settings.autogetgrowables == true then
-		while task.wait(settings.growablescooldown) and settings.autogetgrowables == true do
-			for i, v in pairs(game.Workspace.Growables:GetChildren()) do
-                if v.ClassName == "Part" then
-                    game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("CollectGrowable"):FireServer(v)
-                    task.wait()
-                end
-            end
-		end
-	end
-end});
-
-local function Animate(Parent, Time, Style, Direction, Animation)
-	game:GetService("TweenService"):Create(Parent, TweenInfo.new(Time, Style, Direction, 0, false, 0), Animation):Play();
-end;
-local getgrowables = TycoonSection:AddButton({Name = "Get growables",Callback = function(Value)
-    local OldPos = localPlayer.Character.HumanoidRootPart.CFrame
-    for i, v in pairs(game.Workspace.Growables:GetChildren()) do
-        if v.ClassName == "Part" then
-            task.wait(0.02)
-	        Animate(localPlayer.Character.HumanoidRootPart, 0.01, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut, {CFrame = v.CFrame})
-        end
-    end
-    wait(1)
-    localPlayer.Character.HumanoidRootPart.CFrame = OldPos
-end});
