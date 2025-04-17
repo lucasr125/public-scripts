@@ -15,8 +15,8 @@ local settings = {
 	["autobuyitem"] = false,
 	["autorebirth"] = false,
 	["disablenotifications"] = false,
-    ["autogetgrowables"] = false,
-    ["growablescooldown"] = 1,
+	["setbestindustry"] = false,
+	["setindustrycooldown"] = 1
 }
 
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/lucasr125/Bracket_Orion/main/orionlib.lua')))();
@@ -77,7 +77,7 @@ local TycoonSection = mainTab:AddSection({
 	Name = "Tycoon Section"
 })
 
-local buyitemcooldownSlider = TycoonSection:AddSlider({Name = "Set buy item cooldown",Min = 0,Max = 10,Default = settings.buyitemcooldown,Color = Color3.fromRGB(255,255,255),Increment = 0.1,ValueName = "cooldown",Callback = function(Value)
+local buyitemcooldownSlider = TycoonSection:AddSlider({Name = "Set buy item cooldown",Min = 0.1,Max = 10,Default = settings.buyitemcooldown,Color = Color3.fromRGB(255,255,255),Increment = 0.1,ValueName = "cooldown",Callback = function(Value)
 	settings.buyitemcooldown = Value
 end});
 local autobuyitemToggle = TycoonSection:AddToggle({Name = "Auto buy item",Default = settings.autobuyitem,Callback = function(Value)
@@ -116,4 +116,43 @@ local disablenotificationsToggle = TycoonSection:AddToggle({Name = "Disable noti
     elseif settings.disablenotifications == false and game.SoundService:FindFirstChild("PLAYING") then
         game.SoundService:FindFirstChild("PLAYING"):Destroy()
     end
+end});
+local mainF = localPlayer:WaitForChild("PlayerGui"):WaitForChild("MainUI")
+
+local tycoonFrame = mainF:WaitForChild("TycoonFrame")
+local bars = tycoonFrame:WaitForChild("Bars")
+
+local r1 = bars:WaitForChild("Electric")
+local r2 = bars:WaitForChild("Farming")
+local r3 = bars:WaitForChild("Nuclear")
+
+local function setBestIndustry()
+    local x1 = r1:WaitForChild("Bar").AbsoluteSize.X
+    local x2 = r2:WaitForChild("Bar").AbsoluteSize.X
+    local x3 = r3:WaitForChild("Bar").AbsoluteSize.X
+
+    local bestIndustry
+    if x1 > x2 and x1 > x3 then
+        bestIndustry = "Electric"
+    elseif x2 > x1 and x2 > x3 then
+        bestIndustry = "Farming"
+    elseif x3 > x1 and x3 > x2 then
+        bestIndustry = "Nuclear"
+    end
+
+    if bestIndustry then
+        local args = { [1] = bestIndustry }
+        game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("SelectNewIndusty"):FireServer(unpack(args))
+    end
+end
+local setindustrycooldownSlider = TycoonSection:AddSlider({Name = "Set industry cooldown",Min = 0.1,Max = 2,Default = settings.setindustrycooldown,Color = Color3.fromRGB(255,255,255),Increment = 0.1,ValueName = "cooldown",Callback = function(Value)
+	settings.setindustrycooldown = Value
+end});
+local setbestindustryToggle = TycoonSection:AddToggle({Name = "Set best industry",Default = settings.setbestindustry,Callback = function(Value)
+	settings.setbestindustry = Value
+	if settings.setbestindustry == true then
+		while task.wait(settings.setindustrycooldown) and settings.setbestindustry == true do
+			setBestIndustry()
+		end
+	end
 end});
